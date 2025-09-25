@@ -3,10 +3,10 @@
 import importlib.metadata
 
 __title__: str = "agentset"
-__version__: str = "0.2.1"
+__version__: str = "0.3.0"
 __openapi_doc_version__: str = "0.0.1"
-__gen_version__: str = "2.716.3"
-__user_agent__: str = "speakeasy-sdk/python 0.2.1 2.716.3 0.0.1 agentset"
+__gen_version__: str = "2.716.4"
+__user_agent__: str = "speakeasy-sdk/python 0.3.0 2.716.4 0.0.1 agentset"
 
 try:
     if __package__ is not None:
