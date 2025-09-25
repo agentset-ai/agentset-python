@@ -1,0 +1,24 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    AgentsetAPI:
+        inputs:
+            - location: https://app.agentset.ai/openapi.json
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        output: .speakeasy/out.openapi.yaml
+        registry:
+            location: registry.speakeasyapi.dev/agentset-ktc/api/agentset-api
+targets:
+    agentset:
+        target: python
+        source: AgentsetAPI
+        publish:
+            pypi:
+                token: $pypi_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/agentset-ktc/api/agentset-api-python-code-samples
+            labelOverride:
+                fixedValue: Python (SDK)
+            blocking: false

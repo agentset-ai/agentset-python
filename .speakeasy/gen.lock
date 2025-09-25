@@ -1,0 +1,749 @@
+lockVersion: 2.0.0
+id: 465adc89-13a8-4359-8d95-e3589d612ccc
+management:
+  docChecksum: 9a37c21368d98cd9f8bb9d724902be6a
+  docVersion: 0.0.1
+  speakeasyVersion: 1.628.2
+  generationVersion: 2.716.3
+  releaseVersion: 0.2.1
+  configChecksum: ecd191fa641cfecf40ed9a6b73a676b9
+features:
+  python:
+    additionalDependencies: 1.0.0
+    constsAndDefaults: 1.0.5
+    core: 5.22.0
+    defaultEnabledRetries: 0.2.0
+    devContainers: 3.0.0
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.3.2
+    errors: 3.3.3
+    examples: 3.0.2
+    flatRequests: 1.0.1
+    flattening: 3.1.1
+    globalSecurity: 3.0.4
+    globalSecurityCallbacks: 1.0.0
+    globalSecurityFlattening: 1.0.0
+    globalServerURLs: 3.1.1
+    globals: 3.0.0
+    groups: 3.0.0
+    hiddenGlobals: 1.0.0
+    methodArguments: 1.0.2
+    nameOverrides: 3.0.1
+    nullables: 1.0.1
+    pagination: 3.0.6
+    responseFormat: 1.0.1
+    retries: 3.0.2
+    sdkHooks: 1.1.0
+    unions: 3.0.5
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - .vscode/settings.json
+  - USAGE.md
+  - docs/errors/badrequesterror.md
+  - docs/errors/conflicterror.md
+  - docs/errors/forbiddenerror.md
+  - docs/errors/internalservererror.md
+  - docs/errors/inviteexpirederror.md
+  - docs/errors/notfounderror.md
+  - docs/errors/ratelimitexceedederror.md
+  - docs/errors/unauthorizederror.md
+  - docs/errors/unprocessableentityerror.md
+  - docs/models/azureembeddingconfig.md
+  - docs/models/azureembeddingconfigoutput.md
+  - docs/models/badrequestcode.md
+  - docs/models/badrequesterror.md
+  - docs/models/batchpayload.md
+  - docs/models/batchpayloaditemfile.md
+  - docs/models/batchpayloaditemmanagedfile.md
+  - docs/models/batchpayloaditemtext.md
+  - docs/models/batchpayloaditemunion.md
+  - docs/models/batchpayloadoutput.md
+  - docs/models/batchpayloadoutputitemfile.md
+  - docs/models/batchpayloadoutputitemmanagedfile.md
+  - docs/models/batchpayloadoutputitemtext.md
+  - docs/models/batchpayloadoutputitemunion.md
+  - docs/models/chunkingstrategy.md
+  - docs/models/conflictcode.md
+  - docs/models/conflicterror.md
+  - docs/models/createbatchuploadglobals.md
+  - docs/models/createbatchuploadrequest.md
+  - docs/models/createbatchuploadresponse.md
+  - docs/models/createingestjobglobals.md
+  - docs/models/createingestjobrequest.md
+  - docs/models/createingestjobresponse.md
+  - docs/models/createnamespacerequest.md
+  - docs/models/createnamespaceresponse.md
+  - docs/models/createuploadglobals.md
+  - docs/models/createuploadresponse.md
+  - docs/models/deletedocumentglobals.md
+  - docs/models/deletedocumentrequest.md
+  - docs/models/deletedocumentresponse.md
+  - docs/models/deleteingestjobglobals.md
+  - docs/models/deleteingestjobrequest.md
+  - docs/models/deleteingestjobresponse.md
+  - docs/models/deletenamespaceglobals.md
+  - docs/models/deletenamespacerequest.md
+  - docs/models/deletenamespaceresponse.md
+  - docs/models/document.md
+  - docs/models/documentstatus.md
+  - docs/models/embeddingmodelconfig.md
+  - docs/models/embeddingmodelconfigoutput.md
+  - docs/models/filepayload.md
+  - docs/models/filepayloadoutput.md
+  - docs/models/forbiddencode.md
+  - docs/models/forbiddenerror.md
+  - docs/models/getdocumentglobals.md
+  - docs/models/getdocumentrequest.md
+  - docs/models/getdocumentresponse.md
+  - docs/models/getingestjobinfoglobals.md
+  - docs/models/getingestjobinforequest.md
+  - docs/models/getingestjobinforesponse.md
+  - docs/models/getnamespaceglobals.md
+  - docs/models/getnamespacerequest.md
+  - docs/models/getnamespaceresponse.md
+  - docs/models/googleembeddingconfig.md
+  - docs/models/googleembeddingconfigoutput.md
+  - docs/models/googleembeddingmodelenum.md
+  - docs/models/ingestjob.md
+  - docs/models/ingestjobconfig.md
+  - docs/models/ingestjobconfigmetadata.md
+  - docs/models/ingestjobconfigoutput.md
+  - docs/models/ingestjobconfigoutputmetadata.md
+  - docs/models/ingestjobpayload.md
+  - docs/models/ingestjobpayloadoutput.md
+  - docs/models/ingestjobstatus.md
+  - docs/models/internal/globals.md
+  - docs/models/internalservererrorcode.md
+  - docs/models/internalservererrorerror.md
+  - docs/models/inviteexpiredcode.md
+  - docs/models/inviteexpirederror.md
+  - docs/models/listdocumentsglobals.md
+  - docs/models/listdocumentsorder.md
+  - docs/models/listdocumentsorderby.md
+  - docs/models/listdocumentspagination.md
+  - docs/models/listdocumentsrequest.md
+  - docs/models/listdocumentsresponse.md
+  - docs/models/listdocumentsresponsebody.md
+  - docs/models/listingestjobsglobals.md
+  - docs/models/listingestjobsorder.md
+  - docs/models/listingestjobsorderby.md
+  - docs/models/listingestjobspagination.md
+  - docs/models/listingestjobsrequest.md
+  - docs/models/listingestjobsresponse.md
+  - docs/models/listingestjobsresponsebody.md
+  - docs/models/listnamespacesresponse.md
+  - docs/models/managedfilepayload.md
+  - docs/models/managedfilepayloadoutput.md
+  - docs/models/mode.md
+  - docs/models/namespace.md
+  - docs/models/notfoundcode.md
+  - docs/models/notfounderror.md
+  - docs/models/openaiembeddingconfig.md
+  - docs/models/openaiembeddingconfigoutput.md
+  - docs/models/openaiembeddingmodelenum.md
+  - docs/models/paginationcursordirection.md
+  - docs/models/pineconeconfig.md
+  - docs/models/pineconeconfigoutput.md
+  - docs/models/properties.md
+  - docs/models/ratelimitexceededcode.md
+  - docs/models/ratelimitexceedederror.md
+  - docs/models/reingestjobdata.md
+  - docs/models/reingestjobglobals.md
+  - docs/models/reingestjobrequest.md
+  - docs/models/reingestjobresponse.md
+  - docs/models/searchdata.md
+  - docs/models/searchglobals.md
+  - docs/models/searchmetadata.md
+  - docs/models/searchrequest.md
+  - docs/models/searchresponse.md
+  - docs/models/security.md
+  - docs/models/source.md
+  - docs/models/sourcefile.md
+  - docs/models/sourcemanagedfile.md
+  - docs/models/sourcetext.md
+  - docs/models/strategy.md
+  - docs/models/textpayload.md
+  - docs/models/textpayloadoutput.md
+  - docs/models/unauthorizedcode.md
+  - docs/models/unauthorizederror.md
+  - docs/models/unprocessableentitycode.md
+  - docs/models/unprocessableentityerror.md
+  - docs/models/updatenamespaceglobals.md
+  - docs/models/updatenamespacerequest.md
+  - docs/models/updatenamespaceresponse.md
+  - docs/models/uploadfileschema.md
+  - docs/models/uploadresultschema.md
+  - docs/models/utils/retryconfig.md
+  - docs/models/vectorstoreconfig.md
+  - docs/models/vectorstoreconfigoutput.md
+  - docs/models/voyageembeddingconfig.md
+  - docs/models/voyageembeddingconfigoutput.md
+  - docs/models/voyageembeddingmodelenum.md
+  - docs/sdks/agentset/README.md
+  - docs/sdks/documents/README.md
+  - docs/sdks/ingestjobs/README.md
+  - docs/sdks/namespaces/README.md
+  - docs/sdks/search/README.md
+  - docs/sdks/uploads/README.md
+  - py.typed
+  - pylintrc
+  - pyproject.toml
+  - scripts/publish.sh
+  - src/agentset/__init__.py
+  - src/agentset/_hooks/__init__.py
+  - src/agentset/_hooks/sdkhooks.py
+  - src/agentset/_hooks/types.py
+  - src/agentset/_version.py
+  - src/agentset/basesdk.py
+  - src/agentset/documents.py
+  - src/agentset/errors/__init__.py
+  - src/agentset/errors/agentsetdefaulterror.py
+  - src/agentset/errors/agentseterror.py
+  - src/agentset/errors/badrequest_error.py
+  - src/agentset/errors/conflict_error.py
+  - src/agentset/errors/forbidden_error.py
+  - src/agentset/errors/internalservererror.py
+  - src/agentset/errors/inviteexpired_error.py
+  - src/agentset/errors/no_response_error.py
+  - src/agentset/errors/notfound_error.py
+  - src/agentset/errors/ratelimitexceeded_error.py
+  - src/agentset/errors/responsevalidationerror.py
+  - src/agentset/errors/unauthorized_error.py
+  - src/agentset/errors/unprocessableentity_error.py
+  - src/agentset/httpclient.py
+  - src/agentset/ingestjobs.py
+  - src/agentset/models/__init__.py
+  - src/agentset/models/azure_embedding_config.py
+  - src/agentset/models/azure_embedding_configoutput.py
+  - src/agentset/models/badrequest_error.py
+  - src/agentset/models/batch_payload.py
+  - src/agentset/models/batch_payloadoutput.py
+  - src/agentset/models/chunking_strategy.py
+  - src/agentset/models/conflict_error.py
+  - src/agentset/models/createbatchuploadop.py
+  - src/agentset/models/createingestjobop.py
+  - src/agentset/models/createnamespaceop.py
+  - src/agentset/models/createuploadop.py
+  - src/agentset/models/deletedocumentop.py
+  - src/agentset/models/deleteingestjobop.py
+  - src/agentset/models/deletenamespaceop.py
+  - src/agentset/models/document.py
+  - src/agentset/models/document_status.py
+  - src/agentset/models/embedding_model_config.py
+  - src/agentset/models/embedding_model_configoutput.py
+  - src/agentset/models/file_payload.py
+  - src/agentset/models/file_payloadoutput.py
+  - src/agentset/models/forbidden_error.py
+  - src/agentset/models/getdocumentop.py
+  - src/agentset/models/getingestjobinfoop.py
+  - src/agentset/models/getnamespaceop.py
+  - src/agentset/models/google_embedding_config.py
+  - src/agentset/models/google_embedding_configoutput.py
+  - src/agentset/models/google_embedding_model_enum.py
+  - src/agentset/models/ingest_job.py
+  - src/agentset/models/ingest_job_config.py
+  - src/agentset/models/ingest_job_configoutput.py
+  - src/agentset/models/ingest_job_payload.py
+  - src/agentset/models/ingest_job_payloadoutput.py
+  - src/agentset/models/ingest_job_status.py
+  - src/agentset/models/internal/__init__.py
+  - src/agentset/models/internal/globals.py
+  - src/agentset/models/internalservererror.py
+  - src/agentset/models/inviteexpired_error.py
+  - src/agentset/models/listdocumentsop.py
+  - src/agentset/models/listingestjobsop.py
+  - src/agentset/models/listnamespacesop.py
+  - src/agentset/models/managed_file_payload.py
+  - src/agentset/models/managed_file_payloadoutput.py
+  - src/agentset/models/namespace.py
+  - src/agentset/models/notfound_error.py
+  - src/agentset/models/openai_embedding_config.py
+  - src/agentset/models/openai_embedding_configoutput.py
+  - src/agentset/models/openai_embedding_model_enum.py
+  - src/agentset/models/pagination_cursor_direction.py
+  - src/agentset/models/pinecone_config.py
+  - src/agentset/models/pinecone_configoutput.py
+  - src/agentset/models/ratelimitexceeded_error.py
+  - src/agentset/models/reingestjobop.py
+  - src/agentset/models/searchop.py
+  - src/agentset/models/security.py
+  - src/agentset/models/strategy.py
+  - src/agentset/models/text_payload.py
+  - src/agentset/models/text_payloadoutput.py
+  - src/agentset/models/unauthorized_error.py
+  - src/agentset/models/unprocessableentity_error.py
+  - src/agentset/models/updatenamespaceop.py
+  - src/agentset/models/upload_file_schema.py
+  - src/agentset/models/upload_result_schema.py
+  - src/agentset/models/vector_store_config.py
+  - src/agentset/models/vector_store_configoutput.py
+  - src/agentset/models/voyage_embedding_config.py
+  - src/agentset/models/voyage_embedding_configoutput.py
+  - src/agentset/models/voyage_embedding_model_enum.py
+  - src/agentset/namespaces.py
+  - src/agentset/py.typed
+  - src/agentset/sdk.py
+  - src/agentset/sdkconfiguration.py
+  - src/agentset/search.py
+  - src/agentset/types/__init__.py
+  - src/agentset/types/basemodel.py
+  - src/agentset/uploads.py
+  - src/agentset/utils/__init__.py
+  - src/agentset/utils/annotations.py
+  - src/agentset/utils/datetimes.py
+  - src/agentset/utils/enums.py
+  - src/agentset/utils/eventstreaming.py
+  - src/agentset/utils/forms.py
+  - src/agentset/utils/headers.py
+  - src/agentset/utils/logger.py
+  - src/agentset/utils/metadata.py
+  - src/agentset/utils/queryparams.py
+  - src/agentset/utils/requestbodies.py
+  - src/agentset/utils/retries.py
+  - src/agentset/utils/security.py
+  - src/agentset/utils/serializers.py
+  - src/agentset/utils/unmarshal_json_response.py
+  - src/agentset/utils/url.py
+  - src/agentset/utils/values.py
+examples:
+  listNamespaces:
+    speakeasy-default-list-namespaces:
+      responses:
+        "200":
+          application/json: {"success": true, "data": [{"id": "<id>", "name": "<value>", "slug": "<value>", "organizationId": "<id>", "createdAt": "1708709008541", "embeddingConfig": {"provider": "VOYAGE", "model": "voyage-finance-2", "apiKey": "<value>"}, "vectorStoreConfig": {"provider": "PINECONE", "apiKey": "<value>", "indexHost": "https://example.svc.aped-1234-a56b.pinecone.io"}}]}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  createNamespace:
+    speakeasy-default-create-namespace:
+      requestBody:
+        application/json: {"name": "<value>", "slug": "<value>", "embeddingConfig": {"provider": "GOOGLE", "model": "text-embedding-004", "apiKey": "<value>"}, "vectorStoreConfig": {"provider": "PINECONE", "apiKey": "<value>", "indexHost": "https://example.svc.aped-1234-a56b.pinecone.io"}}
+      responses:
+        "201":
+          application/json: {"success": true, "data": {"id": "<id>", "name": "<value>", "slug": "<value>", "organizationId": "<id>", "createdAt": "1730629226729", "embeddingConfig": {"provider": "OPENAI", "model": "text-embedding-3-large", "apiKey": "<value>"}, "vectorStoreConfig": null}}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  getNamespace:
+    speakeasy-default-get-namespace:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+      responses:
+        "200":
+          application/json: {"success": true, "data": {"id": "<id>", "name": "<value>", "slug": "<value>", "organizationId": "<id>", "createdAt": "1713994121263", "embeddingConfig": {"provider": "GOOGLE", "model": "text-embedding-004", "apiKey": "<value>"}, "vectorStoreConfig": null}}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  updateNamespace:
+    speakeasy-default-update-namespace:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"success": true, "data": {"id": "<id>", "name": "<value>", "slug": "<value>", "organizationId": "<id>", "createdAt": "1706116603921", "embeddingConfig": {"provider": "VOYAGE", "model": "voyage-finance-2", "apiKey": "<value>"}, "vectorStoreConfig": {"provider": "PINECONE", "apiKey": "<value>", "indexHost": "https://example.svc.aped-1234-a56b.pinecone.io"}}}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  deleteNamespace:
+    speakeasy-default-delete-namespace:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+      responses:
+        "204":
+          application/json: {"success": true, "data": {"id": "<id>", "name": "<value>", "slug": "<value>", "organizationId": "<id>", "createdAt": "1713174760425", "embeddingConfig": {"provider": "OPENAI", "model": "text-embedding-3-small", "apiKey": "<value>"}, "vectorStoreConfig": {"provider": "PINECONE", "apiKey": "<value>", "indexHost": "https://example.svc.aped-1234-a56b.pinecone.io"}}}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  listIngestJobs:
+    speakeasy-default-list-ingest-jobs:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+        query:
+          orderBy: "createdAt"
+          order: "desc"
+          cursorDirection: "forward"
+          perPage: 30
+      responses:
+        "200":
+          application/json: {"success": true, "data": [{"id": "<id>", "namespaceId": "<id>", "tenantId": null, "status": "PROCESSING", "error": "<value>", "payload": {"type": "TEXT", "text": "<value>"}, "config": {}, "createdAt": "1717201148789", "queuedAt": "<value>", "preProcessingAt": "<value>", "processingAt": "<value>", "completedAt": "<value>", "failedAt": "<value>"}], "pagination": {"nextCursor": "<value>"}}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  createIngestJob:
+    speakeasy-default-create-ingest-job:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+      requestBody:
+        application/json: {"payload": {"type": "TEXT", "text": "<value>"}}
+      responses:
+        "201":
+          application/json: {"success": true, "data": {"id": "<id>", "namespaceId": "<id>", "tenantId": null, "status": "PRE_PROCESSING", "error": "<value>", "payload": {"type": "MANAGED_FILE", "key": "<key>"}, "config": {}, "createdAt": "1715989736136", "queuedAt": "<value>", "preProcessingAt": "<value>", "processingAt": null, "completedAt": "<value>", "failedAt": "<value>"}}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  getIngestJobInfo:
+    speakeasy-default-get-ingest-job-info:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+          jobId: "job_123"
+      responses:
+        "200":
+          application/json: {"success": true, "data": {"id": "<id>", "namespaceId": "<id>", "tenantId": null, "status": "QUEUED", "error": "<value>", "payload": {"type": "BATCH", "items": []}, "config": {}, "createdAt": "1711703767603", "queuedAt": "<value>", "preProcessingAt": null, "processingAt": "<value>", "completedAt": "<value>", "failedAt": "<value>"}}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  deleteIngestJob:
+    speakeasy-default-delete-ingest-job:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+          jobId: "job_123"
+      responses:
+        "204":
+          application/json: {"success": true, "data": {"id": "<id>", "namespaceId": "<id>", "tenantId": "<id>", "status": "QUEUED", "error": "<value>", "payload": {"type": "TEXT", "text": "<value>"}, "config": {}, "createdAt": "1720024092189", "queuedAt": "<value>", "preProcessingAt": "<value>", "processingAt": "<value>", "completedAt": "<value>", "failedAt": "<value>"}}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  reIngestJob:
+    speakeasy-default-re-ingest-job:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+          jobId: "job_123"
+      responses:
+        "200":
+          application/json: {"success": true, "data": {"id": "<id>"}}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  listDocuments:
+    speakeasy-default-list-documents:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+        query:
+          orderBy: "createdAt"
+          order: "desc"
+          cursorDirection: "forward"
+          perPage: 30
+      responses:
+        "200":
+          application/json: {"success": true, "data": [], "pagination": {"nextCursor": null}}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  getDocument:
+    speakeasy-default-get-document:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+          documentId: "doc_123"
+      responses:
+        "200":
+          application/json: {"success": true, "data": {"id": "<id>", "ingestJobId": "<id>", "externalId": "<id>", "name": "<value>", "tenantId": "<id>", "status": "BACKLOG", "error": "<value>", "source": {"type": "FILE", "fileUrl": "https://numb-recommendation.biz/"}, "properties": null, "totalChunks": 4353.22, "totalTokens": 8030.56, "totalCharacters": 2459.79, "totalPages": 9368.77, "createdAt": "1716398821477", "queuedAt": null, "preProcessingAt": "<value>", "processingAt": "<value>", "completedAt": "<value>", "failedAt": "<value>"}}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  deleteDocument:
+    speakeasy-default-delete-document:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+          documentId: "doc_123"
+      responses:
+        "204":
+          application/json: {"success": true, "data": {"id": "<id>", "ingestJobId": "<id>", "externalId": "<id>", "name": "<value>", "tenantId": "<id>", "status": "CANCELLED", "error": "<value>", "source": {"type": "TEXT", "text": "<value>"}, "properties": {"fileSize": 7713.27, "mimeType": "<value>"}, "totalChunks": 7312.91, "totalTokens": 4758.72, "totalCharacters": 919.44, "totalPages": 5958.13, "createdAt": "1728032445499", "queuedAt": "<value>", "preProcessingAt": "<value>", "processingAt": "<value>", "completedAt": "<value>", "failedAt": "<value>"}}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  search:
+    speakeasy-default-search:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+      requestBody:
+        application/json: {"query": "<value>", "topK": 10, "rerank": true, "includeRelationships": false, "includeMetadata": true, "mode": "semantic"}
+      responses:
+        "200":
+          application/json: {"success": true, "data": [{"id": "<id>", "score": 1618.06}]}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  createUpload:
+    speakeasy-default-create-upload:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+      requestBody:
+        application/json: {"fileName": "document.pdf", "contentType": "application/pdf", "fileSize": 1024}
+      responses:
+        "201":
+          application/json: {"success": true, "data": {"url": "https://gracious-order.name", "key": "<key>"}}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  createBatchUpload:
+    speakeasy-default-create-batch-upload:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+      requestBody:
+        application/json: {"files": []}
+      responses:
+        "201":
+          application/json: {"success": true, "data": [{"url": "https://sorrowful-provision.com", "key": "<key>"}]}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+examplesVersion: 1.0.2

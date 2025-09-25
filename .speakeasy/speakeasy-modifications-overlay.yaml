@@ -1,0 +1,65 @@
+overlay: 1.0.0
+x-speakeasy-jsonpath: rfc9535
+info:
+  title: Speakeasy Modifications
+  version: 0.0.2
+  x-speakeasy-metadata:
+    after: ""
+    before: ""
+    type: speakeasy-modifications
+actions:
+  - target: $["paths"]["/v1/namespace/{namespaceId}/ingest-jobs/{jobId}"]["get"]
+    update:
+      x-speakeasy-group: ingestJobs
+    x-speakeasy-metadata:
+      after: sdk.ingestJobs.get()
+      before: sdk.Ingest Jobs.get()
+      created_at: 1758787828003
+      reviewed_at: 1758790824252
+      type: method-name
+  - target: $["paths"]["/v1/namespace/{namespaceId}/ingest-jobs/{jobId}/re-ingest"]["post"]
+    update:
+      x-speakeasy-group: ingestJobs
+      x-speakeasy-name-override: reIngest
+    x-speakeasy-metadata:
+      after: sdk.ingestJobs.reIngest()
+      before: sdk.Ingest Jobs.re-ingest()
+      created_at: 1758787828003
+      reviewed_at: 1758790824252
+      type: method-name
+  - target: $["paths"]["/v1/namespace/{namespaceId}/search"]["post"]
+    update:
+      x-speakeasy-name-override: execute
+    x-speakeasy-metadata:
+      after: sdk.search.execute()
+      before: sdk.Search.search()
+      created_at: 1758787828003
+      reviewed_at: 1758790824252
+      type: method-name
+  - target: $["paths"]["/v1/namespace/{namespaceId}/ingest-jobs"]["post"]
+    update:
+      x-speakeasy-group: ingestJobs
+    x-speakeasy-metadata:
+      after: sdk.ingestJobs.create()
+      before: sdk.Ingest Jobs.create()
+      created_at: 1758787828003
+      reviewed_at: 1758790824252
+      type: method-name
+  - target: $["paths"]["/v1/namespace/{namespaceId}/ingest-jobs/{jobId}"]["delete"]
+    update:
+      x-speakeasy-group: ingestJobs
+    x-speakeasy-metadata:
+      after: sdk.ingestJobs.delete()
+      before: sdk.Ingest Jobs.delete()
+      created_at: 1758787828003
+      reviewed_at: 1758790824252
+      type: method-name
+  - target: $["paths"]["/v1/namespace/{namespaceId}/ingest-jobs"]["get"]
+    update:
+      x-speakeasy-group: ingestJobs
+    x-speakeasy-metadata:
+      after: sdk.ingestJobs.list()
+      before: sdk.Ingest Jobs.list()
+      created_at: 1758787828003
+      reviewed_at: 1758790824252
+      type: method-name

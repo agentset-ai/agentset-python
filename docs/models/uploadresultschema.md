@@ -1,0 +1,9 @@
+# UploadResultSchema
+
+
+## Fields
+
+| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `url`                                                                                                                | *str*                                                                                                                | :heavy_check_mark:                                                                                                   | Presigned URL for file upload. Make a `PUT` request to this URL with the file content and the `Content-Type` header. |
+| `key`                                                                                                                | *str*                                                                                                                | :heavy_check_mark:                                                                                                   | Key of the file in the storage. You'll send this in the `MANAGED_FILE` payload when creating an ingest job.          |
