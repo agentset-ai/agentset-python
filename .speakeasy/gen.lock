@@ -3,10 +3,13 @@ id: 465adc89-13a8-4359-8d95-e3589d612ccc
 management:
   docChecksum: 9a37c21368d98cd9f8bb9d724902be6a
   docVersion: 0.0.1
-  speakeasyVersion: 1.628.2
-  generationVersion: 2.716.3
-  releaseVersion: 0.2.1
-  configChecksum: ecd191fa641cfecf40ed9a6b73a676b9
+  speakeasyVersion: 1.628.3
+  generationVersion: 2.716.4
+  releaseVersion: 0.3.0
+  configChecksum: ecd7409e8b02e083521502c28deea692
+  repoURL: https://github.com/agentset-ai/agentset-python.git
+  installationURL: https://github.com/agentset-ai/agentset-python.git
+  published: true
 features:
   python:
     additionalDependencies: 1.0.0
@@ -191,6 +194,7 @@ generatedFiles:
   - py.typed
   - pylintrc
   - pyproject.toml
+  - scripts/prepare_readme.py
   - scripts/publish.sh
   - src/agentset/__init__.py
   - src/agentset/_hooks/__init__.py

@@ -23,22 +23,22 @@ AgentsetAPI: Agentset is agentic rag-as-a-service
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-  * [SDK Installation](#sdk-installation)
-  * [IDE Support](#ide-support)
-  * [SDK Example Usage](#sdk-example-usage)
-  * [Authentication](#authentication)
-  * [Available Resources and Operations](#available-resources-and-operations)
-  * [Global Parameters](#global-parameters)
-  * [Pagination](#pagination)
-  * [Retries](#retries)
-  * [Error Handling](#error-handling)
-  * [Server Selection](#server-selection)
-  * [Custom HTTP Client](#custom-http-client)
-  * [Resource Management](#resource-management)
-  * [Debugging](#debugging)
-* [Development](#development)
-  * [Maturity](#maturity)
-  * [Contributions](#contributions)
+  * [SDK Installation](https://github.com/agentset-ai/agentset-python/blob/master/#sdk-installation)
+  * [IDE Support](https://github.com/agentset-ai/agentset-python/blob/master/#ide-support)
+  * [SDK Example Usage](https://github.com/agentset-ai/agentset-python/blob/master/#sdk-example-usage)
+  * [Authentication](https://github.com/agentset-ai/agentset-python/blob/master/#authentication)
+  * [Available Resources and Operations](https://github.com/agentset-ai/agentset-python/blob/master/#available-resources-and-operations)
+  * [Global Parameters](https://github.com/agentset-ai/agentset-python/blob/master/#global-parameters)
+  * [Pagination](https://github.com/agentset-ai/agentset-python/blob/master/#pagination)
+  * [Retries](https://github.com/agentset-ai/agentset-python/blob/master/#retries)
+  * [Error Handling](https://github.com/agentset-ai/agentset-python/blob/master/#error-handling)
+  * [Server Selection](https://github.com/agentset-ai/agentset-python/blob/master/#server-selection)
+  * [Custom HTTP Client](https://github.com/agentset-ai/agentset-python/blob/master/#custom-http-client)
+  * [Resource Management](https://github.com/agentset-ai/agentset-python/blob/master/#resource-management)
+  * [Debugging](https://github.com/agentset-ai/agentset-python/blob/master/#debugging)
+* [Development](https://github.com/agentset-ai/agentset-python/blob/master/#development)
+  * [Maturity](https://github.com/agentset-ai/agentset-python/blob/master/#maturity)
+  * [Contributions](https://github.com/agentset-ai/agentset-python/blob/master/#contributions)
 
 <!-- End Table of Contents [toc] -->
 
@@ -213,36 +213,36 @@ with Agentset(
 <summary>Available methods</summary>
 
 
-### [documents](docs/sdks/documents/README.md)
+### [documents](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/documents/README.md)
 
-* [list](docs/sdks/documents/README.md#list) - Retrieve a list of documents
-* [get](docs/sdks/documents/README.md#get) - Retrieve a document
-* [delete](docs/sdks/documents/README.md#delete) - Delete a document
+* [list](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/documents/README.md#list) - Retrieve a list of documents
+* [get](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/documents/README.md#get) - Retrieve a document
+* [delete](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/documents/README.md#delete) - Delete a document
 
-### [ingest_jobs](docs/sdks/ingestjobs/README.md)
+### [ingest_jobs](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/ingestjobs/README.md)
 
-* [list](docs/sdks/ingestjobs/README.md#list) - Retrieve a list of ingest jobs
-* [create](docs/sdks/ingestjobs/README.md#create) - Create an ingest job
-* [get](docs/sdks/ingestjobs/README.md#get) - Retrieve an ingest job
-* [delete](docs/sdks/ingestjobs/README.md#delete) - Delete an ingest job
-* [re_ingest](docs/sdks/ingestjobs/README.md#re_ingest) - Re-ingest a job
+* [list](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/ingestjobs/README.md#list) - Retrieve a list of ingest jobs
+* [create](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/ingestjobs/README.md#create) - Create an ingest job
+* [get](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/ingestjobs/README.md#get) - Retrieve an ingest job
+* [delete](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/ingestjobs/README.md#delete) - Delete an ingest job
+* [re_ingest](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/ingestjobs/README.md#re_ingest) - Re-ingest a job
 
-### [namespaces](docs/sdks/namespaces/README.md)
+### [namespaces](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespaces/README.md)
 
-* [list](docs/sdks/namespaces/README.md#list) - Retrieve a list of namespaces
-* [create](docs/sdks/namespaces/README.md#create) - Create a namespace.
-* [get](docs/sdks/namespaces/README.md#get) - Retrieve a namespace
-* [update](docs/sdks/namespaces/README.md#update) - Update a namespace.
-* [delete](docs/sdks/namespaces/README.md#delete) - Delete a namespace.
+* [list](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespaces/README.md#list) - Retrieve a list of namespaces
+* [create](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespaces/README.md#create) - Create a namespace.
+* [get](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespaces/README.md#get) - Retrieve a namespace
+* [update](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespaces/README.md#update) - Update a namespace.
+* [delete](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespaces/README.md#delete) - Delete a namespace.
 
-### [search](docs/sdks/search/README.md)
+### [search](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/search/README.md)
 
-* [execute](docs/sdks/search/README.md#execute) - Search a namespace
+* [execute](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/search/README.md#execute) - Search a namespace
 
-### [uploads](docs/sdks/uploads/README.md)
+### [uploads](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/uploads/README.md)
 
-* [create](docs/sdks/uploads/README.md#create) - Create presigned URL for file upload
-* [create_batch](docs/sdks/uploads/README.md#create_batch) - Create presigned URLs for batch file upload
+* [create](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/uploads/README.md#create) - Create presigned URL for file upload
+* [create_batch](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/uploads/README.md#create_batch) - Create presigned URLs for batch file upload
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -358,7 +358,7 @@ with Agentset(
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-[`AgentsetError`](./src/agentset/errors/agentseterror.py) is the base class for all HTTP error responses. It has the following properties:
+[`AgentsetError`](https://github.com/agentset-ai/agentset-python/blob/master/./src/agentset/errors/agentseterror.py) is the base class for all HTTP error responses. It has the following properties:
 
 | Property           | Type             | Description                                                                             |
 | ------------------ | ---------------- | --------------------------------------------------------------------------------------- |
@@ -367,7 +367,7 @@ with Agentset(
 | `err.headers`      | `httpx.Headers`  | HTTP response headers                                                                   |
 | `err.body`         | `str`            | HTTP body. Can be empty string if no body is returned.                                  |
 | `err.raw_response` | `httpx.Response` | Raw HTTP response                                                                       |
-| `err.data`         |                  | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
+| `err.data`         |                  | Optional. Some errors may contain structured data. [See Error Classes](https://github.com/agentset-ai/agentset-python/blob/master/#error-classes). |
 
 ### Example
 ```python
@@ -402,16 +402,16 @@ with Agentset(
 
 ### Error Classes
 **Primary errors:**
-* [`AgentsetError`](./src/agentset/errors/agentseterror.py): The base class for HTTP error responses.
-  * [`BadRequestError`](./src/agentset/errors/badrequesterror.py): The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing). Status code `400`.
-  * [`UnauthorizedError`](./src/agentset/errors/unauthorizederror.py): Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response. Status code `401`.
-  * [`ForbiddenError`](./src/agentset/errors/forbiddenerror.py): The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server. Status code `403`.
-  * [`NotFoundError`](./src/agentset/errors/notfounderror.py): The server cannot find the requested resource. Status code `404`.
-  * [`ConflictError`](./src/agentset/errors/conflicterror.py): This response is sent when a request conflicts with the current state of the server. Status code `409`.
-  * [`InviteExpiredError`](./src/agentset/errors/inviteexpirederror.py): This response is sent when the requested content has been permanently deleted from server, with no forwarding address. Status code `410`.
-  * [`UnprocessableEntityError`](./src/agentset/errors/unprocessableentityerror.py): The request was well-formed but was unable to be followed due to semantic errors. Status code `422`.
-  * [`RateLimitExceededError`](./src/agentset/errors/ratelimitexceedederror.py): The user has sent too many requests in a given amount of time ("rate limiting"). Status code `429`.
-  * [`InternalServerError`](./src/agentset/errors/internalservererror.py): The server has encountered a situation it does not know how to handle. Status code `500`.
+* [`AgentsetError`](https://github.com/agentset-ai/agentset-python/blob/master/./src/agentset/errors/agentseterror.py): The base class for HTTP error responses.
+  * [`BadRequestError`](https://github.com/agentset-ai/agentset-python/blob/master/./src/agentset/errors/badrequesterror.py): The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing). Status code `400`.
+  * [`UnauthorizedError`](https://github.com/agentset-ai/agentset-python/blob/master/./src/agentset/errors/unauthorizederror.py): Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response. Status code `401`.
+  * [`ForbiddenError`](https://github.com/agentset-ai/agentset-python/blob/master/./src/agentset/errors/forbiddenerror.py): The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server. Status code `403`.
+  * [`NotFoundError`](https://github.com/agentset-ai/agentset-python/blob/master/./src/agentset/errors/notfounderror.py): The server cannot find the requested resource. Status code `404`.
+  * [`ConflictError`](https://github.com/agentset-ai/agentset-python/blob/master/./src/agentset/errors/conflicterror.py): This response is sent when a request conflicts with the current state of the server. Status code `409`.
+  * [`InviteExpiredError`](https://github.com/agentset-ai/agentset-python/blob/master/./src/agentset/errors/inviteexpirederror.py): This response is sent when the requested content has been permanently deleted from server, with no forwarding address. Status code `410`.
+  * [`UnprocessableEntityError`](https://github.com/agentset-ai/agentset-python/blob/master/./src/agentset/errors/unprocessableentityerror.py): The request was well-formed but was unable to be followed due to semantic errors. Status code `422`.
+  * [`RateLimitExceededError`](https://github.com/agentset-ai/agentset-python/blob/master/./src/agentset/errors/ratelimitexceedederror.py): The user has sent too many requests in a given amount of time ("rate limiting"). Status code `429`.
+  * [`InternalServerError`](https://github.com/agentset-ai/agentset-python/blob/master/./src/agentset/errors/internalservererror.py): The server has encountered a situation it does not know how to handle. Status code `500`.
 
 <details><summary>Less common errors (5)</summary>
 
@@ -423,8 +423,8 @@ with Agentset(
     * [`httpx.TimeoutException`](https://www.python-httpx.org/exceptions/#httpx.TimeoutException): HTTP request timed out.
 
 
-**Inherit from [`AgentsetError`](./src/agentset/errors/agentseterror.py)**:
-* [`ResponseValidationError`](./src/agentset/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
+**Inherit from [`AgentsetError`](https://github.com/agentset-ai/agentset-python/blob/master/./src/agentset/errors/agentseterror.py)**:
+* [`ResponseValidationError`](https://github.com/agentset-ai/agentset-python/blob/master/./src/agentset/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
 <!-- End Error Handling [errors] -->
