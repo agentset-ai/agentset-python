@@ -20,6 +20,7 @@ paths:
       operationId: "listNamespaces"
       x-speakeasy-name-override: "list"
       summary: "Retrieve a list of namespaces"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\n\nconst namespaces = await agentset.namespaces.list();\nconsole.log(namespaces);\n"}]
       description: "Retrieve a list of namespaces for the authenticated organization."
       tags:
         - "Namespaces"
@@ -57,6 +58,7 @@ paths:
       x-speakeasy-name-override: "create"
       x-speakeasy-usage-example: true
       summary: "Create a namespace."
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\n\nconst namespace = await agentset.namespaces.create({\n  name: \"My Knowledge Base\",\n  slug: \"my-knowledge-base\",\n  // embeddingConfig: {...},\n  // vectorStoreConfig: {...},\n});\nconsole.log(namespace);\n"}]
       description: "Create a namespace for the authenticated organization."
       tags:
         - "Namespaces"
@@ -112,6 +114,7 @@ paths:
       operationId: "getNamespace"
       x-speakeasy-name-override: "get"
       summary: "Retrieve a namespace"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\n\nconst namespace = await agentset.namespaces.get(\"ns_xxx\");\nconsole.log(namespace);\n"}]
       description: "Retrieve the info for a namespace."
       tags:
         - "Namespaces"
@@ -149,6 +152,7 @@ paths:
       x-speakeasy-name-override: "update"
       x-speakeasy-max-method-params: 2
       summary: "Update a namespace."
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\n\nconst updatedNamespace = await agentset.namespaces.update(\"ns_xxx\", {\n  name: \"Updated Knowledge Base\",\n});\nconsole.log(updatedNamespace);\n"}]
       description: "Update a namespace for the authenticated organization. If there is no change, return it as it is."
       tags:
         - "Namespaces"
@@ -201,6 +205,7 @@ paths:
       x-speakeasy-name-override: "delete"
       x-speakeasy-max-method-params: 1
       summary: "Delete a namespace."
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\n\nawait agentset.namespaces.delete(\"ns_xxx\");\nconsole.log(\"Namespace deleted successfully\");\n"}]
       description: "Delete a namespace for the authenticated organization. This will delete all the data associated with the namespace."
       tags:
         - "Namespaces"
@@ -239,6 +244,7 @@ paths:
       x-speakeasy-name-override: "list"
       x-speakeasy-group: "ingestJobs"
       x-speakeasy-pagination: {"type": "cursor", "inputs": [{"name": "cursor", "in": "parameters", "type": "cursor"}], "outputs": {"nextCursor": "$.pagination.nextCursor"}}
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst jobs = await ns.ingestion.all();\nconsole.log(jobs);\n"}]
       summary: "Retrieve a list of ingest jobs"
       description: "Retrieve a paginated list of ingest jobs for the authenticated organization."
       tags:
@@ -327,6 +333,7 @@ paths:
       x-speakeasy-name-override: "create"
       x-speakeasy-group: "ingestJobs"
       summary: "Create an ingest job"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst job = await ns.ingestion.create({\n  payload: {\n    type: \"TEXT\",\n    text: \"This is some content to ingest into the knowledge base.\",\n  },\n  config: {\n    metadata: {\n      foo: \"bar\",\n    },\n  },\n});\nconsole.log(job);\n"}]
       description: "Create an ingest job for the authenticated organization."
       tags:
         - "Ingest Jobs"
@@ -382,6 +389,7 @@ paths:
       x-speakeasy-name-override: "get"
       x-speakeasy-group: "ingestJobs"
       summary: "Retrieve an ingest job"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst job = await ns.ingestion.get(\"job_123\");\nconsole.log(job);\n"}]
       description: "Retrieve the info for an ingest job."
       tags:
         - "Ingest Jobs"
@@ -422,6 +430,7 @@ paths:
       x-speakeasy-group: "ingestJobs"
       x-speakeasy-max-method-params: 1
       summary: "Delete an ingest job"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nawait ns.ingestion.delete(\"job_123\");\nconsole.log(\"Ingest job deleted successfully\");\n"}]
       description: "Delete an ingest job for the authenticated organization."
       tags:
         - "Ingest Jobs"
@@ -463,6 +472,7 @@ paths:
       x-speakeasy-group: "ingestJobs"
       x-speakeasy-max-method-params: 1
       summary: "Re-ingest a job"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst result = await ns.ingestion.reIngest(\"job_123\");\nconsole.log(\"Job re-ingested: \", result);\n"}]
       description: "Re-ingest a job for the authenticated organization."
       tags:
         - "Ingest Jobs"
@@ -510,6 +520,7 @@ paths:
       operationId: "listDocuments"
       x-speakeasy-name-override: "list"
       x-speakeasy-pagination: {"type": "cursor", "inputs": [{"name": "cursor", "in": "parameters", "type": "cursor"}], "outputs": {"nextCursor": "$.pagination.nextCursor"}}
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst docs = await ns.documents.all();\nconsole.log(docs);\n"}]
       summary: "Retrieve a list of documents"
       description: "Retrieve a paginated list of documents for the authenticated organization."
       tags:
@@ -603,6 +614,7 @@ paths:
       operationId: "getDocument"
       x-speakeasy-name-override: "get"
       summary: "Retrieve a document"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst document = await ns.documents.get(\"doc_123\");\nconsole.log(document);\n"}]
       description: "Retrieve the info for a document."
       tags:
         - "Documents"
@@ -642,6 +654,7 @@ paths:
       x-speakeasy-name-override: "delete"
       x-speakeasy-max-method-params: 1
       summary: "Delete a document"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nawait ns.documents.delete(\"doc_123\");\nconsole.log(\"Document deleted successfully\");\n"}]
       description: "Delete a document for the authenticated organization."
       tags:
         - "Documents"
@@ -682,6 +695,7 @@ paths:
       x-speakeasy-name-override: "execute"
       x-speakeasy-group: "search"
       summary: "Search a namespace"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst results = await ns.search(\"What is machine learning?\", {\n  topK: 20,\n  rerank: true,\n  rerankLimit: 10,\n});\nconsole.log(results);\n"}]
       description: "Search a namespace for a query."
       tags:
         - "Search"
@@ -820,6 +834,7 @@ paths:
       operationId: "createUpload"
       x-speakeasy-name-override: "create"
       summary: "Create presigned URL for file upload"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\nimport fs from 'fs';\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst result = await ns.uploads.upload({\n  file: fs.createReadStream(\"./example.md\"),\n  contentType: \"text/markdown\",\n});\nconsole.log(\"Uploaded successfully: \", result.key);\n\n// OR get the pre-signed URL manually\nconst file = fs.readFileSync(\"./example.md\");\nconst result = await ns.uploads.create({\n  fileName: \"example.md\",\n  fileSize: file.length,\n  contentType: \"text/markdown\",\n});\n\nawait fetch(result.url, {\n  method: \"PUT\",\n  body: file,\n  headers: {\n    \"Content-Type\": \"text/markdown\",\n  },\n});\nconsole.log(\"Uploaded successfully: \", result.key);\n"}]
       description: "Generate a presigned URL for uploading a single file to the specified namespace."
       tags:
         - "Uploads"
@@ -862,6 +877,7 @@ paths:
       operationId: "createBatchUpload"
       x-speakeasy-name-override: "createBatch"
       summary: "Create presigned URLs for batch file upload"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\nimport fs from 'fs';\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst results = await ns.uploads.uploadBatch([\n  {\n    file: fs.createReadStream(\"./example-1.md\"),\n    contentType: \"text/markdown\",\n  },\n  {\n    file: fs.createReadStream(\"./example-2.md\"),\n    contentType: \"text/markdown\",\n  },\n]);\nconsole.log(\"Uploaded successfully: \", results.map((result) => result.key));\n\n// OR get the pre-signed URLs manually\nconst file1 = fs.readFileSync(\"./example-1.md\");\nconst file2 = fs.readFileSync(\"./example-2.md\");\n\nconst results = await ns.uploads.createBatch({\n  files: [\n    {\n      fileName: \"example-1.md\",\n      fileSize: file1.length,\n      contentType: \"text/markdown\",\n    },\n    {\n      fileName: \"example-2.md\",\n      fileSize: file2.length,\n      contentType: \"text/markdown\",\n    },\n  ],\n});\n\nawait Promise.all([file1, file2].map(async (file, i) => {\n  await fetch(results[i]!.url, {\n    method: \"PUT\",\n    body: file,\n    headers: {\n      \"Content-Type\": \"text/markdown\",\n    },\n  });\n}));\n\nconsole.log(\"Upload URLs:\", results.map((result) => result.key));\n"}]
       description: "Generate presigned URLs for uploading multiple files to the specified namespace."
       tags:
         - "Uploads"
