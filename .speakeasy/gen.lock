@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 465adc89-13a8-4359-8d95-e3589d612ccc
 management:
-  docChecksum: 9a37c21368d98cd9f8bb9d724902be6a
+  docChecksum: fdfdfa3a2bb7bfda501c24609a4d580e
   docVersion: 0.0.1
-  speakeasyVersion: 1.628.3
-  generationVersion: 2.716.4
-  releaseVersion: 0.3.0
-  configChecksum: ecd7409e8b02e083521502c28deea692
+  speakeasyVersion: 1.630.0
+  generationVersion: 2.716.10
+  releaseVersion: 0.3.1
+  configChecksum: f461bbdd9e8d330930ad905c3139723a
   repoURL: https://github.com/agentset-ai/agentset-python.git
   installationURL: https://github.com/agentset-ai/agentset-python.git
   published: true

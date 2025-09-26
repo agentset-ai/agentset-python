@@ -1,21 +1,21 @@
-speakeasyVersion: 1.628.3
+speakeasyVersion: 1.630.0
 sources:
     AgentsetAPI:
         sourceNamespace: agentset-api
-        sourceRevisionDigest: sha256:5ac0334a564fce7f6dbb61ec49554e06665a68ab418c20747706b8ed2438dfc4
-        sourceBlobDigest: sha256:9f4f424254111f4e4366783121d556c251e19e419f0865cc6eee73248b22b643
+        sourceRevisionDigest: sha256:52dd466427431a4dc291bd62cf8651bc27d382d0d7dcb2731aecb32b30a57391
+        sourceBlobDigest: sha256:c6bce071bc31d41f56e74f34bef8de278f54a40c7f00fd47a5a18e9b4bbd38cf
         tags:
             - latest
-            - speakeasy-sdk-regen-1758794058
+            - speakeasy-sdk-regen-1758857086
             - 0.0.1
 targets:
     agentset:
         source: AgentsetAPI
         sourceNamespace: agentset-api
-        sourceRevisionDigest: sha256:5ac0334a564fce7f6dbb61ec49554e06665a68ab418c20747706b8ed2438dfc4
-        sourceBlobDigest: sha256:9f4f424254111f4e4366783121d556c251e19e419f0865cc6eee73248b22b643
+        sourceRevisionDigest: sha256:52dd466427431a4dc291bd62cf8651bc27d382d0d7dcb2731aecb32b30a57391
+        sourceBlobDigest: sha256:c6bce071bc31d41f56e74f34bef8de278f54a40c7f00fd47a5a18e9b4bbd38cf
         codeSamplesNamespace: agentset-api-python-code-samples
-        codeSamplesRevisionDigest: sha256:2401b57411538528f24f0416ec74779e5b8af7b73e0c92e46d935442dfaaa84a
+        codeSamplesRevisionDigest: sha256:c98791747b8a086cfa1b58eb61ce472f450e061874e27ddc264f588a986ab666
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
