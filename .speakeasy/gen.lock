@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 465adc89-13a8-4359-8d95-e3589d612ccc
 management:
-  docChecksum: fdfdfa3a2bb7bfda501c24609a4d580e
+  docChecksum: 2d56d54759fdf0d88c802c69cbe2e402
   docVersion: 0.0.1
-  speakeasyVersion: 1.630.0
-  generationVersion: 2.716.10
-  releaseVersion: 0.3.1
-  configChecksum: f461bbdd9e8d330930ad905c3139723a
+  speakeasyVersion: 1.634.2
+  generationVersion: 2.721.3
+  releaseVersion: 0.4.0
+  configChecksum: 262050d23391b93ece114beb35fa8cad
   repoURL: https://github.com/agentset-ai/agentset-python.git
   installationURL: https://github.com/agentset-ai/agentset-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.22.0
+    core: 5.22.1
     defaultEnabledRetries: 0.2.0
     devContainers: 3.0.0
     enumUnions: 0.1.0
@@ -37,7 +37,7 @@ features:
     responseFormat: 1.0.1
     retries: 3.0.2
     sdkHooks: 1.1.0
-    unions: 3.0.5
+    unions: 3.1.0
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -76,6 +76,7 @@ generatedFiles:
   - docs/models/createbatchuploadresponse.md
   - docs/models/createingestjobglobals.md
   - docs/models/createingestjobrequest.md
+  - docs/models/createingestjobrequestbody.md
   - docs/models/createingestjobresponse.md
   - docs/models/createnamespacerequest.md
   - docs/models/createnamespaceresponse.md
@@ -161,6 +162,7 @@ generatedFiles:
   - docs/models/searchglobals.md
   - docs/models/searchmetadata.md
   - docs/models/searchrequest.md
+  - docs/models/searchrequestbody.md
   - docs/models/searchresponse.md
   - docs/models/security.md
   - docs/models/source.md
@@ -453,7 +455,7 @@ examples:
           perPage: 30
       responses:
         "200":
-          application/json: {"success": true, "data": [{"id": "<id>", "namespaceId": "<id>", "tenantId": null, "status": "PROCESSING", "error": "<value>", "payload": {"type": "TEXT", "text": "<value>"}, "config": {}, "createdAt": "1717201148789", "queuedAt": "<value>", "preProcessingAt": "<value>", "processingAt": "<value>", "completedAt": "<value>", "failedAt": "<value>"}], "pagination": {"nextCursor": "<value>"}}
+          application/json: {"success": true, "data": [{"id": "<id>", "namespaceId": "<id>", "tenantId": null, "status": "PROCESSING", "error": "<value>", "payload": {"type": "TEXT", "text": "<value>"}, "config": {}, "createdAt": "1717201148789", "queuedAt": "<value>", "preProcessingAt": "<value>", "processingAt": "<value>", "completedAt": "<value>", "failedAt": "<value>"}], "pagination": {"nextCursor": "<value>", "prevCursor": "<value>", "hasMore": true}}
         "400":
           application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
         "401":
@@ -593,7 +595,7 @@ examples:
           perPage: 30
       responses:
         "200":
-          application/json: {"success": true, "data": [], "pagination": {"nextCursor": null}}
+          application/json: {"success": true, "data": [], "pagination": {"nextCursor": null, "prevCursor": "<value>", "hasMore": true}}
         "400":
           application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
         "401":
@@ -751,3 +753,4 @@ examples:
         "500":
           application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
 examplesVersion: 1.0.2
+releaseNotes: "## Python SDK Changes Detected:\n* `agentset.ingest_jobs.list()`: \n  *  `request.x-tenant-id` **Added**\n  *  `response.pagination` **Changed**\n* `agentset.ingest_jobs.create()`:  `request.x-tenant-id` **Added**\n* `agentset.ingest_jobs.get()`:  `request.x-tenant-id` **Added**\n* `agentset.ingest_jobs.delete()`:  `request.x-tenant-id` **Added**\n* `agentset.ingest_jobs.re_ingest()`:  `request.x-tenant-id` **Added**\n* `agentset.documents.list()`: \n  *  `request.x-tenant-id` **Added**\n  *  `response.pagination` **Changed**\n* `agentset.documents.get()`:  `request.x-tenant-id` **Added**\n* `agentset.documents.delete()`:  `request.x-tenant-id` **Added**\n* `agentset.search.execute()`:  `request.x-tenant-id` **Added**\n"

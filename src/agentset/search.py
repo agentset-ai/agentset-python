@@ -14,6 +14,7 @@ class Search(BaseSDK):
         self,
         *,
         query: str,
+        x_tenant_id: Optional[str] = None,
         top_k: Optional[float] = 10,
         rerank: Optional[bool] = True,
         rerank_limit: Optional[float] = None,
@@ -33,6 +34,7 @@ class Search(BaseSDK):
         Search a namespace for a query.
 
         :param query: The query to search for.
+        :param x_tenant_id: The tenant id to use for the request. If not provided, the default tenant will be used.
         :param top_k: The number of results to fetch from the vector store. Defaults to `10`.
         :param rerank: Whether to rerank the results. Defaults to `true`.
         :param rerank_limit: The number of results to return after reranking. Defaults to `topK`.
@@ -58,16 +60,19 @@ class Search(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.SearchRequest(
-            query=query,
-            top_k=top_k,
-            rerank=rerank,
-            rerank_limit=rerank_limit,
-            filter_=filter_,
-            min_score=min_score,
-            include_relationships=include_relationships,
-            include_metadata=include_metadata,
-            keyword_filter=keyword_filter,
-            mode=mode,
+            x_tenant_id=x_tenant_id,
+            request_body=models.SearchRequestBody(
+                query=query,
+                top_k=top_k,
+                rerank=rerank,
+                rerank_limit=rerank_limit,
+                filter_=filter_,
+                min_score=min_score,
+                include_relationships=include_relationships,
+                include_metadata=include_metadata,
+                keyword_filter=keyword_filter,
+                mode=mode,
+            ),
         )
 
         req = self._build_request(
@@ -88,7 +93,7 @@ class Search(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.SearchRequest
+                request.request_body, False, False, "json", models.SearchRequestBody
             ),
             timeout_ms=timeout_ms,
         )
@@ -187,6 +192,7 @@ class Search(BaseSDK):
         self,
         *,
         query: str,
+        x_tenant_id: Optional[str] = None,
         top_k: Optional[float] = 10,
         rerank: Optional[bool] = True,
         rerank_limit: Optional[float] = None,
@@ -206,6 +212,7 @@ class Search(BaseSDK):
         Search a namespace for a query.
 
         :param query: The query to search for.
+        :param x_tenant_id: The tenant id to use for the request. If not provided, the default tenant will be used.
         :param top_k: The number of results to fetch from the vector store. Defaults to `10`.
         :param rerank: Whether to rerank the results. Defaults to `true`.
         :param rerank_limit: The number of results to return after reranking. Defaults to `topK`.
@@ -231,16 +238,19 @@ class Search(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.SearchRequest(
-            query=query,
-            top_k=top_k,
-            rerank=rerank,
-            rerank_limit=rerank_limit,
-            filter_=filter_,
-            min_score=min_score,
-            include_relationships=include_relationships,
-            include_metadata=include_metadata,
-            keyword_filter=keyword_filter,
-            mode=mode,
+            x_tenant_id=x_tenant_id,
+            request_body=models.SearchRequestBody(
+                query=query,
+                top_k=top_k,
+                rerank=rerank,
+                rerank_limit=rerank_limit,
+                filter_=filter_,
+                min_score=min_score,
+                include_relationships=include_relationships,
+                include_metadata=include_metadata,
+                keyword_filter=keyword_filter,
+                mode=mode,
+            ),
         )
 
         req = self._build_request_async(
@@ -261,7 +271,7 @@ class Search(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.SearchRequest
+                request.request_body, False, False, "json", models.SearchRequestBody
             ),
             timeout_ms=timeout_ms,
         )

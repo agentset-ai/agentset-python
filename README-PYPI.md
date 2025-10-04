@@ -262,7 +262,7 @@ Global parameters can also be set via environment variable.
 
 | Name         | Type | Description                                                                             | Environment           |
 | ------------ | ---- | --------------------------------------------------------------------------------------- | --------------------- |
-| namespace_id | str  | The namespace_id parameter.                                                             | AGENTSET_NAMESPACE_ID |
+| namespace_id | str  | The id of the namespace (prefixed with ns_)                                             | AGENTSET_NAMESPACE_ID |
 | x_tenant_id  | str  | The tenant id to use for the request. If not provided, the default tenant will be used. | AGENTSET_X_TENANT_ID  |
 
 ### Example

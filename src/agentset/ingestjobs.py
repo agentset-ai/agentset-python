@@ -20,6 +20,7 @@ class IngestJobs(BaseSDK):
         cursor: Optional[str] = None,
         cursor_direction: Optional[models.PaginationCursorDirection] = None,
         per_page: Optional[float] = 30,
+        x_tenant_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -35,6 +36,7 @@ class IngestJobs(BaseSDK):
         :param cursor:
         :param cursor_direction: The direction to paginate by.
         :param per_page:
+        :param x_tenant_id: The tenant id to use for the request. If not provided, the default tenant will be used.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -57,6 +59,7 @@ class IngestJobs(BaseSDK):
             cursor=cursor,
             cursor_direction=cursor_direction,
             per_page=per_page,
+            x_tenant_id=x_tenant_id,
         )
 
         req = self._build_request(
@@ -133,6 +136,7 @@ class IngestJobs(BaseSDK):
                 cursor=next_cursor,
                 cursor_direction=cursor_direction,
                 per_page=per_page,
+                x_tenant_id=x_tenant_id,
                 retries=retries,
             )
 
@@ -205,6 +209,7 @@ class IngestJobs(BaseSDK):
         cursor: Optional[str] = None,
         cursor_direction: Optional[models.PaginationCursorDirection] = None,
         per_page: Optional[float] = 30,
+        x_tenant_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -220,6 +225,7 @@ class IngestJobs(BaseSDK):
         :param cursor:
         :param cursor_direction: The direction to paginate by.
         :param per_page:
+        :param x_tenant_id: The tenant id to use for the request. If not provided, the default tenant will be used.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -242,6 +248,7 @@ class IngestJobs(BaseSDK):
             cursor=cursor,
             cursor_direction=cursor_direction,
             per_page=per_page,
+            x_tenant_id=x_tenant_id,
         )
 
         req = self._build_request_async(
@@ -321,6 +328,7 @@ class IngestJobs(BaseSDK):
                 cursor=next_cursor,
                 cursor_direction=cursor_direction,
                 per_page=per_page,
+                x_tenant_id=x_tenant_id,
                 retries=retries,
             )
 
@@ -388,6 +396,7 @@ class IngestJobs(BaseSDK):
         self,
         *,
         payload: Union[models.IngestJobPayload, models.IngestJobPayloadTypedDict],
+        x_tenant_id: Optional[str] = None,
         name: OptionalNullable[str] = UNSET,
         config: Optional[
             Union[models.IngestJobConfig, models.IngestJobConfigTypedDict]
@@ -402,6 +411,7 @@ class IngestJobs(BaseSDK):
         Create an ingest job for the authenticated organization.
 
         :param payload: The ingest job payload.
+        :param x_tenant_id: The tenant id to use for the request. If not provided, the default tenant will be used.
         :param name: The name of the ingest job.
         :param config: The ingest job config.
         :param retries: Override the default retry configuration for this method
@@ -420,9 +430,14 @@ class IngestJobs(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreateIngestJobRequest(
-            name=name,
-            payload=utils.get_pydantic_model(payload, models.IngestJobPayload),
-            config=utils.get_pydantic_model(config, Optional[models.IngestJobConfig]),
+            x_tenant_id=x_tenant_id,
+            request_body=models.CreateIngestJobRequestBody(
+                name=name,
+                payload=utils.get_pydantic_model(payload, models.IngestJobPayload),
+                config=utils.get_pydantic_model(
+                    config, Optional[models.IngestJobConfig]
+                ),
+            ),
         )
 
         req = self._build_request(
@@ -443,7 +458,11 @@ class IngestJobs(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.CreateIngestJobRequest
+                request.request_body,
+                False,
+                False,
+                "json",
+                models.CreateIngestJobRequestBody,
             ),
             timeout_ms=timeout_ms,
         )
@@ -542,6 +561,7 @@ class IngestJobs(BaseSDK):
         self,
         *,
         payload: Union[models.IngestJobPayload, models.IngestJobPayloadTypedDict],
+        x_tenant_id: Optional[str] = None,
         name: OptionalNullable[str] = UNSET,
         config: Optional[
             Union[models.IngestJobConfig, models.IngestJobConfigTypedDict]
@@ -556,6 +576,7 @@ class IngestJobs(BaseSDK):
         Create an ingest job for the authenticated organization.
 
         :param payload: The ingest job payload.
+        :param x_tenant_id: The tenant id to use for the request. If not provided, the default tenant will be used.
         :param name: The name of the ingest job.
         :param config: The ingest job config.
         :param retries: Override the default retry configuration for this method
@@ -574,9 +595,14 @@ class IngestJobs(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreateIngestJobRequest(
-            name=name,
-            payload=utils.get_pydantic_model(payload, models.IngestJobPayload),
-            config=utils.get_pydantic_model(config, Optional[models.IngestJobConfig]),
+            x_tenant_id=x_tenant_id,
+            request_body=models.CreateIngestJobRequestBody(
+                name=name,
+                payload=utils.get_pydantic_model(payload, models.IngestJobPayload),
+                config=utils.get_pydantic_model(
+                    config, Optional[models.IngestJobConfig]
+                ),
+            ),
         )
 
         req = self._build_request_async(
@@ -597,7 +623,11 @@ class IngestJobs(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", models.CreateIngestJobRequest
+                request.request_body,
+                False,
+                False,
+                "json",
+                models.CreateIngestJobRequestBody,
             ),
             timeout_ms=timeout_ms,
         )
@@ -696,6 +726,7 @@ class IngestJobs(BaseSDK):
         self,
         *,
         job_id: str,
+        x_tenant_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -705,7 +736,8 @@ class IngestJobs(BaseSDK):
 
         Retrieve the info for an ingest job.
 
-        :param job_id:
+        :param job_id: The id of the job (prefixed with job_)
+        :param x_tenant_id: The tenant id to use for the request. If not provided, the default tenant will be used.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -723,6 +755,7 @@ class IngestJobs(BaseSDK):
 
         request = models.GetIngestJobInfoRequest(
             job_id=job_id,
+            x_tenant_id=x_tenant_id,
         )
 
         req = self._build_request(
@@ -839,6 +872,7 @@ class IngestJobs(BaseSDK):
         self,
         *,
         job_id: str,
+        x_tenant_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -848,7 +882,8 @@ class IngestJobs(BaseSDK):
 
         Retrieve the info for an ingest job.
 
-        :param job_id:
+        :param job_id: The id of the job (prefixed with job_)
+        :param x_tenant_id: The tenant id to use for the request. If not provided, the default tenant will be used.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -866,6 +901,7 @@ class IngestJobs(BaseSDK):
 
         request = models.GetIngestJobInfoRequest(
             job_id=job_id,
+            x_tenant_id=x_tenant_id,
         )
 
         req = self._build_request_async(
@@ -982,6 +1018,7 @@ class IngestJobs(BaseSDK):
         self,
         *,
         job_id: str,
+        x_tenant_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -991,7 +1028,8 @@ class IngestJobs(BaseSDK):
 
         Delete an ingest job for the authenticated organization.
 
-        :param job_id:
+        :param job_id: The id of the job (prefixed with job_)
+        :param x_tenant_id: The tenant id to use for the request. If not provided, the default tenant will be used.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1009,6 +1047,7 @@ class IngestJobs(BaseSDK):
 
         request = models.DeleteIngestJobRequest(
             job_id=job_id,
+            x_tenant_id=x_tenant_id,
         )
 
         req = self._build_request(
@@ -1125,6 +1164,7 @@ class IngestJobs(BaseSDK):
         self,
         *,
         job_id: str,
+        x_tenant_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1134,7 +1174,8 @@ class IngestJobs(BaseSDK):
 
         Delete an ingest job for the authenticated organization.
 
-        :param job_id:
+        :param job_id: The id of the job (prefixed with job_)
+        :param x_tenant_id: The tenant id to use for the request. If not provided, the default tenant will be used.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1152,6 +1193,7 @@ class IngestJobs(BaseSDK):
 
         request = models.DeleteIngestJobRequest(
             job_id=job_id,
+            x_tenant_id=x_tenant_id,
         )
 
         req = self._build_request_async(
@@ -1268,6 +1310,7 @@ class IngestJobs(BaseSDK):
         self,
         *,
         job_id: str,
+        x_tenant_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1277,7 +1320,8 @@ class IngestJobs(BaseSDK):
 
         Re-ingest a job for the authenticated organization.
 
-        :param job_id:
+        :param job_id: The id of the job (prefixed with job_)
+        :param x_tenant_id: The tenant id to use for the request. If not provided, the default tenant will be used.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1295,6 +1339,7 @@ class IngestJobs(BaseSDK):
 
         request = models.ReIngestJobRequest(
             job_id=job_id,
+            x_tenant_id=x_tenant_id,
         )
 
         req = self._build_request(
@@ -1411,6 +1456,7 @@ class IngestJobs(BaseSDK):
         self,
         *,
         job_id: str,
+        x_tenant_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1420,7 +1466,8 @@ class IngestJobs(BaseSDK):
 
         Re-ingest a job for the authenticated organization.
 
-        :param job_id:
+        :param job_id: The id of the job (prefixed with job_)
+        :param x_tenant_id: The tenant id to use for the request. If not provided, the default tenant will be used.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1438,6 +1485,7 @@ class IngestJobs(BaseSDK):
 
         request = models.ReIngestJobRequest(
             job_id=job_id,
+            x_tenant_id=x_tenant_id,
         )
 
         req = self._build_request_async(

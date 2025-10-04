@@ -6,6 +6,7 @@ from agentset.utils import (
     FieldMetadata,
     HeaderMetadata,
     PathParamMetadata,
+    RequestMetadata,
     validate_const,
 )
 import pydantic
@@ -16,6 +17,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class SearchGlobalsTypedDict(TypedDict):
     namespace_id: NotRequired[str]
+    r"""The id of the namespace (prefixed with ns_)"""
     x_tenant_id: NotRequired[str]
     r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
 
@@ -26,6 +28,7 @@ class SearchGlobals(BaseModel):
         pydantic.Field(alias="namespaceId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ] = None
+    r"""The id of the namespace (prefixed with ns_)"""
 
     x_tenant_id: Annotated[
         Optional[str],
@@ -41,7 +44,7 @@ Mode = Literal[
 ]
 
 
-class SearchRequestTypedDict(TypedDict):
+class SearchRequestBodyTypedDict(TypedDict):
     query: str
     r"""The query to search for."""
     top_k: NotRequired[float]
@@ -62,7 +65,7 @@ class SearchRequestTypedDict(TypedDict):
     mode: NotRequired[Mode]
 
 
-class SearchRequest(BaseModel):
+class SearchRequestBody(BaseModel):
     query: str
     r"""The query to search for."""
 
@@ -96,6 +99,26 @@ class SearchRequest(BaseModel):
     )
 
     mode: Optional[Mode] = "semantic"
+
+
+class SearchRequestTypedDict(TypedDict):
+    request_body: SearchRequestBodyTypedDict
+    x_tenant_id: NotRequired[str]
+    r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
+
+
+class SearchRequest(BaseModel):
+    request_body: Annotated[
+        SearchRequestBody,
+        FieldMetadata(request=RequestMetadata(media_type="application/json")),
+    ]
+
+    x_tenant_id: Annotated[
+        Optional[str],
+        pydantic.Field(alias="x-tenant-id"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
 
 
 class SearchMetadataTypedDict(TypedDict):
