@@ -311,8 +311,16 @@ paths:
                         anyOf:
                           - type: "string"
                           - type: "null"
+                      "prevCursor":
+                        anyOf:
+                          - type: "string"
+                          - type: "null"
+                      "hasMore":
+                        type: "boolean"
                     required:
                       - "nextCursor"
+                      - "prevCursor"
+                      - "hasMore"
                     additionalProperties: false
                 required:
                   - "success"
@@ -592,8 +600,16 @@ paths:
                         anyOf:
                           - type: "string"
                           - type: "null"
+                      "prevCursor":
+                        anyOf:
+                          - type: "string"
+                          - type: "null"
+                      "hasMore":
+                        type: "boolean"
                     required:
                       - "nextCursor"
+                      - "prevCursor"
+                      - "hasMore"
                     additionalProperties: false
                 required:
                   - "success"
@@ -2201,16 +2217,17 @@ components:
       schema:
         examples:
           - "ns_123"
+        description: "The id of the namespace (prefixed with ns_)"
         type: "string"
       x-speakeasy-globals-hidden: true
       required: true
+      description: "The id of the namespace (prefixed with ns_)"
     "TenantIdRef":
       in: "header"
       name: "x-tenant-id"
       schema:
         description: "The tenant id to use for the request. If not provided, the default tenant will be used."
         type: "string"
-      x-speakeasy-globals-hidden: true
       description: "The tenant id to use for the request. If not provided, the default tenant will be used."
     "JobIdRef":
       in: "path"
@@ -2218,16 +2235,20 @@ components:
       schema:
         examples:
           - "job_123"
+        description: "The id of the job (prefixed with job_)"
         type: "string"
       required: true
+      description: "The id of the job (prefixed with job_)"
     "DocumentIdRef":
       in: "path"
       name: "documentId"
       schema:
         examples:
           - "doc_123"
+        description: "The id of the document (prefixed with doc_)"
         type: "string"
       required: true
+      description: "The id of the document (prefixed with doc_)"
   securitySchemes:
     "token":
       type: "http"

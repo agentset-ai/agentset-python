@@ -12,6 +12,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class DeleteNamespaceGlobalsTypedDict(TypedDict):
     namespace_id: NotRequired[str]
+    r"""The id of the namespace (prefixed with ns_)"""
 
 
 class DeleteNamespaceGlobals(BaseModel):
@@ -20,6 +21,7 @@ class DeleteNamespaceGlobals(BaseModel):
         pydantic.Field(alias="namespaceId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ] = None
+    r"""The id of the namespace (prefixed with ns_)"""
 
 
 class DeleteNamespaceRequestTypedDict(TypedDict):

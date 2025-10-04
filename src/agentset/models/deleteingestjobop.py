@@ -17,6 +17,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class DeleteIngestJobGlobalsTypedDict(TypedDict):
     namespace_id: NotRequired[str]
+    r"""The id of the namespace (prefixed with ns_)"""
     x_tenant_id: NotRequired[str]
     r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
 
@@ -27,6 +28,7 @@ class DeleteIngestJobGlobals(BaseModel):
         pydantic.Field(alias="namespaceId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ] = None
+    r"""The id of the namespace (prefixed with ns_)"""
 
     x_tenant_id: Annotated[
         Optional[str],
@@ -38,6 +40,9 @@ class DeleteIngestJobGlobals(BaseModel):
 
 class DeleteIngestJobRequestTypedDict(TypedDict):
     job_id: str
+    r"""The id of the job (prefixed with job_)"""
+    x_tenant_id: NotRequired[str]
+    r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
 
 
 class DeleteIngestJobRequest(BaseModel):
@@ -46,6 +51,14 @@ class DeleteIngestJobRequest(BaseModel):
         pydantic.Field(alias="jobId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
+    r"""The id of the job (prefixed with job_)"""
+
+    x_tenant_id: Annotated[
+        Optional[str],
+        pydantic.Field(alias="x-tenant-id"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
 
 
 class DeleteIngestJobResponseTypedDict(TypedDict):

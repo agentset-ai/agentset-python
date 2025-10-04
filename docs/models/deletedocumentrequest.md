@@ -3,6 +3,7 @@
 
 ## Fields
 
-| Field              | Type               | Required           | Description        | Example            |
-| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `document_id`      | *str*              | :heavy_check_mark: | N/A                | doc_123            |
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             | Example                                                                                 |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `document_id`                                                                           | *str*                                                                                   | :heavy_check_mark:                                                                      | The id of the document (prefixed with doc_)                                             | doc_123                                                                                 |
+| `x_tenant_id`                                                                           | *Optional[str]*                                                                         | :heavy_minus_sign:                                                                      | The tenant id to use for the request. If not provided, the default tenant will be used. |                                                                                         |

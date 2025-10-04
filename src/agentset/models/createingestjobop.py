@@ -9,6 +9,7 @@ from agentset.utils import (
     FieldMetadata,
     HeaderMetadata,
     PathParamMetadata,
+    RequestMetadata,
     validate_const,
 )
 import pydantic
@@ -20,6 +21,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class CreateIngestJobGlobalsTypedDict(TypedDict):
     namespace_id: NotRequired[str]
+    r"""The id of the namespace (prefixed with ns_)"""
     x_tenant_id: NotRequired[str]
     r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
 
@@ -30,6 +32,7 @@ class CreateIngestJobGlobals(BaseModel):
         pydantic.Field(alias="namespaceId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ] = None
+    r"""The id of the namespace (prefixed with ns_)"""
 
     x_tenant_id: Annotated[
         Optional[str],
@@ -39,7 +42,7 @@ class CreateIngestJobGlobals(BaseModel):
     r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
 
 
-class CreateIngestJobRequestTypedDict(TypedDict):
+class CreateIngestJobRequestBodyTypedDict(TypedDict):
     payload: IngestJobPayloadTypedDict
     r"""The ingest job payload."""
     name: NotRequired[Nullable[str]]
@@ -48,7 +51,7 @@ class CreateIngestJobRequestTypedDict(TypedDict):
     r"""The ingest job config."""
 
 
-class CreateIngestJobRequest(BaseModel):
+class CreateIngestJobRequestBody(BaseModel):
     payload: IngestJobPayload
     r"""The ingest job payload."""
 
@@ -87,6 +90,26 @@ class CreateIngestJobRequest(BaseModel):
                 m[k] = val
 
         return m
+
+
+class CreateIngestJobRequestTypedDict(TypedDict):
+    request_body: CreateIngestJobRequestBodyTypedDict
+    x_tenant_id: NotRequired[str]
+    r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
+
+
+class CreateIngestJobRequest(BaseModel):
+    request_body: Annotated[
+        CreateIngestJobRequestBody,
+        FieldMetadata(request=RequestMetadata(media_type="application/json")),
+    ]
+
+    x_tenant_id: Annotated[
+        Optional[str],
+        pydantic.Field(alias="x-tenant-id"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
 
 
 class CreateIngestJobResponseTypedDict(TypedDict):

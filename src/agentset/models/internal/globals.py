@@ -10,6 +10,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class GlobalsTypedDict(TypedDict):
     namespace_id: NotRequired[str]
+    r"""The id of the namespace (prefixed with ns_)"""
     x_tenant_id: NotRequired[str]
     r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
 
@@ -20,6 +21,7 @@ class Globals(BaseModel):
         pydantic.Field(alias="namespaceId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ] = None
+    r"""The id of the namespace (prefixed with ns_)"""
 
     x_tenant_id: Annotated[
         Optional[str],
