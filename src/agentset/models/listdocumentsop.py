@@ -21,8 +21,9 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class ListDocumentsGlobalsTypedDict(TypedDict):
     namespace_id: NotRequired[str]
+    r"""The id of the namespace (prefixed with ns_)"""
     x_tenant_id: NotRequired[str]
-    r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
 
 
 class ListDocumentsGlobals(BaseModel):
@@ -31,13 +32,14 @@ class ListDocumentsGlobals(BaseModel):
         pydantic.Field(alias="namespaceId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ] = None
+    r"""The id of the namespace (prefixed with ns_)"""
 
     x_tenant_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-tenant-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
-    r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
 
 
 ListDocumentsOrderBy = Literal["createdAt",]
@@ -62,6 +64,8 @@ class ListDocumentsRequestTypedDict(TypedDict):
     cursor_direction: NotRequired[PaginationCursorDirection]
     r"""The direction to paginate by."""
     per_page: NotRequired[float]
+    x_tenant_id: NotRequired[str]
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
 
 
 class ListDocumentsRequest(BaseModel):
@@ -107,18 +111,31 @@ class ListDocumentsRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = 30
 
+    x_tenant_id: Annotated[
+        Optional[str],
+        pydantic.Field(alias="x-tenant-id"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
+
 
 class ListDocumentsPaginationTypedDict(TypedDict):
     next_cursor: Nullable[str]
+    prev_cursor: Nullable[str]
+    has_more: bool
 
 
 class ListDocumentsPagination(BaseModel):
     next_cursor: Annotated[Nullable[str], pydantic.Field(alias="nextCursor")]
 
+    prev_cursor: Annotated[Nullable[str], pydantic.Field(alias="prevCursor")]
+
+    has_more: Annotated[bool, pydantic.Field(alias="hasMore")]
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = []
-        nullable_fields = ["nextCursor"]
+        nullable_fields = ["nextCursor", "prevCursor"]
         null_default_fields = []
 
         serialized = handler(self)

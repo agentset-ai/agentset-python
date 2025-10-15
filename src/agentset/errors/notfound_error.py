@@ -15,7 +15,7 @@ class NotFoundErrorData(BaseModel):
     error: models_notfound_error.NotFoundError
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class NotFoundError(AgentsetError):
     r"""The server cannot find the requested resource."""
 

@@ -23,6 +23,8 @@ class IngestJobTypedDict(TypedDict):
     r"""The namespace ID of the ingest job."""
     tenant_id: Nullable[str]
     r"""The tenant ID of the ingest job."""
+    external_id: Nullable[str]
+    r"""A unique external ID of the ingest job. You can use this to identify the ingest job in your system."""
     status: IngestJobStatus
     r"""The status of the ingest job."""
     error: Nullable[str]
@@ -55,6 +57,9 @@ class IngestJob(BaseModel):
 
     tenant_id: Annotated[Nullable[str], pydantic.Field(alias="tenantId")]
     r"""The tenant ID of the ingest job."""
+
+    external_id: Annotated[Nullable[str], pydantic.Field(alias="externalId")]
+    r"""A unique external ID of the ingest job. You can use this to identify the ingest job in your system."""
 
     status: IngestJobStatus
     r"""The status of the ingest job."""
@@ -94,6 +99,7 @@ class IngestJob(BaseModel):
         nullable_fields = [
             "name",
             "tenantId",
+            "externalId",
             "error",
             "config",
             "queuedAt",

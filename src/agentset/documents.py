@@ -21,6 +21,7 @@ class Documents(BaseSDK):
         cursor: Optional[str] = None,
         cursor_direction: Optional[models.PaginationCursorDirection] = None,
         per_page: Optional[float] = 30,
+        x_tenant_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -37,6 +38,7 @@ class Documents(BaseSDK):
         :param cursor:
         :param cursor_direction: The direction to paginate by.
         :param per_page:
+        :param x_tenant_id: Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -60,6 +62,7 @@ class Documents(BaseSDK):
             cursor=cursor,
             cursor_direction=cursor_direction,
             per_page=per_page,
+            x_tenant_id=x_tenant_id,
         )
 
         req = self._build_request(
@@ -95,7 +98,7 @@ class Documents(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="listDocuments",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -137,6 +140,7 @@ class Documents(BaseSDK):
                 cursor=next_cursor,
                 cursor_direction=cursor_direction,
                 per_page=per_page,
+                x_tenant_id=x_tenant_id,
                 retries=retries,
             )
 
@@ -210,6 +214,7 @@ class Documents(BaseSDK):
         cursor: Optional[str] = None,
         cursor_direction: Optional[models.PaginationCursorDirection] = None,
         per_page: Optional[float] = 30,
+        x_tenant_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -226,6 +231,7 @@ class Documents(BaseSDK):
         :param cursor:
         :param cursor_direction: The direction to paginate by.
         :param per_page:
+        :param x_tenant_id: Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -249,6 +255,7 @@ class Documents(BaseSDK):
             cursor=cursor,
             cursor_direction=cursor_direction,
             per_page=per_page,
+            x_tenant_id=x_tenant_id,
         )
 
         req = self._build_request_async(
@@ -284,7 +291,7 @@ class Documents(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="listDocuments",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -329,6 +336,7 @@ class Documents(BaseSDK):
                 cursor=next_cursor,
                 cursor_direction=cursor_direction,
                 per_page=per_page,
+                x_tenant_id=x_tenant_id,
                 retries=retries,
             )
 
@@ -396,6 +404,7 @@ class Documents(BaseSDK):
         self,
         *,
         document_id: str,
+        x_tenant_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -405,7 +414,8 @@ class Documents(BaseSDK):
 
         Retrieve the info for a document.
 
-        :param document_id:
+        :param document_id: The id of the document (prefixed with doc_)
+        :param x_tenant_id: Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -423,6 +433,7 @@ class Documents(BaseSDK):
 
         request = models.GetDocumentRequest(
             document_id=document_id,
+            x_tenant_id=x_tenant_id,
         )
 
         req = self._build_request(
@@ -458,7 +469,7 @@ class Documents(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="getDocument",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -539,6 +550,7 @@ class Documents(BaseSDK):
         self,
         *,
         document_id: str,
+        x_tenant_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -548,7 +560,8 @@ class Documents(BaseSDK):
 
         Retrieve the info for a document.
 
-        :param document_id:
+        :param document_id: The id of the document (prefixed with doc_)
+        :param x_tenant_id: Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -566,6 +579,7 @@ class Documents(BaseSDK):
 
         request = models.GetDocumentRequest(
             document_id=document_id,
+            x_tenant_id=x_tenant_id,
         )
 
         req = self._build_request_async(
@@ -601,7 +615,7 @@ class Documents(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="getDocument",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -682,6 +696,7 @@ class Documents(BaseSDK):
         self,
         *,
         document_id: str,
+        x_tenant_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -691,7 +706,8 @@ class Documents(BaseSDK):
 
         Delete a document for the authenticated organization.
 
-        :param document_id:
+        :param document_id: The id of the document (prefixed with doc_)
+        :param x_tenant_id: Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -709,6 +725,7 @@ class Documents(BaseSDK):
 
         request = models.DeleteDocumentRequest(
             document_id=document_id,
+            x_tenant_id=x_tenant_id,
         )
 
         req = self._build_request(
@@ -744,7 +761,7 @@ class Documents(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="deleteDocument",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -825,6 +842,7 @@ class Documents(BaseSDK):
         self,
         *,
         document_id: str,
+        x_tenant_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -834,7 +852,8 @@ class Documents(BaseSDK):
 
         Delete a document for the authenticated organization.
 
-        :param document_id:
+        :param document_id: The id of the document (prefixed with doc_)
+        :param x_tenant_id: Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -852,6 +871,7 @@ class Documents(BaseSDK):
 
         request = models.DeleteDocumentRequest(
             document_id=document_id,
+            x_tenant_id=x_tenant_id,
         )
 
         req = self._build_request_async(
@@ -887,7 +907,7 @@ class Documents(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="deleteDocument",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

@@ -212,12 +212,18 @@ with Agentset(
 <details open>
 <summary>Available methods</summary>
 
-
 ### [documents](docs/sdks/documents/README.md)
 
 * [list](docs/sdks/documents/README.md#list) - Retrieve a list of documents
 * [get](docs/sdks/documents/README.md#get) - Retrieve a document
 * [delete](docs/sdks/documents/README.md#delete) - Delete a document
+
+### [hosting](docs/sdks/hostingsdk/README.md)
+
+* [get](docs/sdks/hostingsdk/README.md#get) - Retrieve hosting configuration
+* [enable](docs/sdks/hostingsdk/README.md#enable) - Enable hosting
+* [update](docs/sdks/hostingsdk/README.md#update) - Update hosting configuration
+* [delete](docs/sdks/hostingsdk/README.md#delete) - Delete hosting configuration
 
 ### [ingest_jobs](docs/sdks/ingestjobs/README.md)
 
@@ -260,10 +266,10 @@ For example, you can set `namespaceId` to `"ns_123"` at SDK initialization and t
 The following global parameters are available.
 Global parameters can also be set via environment variable.
 
-| Name         | Type | Description                                                                             | Environment           |
-| ------------ | ---- | --------------------------------------------------------------------------------------- | --------------------- |
-| namespace_id | str  | The namespace_id parameter.                                                             | AGENTSET_NAMESPACE_ID |
-| x_tenant_id  | str  | The tenant id to use for the request. If not provided, the default tenant will be used. | AGENTSET_X_TENANT_ID  |
+| Name         | Type | Description                                                                                                                                    | Environment           |
+| ------------ | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| namespace_id | str  | The id of the namespace (prefixed with ns_)                                                                                                    | AGENTSET_NAMESPACE_ID |
+| x_tenant_id  | str  | Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters. | AGENTSET_X_TENANT_ID  |
 
 ### Example
 

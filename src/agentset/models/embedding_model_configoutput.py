@@ -17,15 +17,37 @@ from .voyage_embedding_configoutput import (
     VoyageEmbeddingConfigOutput,
     VoyageEmbeddingConfigOutputTypedDict,
 )
-from agentset.utils import get_discriminator
-from pydantic import Discriminator, Tag
-from typing import Union
-from typing_extensions import Annotated, TypeAliasType
+from agentset.types import BaseModel
+from agentset.utils import validate_const
+import pydantic
+from pydantic.functional_validators import AfterValidator
+from typing import Literal, Union
+from typing_extensions import Annotated, TypeAliasType, TypedDict
+
+
+EmbeddingModelConfigOutputModel = Literal["text-embedding-3-large",]
+
+
+class EmbeddingModelConfigOutputTextEmbedding3LargeTypedDict(TypedDict):
+    model: EmbeddingModelConfigOutputModel
+    provider: Literal["MANAGED_OPENAI"]
+
+
+class EmbeddingModelConfigOutputTextEmbedding3Large(BaseModel):
+    model: EmbeddingModelConfigOutputModel
+
+    PROVIDER: Annotated[
+        Annotated[
+            Literal["MANAGED_OPENAI"], AfterValidator(validate_const("MANAGED_OPENAI"))
+        ],
+        pydantic.Field(alias="provider"),
+    ] = "MANAGED_OPENAI"
 
 
 EmbeddingModelConfigOutputTypedDict = TypeAliasType(
     "EmbeddingModelConfigOutputTypedDict",
     Union[
+        EmbeddingModelConfigOutputTextEmbedding3LargeTypedDict,
         OpenaiEmbeddingConfigOutputTypedDict,
         VoyageEmbeddingConfigOutputTypedDict,
         GoogleEmbeddingConfigOutputTypedDict,
@@ -35,13 +57,14 @@ EmbeddingModelConfigOutputTypedDict = TypeAliasType(
 r"""The embedding model config. If not provided, our managed embedding model will be used. Note: You can't change the embedding model config after the namespace is created."""
 
 
-EmbeddingModelConfigOutput = Annotated[
+EmbeddingModelConfigOutput = TypeAliasType(
+    "EmbeddingModelConfigOutput",
     Union[
-        Annotated[OpenaiEmbeddingConfigOutput, Tag("OPENAI")],
-        Annotated[AzureEmbeddingConfigOutput, Tag("AZURE_OPENAI")],
-        Annotated[VoyageEmbeddingConfigOutput, Tag("VOYAGE")],
-        Annotated[GoogleEmbeddingConfigOutput, Tag("GOOGLE")],
+        EmbeddingModelConfigOutputTextEmbedding3Large,
+        OpenaiEmbeddingConfigOutput,
+        VoyageEmbeddingConfigOutput,
+        GoogleEmbeddingConfigOutput,
+        AzureEmbeddingConfigOutput,
     ],
-    Discriminator(lambda m: get_discriminator(m, "provider", "provider")),
-]
+)
 r"""The embedding model config. If not provided, our managed embedding model will be used. Note: You can't change the embedding model config after the namespace is created."""

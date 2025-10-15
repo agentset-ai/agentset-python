@@ -15,7 +15,7 @@ class UnauthorizedErrorData(BaseModel):
     error: models_unauthorized_error.UnauthorizedError
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class UnauthorizedError(AgentsetError):
     r"""Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response."""
 

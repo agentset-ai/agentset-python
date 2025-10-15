@@ -124,8 +124,6 @@ class DocumentTypedDict(TypedDict):
     r"""The unique ID of the document."""
     ingest_job_id: str
     r"""The ingest job ID of the document."""
-    external_id: Nullable[str]
-    r"""A unique external ID."""
     name: Nullable[str]
     r"""The name of the document."""
     tenant_id: Nullable[str]
@@ -165,9 +163,6 @@ class Document(BaseModel):
 
     ingest_job_id: Annotated[str, pydantic.Field(alias="ingestJobId")]
     r"""The ingest job ID of the document."""
-
-    external_id: Annotated[Nullable[str], pydantic.Field(alias="externalId")]
-    r"""A unique external ID."""
 
     name: Nullable[str]
     r"""The name of the document."""
@@ -220,7 +215,6 @@ class Document(BaseModel):
     def serialize_model(self, handler):
         optional_fields = []
         nullable_fields = [
-            "externalId",
             "name",
             "tenantId",
             "error",

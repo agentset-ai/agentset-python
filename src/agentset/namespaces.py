@@ -65,7 +65,7 @@ class Namespaces(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="listNamespaces",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -197,7 +197,7 @@ class Namespaces(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="listNamespaces",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -283,7 +283,9 @@ class Namespaces(BaseSDK):
             Union[models.EmbeddingModelConfig, models.EmbeddingModelConfigTypedDict]
         ] = None,
         vector_store_config: Optional[
-            Union[models.VectorStoreConfig, models.VectorStoreConfigTypedDict]
+            Union[
+                models.CreateVectorStoreConfig, models.CreateVectorStoreConfigTypedDict
+            ]
         ] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -297,7 +299,7 @@ class Namespaces(BaseSDK):
         :param name:
         :param slug:
         :param embedding_config: The embedding model config. If not provided, our managed embedding model will be used. Note: You can't change the embedding model config after the namespace is created.
-        :param vector_store_config: The vector store config. If not provided, our managed vector store will be used. Note: You can't change the vector store config after the namespace is created.
+        :param vector_store_config: The vector store config. If not provided, our MANAGED_PINECONE vector store will be used. Note: You can't change the vector store config after the namespace is created.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -320,7 +322,7 @@ class Namespaces(BaseSDK):
                 embedding_config, Optional[models.EmbeddingModelConfig]
             ),
             vector_store_config=utils.get_pydantic_model(
-                vector_store_config, Optional[models.VectorStoreConfig]
+                vector_store_config, Optional[models.CreateVectorStoreConfig]
             ),
         )
 
@@ -356,7 +358,7 @@ class Namespaces(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="createNamespace",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -442,7 +444,9 @@ class Namespaces(BaseSDK):
             Union[models.EmbeddingModelConfig, models.EmbeddingModelConfigTypedDict]
         ] = None,
         vector_store_config: Optional[
-            Union[models.VectorStoreConfig, models.VectorStoreConfigTypedDict]
+            Union[
+                models.CreateVectorStoreConfig, models.CreateVectorStoreConfigTypedDict
+            ]
         ] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -456,7 +460,7 @@ class Namespaces(BaseSDK):
         :param name:
         :param slug:
         :param embedding_config: The embedding model config. If not provided, our managed embedding model will be used. Note: You can't change the embedding model config after the namespace is created.
-        :param vector_store_config: The vector store config. If not provided, our managed vector store will be used. Note: You can't change the vector store config after the namespace is created.
+        :param vector_store_config: The vector store config. If not provided, our MANAGED_PINECONE vector store will be used. Note: You can't change the vector store config after the namespace is created.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -479,7 +483,7 @@ class Namespaces(BaseSDK):
                 embedding_config, Optional[models.EmbeddingModelConfig]
             ),
             vector_store_config=utils.get_pydantic_model(
-                vector_store_config, Optional[models.VectorStoreConfig]
+                vector_store_config, Optional[models.CreateVectorStoreConfig]
             ),
         )
 
@@ -515,7 +519,7 @@ class Namespaces(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="createNamespace",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -659,7 +663,7 @@ class Namespaces(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="getNamespace",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -803,7 +807,7 @@ class Namespaces(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="getNamespace",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -951,7 +955,7 @@ class Namespaces(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="updateNamespace",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1099,7 +1103,7 @@ class Namespaces(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="updateNamespace",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1243,7 +1247,7 @@ class Namespaces(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="deleteNamespace",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1387,7 +1391,7 @@ class Namespaces(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="deleteNamespace",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

@@ -15,7 +15,7 @@ class ConflictErrorData(BaseModel):
     error: models_conflict_error.ConflictError
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class ConflictError(AgentsetError):
     r"""This response is sent when a request conflicts with the current state of the server."""
 

@@ -5,10 +5,7 @@ from .embedding_model_configoutput import (
     EmbeddingModelConfigOutput,
     EmbeddingModelConfigOutputTypedDict,
 )
-from .vector_store_configoutput import (
-    VectorStoreConfigOutput,
-    VectorStoreConfigOutputTypedDict,
-)
+from .vector_store_config import VectorStoreConfig, VectorStoreConfigTypedDict
 from agentset.types import BaseModel, Nullable, UNSET_SENTINEL
 import pydantic
 from pydantic import model_serializer
@@ -27,7 +24,7 @@ class NamespaceTypedDict(TypedDict):
     created_at: str
     r"""The date and time the namespace was created."""
     embedding_config: Nullable[EmbeddingModelConfigOutputTypedDict]
-    vector_store_config: Nullable[VectorStoreConfigOutputTypedDict]
+    vector_store_config: Nullable[VectorStoreConfigTypedDict]
 
 
 class Namespace(BaseModel):
@@ -51,7 +48,7 @@ class Namespace(BaseModel):
     ]
 
     vector_store_config: Annotated[
-        Nullable[VectorStoreConfigOutput], pydantic.Field(alias="vectorStoreConfig")
+        Nullable[VectorStoreConfig], pydantic.Field(alias="vectorStoreConfig")
     ]
 
     @model_serializer(mode="wrap")
