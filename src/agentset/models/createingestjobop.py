@@ -9,6 +9,7 @@ from agentset.utils import (
     FieldMetadata,
     HeaderMetadata,
     PathParamMetadata,
+    RequestMetadata,
     validate_const,
 )
 import pydantic
@@ -20,8 +21,9 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class CreateIngestJobGlobalsTypedDict(TypedDict):
     namespace_id: NotRequired[str]
+    r"""The id of the namespace (prefixed with ns_)"""
     x_tenant_id: NotRequired[str]
-    r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
 
 
 class CreateIngestJobGlobals(BaseModel):
@@ -30,25 +32,28 @@ class CreateIngestJobGlobals(BaseModel):
         pydantic.Field(alias="namespaceId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ] = None
+    r"""The id of the namespace (prefixed with ns_)"""
 
     x_tenant_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-tenant-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
-    r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
 
 
-class CreateIngestJobRequestTypedDict(TypedDict):
+class CreateIngestJobRequestBodyTypedDict(TypedDict):
     payload: IngestJobPayloadTypedDict
     r"""The ingest job payload."""
     name: NotRequired[Nullable[str]]
     r"""The name of the ingest job."""
     config: NotRequired[IngestJobConfigTypedDict]
     r"""The ingest job config."""
+    external_id: NotRequired[Nullable[str]]
+    r"""A unique external ID of the ingest job. You can use this to identify the ingest job in your system."""
 
 
-class CreateIngestJobRequest(BaseModel):
+class CreateIngestJobRequestBody(BaseModel):
     payload: IngestJobPayload
     r"""The ingest job payload."""
 
@@ -58,10 +63,15 @@ class CreateIngestJobRequest(BaseModel):
     config: Optional[IngestJobConfig] = None
     r"""The ingest job config."""
 
+    external_id: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="externalId")
+    ] = UNSET
+    r"""A unique external ID of the ingest job. You can use this to identify the ingest job in your system."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["name", "config"]
-        nullable_fields = ["name"]
+        optional_fields = ["name", "config", "externalId"]
+        nullable_fields = ["name", "externalId"]
         null_default_fields = []
 
         serialized = handler(self)
@@ -87,6 +97,26 @@ class CreateIngestJobRequest(BaseModel):
                 m[k] = val
 
         return m
+
+
+class CreateIngestJobRequestTypedDict(TypedDict):
+    request_body: CreateIngestJobRequestBodyTypedDict
+    x_tenant_id: NotRequired[str]
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
+
+
+class CreateIngestJobRequest(BaseModel):
+    request_body: Annotated[
+        CreateIngestJobRequestBody,
+        FieldMetadata(request=RequestMetadata(media_type="application/json")),
+    ]
+
+    x_tenant_id: Annotated[
+        Optional[str],
+        pydantic.Field(alias="x-tenant-id"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
 
 
 class CreateIngestJobResponseTypedDict(TypedDict):

@@ -17,8 +17,9 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class GetIngestJobInfoGlobalsTypedDict(TypedDict):
     namespace_id: NotRequired[str]
+    r"""The id of the namespace (prefixed with ns_)"""
     x_tenant_id: NotRequired[str]
-    r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
 
 
 class GetIngestJobInfoGlobals(BaseModel):
@@ -27,17 +28,21 @@ class GetIngestJobInfoGlobals(BaseModel):
         pydantic.Field(alias="namespaceId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ] = None
+    r"""The id of the namespace (prefixed with ns_)"""
 
     x_tenant_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-tenant-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
-    r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
 
 
 class GetIngestJobInfoRequestTypedDict(TypedDict):
     job_id: str
+    r"""The id of the job (prefixed with job_)"""
+    x_tenant_id: NotRequired[str]
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
 
 
 class GetIngestJobInfoRequest(BaseModel):
@@ -46,6 +51,14 @@ class GetIngestJobInfoRequest(BaseModel):
         pydantic.Field(alias="jobId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
+    r"""The id of the job (prefixed with job_)"""
+
+    x_tenant_id: Annotated[
+        Optional[str],
+        pydantic.Field(alias="x-tenant-id"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
 
 
 class GetIngestJobInfoResponseTypedDict(TypedDict):

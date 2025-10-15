@@ -15,7 +15,7 @@ class InviteExpiredErrorData(BaseModel):
     error: models_inviteexpired_error.InviteExpiredError
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class InviteExpiredError(AgentsetError):
     r"""This response is sent when the requested content has been permanently deleted from server, with no forwarding address."""
 

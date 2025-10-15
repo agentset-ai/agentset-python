@@ -29,3 +29,9 @@ value: models.VoyageEmbeddingConfigOutput = /* values here */
 value: models.GoogleEmbeddingConfigOutput = /* values here */
 ```
 
+### `models.EmbeddingModelConfigOutputTextEmbedding3Large`
+
+```python
+value: models.EmbeddingModelConfigOutputTextEmbedding3Large = /* values here */
+```
+

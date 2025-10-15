@@ -12,6 +12,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class UpdateNamespaceGlobalsTypedDict(TypedDict):
     namespace_id: NotRequired[str]
+    r"""The id of the namespace (prefixed with ns_)"""
 
 
 class UpdateNamespaceGlobals(BaseModel):
@@ -20,6 +21,7 @@ class UpdateNamespaceGlobals(BaseModel):
         pydantic.Field(alias="namespaceId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ] = None
+    r"""The id of the namespace (prefixed with ns_)"""
 
 
 class UpdateNamespaceRequestTypedDict(TypedDict):

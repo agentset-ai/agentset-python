@@ -17,6 +17,7 @@ import weakref
 
 if TYPE_CHECKING:
     from agentset.documents import Documents
+    from agentset.hosting_sdk import HostingSDK
     from agentset.ingestjobs import IngestJobs
     from agentset.namespaces import Namespaces
     from agentset.search import Search
@@ -31,12 +32,14 @@ class Agentset(BaseSDK):
     documents: "Documents"
     search: "Search"
     uploads: "Uploads"
+    hosting: "HostingSDK"
     _sub_sdk_map = {
         "namespaces": ("agentset.namespaces", "Namespaces"),
         "ingest_jobs": ("agentset.ingestjobs", "IngestJobs"),
         "documents": ("agentset.documents", "Documents"),
         "search": ("agentset.search", "Search"),
         "uploads": ("agentset.uploads", "Uploads"),
+        "hosting": ("agentset.hosting_sdk", "HostingSDK"),
     }
 
     def __init__(

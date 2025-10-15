@@ -6,6 +6,7 @@ from agentset.utils import (
     FieldMetadata,
     HeaderMetadata,
     PathParamMetadata,
+    RequestMetadata,
     validate_const,
 )
 import pydantic
@@ -16,8 +17,9 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class SearchGlobalsTypedDict(TypedDict):
     namespace_id: NotRequired[str]
+    r"""The id of the namespace (prefixed with ns_)"""
     x_tenant_id: NotRequired[str]
-    r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
 
 
 class SearchGlobals(BaseModel):
@@ -26,13 +28,24 @@ class SearchGlobals(BaseModel):
         pydantic.Field(alias="namespaceId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ] = None
+    r"""The id of the namespace (prefixed with ns_)"""
 
     x_tenant_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-tenant-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
-    r"""The tenant id to use for the request. If not provided, the default tenant will be used."""
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
+
+
+SearchRerankModel = Literal[
+    "cohere:rerank-v3.5",
+    "cohere:rerank-english-v3.0",
+    "cohere:rerank-multilingual-v3.0",
+    "zeroentropy:zerank-1",
+    "zeroentropy:zerank-1-small",
+]
+r"""The reranking model to use."""
 
 
 Mode = Literal[
@@ -41,7 +54,7 @@ Mode = Literal[
 ]
 
 
-class SearchRequestTypedDict(TypedDict):
+class SearchRequestBodyTypedDict(TypedDict):
     query: str
     r"""The query to search for."""
     top_k: NotRequired[float]
@@ -50,6 +63,8 @@ class SearchRequestTypedDict(TypedDict):
     r"""Whether to rerank the results. Defaults to `true`."""
     rerank_limit: NotRequired[float]
     r"""The number of results to return after reranking. Defaults to `topK`."""
+    rerank_model: NotRequired[SearchRerankModel]
+    r"""The reranking model to use."""
     filter_: NotRequired[Dict[str, Any]]
     r"""A filter to apply to the results."""
     min_score: NotRequired[float]
@@ -62,7 +77,7 @@ class SearchRequestTypedDict(TypedDict):
     mode: NotRequired[Mode]
 
 
-class SearchRequest(BaseModel):
+class SearchRequestBody(BaseModel):
     query: str
     r"""The query to search for."""
 
@@ -74,6 +89,11 @@ class SearchRequest(BaseModel):
 
     rerank_limit: Annotated[Optional[float], pydantic.Field(alias="rerankLimit")] = None
     r"""The number of results to return after reranking. Defaults to `topK`."""
+
+    rerank_model: Annotated[
+        Optional[SearchRerankModel], pydantic.Field(alias="rerankModel")
+    ] = "cohere:rerank-v3.5"
+    r"""The reranking model to use."""
 
     filter_: Annotated[Optional[Dict[str, Any]], pydantic.Field(alias="filter")] = None
     r"""A filter to apply to the results."""
@@ -96,6 +116,26 @@ class SearchRequest(BaseModel):
     )
 
     mode: Optional[Mode] = "semantic"
+
+
+class SearchRequestTypedDict(TypedDict):
+    request_body: SearchRequestBodyTypedDict
+    x_tenant_id: NotRequired[str]
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
+
+
+class SearchRequest(BaseModel):
+    request_body: Annotated[
+        SearchRequestBody,
+        FieldMetadata(request=RequestMetadata(media_type="application/json")),
+    ]
+
+    x_tenant_id: Annotated[
+        Optional[str],
+        pydantic.Field(alias="x-tenant-id"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
 
 
 class SearchMetadataTypedDict(TypedDict):

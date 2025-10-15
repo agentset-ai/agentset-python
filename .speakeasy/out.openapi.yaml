@@ -79,8 +79,8 @@ paths:
                   type: "string"
                   minLength: 2
                   maxLength: 48
-                "embeddingConfig": {"$ref": "#/components/schemas/embedding-model-config"}
-                "vectorStoreConfig": {"$ref": "#/components/schemas/vector-store-config"}
+                "embeddingConfig": {"default": {"provider": "MANAGED_OPENAI", "model": "text-embedding-3-large"}, "$ref": "#/components/schemas/embedding-model-config"}
+                "vectorStoreConfig": {"default": {"provider": "MANAGED_PINECONE"}, "$ref": "#/components/schemas/create-vector-store-config"}
               required:
                 - "name"
                 - "slug"
@@ -311,8 +311,16 @@ paths:
                         anyOf:
                           - type: "string"
                           - type: "null"
+                      "prevCursor":
+                        anyOf:
+                          - type: "string"
+                          - type: "null"
+                      "hasMore":
+                        type: "boolean"
                     required:
                       - "nextCursor"
+                      - "prevCursor"
+                      - "hasMore"
                     additionalProperties: false
                 required:
                   - "success"
@@ -356,6 +364,12 @@ paths:
                     - type: "null"
                 "payload": {"$ref": "#/components/schemas/ingest-job-payload"}
                 "config": {"$ref": "#/components/schemas/ingest-job-config"}
+                "externalId":
+                  description: "A unique external ID of the ingest job. You can use this to identify the ingest job in your system."
+                  default:
+                  anyOf:
+                    - type: "string"
+                    - type: "null"
               required:
                 - "payload"
       responses:
@@ -592,8 +606,16 @@ paths:
                         anyOf:
                           - type: "string"
                           - type: "null"
+                      "prevCursor":
+                        anyOf:
+                          - type: "string"
+                          - type: "null"
+                      "hasMore":
+                        type: "boolean"
                     required:
                       - "nextCursor"
+                      - "prevCursor"
+                      - "hasMore"
                     additionalProperties: false
                 required:
                   - "success"
@@ -729,6 +751,16 @@ paths:
                   type: "number"
                   minimum: 1
                   maximum: 100
+                "rerankModel":
+                  description: "The reranking model to use."
+                  default: "cohere:rerank-v3.5"
+                  type: "string"
+                  enum:
+                    - "cohere:rerank-v3.5"
+                    - "cohere:rerank-english-v3.0"
+                    - "cohere:rerank-multilingual-v3.0"
+                    - "zeroentropy:zerank-1"
+                    - "zeroentropy:zerank-1-small"
                 "filter":
                   description: "A filter to apply to the results."
                   type: "object"
@@ -926,6 +958,223 @@ paths:
         "422": {"$ref": "#/components/responses/422"}
         "429": {"$ref": "#/components/responses/429"}
         "500": {"$ref": "#/components/responses/500"}
+  "/v1/namespace/{namespaceId}/hosting":
+    get:
+      operationId: "getHosting"
+      x-speakeasy-name-override: "get"
+      summary: "Retrieve hosting configuration"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst hosting = await ns.hosting.get();\nconsole.log(hosting);\n"}]
+      description: "Retrieve the hosting configuration for a namespace."
+      tags:
+        - "Hosting"
+      security:
+        - token: []
+      parameters:
+        - {"$ref": "#/components/parameters/NamespaceIdRef"}
+      responses:
+        "200":
+          description: "The hosting configuration"
+          content:
+            "application/json":
+              schema:
+                type: "object"
+                properties:
+                  "success":
+                    type: "boolean"
+                    const: true
+                  "data": {"$ref": "#/components/schemas/hosting"}
+                required:
+                  - "success"
+                  - "data"
+                additionalProperties: false
+        "400": {"$ref": "#/components/responses/400"}
+        "401": {"$ref": "#/components/responses/401"}
+        "403": {"$ref": "#/components/responses/403"}
+        "404": {"$ref": "#/components/responses/404"}
+        "409": {"$ref": "#/components/responses/409"}
+        "410": {"$ref": "#/components/responses/410"}
+        "422": {"$ref": "#/components/responses/422"}
+        "429": {"$ref": "#/components/responses/429"}
+        "500": {"$ref": "#/components/responses/500"}
+    post:
+      operationId: "enableHosting"
+      x-speakeasy-name-override: "enable"
+      summary: "Enable hosting"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst hosting = await ns.hosting.enable();\nconsole.log(hosting);\n"}]
+      description: "Enable hosting for a namespace."
+      tags:
+        - "Hosting"
+      security:
+        - token: []
+      parameters:
+        - {"$ref": "#/components/parameters/NamespaceIdRef"}
+      responses:
+        "201":
+          description: "The created hosting configuration"
+          content:
+            "application/json":
+              schema:
+                type: "object"
+                properties:
+                  "success":
+                    type: "boolean"
+                    const: true
+                  "data": {"$ref": "#/components/schemas/hosting"}
+                required:
+                  - "success"
+                  - "data"
+                additionalProperties: false
+        "400": {"$ref": "#/components/responses/400"}
+        "401": {"$ref": "#/components/responses/401"}
+        "403": {"$ref": "#/components/responses/403"}
+        "404": {"$ref": "#/components/responses/404"}
+        "409": {"$ref": "#/components/responses/409"}
+        "410": {"$ref": "#/components/responses/410"}
+        "422": {"$ref": "#/components/responses/422"}
+        "429": {"$ref": "#/components/responses/429"}
+        "500": {"$ref": "#/components/responses/500"}
+    patch:
+      operationId: "updateHosting"
+      x-speakeasy-name-override: "update"
+      x-speakeasy-max-method-params: 1
+      summary: "Update hosting configuration"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst updatedHosting = await ns.hosting.update({\n  title: \"My Knowledge Base\",\n  welcomeMessage: \"Welcome to my knowledge base!\",\n  searchEnabled: true,\n});\nconsole.log(updatedHosting);\n"}]
+      description: "Update the hosting configuration for a namespace. If there is no change, return it as it is."
+      tags:
+        - "Hosting"
+      security:
+        - token: []
+      parameters:
+        - {"$ref": "#/components/parameters/NamespaceIdRef"}
+      requestBody:
+        required: true
+        content:
+          "application/json":
+            schema:
+              type: "object"
+              properties:
+                "title":
+                  type: "string"
+                  minLength: 1
+                "slug":
+                  type: "string"
+                  minLength: 2
+                  maxLength: 48
+                "logo":
+                  anyOf:
+                    - anyOf:
+                        - type: "string"
+                          pattern: "^data:image\\/(png|jpeg|jpg|gif|webp);base64,"
+                        - type: "string"
+                          format: "uri"
+                    - type: "null"
+                "protected":
+                  type: "boolean"
+                "allowedEmails":
+                  type: "array"
+                  items:
+                    type: "string"
+                    format: "email"
+                    pattern: "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+                "allowedEmailDomains":
+                  type: "array"
+                  items:
+                    type: "string"
+                "systemPrompt":
+                  type: "string"
+                "exampleQuestions":
+                  maxItems: 4
+                  type: "array"
+                  items:
+                    type: "string"
+                "exampleSearchQueries":
+                  maxItems: 4
+                  type: "array"
+                  items:
+                    type: "string"
+                "welcomeMessage":
+                  type: "string"
+                "citationMetadataPath":
+                  type: "string"
+                "searchEnabled":
+                  type: "boolean"
+                "rerankModel":
+                  type: "string"
+                  enum:
+                    - "cohere:rerank-v3.5"
+                    - "cohere:rerank-english-v3.0"
+                    - "cohere:rerank-multilingual-v3.0"
+                    - "zeroentropy:zerank-1"
+                    - "zeroentropy:zerank-1-small"
+                "llmModel":
+                  type: "string"
+                  enum:
+                    - "openai:gpt-4.1"
+                    - "openai:gpt-5"
+                    - "openai:gpt-5-mini"
+                    - "openai:gpt-5-nano"
+      responses:
+        "200":
+          description: "The updated hosting configuration"
+          content:
+            "application/json":
+              schema:
+                type: "object"
+                properties:
+                  "success":
+                    type: "boolean"
+                    const: true
+                  "data": {"$ref": "#/components/schemas/hosting"}
+                required:
+                  - "success"
+                  - "data"
+                additionalProperties: false
+        "400": {"$ref": "#/components/responses/400"}
+        "401": {"$ref": "#/components/responses/401"}
+        "403": {"$ref": "#/components/responses/403"}
+        "404": {"$ref": "#/components/responses/404"}
+        "409": {"$ref": "#/components/responses/409"}
+        "410": {"$ref": "#/components/responses/410"}
+        "422": {"$ref": "#/components/responses/422"}
+        "429": {"$ref": "#/components/responses/429"}
+        "500": {"$ref": "#/components/responses/500"}
+    delete:
+      operationId: "deleteHosting"
+      x-speakeasy-name-override: "delete"
+      summary: "Delete hosting configuration"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nawait ns.hosting.delete();\nconsole.log(\"Hosting deleted\");\n"}]
+      description: "Delete the hosting configuration for a namespace."
+      tags:
+        - "Hosting"
+      security:
+        - token: []
+      parameters:
+        - {"$ref": "#/components/parameters/NamespaceIdRef"}
+      responses:
+        "204":
+          description: "The deleted hosting configuration"
+          content:
+            "application/json":
+              schema:
+                type: "object"
+                properties:
+                  "success":
+                    type: "boolean"
+                    const: true
+                  "data": {"$ref": "#/components/schemas/hosting"}
+                required:
+                  - "success"
+                  - "data"
+                additionalProperties: false
+        "400": {"$ref": "#/components/responses/400"}
+        "401": {"$ref": "#/components/responses/401"}
+        "403": {"$ref": "#/components/responses/403"}
+        "404": {"$ref": "#/components/responses/404"}
+        "409": {"$ref": "#/components/responses/409"}
+        "410": {"$ref": "#/components/responses/410"}
+        "422": {"$ref": "#/components/responses/422"}
+        "429": {"$ref": "#/components/responses/429"}
+        "500": {"$ref": "#/components/responses/500"}
 components:
   schemas:
     "embedding-model-config":
@@ -935,14 +1184,19 @@ components:
         - {"$ref": "#/components/schemas/azure-embedding-config"}
         - {"$ref": "#/components/schemas/voyage-embedding-config"}
         - {"$ref": "#/components/schemas/google-embedding-config"}
+        - type: "object"
+          properties:
+            "provider":
+              type: "string"
+              const: "MANAGED_OPENAI"
+            "model":
+              type: "string"
+              enum:
+                - "text-embedding-3-large"
+          required:
+            - "provider"
+            - "model"
       type: "object"
-      discriminator:
-        propertyName: "provider"
-        mapping:
-          "OPENAI": "#/components/schemas/openai-embedding-config"
-          "AZURE_OPENAI": "#/components/schemas/azure-embedding-config"
-          "VOYAGE": "#/components/schemas/voyage-embedding-config"
-          "GOOGLE": "#/components/schemas/google-embedding-config"
     "openai-embedding-config":
       title: "OpenAI Embedding Config"
       type: "object"
@@ -1035,15 +1289,26 @@ components:
       type: "string"
       enum:
         - "text-embedding-004"
-    "vector-store-config":
-      description: "The vector store config. If not provided, our managed vector store will be used. Note: You can't change the vector store config after the namespace is created."
+    "create-vector-store-config":
+      description: "The vector store config. If not provided, our MANAGED_PINECONE vector store will be used. Note: You can't change the vector store config after the namespace is created."
       oneOf:
+        - type: "object"
+          properties:
+            "provider":
+              type: "string"
+              const: "MANAGED_PINECONE"
+          required:
+            - "provider"
+        - type: "object"
+          properties:
+            "provider":
+              type: "string"
+              const: "MANAGED_TURBOPUFFER"
+          required:
+            - "provider"
         - {"$ref": "#/components/schemas/pinecone-config"}
+        - {"$ref": "#/components/schemas/turbopuffer-config"}
       type: "object"
-      discriminator:
-        propertyName: "provider"
-        mapping:
-          "PINECONE": "#/components/schemas/pinecone-config"
     "pinecone-config":
       title: "Pinecone Config"
       type: "object"
@@ -1063,6 +1328,39 @@ components:
         - "provider"
         - "apiKey"
         - "indexHost"
+    "turbopuffer-config":
+      title: "Turbopuffer Config"
+      type: "object"
+      properties:
+        "provider":
+          type: "string"
+          const: "TURBOPUFFER"
+        "apiKey":
+          description: "The API key for the Turbopuffer index."
+          type: "string"
+        "region": {"$ref": "#/components/schemas/turbopuffer-region-enum"}
+      required:
+        - "provider"
+        - "apiKey"
+        - "region"
+    "turbopuffer-region-enum":
+      description: "The region for the Turbopuffer index. Check https://turbopuffer.com/docs/regions"
+      type: "string"
+      enum:
+        - "gcp-us-central1"
+        - "gcp-us-west1"
+        - "gcp-us-east4"
+        - "gcp-northamerica-northeast2"
+        - "gcp-europe-west3"
+        - "gcp-asia-southeast1"
+        - "gcp-gcp-asia-northeast3"
+        - "aws-eu-central-1"
+        - "aws-eu-west-1"
+        - "aws-us-east-1"
+        - "aws-us-west-2"
+        - "aws-ap-southeast-2"
+        - "aws-us-east-2"
+        - "aws-ap-south-1"
     "ingest-job-status":
       description: "The status of the ingest job."
       type: "string"
@@ -1320,7 +1618,7 @@ components:
         "vectorStoreConfig":
           default:
           anyOf:
-            - {"$ref": "#/components/schemas/vector-store-configOutput"}
+            - {"$ref": "#/components/schemas/vector-store-config"}
             - type: "null"
       required:
         - "id"
@@ -1331,6 +1629,36 @@ components:
         - "embeddingConfig"
         - "vectorStoreConfig"
       additionalProperties: false
+    "vector-store-config":
+      description: "The vector store config."
+      oneOf:
+        - type: "object"
+          properties:
+            "provider":
+              type: "string"
+              const: "MANAGED_PINECONE_OLD"
+          required:
+            - "provider"
+          additionalProperties: false
+        - type: "object"
+          properties:
+            "provider":
+              type: "string"
+              const: "MANAGED_PINECONE"
+          required:
+            - "provider"
+          additionalProperties: false
+        - type: "object"
+          properties:
+            "provider":
+              type: "string"
+              const: "MANAGED_TURBOPUFFER"
+          required:
+            - "provider"
+          additionalProperties: false
+        - {"$ref": "#/components/schemas/pinecone-configOutput"}
+        - {"$ref": "#/components/schemas/turbopuffer-configOutput"}
+      type: "object"
     "ingest-job":
       title: "Ingest Job"
       type: "object"
@@ -1348,6 +1676,12 @@ components:
           type: "string"
         "tenantId":
           description: "The tenant ID of the ingest job."
+          default:
+          anyOf:
+            - type: "string"
+            - type: "null"
+        "externalId":
+          description: "A unique external ID of the ingest job. You can use this to identify the ingest job in your system."
           default:
           anyOf:
             - type: "string"
@@ -1402,6 +1736,7 @@ components:
         - "id"
         - "namespaceId"
         - "tenantId"
+        - "externalId"
         - "status"
         - "error"
         - "payload"
@@ -1423,12 +1758,6 @@ components:
         "ingestJobId":
           description: "The ingest job ID of the document."
           type: "string"
-        "externalId":
-          description: "A unique external ID."
-          default:
-          anyOf:
-            - type: "string"
-            - type: "null"
         "name":
           description: "The name of the document."
           default:
@@ -1556,7 +1885,6 @@ components:
       required:
         - "id"
         - "ingestJobId"
-        - "externalId"
         - "name"
         - "tenantId"
         - "status"
@@ -1589,6 +1917,141 @@ components:
         - "url"
         - "key"
       additionalProperties: false
+    "hosting":
+      title: "Hosting"
+      type: "object"
+      properties:
+        "namespaceId":
+          description: "The ID of the namespace this hosting belongs to."
+          type: "string"
+        "title":
+          description: "The title displayed on the hosted interface."
+          default:
+          anyOf:
+            - type: "string"
+            - type: "null"
+        "slug":
+          description: "The unique slug for accessing the hosted interface."
+          default:
+          anyOf:
+            - type: "string"
+            - type: "null"
+        "logo":
+          description: "The URL or base64 encoded image of the logo."
+          default:
+          anyOf:
+            - type: "string"
+            - type: "null"
+        "systemPrompt":
+          description: "The system prompt used for the chat interface."
+          default:
+          anyOf:
+            - type: "string"
+            - type: "null"
+        "exampleQuestions":
+          description: "Example questions to display to users in the chat interface."
+          default: []
+          type: "array"
+          items:
+            type: "string"
+        "exampleSearchQueries":
+          description: "Example search queries to display to users in the search interface."
+          default: []
+          type: "array"
+          items:
+            type: "string"
+        "welcomeMessage":
+          description: "Welcome message displayed to users."
+          default:
+          anyOf:
+            - type: "string"
+            - type: "null"
+        "citationMetadataPath":
+          description: "Path to metadata field used for citations."
+          default:
+          anyOf:
+            - type: "string"
+            - type: "null"
+        "searchEnabled":
+          description: "Whether search functionality is enabled."
+          default: true
+          type: "boolean"
+        "rerankConfig":
+          description: "Configuration for the reranking model."
+          default:
+          anyOf:
+            - type: "object"
+              properties:
+                "model":
+                  type: "string"
+                  enum:
+                    - "cohere:rerank-v3.5"
+                    - "cohere:rerank-english-v3.0"
+                    - "cohere:rerank-multilingual-v3.0"
+                    - "zeroentropy:zerank-1"
+                    - "zeroentropy:zerank-1-small"
+              required:
+                - "model"
+              additionalProperties: false
+            - type: "null"
+        "llmConfig":
+          description: "Configuration for the LLM model."
+          default:
+          anyOf:
+            - type: "object"
+              properties:
+                "model":
+                  type: "string"
+                  enum:
+                    - "openai:gpt-4.1"
+                    - "openai:gpt-5"
+                    - "openai:gpt-5-mini"
+                    - "openai:gpt-5-nano"
+              required:
+                - "model"
+              additionalProperties: false
+            - type: "null"
+        "protected":
+          description: "Whether the hosted interface is protected by authentication."
+          default: true
+          type: "boolean"
+        "allowedEmails":
+          description: "List of allowed email addresses (when protected is true)."
+          default: []
+          type: "array"
+          items:
+            type: "string"
+        "allowedEmailDomains":
+          description: "List of allowed email domains (when protected is true)."
+          default: []
+          type: "array"
+          items:
+            type: "string"
+        "createdAt":
+          description: "The date and time the hosting was created."
+          type: "string"
+        "updatedAt":
+          description: "The date and time the hosting was last updated."
+          type: "string"
+      required:
+        - "namespaceId"
+        - "title"
+        - "slug"
+        - "logo"
+        - "systemPrompt"
+        - "exampleQuestions"
+        - "exampleSearchQueries"
+        - "welcomeMessage"
+        - "citationMetadataPath"
+        - "searchEnabled"
+        - "rerankConfig"
+        - "llmConfig"
+        - "protected"
+        - "allowedEmails"
+        - "allowedEmailDomains"
+        - "createdAt"
+        - "updatedAt"
+      additionalProperties: false
     "embedding-model-configOutput":
       description: "The embedding model config. If not provided, our managed embedding model will be used. Note: You can't change the embedding model config after the namespace is created."
       oneOf:
@@ -1596,14 +2059,20 @@ components:
         - {"$ref": "#/components/schemas/azure-embedding-configOutput"}
         - {"$ref": "#/components/schemas/voyage-embedding-configOutput"}
         - {"$ref": "#/components/schemas/google-embedding-configOutput"}
+        - type: "object"
+          properties:
+            "provider":
+              type: "string"
+              const: "MANAGED_OPENAI"
+            "model":
+              type: "string"
+              enum:
+                - "text-embedding-3-large"
+          required:
+            - "provider"
+            - "model"
+          additionalProperties: false
       type: "object"
-      discriminator:
-        propertyName: "provider"
-        mapping:
-          "OPENAI": "#/components/schemas/openai-embedding-configOutput"
-          "AZURE_OPENAI": "#/components/schemas/azure-embedding-configOutput"
-          "VOYAGE": "#/components/schemas/voyage-embedding-configOutput"
-          "GOOGLE": "#/components/schemas/google-embedding-configOutput"
     "openai-embedding-configOutput":
       title: "OpenAI Embedding Config"
       type: "object"
@@ -1680,15 +2149,6 @@ components:
         - "model"
         - "apiKey"
       additionalProperties: false
-    "vector-store-configOutput":
-      description: "The vector store config. If not provided, our managed vector store will be used. Note: You can't change the vector store config after the namespace is created."
-      oneOf:
-        - {"$ref": "#/components/schemas/pinecone-configOutput"}
-      type: "object"
-      discriminator:
-        propertyName: "provider"
-        mapping:
-          "PINECONE": "#/components/schemas/pinecone-configOutput"
     "pinecone-configOutput":
       title: "Pinecone Config"
       type: "object"
@@ -1708,6 +2168,22 @@ components:
         - "provider"
         - "apiKey"
         - "indexHost"
+      additionalProperties: false
+    "turbopuffer-configOutput":
+      title: "Turbopuffer Config"
+      type: "object"
+      properties:
+        "provider":
+          type: "string"
+          const: "TURBOPUFFER"
+        "apiKey":
+          description: "The API key for the Turbopuffer index."
+          type: "string"
+        "region": {"$ref": "#/components/schemas/turbopuffer-region-enum"}
+      required:
+        - "provider"
+        - "apiKey"
+        - "region"
       additionalProperties: false
     "ingest-job-payloadOutput":
       description: "The ingest job payload."
@@ -2201,33 +2677,39 @@ components:
       schema:
         examples:
           - "ns_123"
+        description: "The id of the namespace (prefixed with ns_)"
         type: "string"
       x-speakeasy-globals-hidden: true
       required: true
+      description: "The id of the namespace (prefixed with ns_)"
     "TenantIdRef":
       in: "header"
       name: "x-tenant-id"
       schema:
-        description: "The tenant id to use for the request. If not provided, the default tenant will be used."
+        description: "Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."
         type: "string"
-      x-speakeasy-globals-hidden: true
-      description: "The tenant id to use for the request. If not provided, the default tenant will be used."
+        pattern: "^[A-Za-z0-9]{1,64}$"
+      description: "Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."
     "JobIdRef":
       in: "path"
       name: "jobId"
       schema:
         examples:
           - "job_123"
+        description: "The id of the job (prefixed with job_)"
         type: "string"
       required: true
+      description: "The id of the job (prefixed with job_)"
     "DocumentIdRef":
       in: "path"
       name: "documentId"
       schema:
         examples:
           - "doc_123"
+        description: "The id of the document (prefixed with doc_)"
         type: "string"
       required: true
+      description: "The id of the document (prefixed with doc_)"
   securitySchemes:
     "token":
       type: "http"

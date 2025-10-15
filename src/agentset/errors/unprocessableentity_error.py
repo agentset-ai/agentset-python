@@ -17,7 +17,7 @@ class UnprocessableEntityErrorData(BaseModel):
     error: models_unprocessableentity_error.UnprocessableEntityError
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class UnprocessableEntityError(AgentsetError):
     r"""The request was well-formed but was unable to be followed due to semantic errors."""
 

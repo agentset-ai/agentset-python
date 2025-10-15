@@ -15,7 +15,7 @@ class RateLimitExceededErrorData(BaseModel):
     error: models_ratelimitexceeded_error.RateLimitExceededError
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class RateLimitExceededError(AgentsetError):
     r"""The user has sent too many requests in a given amount of time (\"rate limiting\")"""
 

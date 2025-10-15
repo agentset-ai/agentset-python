@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from agentset.errors import AgentsetError
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class ResponseValidationError(AgentsetError):
     """Error raised when there is a type mismatch between the response data and the expected Pydantic model."""
 

@@ -15,7 +15,7 @@ class InternalServerErrorData(BaseModel):
     error: models_internalservererror.InternalServerErrorError
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class InternalServerError(AgentsetError):
     r"""The server has encountered a situation it does not know how to handle."""
 
