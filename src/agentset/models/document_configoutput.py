@@ -9,17 +9,17 @@ from typing import Dict, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
-IngestJobConfigOutputMetadataTypedDict = TypeAliasType(
-    "IngestJobConfigOutputMetadataTypedDict", Union[str, float, bool]
+DocumentConfigOutputMetadataTypedDict = TypeAliasType(
+    "DocumentConfigOutputMetadataTypedDict", Union[str, float, bool]
 )
 
 
-IngestJobConfigOutputMetadata = TypeAliasType(
-    "IngestJobConfigOutputMetadata", Union[str, float, bool]
+DocumentConfigOutputMetadata = TypeAliasType(
+    "DocumentConfigOutputMetadata", Union[str, float, bool]
 )
 
 
-class IngestJobConfigOutputTypedDict(TypedDict):
+class DocumentConfigOutputTypedDict(TypedDict):
     r"""The ingest job config."""
 
     chunk_size: NotRequired[float]
@@ -28,7 +28,7 @@ class IngestJobConfigOutputTypedDict(TypedDict):
     r"""Hard chunk size."""
     chunk_overlap: NotRequired[float]
     r"""Custom chunk overlap."""
-    metadata: NotRequired[Dict[str, IngestJobConfigOutputMetadataTypedDict]]
+    metadata: NotRequired[Dict[str, DocumentConfigOutputMetadataTypedDict]]
     r"""Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."""
     chunking_strategy: NotRequired[ChunkingStrategy]
     r"""The chunking strategy to use. Defaults to `basic`."""
@@ -36,7 +36,7 @@ class IngestJobConfigOutputTypedDict(TypedDict):
     r"""The strategy to use. Defaults to `auto`."""
 
 
-class IngestJobConfigOutput(BaseModel):
+class DocumentConfigOutput(BaseModel):
     r"""The ingest job config."""
 
     chunk_size: Annotated[Optional[float], pydantic.Field(alias="chunkSize")] = None
@@ -52,7 +52,7 @@ class IngestJobConfigOutput(BaseModel):
     )
     r"""Custom chunk overlap."""
 
-    metadata: Optional[Dict[str, IngestJobConfigOutputMetadata]] = None
+    metadata: Optional[Dict[str, DocumentConfigOutputMetadata]] = None
     r"""Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."""
 
     chunking_strategy: Annotated[

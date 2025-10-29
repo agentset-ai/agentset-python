@@ -233,6 +233,10 @@ with Agentset(
 * [delete](docs/sdks/ingestjobs/README.md#delete) - Delete an ingest job
 * [re_ingest](docs/sdks/ingestjobs/README.md#re_ingest) - Re-ingest a job
 
+### [namespace](docs/sdks/namespacesdk/README.md)
+
+* [warm_up](docs/sdks/namespacesdk/README.md#warm_up) - Warm cache for a namespace
+
 ### [namespaces](docs/sdks/namespaces/README.md)
 
 * [list](docs/sdks/namespaces/README.md#list) - Retrieve a list of namespaces

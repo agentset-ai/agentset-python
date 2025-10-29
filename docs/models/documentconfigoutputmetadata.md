@@ -1,4 +1,4 @@
-# IngestJobConfigOutputMetadata
+# DocumentConfigOutputMetadata
 
 
 ## Supported Types
