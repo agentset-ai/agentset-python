@@ -19,6 +19,7 @@ if TYPE_CHECKING:
     from agentset.documents import Documents
     from agentset.hosting_sdk import HostingSDK
     from agentset.ingestjobs import IngestJobs
+    from agentset.namespace_sdk import NamespaceSDK
     from agentset.namespaces import Namespaces
     from agentset.search import Search
     from agentset.uploads import Uploads
@@ -33,6 +34,7 @@ class Agentset(BaseSDK):
     search: "Search"
     uploads: "Uploads"
     hosting: "HostingSDK"
+    namespace: "NamespaceSDK"
     _sub_sdk_map = {
         "namespaces": ("agentset.namespaces", "Namespaces"),
         "ingest_jobs": ("agentset.ingestjobs", "IngestJobs"),
@@ -40,6 +42,7 @@ class Agentset(BaseSDK):
         "search": ("agentset.search", "Search"),
         "uploads": ("agentset.uploads", "Uploads"),
         "hosting": ("agentset.hosting_sdk", "HostingSDK"),
+        "namespace": ("agentset.namespace_sdk", "NamespaceSDK"),
     }
 
     def __init__(

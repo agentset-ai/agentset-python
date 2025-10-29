@@ -1175,6 +1175,53 @@ paths:
         "422": {"$ref": "#/components/responses/422"}
         "429": {"$ref": "#/components/responses/429"}
         "500": {"$ref": "#/components/responses/500"}
+  "/v1/namespace/{namespaceId}/warm-up":
+    post:
+      operationId: "warmUp"
+      x-speakeasy-name-override: "warmUp"
+      x-speakeasy-group: "namespace"
+      summary: "Warm cache for a namespace"
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nawait ns.warmUp();\nconsole.log(\"Cache warmed successfully\");\n"}]
+      description: "Pre-loads the namespace into the vector store's cache for faster query performance. Not all vector stores support this operation. Currently only Turbopuffer supports this operation."
+      tags:
+        - "Namespaces"
+      security:
+        - token: []
+      parameters:
+        - {"$ref": "#/components/parameters/NamespaceIdRef"}
+        - {"$ref": "#/components/parameters/TenantIdRef"}
+      responses:
+        "200":
+          description: "Cache warming started"
+          content:
+            "application/json":
+              schema:
+                type: "object"
+                properties:
+                  "success":
+                    type: "boolean"
+                    const: true
+                  "data":
+                    type: "object"
+                    properties:
+                      "status":
+                        type: "boolean"
+                    required:
+                      - "status"
+                    additionalProperties: false
+                required:
+                  - "success"
+                  - "data"
+                additionalProperties: false
+        "400": {"$ref": "#/components/responses/400"}
+        "401": {"$ref": "#/components/responses/401"}
+        "403": {"$ref": "#/components/responses/403"}
+        "404": {"$ref": "#/components/responses/404"}
+        "409": {"$ref": "#/components/responses/409"}
+        "410": {"$ref": "#/components/responses/410"}
+        "422": {"$ref": "#/components/responses/422"}
+        "429": {"$ref": "#/components/responses/429"}
+        "500": {"$ref": "#/components/responses/500"}
 components:
   schemas:
     "embedding-model-config":
@@ -1410,6 +1457,7 @@ components:
         "text":
           description: "The text to ingest."
           type: "string"
+          minLength: 1
         "fileName":
           anyOf:
             - description: "The name of the file."
@@ -1428,6 +1476,7 @@ components:
         "fileUrl":
           description: "The URL of the file to ingest."
           type: "string"
+          format: "uri"
         "fileName":
           anyOf:
             - description: "The name of the file."
@@ -1474,12 +1523,13 @@ components:
                   "text":
                     description: "The text to ingest."
                     type: "string"
+                    minLength: 1
                   "fileName":
                     anyOf:
                       - description: "The name of the file."
                         type: "string"
                       - type: "null"
-                  "config": {"$ref": "#/components/schemas/ingest-job-config"}
+                  "config": {"$ref": "#/components/schemas/document-config"}
                 required:
                   - "type"
                   - "text"
@@ -1491,12 +1541,13 @@ components:
                   "fileUrl":
                     description: "The URL of the file to ingest."
                     type: "string"
+                    format: "uri"
                   "fileName":
                     anyOf:
                       - description: "The name of the file."
                         type: "string"
                       - type: "null"
-                  "config": {"$ref": "#/components/schemas/ingest-job-config"}
+                  "config": {"$ref": "#/components/schemas/document-config"}
                 required:
                   - "type"
                   - "fileUrl"
@@ -1513,7 +1564,7 @@ components:
                       - description: "The name of the file."
                         type: "string"
                       - type: "null"
-                  "config": {"$ref": "#/components/schemas/ingest-job-config"}
+                  "config": {"$ref": "#/components/schemas/document-config"}
                 required:
                   - "type"
                   - "key"
@@ -1521,6 +1572,7 @@ components:
       required:
         - "type"
         - "items"
+    "document-config": {"description": "The document config.", "$ref": "#/components/schemas/ingest-job-config"}
     "ingest-job-config":
       description: "The ingest job config."
       type: "object"
@@ -1788,6 +1840,7 @@ components:
                 "text":
                   description: "The text to ingest."
                   type: "string"
+                  minLength: 1
               required:
                 - "type"
                 - "text"
@@ -1800,6 +1853,7 @@ components:
                 "fileUrl":
                   description: "The URL of the file to ingest."
                   type: "string"
+                  format: "uri"
               required:
                 - "type"
                 - "fileUrl"
@@ -1836,6 +1890,11 @@ components:
                 - "fileSize"
                 - "mimeType"
               additionalProperties: false
+            - type: "null"
+        "config":
+          default:
+          anyOf:
+            - {"$ref": "#/components/schemas/document-configOutput"}
             - type: "null"
         "totalChunks":
           description: "The total number of chunks."
@@ -1891,6 +1950,7 @@ components:
         - "error"
         - "source"
         - "properties"
+        - "config"
         - "totalChunks"
         - "totalTokens"
         - "totalCharacters"
@@ -2210,6 +2270,7 @@ components:
         "text":
           description: "The text to ingest."
           type: "string"
+          minLength: 1
         "fileName":
           anyOf:
             - description: "The name of the file."
@@ -2229,6 +2290,7 @@ components:
         "fileUrl":
           description: "The URL of the file to ingest."
           type: "string"
+          format: "uri"
         "fileName":
           anyOf:
             - description: "The name of the file."
@@ -2277,12 +2339,13 @@ components:
                   "text":
                     description: "The text to ingest."
                     type: "string"
+                    minLength: 1
                   "fileName":
                     anyOf:
                       - description: "The name of the file."
                         type: "string"
                       - type: "null"
-                  "config": {"$ref": "#/components/schemas/ingest-job-configOutput"}
+                  "config": {"$ref": "#/components/schemas/document-configOutput"}
                 required:
                   - "type"
                   - "text"
@@ -2295,12 +2358,13 @@ components:
                   "fileUrl":
                     description: "The URL of the file to ingest."
                     type: "string"
+                    format: "uri"
                   "fileName":
                     anyOf:
                       - description: "The name of the file."
                         type: "string"
                       - type: "null"
-                  "config": {"$ref": "#/components/schemas/ingest-job-configOutput"}
+                  "config": {"$ref": "#/components/schemas/document-configOutput"}
                 required:
                   - "type"
                   - "fileUrl"
@@ -2318,7 +2382,7 @@ components:
                       - description: "The name of the file."
                         type: "string"
                       - type: "null"
-                  "config": {"$ref": "#/components/schemas/ingest-job-configOutput"}
+                  "config": {"$ref": "#/components/schemas/document-configOutput"}
                 required:
                   - "type"
                   - "key"
@@ -2328,6 +2392,7 @@ components:
         - "type"
         - "items"
       additionalProperties: false
+    "document-configOutput": {"description": "The document config.", "$ref": "#/components/schemas/ingest-job-configOutput"}
     "ingest-job-configOutput":
       description: "The ingest job config."
       type: "object"

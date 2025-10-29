@@ -129,6 +129,12 @@ if TYPE_CHECKING:
         SourceTextTypedDict,
         SourceTypedDict,
     )
+    from .document_configoutput import (
+        DocumentConfigOutput,
+        DocumentConfigOutputMetadata,
+        DocumentConfigOutputMetadataTypedDict,
+        DocumentConfigOutputTypedDict,
+    )
     from .document_status import DocumentStatus
     from .embedding_model_config import (
         EmbeddingModelConfig,
@@ -212,12 +218,6 @@ if TYPE_CHECKING:
         IngestJobConfigMetadata,
         IngestJobConfigMetadataTypedDict,
         IngestJobConfigTypedDict,
-    )
-    from .ingest_job_configoutput import (
-        IngestJobConfigOutput,
-        IngestJobConfigOutputMetadata,
-        IngestJobConfigOutputMetadataTypedDict,
-        IngestJobConfigOutputTypedDict,
     )
     from .ingest_job_payload import IngestJobPayload, IngestJobPayloadTypedDict
     from .ingest_job_payloadoutput import (
@@ -379,6 +379,16 @@ if TYPE_CHECKING:
         VoyageEmbeddingConfigOutputTypedDict,
     )
     from .voyage_embedding_model_enum import VoyageEmbeddingModelEnum
+    from .warmupop import (
+        WarmUpData,
+        WarmUpDataTypedDict,
+        WarmUpGlobals,
+        WarmUpGlobalsTypedDict,
+        WarmUpRequest,
+        WarmUpRequestTypedDict,
+        WarmUpResponse,
+        WarmUpResponseTypedDict,
+    )
 
 __all__ = [
     "AzureEmbeddingConfig",
@@ -465,6 +475,10 @@ __all__ = [
     "DeleteNamespaceResponse",
     "DeleteNamespaceResponseTypedDict",
     "Document",
+    "DocumentConfigOutput",
+    "DocumentConfigOutputMetadata",
+    "DocumentConfigOutputMetadataTypedDict",
+    "DocumentConfigOutputTypedDict",
     "DocumentStatus",
     "DocumentTypedDict",
     "EmbeddingModelConfig",
@@ -525,10 +539,6 @@ __all__ = [
     "IngestJobConfig",
     "IngestJobConfigMetadata",
     "IngestJobConfigMetadataTypedDict",
-    "IngestJobConfigOutput",
-    "IngestJobConfigOutputMetadata",
-    "IngestJobConfigOutputMetadataTypedDict",
-    "IngestJobConfigOutputTypedDict",
     "IngestJobConfigTypedDict",
     "IngestJobPayload",
     "IngestJobPayloadOutput",
@@ -677,6 +687,14 @@ __all__ = [
     "VoyageEmbeddingConfigOutputTypedDict",
     "VoyageEmbeddingConfigTypedDict",
     "VoyageEmbeddingModelEnum",
+    "WarmUpData",
+    "WarmUpDataTypedDict",
+    "WarmUpGlobals",
+    "WarmUpGlobalsTypedDict",
+    "WarmUpRequest",
+    "WarmUpRequestTypedDict",
+    "WarmUpResponse",
+    "WarmUpResponseTypedDict",
 ]
 
 _dynamic_imports: dict[str, str] = {
@@ -775,6 +793,10 @@ _dynamic_imports: dict[str, str] = {
     "SourceText": ".document",
     "SourceTextTypedDict": ".document",
     "SourceTypedDict": ".document",
+    "DocumentConfigOutput": ".document_configoutput",
+    "DocumentConfigOutputMetadata": ".document_configoutput",
+    "DocumentConfigOutputMetadataTypedDict": ".document_configoutput",
+    "DocumentConfigOutputTypedDict": ".document_configoutput",
     "DocumentStatus": ".document_status",
     "EmbeddingModelConfig": ".embedding_model_config",
     "EmbeddingModelConfigModel": ".embedding_model_config",
@@ -842,10 +864,6 @@ _dynamic_imports: dict[str, str] = {
     "IngestJobConfigMetadata": ".ingest_job_config",
     "IngestJobConfigMetadataTypedDict": ".ingest_job_config",
     "IngestJobConfigTypedDict": ".ingest_job_config",
-    "IngestJobConfigOutput": ".ingest_job_configoutput",
-    "IngestJobConfigOutputMetadata": ".ingest_job_configoutput",
-    "IngestJobConfigOutputMetadataTypedDict": ".ingest_job_configoutput",
-    "IngestJobConfigOutputTypedDict": ".ingest_job_configoutput",
     "IngestJobPayload": ".ingest_job_payload",
     "IngestJobPayloadTypedDict": ".ingest_job_payload",
     "IngestJobPayloadOutput": ".ingest_job_payloadoutput",
@@ -976,6 +994,14 @@ _dynamic_imports: dict[str, str] = {
     "VoyageEmbeddingConfigOutput": ".voyage_embedding_configoutput",
     "VoyageEmbeddingConfigOutputTypedDict": ".voyage_embedding_configoutput",
     "VoyageEmbeddingModelEnum": ".voyage_embedding_model_enum",
+    "WarmUpData": ".warmupop",
+    "WarmUpDataTypedDict": ".warmupop",
+    "WarmUpGlobals": ".warmupop",
+    "WarmUpGlobalsTypedDict": ".warmupop",
+    "WarmUpRequest": ".warmupop",
+    "WarmUpRequestTypedDict": ".warmupop",
+    "WarmUpResponse": ".warmupop",
+    "WarmUpResponseTypedDict": ".warmupop",
 }
 
 

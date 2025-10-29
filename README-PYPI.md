@@ -233,6 +233,10 @@ with Agentset(
 * [delete](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/ingestjobs/README.md#delete) - Delete an ingest job
 * [re_ingest](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/ingestjobs/README.md#re_ingest) - Re-ingest a job
 
+### [namespace](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespacesdk/README.md)
+
+* [warm_up](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespacesdk/README.md#warm_up) - Warm cache for a namespace
+
 ### [namespaces](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespaces/README.md)
 
 * [list](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespaces/README.md#list) - Retrieve a list of namespaces

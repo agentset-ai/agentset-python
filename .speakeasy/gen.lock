@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 465adc89-13a8-4359-8d95-e3589d612ccc
 management:
-  docChecksum: 846f1eaf98a95e5e7f6132ef8dcb8e09
+  docChecksum: ac1cb860df2594590b6c4e4aad4809d3
   docVersion: 0.0.1
-  speakeasyVersion: 1.636.3
-  generationVersion: 2.723.11
-  releaseVersion: 0.4.0
-  configChecksum: 262050d23391b93ece114beb35fa8cad
+  speakeasyVersion: 1.642.2
+  generationVersion: 2.731.6
+  releaseVersion: 0.5.0
+  configChecksum: 81a256d2452e69a2c8e67344247ee29a
   repoURL: https://github.com/agentset-ai/agentset-python.git
   installationURL: https://github.com/agentset-ai/agentset-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.22.1
+    core: 5.23.0
     defaultEnabledRetries: 0.2.0
     devContainers: 3.0.0
     enumUnions: 0.1.0
@@ -98,6 +98,8 @@ generatedFiles:
   - docs/models/deletenamespacerequest.md
   - docs/models/deletenamespaceresponse.md
   - docs/models/document.md
+  - docs/models/documentconfigoutput.md
+  - docs/models/documentconfigoutputmetadata.md
   - docs/models/documentstatus.md
   - docs/models/embeddingmodelconfig.md
   - docs/models/embeddingmodelconfigmodel.md
@@ -131,8 +133,6 @@ generatedFiles:
   - docs/models/ingestjob.md
   - docs/models/ingestjobconfig.md
   - docs/models/ingestjobconfigmetadata.md
-  - docs/models/ingestjobconfigoutput.md
-  - docs/models/ingestjobconfigoutputmetadata.md
   - docs/models/ingestjobpayload.md
   - docs/models/ingestjobpayloadoutput.md
   - docs/models/ingestjobstatus.md
@@ -219,10 +219,15 @@ generatedFiles:
   - docs/models/voyageembeddingconfig.md
   - docs/models/voyageembeddingconfigoutput.md
   - docs/models/voyageembeddingmodelenum.md
+  - docs/models/warmupdata.md
+  - docs/models/warmupglobals.md
+  - docs/models/warmuprequest.md
+  - docs/models/warmupresponse.md
   - docs/sdks/documents/README.md
   - docs/sdks/hostingsdk/README.md
   - docs/sdks/ingestjobs/README.md
   - docs/sdks/namespaces/README.md
+  - docs/sdks/namespacesdk/README.md
   - docs/sdks/search/README.md
   - docs/sdks/uploads/README.md
   - py.typed
@@ -272,6 +277,7 @@ generatedFiles:
   - src/agentset/models/deleteingestjobop.py
   - src/agentset/models/deletenamespaceop.py
   - src/agentset/models/document.py
+  - src/agentset/models/document_configoutput.py
   - src/agentset/models/document_status.py
   - src/agentset/models/embedding_model_config.py
   - src/agentset/models/embedding_model_configoutput.py
@@ -289,7 +295,6 @@ generatedFiles:
   - src/agentset/models/hosting.py
   - src/agentset/models/ingest_job.py
   - src/agentset/models/ingest_job_config.py
-  - src/agentset/models/ingest_job_configoutput.py
   - src/agentset/models/ingest_job_payload.py
   - src/agentset/models/ingest_job_payloadoutput.py
   - src/agentset/models/ingest_job_status.py
@@ -330,6 +335,8 @@ generatedFiles:
   - src/agentset/models/voyage_embedding_config.py
   - src/agentset/models/voyage_embedding_configoutput.py
   - src/agentset/models/voyage_embedding_model_enum.py
+  - src/agentset/models/warmupop.py
+  - src/agentset/namespace_sdk.py
   - src/agentset/namespaces.py
   - src/agentset/py.typed
   - src/agentset/sdk.py
@@ -663,7 +670,7 @@ examples:
           documentId: "doc_123"
       responses:
         "200":
-          application/json: {"success": true, "data": {"id": "<id>", "ingestJobId": "<id>", "name": "<value>", "tenantId": "<id>", "status": "BACKLOG", "error": "<value>", "source": {"type": "FILE", "fileUrl": "https://numb-recommendation.biz/"}, "properties": null, "totalChunks": 4353.22, "totalTokens": 8030.56, "totalCharacters": 2459.79, "totalPages": 9368.77, "createdAt": "1716398821477", "queuedAt": null, "preProcessingAt": "<value>", "processingAt": "<value>", "completedAt": "<value>", "failedAt": "<value>"}}
+          application/json: {"success": true, "data": {"id": "<id>", "ingestJobId": "<id>", "name": "<value>", "tenantId": "<id>", "status": "BACKLOG", "error": "<value>", "source": {"type": "FILE", "fileUrl": "https://numb-recommendation.biz/"}, "properties": null, "config": {}, "totalChunks": 4353.22, "totalTokens": 8030.56, "totalCharacters": 2459.79, "totalPages": 9368.77, "createdAt": "1716398821477", "queuedAt": null, "preProcessingAt": "<value>", "processingAt": "<value>", "completedAt": "<value>", "failedAt": "<value>"}}
         "400":
           application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
         "401":
@@ -690,7 +697,7 @@ examples:
           documentId: "doc_123"
       responses:
         "204":
-          application/json: {"success": true, "data": {"id": "<id>", "ingestJobId": "<id>", "name": "<value>", "tenantId": "<id>", "status": "CANCELLED", "error": "<value>", "source": {"type": "TEXT", "text": "<value>"}, "properties": {"fileSize": 7713.27, "mimeType": "<value>"}, "totalChunks": 7312.91, "totalTokens": 4758.72, "totalCharacters": 919.44, "totalPages": 5958.13, "createdAt": "1728032445499", "queuedAt": "<value>", "preProcessingAt": "<value>", "processingAt": "<value>", "completedAt": "<value>", "failedAt": "<value>"}}
+          application/json: {"success": true, "data": {"id": "<id>", "ingestJobId": "<id>", "name": "<value>", "tenantId": "<id>", "status": "CANCELLED", "error": "<value>", "source": {"type": "TEXT", "text": "<value>"}, "properties": {"fileSize": 7713.27, "mimeType": "<value>"}, "config": {}, "totalChunks": 7312.91, "totalTokens": 4758.72, "totalCharacters": 919.44, "totalPages": 5958.13, "createdAt": "1728032445499", "queuedAt": "<value>", "preProcessingAt": "<value>", "processingAt": "<value>", "completedAt": "<value>", "failedAt": "<value>"}}
         "400":
           application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
         "401":
@@ -899,5 +906,36 @@ examples:
           application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
         "500":
           application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
+  warmUp:
+    speakeasy-default-warm-up:
+      parameters:
+        path:
+          namespaceId: "ns_123"
+      responses:
+        "200":
+          application/json: {"success": true, "data": {"status": false}}
+        "400":
+          application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
+        "401":
+          application/json: {"success": false, "error": {"code": "unauthorized", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unauthorized"}}
+        "403":
+          application/json: {"success": false, "error": {"code": "forbidden", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#forbidden"}}
+        "404":
+          application/json: {"success": false, "error": {"code": "not_found", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#not-found"}}
+        "409":
+          application/json: {"success": false, "error": {"code": "conflict", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#conflict"}}
+        "410":
+          application/json: {"success": false, "error": {"code": "invite_expired", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#invite-expired"}}
+        "422":
+          application/json: {"success": false, "error": {"code": "unprocessable_entity", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#unprocessable-entity"}}
+        "429":
+          application/json: {"success": false, "error": {"code": "rate_limit_exceeded", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#rate-limit_exceeded"}}
+        "500":
+          application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
 examplesVersion: 1.0.2
-releaseNotes: "## Python SDK Changes Detected:\n* `agentset.namespaces.create()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.data` **Changed**\n* `agentset.documents.delete()`: \n  *  `request.x-tenant-id` **Added**\n  *  `response.data.external_id` **Removed** **Breaking** :warning:\n* `agentset.documents.get()`: \n  *  `request.x-tenant-id` **Added**\n  *  `response.data.external_id` **Removed** **Breaking** :warning:\n* `agentset.documents.list()`: \n  *  `request.x-tenant-id` **Added**\n  *  `response` **Changed** **Breaking** :warning:\n* `agentset.namespaces.delete()`:  `response.data` **Changed**\n* `agentset.ingest_jobs.get()`: \n  *  `request.x-tenant-id` **Added**\n  *  `response.data.external_id` **Added**\n* `agentset.namespaces.get()`:  `response.data` **Changed**\n* `agentset.namespaces.update()`:  `response.data` **Changed**\n* `agentset.hosting.get()`: **Added**\n* `agentset.ingest_jobs.list()`: \n  *  `request.x-tenant-id` **Added**\n  *  `response` **Changed**\n* `agentset.ingest_jobs.create()`: \n  *  `request` **Changed**\n  *  `response.data.external_id` **Added**\n* `agentset.namespaces.list()`:  `response.data.[]` **Changed**\n* `agentset.ingest_jobs.delete()`: \n  *  `request.x-tenant-id` **Added**\n  *  `response.data.external_id` **Added**\n* `agentset.ingest_jobs.re_ingest()`:  `request.x-tenant-id` **Added**\n* `agentset.hosting.delete()`: **Added**\n* `agentset.hosting.update()`: **Added**\n* `agentset.hosting.enable()`: **Added**\n* `agentset.search.execute()`:  `request` **Changed**\n"
+releaseNotes: |
+  ## Python SDK Changes Detected:
+  * `agentset.namespace.warm_up()`: **Added**
+  * `agentset.documents.list()`:  `response.data.[].config` **Added**
+  * `agentset.documents.get()`:  `response.data.config` **Added**
+  * `agentset.documents.delete()`:  `response.data.config` **Added**
