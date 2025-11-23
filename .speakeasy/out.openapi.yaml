@@ -362,7 +362,7 @@ paths:
                   anyOf:
                     - type: "string"
                     - type: "null"
-                "payload": {"$ref": "#/components/schemas/ingest-job-payload"}
+                "payload": {"$ref": "#/components/schemas/ingest-job-payload-input"}
                 "config": {"$ref": "#/components/schemas/ingest-job-config"}
                 "externalId":
                   description: "A unique external ID of the ingest job. You can use this to identify the ingest job in your system."
@@ -1113,6 +1113,14 @@ paths:
                     - "openai:gpt-5"
                     - "openai:gpt-5-mini"
                     - "openai:gpt-5-nano"
+                "topK":
+                  type: "integer"
+                  minimum: 1
+                  maximum: 100
+                "rerankLimit":
+                  type: "integer"
+                  minimum: 1
+                  maximum: 100
       responses:
         "200":
           description: "The updated hosting configuration"
@@ -1432,40 +1440,30 @@ components:
       enum:
         - "forward"
         - "backward"
-    "ingest-job-payload":
-      description: "The ingest job payload."
+    "ingest-job-payload-input":
+      description: "The ingest job payload for creation."
       oneOf:
-        - {"$ref": "#/components/schemas/text-payload"}
+        - type: "object"
+          properties:
+            "type":
+              type: "string"
+              const: "TEXT"
+            "text":
+              description: "The text to ingest."
+              type: "string"
+              minLength: 1
+            "fileName":
+              anyOf:
+                - description: "The name of the file."
+                  type: "string"
+                - type: "null"
+          required:
+            - "type"
+            - "text"
         - {"$ref": "#/components/schemas/file-payload"}
         - {"$ref": "#/components/schemas/managed-file-payload"}
-        - {"$ref": "#/components/schemas/batch-payload"}
+        - {"$ref": "#/components/schemas/batch-payload-input"}
       type: "object"
-      discriminator:
-        propertyName: "type"
-        mapping:
-          "TEXT": "#/components/schemas/text-payload"
-          "FILE": "#/components/schemas/file-payload"
-          "MANAGED_FILE": "#/components/schemas/managed-file-payload"
-          "BATCH": "#/components/schemas/batch-payload"
-    "text-payload":
-      title: "Text Payload"
-      type: "object"
-      properties:
-        "type":
-          type: "string"
-          const: "TEXT"
-        "text":
-          description: "The text to ingest."
-          type: "string"
-          minLength: 1
-        "fileName":
-          anyOf:
-            - description: "The name of the file."
-              type: "string"
-            - type: "null"
-      required:
-        - "type"
-        - "text"
     "file-payload":
       title: "URL Payload"
       type: "object"
@@ -1503,8 +1501,8 @@ components:
       required:
         - "type"
         - "key"
-    "batch-payload":
-      title: "Batch Payload"
+    "batch-payload-input":
+      title: "Batch Payload Input"
       type: "object"
       properties:
         "type":
@@ -1745,7 +1743,7 @@ components:
           anyOf:
             - type: "string"
             - type: "null"
-        "payload": {"$ref": "#/components/schemas/ingest-job-payloadOutput"}
+        "payload": {"$ref": "#/components/schemas/ingest-job-payload"}
         "config":
           default:
           anyOf:
@@ -1800,6 +1798,112 @@ components:
         - "completedAt"
         - "failedAt"
       additionalProperties: false
+    "ingest-job-payload":
+      description: "The ingest job payload."
+      oneOf:
+        - {"$ref": "#/components/schemas/text-payload"}
+        - {"$ref": "#/components/schemas/file-payloadOutput"}
+        - {"$ref": "#/components/schemas/managed-file-payloadOutput"}
+        - {"$ref": "#/components/schemas/batch-payload"}
+      type: "object"
+      discriminator:
+        propertyName: "type"
+        mapping:
+          "TEXT": "#/components/schemas/text-payload"
+          "FILE": "#/components/schemas/file-payloadOutput"
+          "MANAGED_FILE": "#/components/schemas/managed-file-payloadOutput"
+          "BATCH": "#/components/schemas/batch-payload"
+    "text-payload":
+      title: "Text Payload"
+      type: "object"
+      properties:
+        "type":
+          type: "string"
+          const: "TEXT"
+        "text":
+          description: "The text to ingest."
+          type: "string"
+        "fileName":
+          anyOf:
+            - description: "The name of the file."
+              type: "string"
+            - type: "null"
+      required:
+        - "type"
+        - "text"
+      additionalProperties: false
+    "batch-payload":
+      title: "Batch Payload"
+      type: "object"
+      properties:
+        "type":
+          type: "string"
+          const: "BATCH"
+        "items":
+          minItems: 1
+          type: "array"
+          items:
+            oneOf:
+              - type: "object"
+                properties:
+                  "type":
+                    type: "string"
+                    const: "TEXT"
+                  "text":
+                    description: "The text to ingest."
+                    type: "string"
+                  "fileName":
+                    anyOf:
+                      - description: "The name of the file."
+                        type: "string"
+                      - type: "null"
+                  "config": {"$ref": "#/components/schemas/document-configOutput"}
+                required:
+                  - "type"
+                  - "text"
+                additionalProperties: false
+              - type: "object"
+                properties:
+                  "type":
+                    type: "string"
+                    const: "FILE"
+                  "fileUrl":
+                    description: "The URL of the file to ingest."
+                    type: "string"
+                    format: "uri"
+                  "fileName":
+                    anyOf:
+                      - description: "The name of the file."
+                        type: "string"
+                      - type: "null"
+                  "config": {"$ref": "#/components/schemas/document-configOutput"}
+                required:
+                  - "type"
+                  - "fileUrl"
+                additionalProperties: false
+              - type: "object"
+                properties:
+                  "type":
+                    type: "string"
+                    const: "MANAGED_FILE"
+                  "key":
+                    description: "The key of the managed file to ingest."
+                    type: "string"
+                  "fileName":
+                    anyOf:
+                      - description: "The name of the file."
+                        type: "string"
+                      - type: "null"
+                  "config": {"$ref": "#/components/schemas/document-configOutput"}
+                required:
+                  - "type"
+                  - "key"
+                additionalProperties: false
+            type: "object"
+      required:
+        - "type"
+        - "items"
+      additionalProperties: false
     "document":
       title: "Document"
       type: "object"
@@ -1840,7 +1944,6 @@ components:
                 "text":
                   description: "The text to ingest."
                   type: "string"
-                  minLength: 1
               required:
                 - "type"
                 - "text"
@@ -2050,8 +2153,15 @@ components:
                     - "cohere:rerank-multilingual-v3.0"
                     - "zeroentropy:zerank-1"
                     - "zeroentropy:zerank-1-small"
+                "limit":
+                  description: "Number of documents after reranking."
+                  default: 15
+                  type: "integer"
+                  minimum: 1
+                  maximum: 100
               required:
                 - "model"
+                - "limit"
               additionalProperties: false
             - type: "null"
         "llmConfig":
@@ -2071,6 +2181,12 @@ components:
                 - "model"
               additionalProperties: false
             - type: "null"
+        "topK":
+          description: "Number of documents to retrieve from vector store."
+          default: 50
+          type: "integer"
+          minimum: 1
+          maximum: 100
         "protected":
           description: "Whether the hosted interface is protected by authentication."
           default: true
@@ -2106,6 +2222,7 @@ components:
         - "searchEnabled"
         - "rerankConfig"
         - "llmConfig"
+        - "topK"
         - "protected"
         - "allowedEmails"
         - "allowedEmailDomains"
@@ -2245,41 +2362,6 @@ components:
         - "apiKey"
         - "region"
       additionalProperties: false
-    "ingest-job-payloadOutput":
-      description: "The ingest job payload."
-      oneOf:
-        - {"$ref": "#/components/schemas/text-payloadOutput"}
-        - {"$ref": "#/components/schemas/file-payloadOutput"}
-        - {"$ref": "#/components/schemas/managed-file-payloadOutput"}
-        - {"$ref": "#/components/schemas/batch-payloadOutput"}
-      type: "object"
-      discriminator:
-        propertyName: "type"
-        mapping:
-          "TEXT": "#/components/schemas/text-payloadOutput"
-          "FILE": "#/components/schemas/file-payloadOutput"
-          "MANAGED_FILE": "#/components/schemas/managed-file-payloadOutput"
-          "BATCH": "#/components/schemas/batch-payloadOutput"
-    "text-payloadOutput":
-      title: "Text Payload"
-      type: "object"
-      properties:
-        "type":
-          type: "string"
-          const: "TEXT"
-        "text":
-          description: "The text to ingest."
-          type: "string"
-          minLength: 1
-        "fileName":
-          anyOf:
-            - description: "The name of the file."
-              type: "string"
-            - type: "null"
-      required:
-        - "type"
-        - "text"
-      additionalProperties: false
     "file-payloadOutput":
       title: "URL Payload"
       type: "object"
@@ -2318,79 +2400,6 @@ components:
       required:
         - "type"
         - "key"
-      additionalProperties: false
-    "batch-payloadOutput":
-      title: "Batch Payload"
-      type: "object"
-      properties:
-        "type":
-          type: "string"
-          const: "BATCH"
-        "items":
-          minItems: 1
-          type: "array"
-          items:
-            oneOf:
-              - type: "object"
-                properties:
-                  "type":
-                    type: "string"
-                    const: "TEXT"
-                  "text":
-                    description: "The text to ingest."
-                    type: "string"
-                    minLength: 1
-                  "fileName":
-                    anyOf:
-                      - description: "The name of the file."
-                        type: "string"
-                      - type: "null"
-                  "config": {"$ref": "#/components/schemas/document-configOutput"}
-                required:
-                  - "type"
-                  - "text"
-                additionalProperties: false
-              - type: "object"
-                properties:
-                  "type":
-                    type: "string"
-                    const: "FILE"
-                  "fileUrl":
-                    description: "The URL of the file to ingest."
-                    type: "string"
-                    format: "uri"
-                  "fileName":
-                    anyOf:
-                      - description: "The name of the file."
-                        type: "string"
-                      - type: "null"
-                  "config": {"$ref": "#/components/schemas/document-configOutput"}
-                required:
-                  - "type"
-                  - "fileUrl"
-                additionalProperties: false
-              - type: "object"
-                properties:
-                  "type":
-                    type: "string"
-                    const: "MANAGED_FILE"
-                  "key":
-                    description: "The key of the managed file to ingest."
-                    type: "string"
-                  "fileName":
-                    anyOf:
-                      - description: "The name of the file."
-                        type: "string"
-                      - type: "null"
-                  "config": {"$ref": "#/components/schemas/document-configOutput"}
-                required:
-                  - "type"
-                  - "key"
-                additionalProperties: false
-            type: "object"
-      required:
-        - "type"
-        - "items"
       additionalProperties: false
     "document-configOutput": {"description": "The document config.", "$ref": "#/components/schemas/ingest-job-configOutput"}
     "ingest-job-configOutput":

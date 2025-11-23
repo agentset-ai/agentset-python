@@ -6,7 +6,7 @@ from agentset._hooks import HookContext
 from agentset.types import OptionalNullable, UNSET
 from agentset.utils import get_security_from_env
 from agentset.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Dict, List, Mapping, Optional
+from typing import Any, Dict, Mapping, Optional
 
 
 class Search(BaseSDK):
@@ -29,7 +29,7 @@ class Search(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.SearchData]:
+    ) -> models.SearchResponse:
         r"""Search a namespace
 
         Search a namespace for a query.
@@ -210,7 +210,7 @@ class Search(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.SearchData]:
+    ) -> models.SearchResponse:
         r"""Search a namespace
 
         Search a namespace for a query.
