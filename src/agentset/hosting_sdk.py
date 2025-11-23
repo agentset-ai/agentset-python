@@ -20,7 +20,7 @@ class HostingSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Hosting:
+    ) -> models.GetHostingResponse:
         r"""Retrieve hosting configuration
 
         Retrieve the hosting configuration for a namespace.
@@ -164,7 +164,7 @@ class HostingSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Hosting:
+    ) -> models.GetHostingResponse:
         r"""Retrieve hosting configuration
 
         Retrieve the hosting configuration for a namespace.
@@ -308,7 +308,7 @@ class HostingSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Hosting:
+    ) -> models.EnableHostingResponse:
         r"""Enable hosting
 
         Enable hosting for a namespace.
@@ -452,7 +452,7 @@ class HostingSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Hosting:
+    ) -> models.EnableHostingResponse:
         r"""Enable hosting
 
         Enable hosting for a namespace.
@@ -603,11 +603,13 @@ class HostingSDK(BaseSDK):
         search_enabled: Optional[bool] = None,
         rerank_model: Optional[models.UpdateHostingRerankModel] = None,
         llm_model: Optional[models.LlmModel] = None,
+        top_k: Optional[int] = None,
+        rerank_limit: Optional[int] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Hosting:
+    ) -> models.UpdateHostingResponse:
         r"""Update hosting configuration
 
         Update the hosting configuration for a namespace. If there is no change, return it as it is.
@@ -626,6 +628,8 @@ class HostingSDK(BaseSDK):
         :param search_enabled:
         :param rerank_model:
         :param llm_model:
+        :param top_k:
+        :param rerank_limit:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -656,6 +660,8 @@ class HostingSDK(BaseSDK):
             search_enabled=search_enabled,
             rerank_model=rerank_model,
             llm_model=llm_model,
+            top_k=top_k,
+            rerank_limit=rerank_limit,
         )
 
         req = self._build_request(
@@ -787,11 +793,13 @@ class HostingSDK(BaseSDK):
         search_enabled: Optional[bool] = None,
         rerank_model: Optional[models.UpdateHostingRerankModel] = None,
         llm_model: Optional[models.LlmModel] = None,
+        top_k: Optional[int] = None,
+        rerank_limit: Optional[int] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Hosting:
+    ) -> models.UpdateHostingResponse:
         r"""Update hosting configuration
 
         Update the hosting configuration for a namespace. If there is no change, return it as it is.
@@ -810,6 +818,8 @@ class HostingSDK(BaseSDK):
         :param search_enabled:
         :param rerank_model:
         :param llm_model:
+        :param top_k:
+        :param rerank_limit:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -840,6 +850,8 @@ class HostingSDK(BaseSDK):
             search_enabled=search_enabled,
             rerank_model=rerank_model,
             llm_model=llm_model,
+            top_k=top_k,
+            rerank_limit=rerank_limit,
         )
 
         req = self._build_request_async(
@@ -964,7 +976,7 @@ class HostingSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Hosting:
+    ) -> models.DeleteHostingResponse:
         r"""Delete hosting configuration
 
         Delete the hosting configuration for a namespace.
@@ -1108,7 +1120,7 @@ class HostingSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Hosting:
+    ) -> models.DeleteHostingResponse:
         r"""Delete hosting configuration
 
         Delete the hosting configuration for a namespace.

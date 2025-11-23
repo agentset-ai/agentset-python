@@ -6,7 +6,7 @@ from agentset._hooks import HookContext
 from agentset.types import BaseModel, OptionalNullable, UNSET
 from agentset.utils import get_security_from_env
 from agentset.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union, cast
+from typing import Any, Mapping, Optional, Union, cast
 
 
 class Namespaces(BaseSDK):
@@ -17,7 +17,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.Namespace]:
+    ) -> models.ListNamespacesResponse:
         r"""Retrieve a list of namespaces
 
         Retrieve a list of namespaces for the authenticated organization.
@@ -149,7 +149,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.Namespace]:
+    ) -> models.ListNamespacesResponse:
         r"""Retrieve a list of namespaces
 
         Retrieve a list of namespaces for the authenticated organization.
@@ -291,7 +291,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.CreateNamespaceResponse:
         r"""Create a namespace.
 
         Create a namespace for the authenticated organization.
@@ -452,7 +452,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.CreateNamespaceResponse:
         r"""Create a namespace.
 
         Create a namespace for the authenticated organization.
@@ -606,7 +606,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.GetNamespaceResponse:
         r"""Retrieve a namespace
 
         Retrieve the info for a namespace.
@@ -750,7 +750,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.GetNamespaceResponse:
         r"""Retrieve a namespace
 
         Retrieve the info for a namespace.
@@ -893,7 +893,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.UpdateNamespaceResponse:
         r"""Update a namespace.
 
         Update a namespace for the authenticated organization. If there is no change, return it as it is.
@@ -1041,7 +1041,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.UpdateNamespaceResponse:
         r"""Update a namespace.
 
         Update a namespace for the authenticated organization. If there is no change, return it as it is.
@@ -1190,7 +1190,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.DeleteNamespaceResponse:
         r"""Delete a namespace.
 
         Delete a namespace for the authenticated organization. This will delete all the data associated with the namespace.
@@ -1334,7 +1334,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.DeleteNamespaceResponse:
         r"""Delete a namespace.
 
         Delete a namespace for the authenticated organization. This will delete all the data associated with the namespace.

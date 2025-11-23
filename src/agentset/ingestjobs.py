@@ -395,7 +395,9 @@ class IngestJobs(BaseSDK):
     def create(
         self,
         *,
-        payload: Union[models.IngestJobPayload, models.IngestJobPayloadTypedDict],
+        payload: Union[
+            models.IngestJobPayloadInput, models.IngestJobPayloadInputTypedDict
+        ],
         x_tenant_id: Optional[str] = None,
         name: OptionalNullable[str] = UNSET,
         config: Optional[
@@ -406,12 +408,12 @@ class IngestJobs(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.IngestJob:
+    ) -> models.CreateIngestJobResponse:
         r"""Create an ingest job
 
         Create an ingest job for the authenticated organization.
 
-        :param payload: The ingest job payload.
+        :param payload: The ingest job payload for creation.
         :param x_tenant_id: Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters.
         :param name: The name of the ingest job.
         :param config: The ingest job config.
@@ -435,7 +437,7 @@ class IngestJobs(BaseSDK):
             x_tenant_id=x_tenant_id,
             request_body=models.CreateIngestJobRequestBody(
                 name=name,
-                payload=utils.get_pydantic_model(payload, models.IngestJobPayload),
+                payload=utils.get_pydantic_model(payload, models.IngestJobPayloadInput),
                 config=utils.get_pydantic_model(
                     config, Optional[models.IngestJobConfig]
                 ),
@@ -563,7 +565,9 @@ class IngestJobs(BaseSDK):
     async def create_async(
         self,
         *,
-        payload: Union[models.IngestJobPayload, models.IngestJobPayloadTypedDict],
+        payload: Union[
+            models.IngestJobPayloadInput, models.IngestJobPayloadInputTypedDict
+        ],
         x_tenant_id: Optional[str] = None,
         name: OptionalNullable[str] = UNSET,
         config: Optional[
@@ -574,12 +578,12 @@ class IngestJobs(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.IngestJob:
+    ) -> models.CreateIngestJobResponse:
         r"""Create an ingest job
 
         Create an ingest job for the authenticated organization.
 
-        :param payload: The ingest job payload.
+        :param payload: The ingest job payload for creation.
         :param x_tenant_id: Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters.
         :param name: The name of the ingest job.
         :param config: The ingest job config.
@@ -603,7 +607,7 @@ class IngestJobs(BaseSDK):
             x_tenant_id=x_tenant_id,
             request_body=models.CreateIngestJobRequestBody(
                 name=name,
-                payload=utils.get_pydantic_model(payload, models.IngestJobPayload),
+                payload=utils.get_pydantic_model(payload, models.IngestJobPayloadInput),
                 config=utils.get_pydantic_model(
                     config, Optional[models.IngestJobConfig]
                 ),
@@ -737,7 +741,7 @@ class IngestJobs(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.IngestJob:
+    ) -> models.GetIngestJobInfoResponse:
         r"""Retrieve an ingest job
 
         Retrieve the info for an ingest job.
@@ -883,7 +887,7 @@ class IngestJobs(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.IngestJob:
+    ) -> models.GetIngestJobInfoResponse:
         r"""Retrieve an ingest job
 
         Retrieve the info for an ingest job.
@@ -1029,7 +1033,7 @@ class IngestJobs(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.IngestJob:
+    ) -> models.DeleteIngestJobResponse:
         r"""Delete an ingest job
 
         Delete an ingest job for the authenticated organization.
@@ -1175,7 +1179,7 @@ class IngestJobs(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.IngestJob:
+    ) -> models.DeleteIngestJobResponse:
         r"""Delete an ingest job
 
         Delete an ingest job for the authenticated organization.
@@ -1321,7 +1325,7 @@ class IngestJobs(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ReIngestJobData:
+    ) -> models.ReIngestJobResponse:
         r"""Re-ingest a job
 
         Re-ingest a job for the authenticated organization.
@@ -1467,7 +1471,7 @@ class IngestJobs(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ReIngestJobData:
+    ) -> models.ReIngestJobResponse:
         r"""Re-ingest a job
 
         Re-ingest a job for the authenticated organization.

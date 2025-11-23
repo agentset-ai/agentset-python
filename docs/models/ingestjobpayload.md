@@ -11,16 +11,16 @@ The ingest job payload.
 value: models.TextPayload = /* values here */
 ```
 
-### `models.FilePayload`
+### `models.FilePayloadOutput`
 
 ```python
-value: models.FilePayload = /* values here */
+value: models.FilePayloadOutput = /* values here */
 ```
 
-### `models.ManagedFilePayload`
+### `models.ManagedFilePayloadOutput`
 
 ```python
-value: models.ManagedFilePayload = /* values here */
+value: models.ManagedFilePayloadOutput = /* values here */
 ```
 
 ### `models.BatchPayload`

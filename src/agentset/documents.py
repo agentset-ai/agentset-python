@@ -409,7 +409,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Document:
+    ) -> models.GetDocumentResponse:
         r"""Retrieve a document
 
         Retrieve the info for a document.
@@ -555,7 +555,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Document:
+    ) -> models.GetDocumentResponse:
         r"""Retrieve a document
 
         Retrieve the info for a document.
@@ -701,7 +701,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Document:
+    ) -> models.DeleteDocumentResponse:
         r"""Delete a document
 
         Delete a document for the authenticated organization.
@@ -847,7 +847,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Document:
+    ) -> models.DeleteDocumentResponse:
         r"""Delete a document
 
         Delete a document for the authenticated organization.
