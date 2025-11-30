@@ -4,9 +4,9 @@ from __future__ import annotations
 from .document_configoutput import DocumentConfigOutput, DocumentConfigOutputTypedDict
 from .document_status import DocumentStatus
 from agentset.types import BaseModel, Nullable, UNSET_SENTINEL
-from agentset.utils import validate_const
+from agentset.utils import get_discriminator, validate_const
 import pydantic
-from pydantic import model_serializer
+from pydantic import Discriminator, Tag, model_serializer
 from pydantic.functional_validators import AfterValidator
 from typing import Literal, Union
 from typing_extensions import Annotated, TypeAliasType, TypedDict
@@ -69,7 +69,14 @@ SourceTypedDict = TypeAliasType(
 r"""The source of the document."""
 
 
-Source = TypeAliasType("Source", Union[SourceText, SourceFile, SourceManagedFile])
+Source = Annotated[
+    Union[
+        Annotated[SourceText, Tag("TEXT")],
+        Annotated[SourceFile, Tag("FILE")],
+        Annotated[SourceManagedFile, Tag("MANAGED_FILE")],
+    ],
+    Discriminator(lambda m: get_discriminator(m, "type", "type")),
+]
 r"""The source of the document."""
 
 

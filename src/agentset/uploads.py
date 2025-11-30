@@ -20,7 +20,7 @@ class Uploads(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.UploadResultSchema:
+    ) -> models.CreateUploadResponse:
         r"""Create presigned URL for file upload
 
         Generate a presigned URL for uploading a single file to the specified namespace.
@@ -68,6 +68,7 @@ class Uploads(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UploadFileSchema
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -171,7 +172,7 @@ class Uploads(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.UploadResultSchema:
+    ) -> models.CreateUploadResponse:
         r"""Create presigned URL for file upload
 
         Generate a presigned URL for uploading a single file to the specified namespace.
@@ -219,6 +220,7 @@ class Uploads(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UploadFileSchema
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -322,7 +324,7 @@ class Uploads(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.UploadResultSchema]:
+    ) -> models.CreateBatchUploadResponse:
         r"""Create presigned URLs for batch file upload
 
         Generate presigned URLs for uploading multiple files to the specified namespace.
@@ -366,6 +368,7 @@ class Uploads(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.CreateBatchUploadRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -469,7 +472,7 @@ class Uploads(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.UploadResultSchema]:
+    ) -> models.CreateBatchUploadResponse:
         r"""Create presigned URLs for batch file upload
 
         Generate presigned URLs for uploading multiple files to the specified namespace.
@@ -513,6 +516,7 @@ class Uploads(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.CreateBatchUploadRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

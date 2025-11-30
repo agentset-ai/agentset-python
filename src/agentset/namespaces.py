@@ -6,7 +6,7 @@ from agentset._hooks import HookContext
 from agentset.types import BaseModel, OptionalNullable, UNSET
 from agentset.utils import get_security_from_env
 from agentset.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union, cast
+from typing import Any, Mapping, Optional, Union, cast
 
 
 class Namespaces(BaseSDK):
@@ -17,7 +17,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.Namespace]:
+    ) -> models.ListNamespacesResponse:
         r"""Retrieve a list of namespaces
 
         Retrieve a list of namespaces for the authenticated organization.
@@ -49,6 +49,7 @@ class Namespaces(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -149,7 +150,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.Namespace]:
+    ) -> models.ListNamespacesResponse:
         r"""Retrieve a list of namespaces
 
         Retrieve a list of namespaces for the authenticated organization.
@@ -181,6 +182,7 @@ class Namespaces(BaseSDK):
             accept_header_value="application/json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -291,7 +293,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.CreateNamespaceResponse:
         r"""Create a namespace.
 
         Create a namespace for the authenticated organization.
@@ -342,6 +344,7 @@ class Namespaces(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.CreateNamespaceRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -452,7 +455,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.CreateNamespaceResponse:
         r"""Create a namespace.
 
         Create a namespace for the authenticated organization.
@@ -503,6 +506,7 @@ class Namespaces(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.CreateNamespaceRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -606,7 +610,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.GetNamespaceResponse:
         r"""Retrieve a namespace
 
         Retrieve the info for a namespace.
@@ -647,6 +651,7 @@ class Namespaces(BaseSDK):
                 namespace_id=self.sdk_configuration.globals.namespace_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -750,7 +755,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.GetNamespaceResponse:
         r"""Retrieve a namespace
 
         Retrieve the info for a namespace.
@@ -791,6 +796,7 @@ class Namespaces(BaseSDK):
                 namespace_id=self.sdk_configuration.globals.namespace_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -893,7 +899,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.UpdateNamespaceResponse:
         r"""Update a namespace.
 
         Update a namespace for the authenticated organization. If there is no change, return it as it is.
@@ -939,6 +945,7 @@ class Namespaces(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UpdateNamespaceRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1041,7 +1048,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.UpdateNamespaceResponse:
         r"""Update a namespace.
 
         Update a namespace for the authenticated organization. If there is no change, return it as it is.
@@ -1087,6 +1094,7 @@ class Namespaces(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.UpdateNamespaceRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1190,7 +1198,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.DeleteNamespaceResponse:
         r"""Delete a namespace.
 
         Delete a namespace for the authenticated organization. This will delete all the data associated with the namespace.
@@ -1231,6 +1239,7 @@ class Namespaces(BaseSDK):
                 namespace_id=self.sdk_configuration.globals.namespace_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1334,7 +1343,7 @@ class Namespaces(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Namespace:
+    ) -> models.DeleteNamespaceResponse:
         r"""Delete a namespace.
 
         Delete a namespace for the authenticated organization. This will delete all the data associated with the namespace.
@@ -1375,6 +1384,7 @@ class Namespaces(BaseSDK):
                 namespace_id=self.sdk_configuration.globals.namespace_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

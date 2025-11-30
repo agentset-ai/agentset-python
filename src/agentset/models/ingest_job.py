@@ -2,10 +2,7 @@
 
 from __future__ import annotations
 from .document_configoutput import DocumentConfigOutput, DocumentConfigOutputTypedDict
-from .ingest_job_payloadoutput import (
-    IngestJobPayloadOutput,
-    IngestJobPayloadOutputTypedDict,
-)
+from .ingest_job_payload import IngestJobPayload, IngestJobPayloadTypedDict
 from .ingest_job_status import IngestJobStatus
 from agentset.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
@@ -26,7 +23,7 @@ class IngestJobTypedDict(TypedDict):
     r"""The status of the ingest job."""
     error: Nullable[str]
     r"""The error message of the ingest job. Only exists when the status is failed."""
-    payload: IngestJobPayloadOutputTypedDict
+    payload: IngestJobPayloadTypedDict
     r"""The ingest job payload."""
     config: Nullable[DocumentConfigOutputTypedDict]
     created_at: str
@@ -64,7 +61,7 @@ class IngestJob(BaseModel):
     error: Nullable[str]
     r"""The error message of the ingest job. Only exists when the status is failed."""
 
-    payload: IngestJobPayloadOutput
+    payload: IngestJobPayload
     r"""The ingest job payload."""
 
     config: Nullable[DocumentConfigOutput]
