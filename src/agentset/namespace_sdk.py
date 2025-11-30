@@ -18,7 +18,7 @@ class NamespaceSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.WarmUpData:
+    ) -> models.WarmUpResponse:
         r"""Warm cache for a namespace
 
         Pre-loads the namespace into the vector store's cache for faster query performance. Not all vector stores support this operation. Currently only Turbopuffer supports this operation.
@@ -60,6 +60,7 @@ class NamespaceSDK(BaseSDK):
                 x_tenant_id=self.sdk_configuration.globals.x_tenant_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -161,7 +162,7 @@ class NamespaceSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.WarmUpData:
+    ) -> models.WarmUpResponse:
         r"""Warm cache for a namespace
 
         Pre-loads the namespace into the vector store's cache for faster query performance. Not all vector stores support this operation. Currently only Turbopuffer supports this operation.
@@ -203,6 +204,7 @@ class NamespaceSDK(BaseSDK):
                 x_tenant_id=self.sdk_configuration.globals.x_tenant_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
