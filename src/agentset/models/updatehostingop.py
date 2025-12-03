@@ -57,6 +57,8 @@ class UpdateHostingRequestTypedDict(TypedDict):
     search_enabled: NotRequired[bool]
     rerank_model: NotRequired[UpdateHostingRerankModel]
     llm_model: NotRequired[LlmModel]
+    top_k: NotRequired[int]
+    rerank_limit: NotRequired[int]
 
 
 class UpdateHostingRequest(BaseModel):
@@ -104,6 +106,10 @@ class UpdateHostingRequest(BaseModel):
 
     llm_model: Annotated[Optional[LlmModel], pydantic.Field(alias="llmModel")] = None
 
+    top_k: Annotated[Optional[int], pydantic.Field(alias="topK")] = None
+
+    rerank_limit: Annotated[Optional[int], pydantic.Field(alias="rerankLimit")] = None
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -121,6 +127,8 @@ class UpdateHostingRequest(BaseModel):
             "searchEnabled",
             "rerankModel",
             "llmModel",
+            "topK",
+            "rerankLimit",
         ]
         nullable_fields = ["logo"]
         null_default_fields = []

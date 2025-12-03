@@ -1,0 +1,61 @@
+# LanguageCode
+
+
+## Values
+
+| Name  | Value |
+| ----- | ----- |
+| `AF`  | af    |
+| `AM`  | am    |
+| `AR`  | ar    |
+| `BG`  | bg    |
+| `BN`  | bn    |
+| `CA`  | ca    |
+| `CS`  | cs    |
+| `CY`  | cy    |
+| `DA`  | da    |
+| `DE`  | de    |
+| `EN`  | en    |
+| `ES`  | es    |
+| `ET`  | et    |
+| `FA`  | fa    |
+| `FI`  | fi    |
+| `FR`  | fr    |
+| `GA`  | ga    |
+| `GL`  | gl    |
+| `HE`  | he    |
+| `HI`  | hi    |
+| `HR`  | hr    |
+| `HU`  | hu    |
+| `ID`  | id    |
+| `IS`  | is    |
+| `IT`  | it    |
+| `JP`  | jp    |
+| `KR`  | kr    |
+| `LT`  | lt    |
+| `LV`  | lv    |
+| `MK`  | mk    |
+| `MS`  | ms    |
+| `MT`  | mt    |
+| `NE`  | ne    |
+| `NL`  | nl    |
+| `NO`  | no    |
+| `PL`  | pl    |
+| `PT`  | pt    |
+| `RO`  | ro    |
+| `RU`  | ru    |
+| `SK`  | sk    |
+| `SL`  | sl    |
+| `SR`  | sr    |
+| `SV`  | sv    |
+| `SW`  | sw    |
+| `TA`  | ta    |
+| `TE`  | te    |
+| `TH`  | th    |
+| `TL`  | tl    |
+| `TR`  | tr    |
+| `UK`  | uk    |
+| `UR`  | ur    |
+| `VI`  | vi    |
+| `ZH`  | zh    |
+| `ZU`  | zu    |

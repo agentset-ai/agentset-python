@@ -1,4 +1,4 @@
-# TextPayloadOutput
+# IngestJobPayloadInputText
 
 
 ## Fields

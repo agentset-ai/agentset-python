@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 465adc89-13a8-4359-8d95-e3589d612ccc
 management:
-  docChecksum: ac1cb860df2594590b6c4e4aad4809d3
+  docChecksum: abe24709b3df5797d8a1685aaa16896a
   docVersion: 0.0.1
-  speakeasyVersion: 1.642.2
-  generationVersion: 2.731.6
-  releaseVersion: 0.5.0
-  configChecksum: 81a256d2452e69a2c8e67344247ee29a
+  speakeasyVersion: 1.666.2
+  generationVersion: 2.768.1
+  releaseVersion: 0.6.0
+  configChecksum: 336dfbb9a8b194a3829199db26a6227a
   repoURL: https://github.com/agentset-ai/agentset-python.git
   installationURL: https://github.com/agentset-ai/agentset-python.git
   published: true
@@ -14,8 +14,9 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.23.0
+    core: 5.23.13
     defaultEnabledRetries: 0.2.0
+    deprecations: 3.0.2
     devContainers: 3.0.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -26,7 +27,7 @@ features:
     globalSecurity: 3.0.4
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
-    globalServerURLs: 3.1.1
+    globalServerURLs: 3.2.0
     globals: 3.0.0
     groups: 3.0.1
     hiddenGlobals: 1.0.0
@@ -35,8 +36,8 @@ features:
     nullables: 1.0.1
     pagination: 3.0.7
     responseFormat: 1.0.1
-    retries: 3.0.2
-    sdkHooks: 1.1.0
+    retries: 3.0.3
+    sdkHooks: 1.2.0
     unions: 3.1.0
 generatedFiles:
   - .devcontainer/README.md
@@ -59,18 +60,19 @@ generatedFiles:
   - docs/models/badrequestcode.md
   - docs/models/badrequesterror.md
   - docs/models/batchpayload.md
+  - docs/models/batchpayloadinput.md
+  - docs/models/batchpayloadinputitemfile.md
+  - docs/models/batchpayloadinputitemmanagedfile.md
+  - docs/models/batchpayloadinputitemtext.md
+  - docs/models/batchpayloadinputitemunion.md
   - docs/models/batchpayloaditemfile.md
   - docs/models/batchpayloaditemmanagedfile.md
   - docs/models/batchpayloaditemtext.md
   - docs/models/batchpayloaditemunion.md
-  - docs/models/batchpayloadoutput.md
-  - docs/models/batchpayloadoutputitemfile.md
-  - docs/models/batchpayloadoutputitemmanagedfile.md
-  - docs/models/batchpayloadoutputitemtext.md
-  - docs/models/batchpayloadoutputitemunion.md
-  - docs/models/chunkingstrategy.md
   - docs/models/conflictcode.md
   - docs/models/conflicterror.md
+  - docs/models/crawlpayload.md
+  - docs/models/crawlpayloadoutput.md
   - docs/models/createbatchuploadglobals.md
   - docs/models/createbatchuploadrequest.md
   - docs/models/createbatchuploadresponse.md
@@ -98,8 +100,14 @@ generatedFiles:
   - docs/models/deletenamespacerequest.md
   - docs/models/deletenamespaceresponse.md
   - docs/models/document.md
+  - docs/models/documentconfig.md
+  - docs/models/documentconfigchunkingstrategy.md
+  - docs/models/documentconfigmetadata.md
   - docs/models/documentconfigoutput.md
+  - docs/models/documentconfigoutputchunkingstrategy.md
   - docs/models/documentconfigoutputmetadata.md
+  - docs/models/documentconfigoutputstrategy.md
+  - docs/models/documentconfigstrategy.md
   - docs/models/documentstatus.md
   - docs/models/embeddingmodelconfig.md
   - docs/models/embeddingmodelconfigmodel.md
@@ -132,15 +140,23 @@ generatedFiles:
   - docs/models/hosting.md
   - docs/models/ingestjob.md
   - docs/models/ingestjobconfig.md
+  - docs/models/ingestjobconfigchunkingstrategy.md
   - docs/models/ingestjobconfigmetadata.md
+  - docs/models/ingestjobconfigoutput.md
+  - docs/models/ingestjobconfigoutputchunkingstrategy.md
+  - docs/models/ingestjobconfigoutputmetadata.md
+  - docs/models/ingestjobconfigoutputstrategy.md
+  - docs/models/ingestjobconfigstrategy.md
   - docs/models/ingestjobpayload.md
-  - docs/models/ingestjobpayloadoutput.md
+  - docs/models/ingestjobpayloadinput.md
+  - docs/models/ingestjobpayloadinputtext.md
   - docs/models/ingestjobstatus.md
   - docs/models/internal/globals.md
   - docs/models/internalservererrorcode.md
   - docs/models/internalservererrorerror.md
   - docs/models/inviteexpiredcode.md
   - docs/models/inviteexpirederror.md
+  - docs/models/languagecode.md
   - docs/models/listdocumentsglobals.md
   - docs/models/listdocumentsorder.md
   - docs/models/listdocumentsorderby.md
@@ -183,18 +199,19 @@ generatedFiles:
   - docs/models/searchdata.md
   - docs/models/searchglobals.md
   - docs/models/searchmetadata.md
+  - docs/models/searchmode.md
   - docs/models/searchrequest.md
   - docs/models/searchrequestbody.md
   - docs/models/searchrerankmodel.md
   - docs/models/searchresponse.md
   - docs/models/security.md
   - docs/models/source.md
+  - docs/models/sourcecrawledpage.md
   - docs/models/sourcefile.md
   - docs/models/sourcemanagedfile.md
   - docs/models/sourcetext.md
-  - docs/models/strategy.md
+  - docs/models/sourceyoutubevideo.md
   - docs/models/textpayload.md
-  - docs/models/textpayloadoutput.md
   - docs/models/turbopufferconfig.md
   - docs/models/turbopufferconfigoutput.md
   - docs/models/turbopufferregionenum.md
@@ -223,6 +240,8 @@ generatedFiles:
   - docs/models/warmupglobals.md
   - docs/models/warmuprequest.md
   - docs/models/warmupresponse.md
+  - docs/models/youtubepayload.md
+  - docs/models/youtubepayloadoutput.md
   - docs/sdks/documents/README.md
   - docs/sdks/hostingsdk/README.md
   - docs/sdks/ingestjobs/README.md
@@ -264,9 +283,10 @@ generatedFiles:
   - src/agentset/models/azure_embedding_configoutput.py
   - src/agentset/models/badrequest_error.py
   - src/agentset/models/batch_payload.py
-  - src/agentset/models/batch_payloadoutput.py
-  - src/agentset/models/chunking_strategy.py
+  - src/agentset/models/batch_payload_input.py
   - src/agentset/models/conflict_error.py
+  - src/agentset/models/crawl_payload.py
+  - src/agentset/models/crawl_payloadoutput.py
   - src/agentset/models/create_vector_store_config.py
   - src/agentset/models/createbatchuploadop.py
   - src/agentset/models/createingestjobop.py
@@ -277,6 +297,7 @@ generatedFiles:
   - src/agentset/models/deleteingestjobop.py
   - src/agentset/models/deletenamespaceop.py
   - src/agentset/models/document.py
+  - src/agentset/models/document_config.py
   - src/agentset/models/document_configoutput.py
   - src/agentset/models/document_status.py
   - src/agentset/models/embedding_model_config.py
@@ -295,18 +316,21 @@ generatedFiles:
   - src/agentset/models/hosting.py
   - src/agentset/models/ingest_job.py
   - src/agentset/models/ingest_job_config.py
+  - src/agentset/models/ingest_job_configoutput.py
   - src/agentset/models/ingest_job_payload.py
-  - src/agentset/models/ingest_job_payloadoutput.py
+  - src/agentset/models/ingest_job_payload_input.py
   - src/agentset/models/ingest_job_status.py
   - src/agentset/models/internal/__init__.py
   - src/agentset/models/internal/globals.py
   - src/agentset/models/internalservererror.py
   - src/agentset/models/inviteexpired_error.py
+  - src/agentset/models/language_code.py
   - src/agentset/models/listdocumentsop.py
   - src/agentset/models/listingestjobsop.py
   - src/agentset/models/listnamespacesop.py
   - src/agentset/models/managed_file_payload.py
   - src/agentset/models/managed_file_payloadoutput.py
+  - src/agentset/models/mode.py
   - src/agentset/models/namespace.py
   - src/agentset/models/notfound_error.py
   - src/agentset/models/openai_embedding_config.py
@@ -319,9 +343,7 @@ generatedFiles:
   - src/agentset/models/reingestjobop.py
   - src/agentset/models/searchop.py
   - src/agentset/models/security.py
-  - src/agentset/models/strategy.py
   - src/agentset/models/text_payload.py
-  - src/agentset/models/text_payloadoutput.py
   - src/agentset/models/turbopuffer_config.py
   - src/agentset/models/turbopuffer_configoutput.py
   - src/agentset/models/turbopuffer_region_enum.py
@@ -336,6 +358,8 @@ generatedFiles:
   - src/agentset/models/voyage_embedding_configoutput.py
   - src/agentset/models/voyage_embedding_model_enum.py
   - src/agentset/models/warmupop.py
+  - src/agentset/models/youtube_payload.py
+  - src/agentset/models/youtube_payloadoutput.py
   - src/agentset/namespace_sdk.py
   - src/agentset/namespaces.py
   - src/agentset/py.typed
@@ -807,7 +831,7 @@ examples:
           namespaceId: "ns_123"
       responses:
         "200":
-          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>"], "exampleSearchQueries": [], "welcomeMessage": "<value>", "citationMetadataPath": "<value>", "searchEnabled": true, "rerankConfig": {"model": "zeroentropy:zerank-1"}, "llmConfig": {"model": "openai:gpt-5-mini"}, "protected": true, "allowedEmails": ["<value 1>"], "allowedEmailDomains": [], "createdAt": "1715026242802", "updatedAt": "1735640415453"}}
+          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>"], "exampleSearchQueries": [], "welcomeMessage": "<value>", "citationMetadataPath": "<value>", "searchEnabled": true, "rerankConfig": {"model": "zeroentropy:zerank-1", "limit": 15}, "llmConfig": {"model": "openai:gpt-5-mini"}, "topK": 50, "protected": true, "allowedEmails": ["<value 1>"], "allowedEmailDomains": [], "createdAt": "1715026242802", "updatedAt": "1735640415453"}}
         "400":
           application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
         "401":
@@ -833,7 +857,7 @@ examples:
           namespaceId: "ns_123"
       responses:
         "201":
-          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>"], "exampleSearchQueries": [], "welcomeMessage": "<value>", "citationMetadataPath": "<value>", "searchEnabled": true, "rerankConfig": {"model": "cohere:rerank-english-v3.0"}, "llmConfig": {"model": "openai:gpt-5"}, "protected": true, "allowedEmails": [], "allowedEmailDomains": ["<value 1>", "<value 2>", "<value 3>"], "createdAt": "1706676766313", "updatedAt": "1735646143014"}}
+          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>"], "exampleSearchQueries": [], "welcomeMessage": "<value>", "citationMetadataPath": "<value>", "searchEnabled": true, "rerankConfig": {"model": "cohere:rerank-english-v3.0", "limit": 15}, "llmConfig": {"model": "openai:gpt-5"}, "topK": 50, "protected": true, "allowedEmails": [], "allowedEmailDomains": ["<value 1>", "<value 2>", "<value 3>"], "createdAt": "1706676766313", "updatedAt": "1735646143014"}}
         "400":
           application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
         "401":
@@ -861,7 +885,7 @@ examples:
         application/json: {}
       responses:
         "200":
-          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>", "<value 3>"], "exampleSearchQueries": ["<value 1>", "<value 2>"], "welcomeMessage": "<value>", "citationMetadataPath": "<value>", "searchEnabled": true, "rerankConfig": {"model": "cohere:rerank-v3.5"}, "llmConfig": {"model": "openai:gpt-5"}, "protected": true, "allowedEmails": ["<value 1>"], "allowedEmailDomains": ["<value 1>", "<value 2>"], "createdAt": "1733155110677", "updatedAt": "1735683262644"}}
+          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>", "<value 3>"], "exampleSearchQueries": ["<value 1>", "<value 2>"], "welcomeMessage": "<value>", "citationMetadataPath": "<value>", "searchEnabled": true, "rerankConfig": {"model": "cohere:rerank-v3.5", "limit": 15}, "llmConfig": {"model": "openai:gpt-5"}, "topK": 50, "protected": true, "allowedEmails": ["<value 1>"], "allowedEmailDomains": ["<value 1>", "<value 2>"], "createdAt": "1733155110677", "updatedAt": "1735683262644"}}
         "400":
           application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
         "401":
@@ -887,7 +911,7 @@ examples:
           namespaceId: "ns_123"
       responses:
         "204":
-          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>", "<value 3>"], "exampleSearchQueries": ["<value 1>"], "welcomeMessage": "<value>", "citationMetadataPath": null, "searchEnabled": true, "rerankConfig": {"model": "zeroentropy:zerank-1-small"}, "llmConfig": null, "protected": true, "allowedEmails": ["<value 1>", "<value 2>"], "allowedEmailDomains": ["<value 1>", "<value 2>"], "createdAt": "1720061870905", "updatedAt": "1735674378402"}}
+          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>", "<value 3>"], "exampleSearchQueries": ["<value 1>"], "welcomeMessage": "<value>", "citationMetadataPath": null, "searchEnabled": true, "rerankConfig": {"model": "zeroentropy:zerank-1-small", "limit": 15}, "llmConfig": null, "topK": 50, "protected": true, "allowedEmails": ["<value 1>", "<value 2>"], "allowedEmailDomains": ["<value 1>", "<value 2>"], "createdAt": "1720061870905", "updatedAt": "1735674378402"}}
         "400":
           application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
         "401":
@@ -933,9 +957,4 @@ examples:
         "500":
           application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Python SDK Changes Detected:
-  * `agentset.namespace.warm_up()`: **Added**
-  * `agentset.documents.list()`:  `response.data.[].config` **Added**
-  * `agentset.documents.get()`:  `response.data.config` **Added**
-  * `agentset.documents.delete()`:  `response.data.config` **Added**
+releaseNotes: "## Python SDK Changes:\n* `agentset.ingest_jobs.list()`:  `response.data.[]` **Changed** **Breaking** :warning:\n* `agentset.ingest_jobs.create()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.data` **Changed** **Breaking** :warning:\n* `agentset.ingest_jobs.get()`:  `response.data` **Changed** **Breaking** :warning:\n* `agentset.ingest_jobs.delete()`:  `response.data` **Changed** **Breaking** :warning:\n* `agentset.documents.list()`:  `response.data.[]` **Changed** **Breaking** :warning:\n* `agentset.documents.get()`:  `response.data` **Changed** **Breaking** :warning:\n* `agentset.documents.delete()`:  `response.data` **Changed** **Breaking** :warning:\n* `agentset.hosting.get()`:  `response.data` **Changed**\n* `agentset.hosting.enable()`:  `response.data` **Changed**\n* `agentset.hosting.update()`: \n  *  `request` **Changed**\n  *  `response.data` **Changed**\n* `agentset.hosting.delete()`:  `response.data` **Changed**\n"

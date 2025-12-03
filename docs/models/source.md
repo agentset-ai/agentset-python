@@ -23,3 +23,15 @@ value: models.SourceFile = /* values here */
 value: models.SourceManagedFile = /* values here */
 ```
 
+### `models.SourceCrawledPage`
+
+```python
+value: models.SourceCrawledPage = /* values here */
+```
+
+### `models.SourceYoutubeVideo`
+
+```python
+value: models.SourceYoutubeVideo = /* values here */
+```
+

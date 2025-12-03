@@ -6,7 +6,7 @@ from agentset._hooks import HookContext
 from agentset.types import OptionalNullable, UNSET
 from agentset.utils import get_security_from_env
 from agentset.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Dict, List, Mapping, Optional
+from typing import Any, Dict, Mapping, Optional
 
 
 class Search(BaseSDK):
@@ -24,12 +24,12 @@ class Search(BaseSDK):
         include_relationships: Optional[bool] = False,
         include_metadata: Optional[bool] = True,
         keyword_filter: Optional[str] = None,
-        mode: Optional[models.Mode] = "semantic",
+        mode: Optional[models.SearchMode] = "semantic",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.SearchData]:
+    ) -> models.SearchResponse:
         r"""Search a namespace
 
         Search a namespace for a query.
@@ -98,6 +98,7 @@ class Search(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body, False, False, "json", models.SearchRequestBody
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -205,12 +206,12 @@ class Search(BaseSDK):
         include_relationships: Optional[bool] = False,
         include_metadata: Optional[bool] = True,
         keyword_filter: Optional[str] = None,
-        mode: Optional[models.Mode] = "semantic",
+        mode: Optional[models.SearchMode] = "semantic",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> List[models.SearchData]:
+    ) -> models.SearchResponse:
         r"""Search a namespace
 
         Search a namespace for a query.
@@ -279,6 +280,7 @@ class Search(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body, False, False, "json", models.SearchRequestBody
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
