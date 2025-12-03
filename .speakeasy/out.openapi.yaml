@@ -80,7 +80,7 @@ paths:
                   minLength: 2
                   maxLength: 48
                 "embeddingConfig": {"default": {"provider": "MANAGED_OPENAI", "model": "text-embedding-3-large"}, "$ref": "#/components/schemas/embedding-model-config"}
-                "vectorStoreConfig": {"default": {"provider": "MANAGED_PINECONE"}, "$ref": "#/components/schemas/create-vector-store-config"}
+                "vectorStoreConfig": {"default": {"provider": "MANAGED_TURBOPUFFER"}, "$ref": "#/components/schemas/create-vector-store-config"}
               required:
                 - "name"
                 - "slug"
@@ -205,7 +205,7 @@ paths:
       x-speakeasy-name-override: "delete"
       x-speakeasy-max-method-params: 1
       summary: "Delete a namespace."
-      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\n\nawait agentset.namespaces.delete(\"ns_xxx\");\nconsole.log(\"Namespace deleted successfully\");\n"}]
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\n\nawait agentset.namespaces.delete(\"ns_xxx\");\nconsole.log(\"Namespace queued for deletion\");\n"}]
       description: "Delete a namespace for the authenticated organization. This will delete all the data associated with the namespace."
       tags:
         - "Namespaces"
@@ -341,8 +341,8 @@ paths:
       x-speakeasy-name-override: "create"
       x-speakeasy-group: "ingestJobs"
       summary: "Create an ingest job"
-      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst job = await ns.ingestion.create({\n  payload: {\n    type: \"TEXT\",\n    text: \"This is some content to ingest into the knowledge base.\",\n  },\n  config: {\n    metadata: {\n      foo: \"bar\",\n    },\n  },\n});\nconsole.log(job);\n"}]
-      description: "Create an ingest job for the authenticated organization."
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst job = await ns.ingestion.create({\n  payload: {\n    type: \"TEXT\",\n    text: \"This is some content to ingest into the knowledge base.\",\n  },\n  config: {\n    metadata: {\n      foo: \"bar\",\n    },\n    chunkSize: 2000,\n    chunkOverlap: 200,\n    minSentencesPerChunk: 1,\n    languageCode: \"en\",\n    forceOcr: false,\n    mode: \"balanced\",\n    disableImageExtraction: false,\n    disableOcrMath: false,\n    useLlm: true,\n  },\n});\nconsole.log(job);\n"}]
+      description: "Create an ingest job for the authenticated organization. You can control how documents are parsed and chunked using the optional `config` object (for example, chunk size, overlap, language, and advanced OCR/LLM options)."
       tags:
         - "Ingest Jobs"
       security:
@@ -362,7 +362,7 @@ paths:
                   anyOf:
                     - type: "string"
                     - type: "null"
-                "payload": {"$ref": "#/components/schemas/ingest-job-payload"}
+                "payload": {"$ref": "#/components/schemas/ingest-job-payload-input"}
                 "config": {"$ref": "#/components/schemas/ingest-job-config"}
                 "externalId":
                   description: "A unique external ID of the ingest job. You can use this to identify the ingest job in your system."
@@ -444,7 +444,7 @@ paths:
       x-speakeasy-group: "ingestJobs"
       x-speakeasy-max-method-params: 1
       summary: "Delete an ingest job"
-      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nawait ns.ingestion.delete(\"job_123\");\nconsole.log(\"Ingest job deleted successfully\");\n"}]
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nawait ns.ingestion.delete(\"job_123\");\nconsole.log(\"Ingest job queued for deletion\");\n"}]
       description: "Delete an ingest job for the authenticated organization."
       tags:
         - "Ingest Jobs"
@@ -676,7 +676,7 @@ paths:
       x-speakeasy-name-override: "delete"
       x-speakeasy-max-method-params: 1
       summary: "Delete a document"
-      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nawait ns.documents.delete(\"doc_123\");\nconsole.log(\"Document deleted successfully\");\n"}]
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nawait ns.documents.delete(\"doc_123\");\nconsole.log(\"Document queued for deletion\");\n"}]
       description: "Delete a document for the authenticated organization."
       tags:
         - "Documents"
@@ -1113,6 +1113,14 @@ paths:
                     - "openai:gpt-5"
                     - "openai:gpt-5-mini"
                     - "openai:gpt-5-nano"
+                "topK":
+                  type: "integer"
+                  minimum: 1
+                  maximum: 100
+                "rerankLimit":
+                  type: "integer"
+                  minimum: 1
+                  maximum: 100
       responses:
         "200":
           description: "The updated hosting configuration"
@@ -1432,40 +1440,32 @@ components:
       enum:
         - "forward"
         - "backward"
-    "ingest-job-payload":
-      description: "The ingest job payload."
+    "ingest-job-payload-input":
+      description: "The ingest job payload for creation."
       oneOf:
-        - {"$ref": "#/components/schemas/text-payload"}
+        - type: "object"
+          properties:
+            "type":
+              type: "string"
+              const: "TEXT"
+            "text":
+              description: "The text to ingest."
+              type: "string"
+              minLength: 1
+            "fileName":
+              anyOf:
+                - description: "The name of the file."
+                  type: "string"
+                - type: "null"
+          required:
+            - "type"
+            - "text"
         - {"$ref": "#/components/schemas/file-payload"}
         - {"$ref": "#/components/schemas/managed-file-payload"}
-        - {"$ref": "#/components/schemas/batch-payload"}
+        - {"$ref": "#/components/schemas/crawl-payload"}
+        - {"$ref": "#/components/schemas/youtube-payload"}
+        - {"$ref": "#/components/schemas/batch-payload-input"}
       type: "object"
-      discriminator:
-        propertyName: "type"
-        mapping:
-          "TEXT": "#/components/schemas/text-payload"
-          "FILE": "#/components/schemas/file-payload"
-          "MANAGED_FILE": "#/components/schemas/managed-file-payload"
-          "BATCH": "#/components/schemas/batch-payload"
-    "text-payload":
-      title: "Text Payload"
-      type: "object"
-      properties:
-        "type":
-          type: "string"
-          const: "TEXT"
-        "text":
-          description: "The text to ingest."
-          type: "string"
-          minLength: 1
-        "fileName":
-          anyOf:
-            - description: "The name of the file."
-              type: "string"
-            - type: "null"
-      required:
-        - "type"
-        - "text"
     "file-payload":
       title: "URL Payload"
       type: "object"
@@ -1503,8 +1503,130 @@ components:
       required:
         - "type"
         - "key"
-    "batch-payload":
-      title: "Batch Payload"
+    "crawl-payload":
+      title: "Crawl Payload"
+      type: "object"
+      properties:
+        "type":
+          type: "string"
+          const: "CRAWL"
+        "url":
+          description: "The starting URL to crawl."
+          type: "string"
+          format: "uri"
+        "maxDepth":
+          description: "Maximum depth to follow links from the starting URL. Depth 1 means only the initial page. Defaults to `5`."
+          type: "integer"
+          minimum: 1
+          maximum: 9007199254740991
+        "limit":
+          description: "Maximum number of pages to crawl before stopping. Helps bound large sites. Defaults to `50`."
+          type: "integer"
+          minimum: 1
+          maximum: 9007199254740991
+        "includePaths":
+          description: "Only crawl URLs whose path matches at least one of these prefixes."
+          type: "array"
+          items:
+            type: "string"
+        "excludePaths":
+          description: "Never crawl URLs whose path matches these prefixes."
+          type: "array"
+          items:
+            type: "string"
+        "headers":
+          description: "Custom HTTP headers to send with crawl requests (for example, auth headers)."
+          type: "object"
+          propertyNames:
+            type: "string"
+          additionalProperties:
+            type: "string"
+      required:
+        - "type"
+        - "url"
+    "youtube-payload":
+      title: "Youtube Payload"
+      type: "object"
+      properties:
+        "type":
+          type: "string"
+          const: "YOUTUBE"
+        "urls":
+          description: "The URLs of videos, channels, or playlists (hostname must be www.youtube.com or youtu.be)."
+          minItems: 1
+          type: "array"
+          items:
+            type: "string"
+            format: "uri"
+        "transcriptLanguages":
+          description: "We will try to fetch the first available transcript in the given languages. Default is `en`."
+          type: "array"
+          items: {"$ref": "#/components/schemas/language-code"}
+        "includeMetadata":
+          description: "Whether to include metadata in the ingestion (like video description, tags, category, duration, etc...). Defaults to `false`."
+          type: "boolean"
+      required:
+        - "type"
+        - "urls"
+    "language-code":
+      type: "string"
+      enum:
+        - "af"
+        - "am"
+        - "ar"
+        - "bg"
+        - "bn"
+        - "ca"
+        - "cs"
+        - "cy"
+        - "da"
+        - "de"
+        - "en"
+        - "es"
+        - "et"
+        - "fa"
+        - "fi"
+        - "fr"
+        - "ga"
+        - "gl"
+        - "he"
+        - "hi"
+        - "hr"
+        - "hu"
+        - "id"
+        - "is"
+        - "it"
+        - "jp"
+        - "kr"
+        - "lt"
+        - "lv"
+        - "mk"
+        - "ms"
+        - "mt"
+        - "ne"
+        - "nl"
+        - "no"
+        - "pl"
+        - "pt"
+        - "ro"
+        - "ru"
+        - "sk"
+        - "sl"
+        - "sr"
+        - "sv"
+        - "sw"
+        - "ta"
+        - "te"
+        - "th"
+        - "tl"
+        - "tr"
+        - "uk"
+        - "ur"
+        - "vi"
+        - "zh"
+        - "zu"
+    "batch-payload-input":
+      title: "Batch Payload Input"
       type: "object"
       properties:
         "type":
@@ -1572,20 +1694,15 @@ components:
       required:
         - "type"
         - "items"
-    "document-config": {"description": "The document config.", "$ref": "#/components/schemas/ingest-job-config"}
-    "ingest-job-config":
-      description: "The ingest job config."
+    "document-config":
+      description: "The document config."
       type: "object"
       properties:
         "chunkSize":
-          description: "Soft chunk size."
-          type: "number"
-        "maxChunkSize":
-          description: "Hard chunk size."
-          type: "number"
-        "chunkOverlap":
-          description: "Custom chunk overlap."
-          type: "number"
+          description: "Chunk size (in characters). Controls approximately how much text is included in each chunk. Defaults to `2048`."
+          type: "integer"
+          minimum: 32
+          maximum: 9007199254740991
         "metadata":
           description: "Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."
           type: "object"
@@ -1596,22 +1713,116 @@ components:
               - type: "string"
               - type: "number"
               - type: "boolean"
-        "chunkingStrategy": {"$ref": "#/components/schemas/chunking-strategy"}
-        "strategy": {"$ref": "#/components/schemas/strategy"}
-    "chunking-strategy":
-      description: "The chunking strategy to use. Defaults to `basic`."
+        "languageCode": {"description": "Language code to use for text processing (for example, `en`, `ar`, or `fr`). When omitted, the partition API will attempt to detect the language automatically.", "$ref": "#/components/schemas/language-code"}
+        "forceOcr":
+          description: "Force OCR on the document even if selectable text exists. Useful for scanned documents with unreliable embedded text. Defaults to `false`."
+          type: "boolean"
+        "mode": {"$ref": "#/components/schemas/mode"}
+        "disableImageExtraction":
+          description: "Disable image extraction from the document. When combined with `useLlm`, images may still be automatically captioned by the partition API. Defaults to `false`."
+          type: "boolean"
+        "disableOcrMath":
+          description: "Disable inline math recognition in OCR. This can be useful if the document contains content that is frequently misclassified as math. Defaults to `false`."
+          type: "boolean"
+        "useLlm":
+          description: "Enable LLM-assisted parsing to improve tables, forms, inline math, and layout detection. May increase latency and token usage. Defaults to `true`."
+          type: "boolean"
+        "chunkOverlap":
+          description: "Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option. Use `chunkSize` instead."
+          type: "number"
+        "maxChunkSize":
+          description: "[Deprecated] Hard chunk size. This option is ignored by the current partition pipeline and kept only for backwards compatibility."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option. Use `chunkSize` instead."
+          type: "number"
+        "chunkingStrategy":
+          description: "[Deprecated] The legacy chunking strategy. This option is ignored by the current partition pipeline and kept only for backwards compatibility."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option."
+          type: "string"
+          enum:
+            - "basic"
+            - "by_title"
+        "strategy":
+          description: "[Deprecated] Legacy processing strategy used by the previous partition API. This option is ignored by the current pipeline and kept only for backwards compatibility."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option. Use `mode` instead."
+          type: "string"
+          enum:
+            - "auto"
+            - "fast"
+            - "hi_res"
+            - "ocr_only"
+    "mode":
+      description: "Processing mode for the parser. `fast` favors speed, `accurate` (pro subscription only) favors quality and layout fidelity, and `balanced` offers a compromise between the two. Defaults to `balanced`."
       type: "string"
       enum:
-        - "basic"
-        - "by_title"
-    "strategy":
-      description: "The strategy to use. Defaults to `auto`."
-      type: "string"
-      enum:
-        - "auto"
         - "fast"
-        - "hi_res"
-        - "ocr_only"
+        - "balanced"
+        - "accurate"
+    "ingest-job-config":
+      description: "The ingest job config."
+      type: "object"
+      properties:
+        "chunkSize":
+          description: "Chunk size (in characters). Controls approximately how much text is included in each chunk. Defaults to `2048`."
+          type: "integer"
+          minimum: 32
+          maximum: 9007199254740991
+        "metadata":
+          description: "Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."
+          type: "object"
+          propertyNames:
+            type: "string"
+          additionalProperties:
+            anyOf:
+              - type: "string"
+              - type: "number"
+              - type: "boolean"
+        "languageCode": {"description": "Language code to use for text processing (for example, `en`, `ar`, or `fr`). When omitted, the partition API will attempt to detect the language automatically.", "$ref": "#/components/schemas/language-code"}
+        "forceOcr":
+          description: "Force OCR on the document even if selectable text exists. Useful for scanned documents with unreliable embedded text. Defaults to `false`."
+          type: "boolean"
+        "mode": {"$ref": "#/components/schemas/mode"}
+        "disableImageExtraction":
+          description: "Disable image extraction from the document. When combined with `useLlm`, images may still be automatically captioned by the partition API. Defaults to `false`."
+          type: "boolean"
+        "disableOcrMath":
+          description: "Disable inline math recognition in OCR. This can be useful if the document contains content that is frequently misclassified as math. Defaults to `false`."
+          type: "boolean"
+        "useLlm":
+          description: "Enable LLM-assisted parsing to improve tables, forms, inline math, and layout detection. May increase latency and token usage. Defaults to `true`."
+          type: "boolean"
+        "chunkOverlap":
+          description: "Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option. Use `chunkSize` instead."
+          type: "number"
+        "maxChunkSize":
+          description: "[Deprecated] Hard chunk size. This option is ignored by the current partition pipeline and kept only for backwards compatibility."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option. Use `chunkSize` instead."
+          type: "number"
+        "chunkingStrategy":
+          description: "[Deprecated] The legacy chunking strategy. This option is ignored by the current partition pipeline and kept only for backwards compatibility."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option."
+          type: "string"
+          enum:
+            - "basic"
+            - "by_title"
+        "strategy":
+          description: "[Deprecated] Legacy processing strategy used by the previous partition API. This option is ignored by the current pipeline and kept only for backwards compatibility."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option. Use `mode` instead."
+          type: "string"
+          enum:
+            - "auto"
+            - "fast"
+            - "hi_res"
+            - "ocr_only"
     "document-status":
       description: "The status of the document."
       type: "string"
@@ -1745,7 +1956,7 @@ components:
           anyOf:
             - type: "string"
             - type: "null"
-        "payload": {"$ref": "#/components/schemas/ingest-job-payloadOutput"}
+        "payload": {"$ref": "#/components/schemas/ingest-job-payload"}
         "config":
           default:
           anyOf:
@@ -1800,6 +2011,116 @@ components:
         - "completedAt"
         - "failedAt"
       additionalProperties: false
+    "ingest-job-payload":
+      description: "The ingest job payload."
+      oneOf:
+        - {"$ref": "#/components/schemas/text-payload"}
+        - {"$ref": "#/components/schemas/file-payloadOutput"}
+        - {"$ref": "#/components/schemas/managed-file-payloadOutput"}
+        - {"$ref": "#/components/schemas/crawl-payloadOutput"}
+        - {"$ref": "#/components/schemas/youtube-payloadOutput"}
+        - {"$ref": "#/components/schemas/batch-payload"}
+      type: "object"
+      discriminator:
+        propertyName: "type"
+        mapping:
+          "TEXT": "#/components/schemas/text-payload"
+          "FILE": "#/components/schemas/file-payloadOutput"
+          "MANAGED_FILE": "#/components/schemas/managed-file-payloadOutput"
+          "CRAWL": "#/components/schemas/crawl-payloadOutput"
+          "YOUTUBE": "#/components/schemas/youtube-payloadOutput"
+          "BATCH": "#/components/schemas/batch-payload"
+    "text-payload":
+      title: "Text Payload"
+      type: "object"
+      properties:
+        "type":
+          type: "string"
+          const: "TEXT"
+        "text":
+          description: "The text to ingest."
+          type: "string"
+        "fileName":
+          anyOf:
+            - description: "The name of the file."
+              type: "string"
+            - type: "null"
+      required:
+        - "type"
+        - "text"
+      additionalProperties: false
+    "batch-payload":
+      title: "Batch Payload"
+      type: "object"
+      properties:
+        "type":
+          type: "string"
+          const: "BATCH"
+        "items":
+          minItems: 1
+          type: "array"
+          items:
+            oneOf:
+              - type: "object"
+                properties:
+                  "type":
+                    type: "string"
+                    const: "TEXT"
+                  "text":
+                    description: "The text to ingest."
+                    type: "string"
+                  "fileName":
+                    anyOf:
+                      - description: "The name of the file."
+                        type: "string"
+                      - type: "null"
+                  "config": {"$ref": "#/components/schemas/document-configOutput"}
+                required:
+                  - "type"
+                  - "text"
+                additionalProperties: false
+              - type: "object"
+                properties:
+                  "type":
+                    type: "string"
+                    const: "FILE"
+                  "fileUrl":
+                    description: "The URL of the file to ingest."
+                    type: "string"
+                    format: "uri"
+                  "fileName":
+                    anyOf:
+                      - description: "The name of the file."
+                        type: "string"
+                      - type: "null"
+                  "config": {"$ref": "#/components/schemas/document-configOutput"}
+                required:
+                  - "type"
+                  - "fileUrl"
+                additionalProperties: false
+              - type: "object"
+                properties:
+                  "type":
+                    type: "string"
+                    const: "MANAGED_FILE"
+                  "key":
+                    description: "The key of the managed file to ingest."
+                    type: "string"
+                  "fileName":
+                    anyOf:
+                      - description: "The name of the file."
+                        type: "string"
+                      - type: "null"
+                  "config": {"$ref": "#/components/schemas/document-configOutput"}
+                required:
+                  - "type"
+                  - "key"
+                additionalProperties: false
+            type: "object"
+      required:
+        - "type"
+        - "items"
+      additionalProperties: false
     "document":
       title: "Document"
       type: "object"
@@ -1840,7 +2161,6 @@ components:
                 "text":
                   description: "The text to ingest."
                   type: "string"
-                  minLength: 1
               required:
                 - "type"
                 - "text"
@@ -1869,6 +2189,38 @@ components:
               required:
                 - "type"
                 - "key"
+              additionalProperties: false
+            - type: "object"
+              properties:
+                "type":
+                  type: "string"
+                  const: "CRAWLED_PAGE"
+                "title":
+                  description: "The title of the crawled page."
+                  type: "string"
+                "description":
+                  description: "The description of the crawled page."
+                  type: "string"
+                "language":
+                  description: "The language of the crawled page."
+                  type: "string"
+              required:
+                - "type"
+              additionalProperties: false
+            - type: "object"
+              properties:
+                "type":
+                  type: "string"
+                  const: "YOUTUBE_VIDEO"
+                "videoId":
+                  description: "The ID of the youtube video."
+                  type: "string"
+                "duration":
+                  description: "The duration of the youtube video in seconds."
+                  type: "number"
+              required:
+                - "type"
+                - "videoId"
               additionalProperties: false
           type: "object"
         "properties":
@@ -2050,8 +2402,15 @@ components:
                     - "cohere:rerank-multilingual-v3.0"
                     - "zeroentropy:zerank-1"
                     - "zeroentropy:zerank-1-small"
+                "limit":
+                  description: "Number of documents after reranking."
+                  default: 15
+                  type: "integer"
+                  minimum: 1
+                  maximum: 100
               required:
                 - "model"
+                - "limit"
               additionalProperties: false
             - type: "null"
         "llmConfig":
@@ -2071,6 +2430,12 @@ components:
                 - "model"
               additionalProperties: false
             - type: "null"
+        "topK":
+          description: "Number of documents to retrieve from vector store."
+          default: 50
+          type: "integer"
+          minimum: 1
+          maximum: 100
         "protected":
           description: "Whether the hosted interface is protected by authentication."
           default: true
@@ -2106,6 +2471,7 @@ components:
         - "searchEnabled"
         - "rerankConfig"
         - "llmConfig"
+        - "topK"
         - "protected"
         - "allowedEmails"
         - "allowedEmailDomains"
@@ -2245,41 +2611,6 @@ components:
         - "apiKey"
         - "region"
       additionalProperties: false
-    "ingest-job-payloadOutput":
-      description: "The ingest job payload."
-      oneOf:
-        - {"$ref": "#/components/schemas/text-payloadOutput"}
-        - {"$ref": "#/components/schemas/file-payloadOutput"}
-        - {"$ref": "#/components/schemas/managed-file-payloadOutput"}
-        - {"$ref": "#/components/schemas/batch-payloadOutput"}
-      type: "object"
-      discriminator:
-        propertyName: "type"
-        mapping:
-          "TEXT": "#/components/schemas/text-payloadOutput"
-          "FILE": "#/components/schemas/file-payloadOutput"
-          "MANAGED_FILE": "#/components/schemas/managed-file-payloadOutput"
-          "BATCH": "#/components/schemas/batch-payloadOutput"
-    "text-payloadOutput":
-      title: "Text Payload"
-      type: "object"
-      properties:
-        "type":
-          type: "string"
-          const: "TEXT"
-        "text":
-          description: "The text to ingest."
-          type: "string"
-          minLength: 1
-        "fileName":
-          anyOf:
-            - description: "The name of the file."
-              type: "string"
-            - type: "null"
-      required:
-        - "type"
-        - "text"
-      additionalProperties: false
     "file-payloadOutput":
       title: "URL Payload"
       type: "object"
@@ -2319,93 +2650,82 @@ components:
         - "type"
         - "key"
       additionalProperties: false
-    "batch-payloadOutput":
-      title: "Batch Payload"
+    "crawl-payloadOutput":
+      title: "Crawl Payload"
       type: "object"
       properties:
         "type":
           type: "string"
-          const: "BATCH"
-        "items":
+          const: "CRAWL"
+        "url":
+          description: "The starting URL to crawl."
+          type: "string"
+          format: "uri"
+        "maxDepth":
+          description: "Maximum depth to follow links from the starting URL. Depth 1 means only the initial page. Defaults to `5`."
+          type: "integer"
+          minimum: 1
+          maximum: 9007199254740991
+        "limit":
+          description: "Maximum number of pages to crawl before stopping. Helps bound large sites. Defaults to `50`."
+          type: "integer"
+          minimum: 1
+          maximum: 9007199254740991
+        "includePaths":
+          description: "Only crawl URLs whose path matches at least one of these prefixes."
+          type: "array"
+          items:
+            type: "string"
+        "excludePaths":
+          description: "Never crawl URLs whose path matches these prefixes."
+          type: "array"
+          items:
+            type: "string"
+        "headers":
+          description: "Custom HTTP headers to send with crawl requests (for example, auth headers)."
+          type: "object"
+          propertyNames:
+            type: "string"
+          additionalProperties:
+            type: "string"
+      required:
+        - "type"
+        - "url"
+      additionalProperties: false
+    "youtube-payloadOutput":
+      title: "Youtube Payload"
+      type: "object"
+      properties:
+        "type":
+          type: "string"
+          const: "YOUTUBE"
+        "urls":
+          description: "The URLs of videos, channels, or playlists (hostname must be www.youtube.com or youtu.be)."
           minItems: 1
           type: "array"
           items:
-            oneOf:
-              - type: "object"
-                properties:
-                  "type":
-                    type: "string"
-                    const: "TEXT"
-                  "text":
-                    description: "The text to ingest."
-                    type: "string"
-                    minLength: 1
-                  "fileName":
-                    anyOf:
-                      - description: "The name of the file."
-                        type: "string"
-                      - type: "null"
-                  "config": {"$ref": "#/components/schemas/document-configOutput"}
-                required:
-                  - "type"
-                  - "text"
-                additionalProperties: false
-              - type: "object"
-                properties:
-                  "type":
-                    type: "string"
-                    const: "FILE"
-                  "fileUrl":
-                    description: "The URL of the file to ingest."
-                    type: "string"
-                    format: "uri"
-                  "fileName":
-                    anyOf:
-                      - description: "The name of the file."
-                        type: "string"
-                      - type: "null"
-                  "config": {"$ref": "#/components/schemas/document-configOutput"}
-                required:
-                  - "type"
-                  - "fileUrl"
-                additionalProperties: false
-              - type: "object"
-                properties:
-                  "type":
-                    type: "string"
-                    const: "MANAGED_FILE"
-                  "key":
-                    description: "The key of the managed file to ingest."
-                    type: "string"
-                  "fileName":
-                    anyOf:
-                      - description: "The name of the file."
-                        type: "string"
-                      - type: "null"
-                  "config": {"$ref": "#/components/schemas/document-configOutput"}
-                required:
-                  - "type"
-                  - "key"
-                additionalProperties: false
-            type: "object"
+            type: "string"
+            format: "uri"
+        "transcriptLanguages":
+          description: "We will try to fetch the first available transcript in the given languages. Default is `en`."
+          type: "array"
+          items: {"$ref": "#/components/schemas/language-code"}
+        "includeMetadata":
+          description: "Whether to include metadata in the ingestion (like video description, tags, category, duration, etc...). Defaults to `false`."
+          type: "boolean"
       required:
         - "type"
-        - "items"
+        - "urls"
       additionalProperties: false
-    "document-configOutput": {"description": "The document config.", "$ref": "#/components/schemas/ingest-job-configOutput"}
-    "ingest-job-configOutput":
-      description: "The ingest job config."
+    "document-configOutput":
+      description: "The document config."
       type: "object"
       properties:
         "chunkSize":
-          description: "Soft chunk size."
-          type: "number"
-        "maxChunkSize":
-          description: "Hard chunk size."
-          type: "number"
-        "chunkOverlap":
-          description: "Custom chunk overlap."
-          type: "number"
+          description: "Chunk size (in characters). Controls approximately how much text is included in each chunk. Defaults to `2048`."
+          type: "integer"
+          minimum: 32
+          maximum: 9007199254740991
         "metadata":
           description: "Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."
           type: "object"
@@ -2416,8 +2736,110 @@ components:
               - type: "string"
               - type: "number"
               - type: "boolean"
-        "chunkingStrategy": {"$ref": "#/components/schemas/chunking-strategy"}
-        "strategy": {"$ref": "#/components/schemas/strategy"}
+        "languageCode": {"description": "Language code to use for text processing (for example, `en`, `ar`, or `fr`). When omitted, the partition API will attempt to detect the language automatically.", "$ref": "#/components/schemas/language-code"}
+        "forceOcr":
+          description: "Force OCR on the document even if selectable text exists. Useful for scanned documents with unreliable embedded text. Defaults to `false`."
+          type: "boolean"
+        "mode": {"$ref": "#/components/schemas/mode"}
+        "disableImageExtraction":
+          description: "Disable image extraction from the document. When combined with `useLlm`, images may still be automatically captioned by the partition API. Defaults to `false`."
+          type: "boolean"
+        "disableOcrMath":
+          description: "Disable inline math recognition in OCR. This can be useful if the document contains content that is frequently misclassified as math. Defaults to `false`."
+          type: "boolean"
+        "useLlm":
+          description: "Enable LLM-assisted parsing to improve tables, forms, inline math, and layout detection. May increase latency and token usage. Defaults to `true`."
+          type: "boolean"
+        "chunkOverlap":
+          description: "Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option. Use `chunkSize` instead."
+          type: "number"
+        "maxChunkSize":
+          description: "[Deprecated] Hard chunk size. This option is ignored by the current partition pipeline and kept only for backwards compatibility."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option. Use `chunkSize` instead."
+          type: "number"
+        "chunkingStrategy":
+          description: "[Deprecated] The legacy chunking strategy. This option is ignored by the current partition pipeline and kept only for backwards compatibility."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option."
+          type: "string"
+          enum:
+            - "basic"
+            - "by_title"
+        "strategy":
+          description: "[Deprecated] Legacy processing strategy used by the previous partition API. This option is ignored by the current pipeline and kept only for backwards compatibility."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option. Use `mode` instead."
+          type: "string"
+          enum:
+            - "auto"
+            - "fast"
+            - "hi_res"
+            - "ocr_only"
+      additionalProperties: false
+    "ingest-job-configOutput":
+      description: "The ingest job config."
+      type: "object"
+      properties:
+        "chunkSize":
+          description: "Chunk size (in characters). Controls approximately how much text is included in each chunk. Defaults to `2048`."
+          type: "integer"
+          minimum: 32
+          maximum: 9007199254740991
+        "metadata":
+          description: "Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."
+          type: "object"
+          propertyNames:
+            type: "string"
+          additionalProperties:
+            anyOf:
+              - type: "string"
+              - type: "number"
+              - type: "boolean"
+        "languageCode": {"description": "Language code to use for text processing (for example, `en`, `ar`, or `fr`). When omitted, the partition API will attempt to detect the language automatically.", "$ref": "#/components/schemas/language-code"}
+        "forceOcr":
+          description: "Force OCR on the document even if selectable text exists. Useful for scanned documents with unreliable embedded text. Defaults to `false`."
+          type: "boolean"
+        "mode": {"$ref": "#/components/schemas/mode"}
+        "disableImageExtraction":
+          description: "Disable image extraction from the document. When combined with `useLlm`, images may still be automatically captioned by the partition API. Defaults to `false`."
+          type: "boolean"
+        "disableOcrMath":
+          description: "Disable inline math recognition in OCR. This can be useful if the document contains content that is frequently misclassified as math. Defaults to `false`."
+          type: "boolean"
+        "useLlm":
+          description: "Enable LLM-assisted parsing to improve tables, forms, inline math, and layout detection. May increase latency and token usage. Defaults to `true`."
+          type: "boolean"
+        "chunkOverlap":
+          description: "Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option. Use `chunkSize` instead."
+          type: "number"
+        "maxChunkSize":
+          description: "[Deprecated] Hard chunk size. This option is ignored by the current partition pipeline and kept only for backwards compatibility."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option. Use `chunkSize` instead."
+          type: "number"
+        "chunkingStrategy":
+          description: "[Deprecated] The legacy chunking strategy. This option is ignored by the current partition pipeline and kept only for backwards compatibility."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option."
+          type: "string"
+          enum:
+            - "basic"
+            - "by_title"
+        "strategy":
+          description: "[Deprecated] Legacy processing strategy used by the previous partition API. This option is ignored by the current pipeline and kept only for backwards compatibility."
+          deprecated: true
+          x-speakeasy-deprecation-message: "We no longer support this option. Use `mode` instead."
+          type: "string"
+          enum:
+            - "auto"
+            - "fast"
+            - "hi_res"
+            - "ocr_only"
       additionalProperties: false
   responses:
     "400":

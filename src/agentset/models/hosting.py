@@ -19,10 +19,15 @@ RerankConfigModel = Literal[
 
 class RerankConfigTypedDict(TypedDict):
     model: RerankConfigModel
+    limit: NotRequired[int]
+    r"""Number of documents after reranking."""
 
 
 class RerankConfig(BaseModel):
     model: RerankConfigModel
+
+    limit: Optional[int] = 15
+    r"""Number of documents after reranking."""
 
 
 LlmConfigModel = Literal[
@@ -74,6 +79,8 @@ class HostingTypedDict(TypedDict):
     r"""The date and time the hosting was last updated."""
     search_enabled: NotRequired[bool]
     r"""Whether search functionality is enabled."""
+    top_k: NotRequired[int]
+    r"""Number of documents to retrieve from vector store."""
     protected: NotRequired[bool]
     r"""Whether the hosted interface is protected by authentication."""
 
@@ -137,12 +144,15 @@ class Hosting(BaseModel):
     )
     r"""Whether search functionality is enabled."""
 
+    top_k: Annotated[Optional[int], pydantic.Field(alias="topK")] = 50
+    r"""Number of documents to retrieve from vector store."""
+
     protected: Optional[bool] = True
     r"""Whether the hosted interface is protected by authentication."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["searchEnabled", "protected"]
+        optional_fields = ["searchEnabled", "topK", "protected"]
         nullable_fields = [
             "title",
             "slug",

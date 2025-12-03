@@ -3,7 +3,10 @@
 from __future__ import annotations
 from .ingest_job import IngestJob, IngestJobTypedDict
 from .ingest_job_config import IngestJobConfig, IngestJobConfigTypedDict
-from .ingest_job_payload import IngestJobPayload, IngestJobPayloadTypedDict
+from .ingest_job_payload_input import (
+    IngestJobPayloadInput,
+    IngestJobPayloadInputTypedDict,
+)
 from agentset.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from agentset.utils import (
     FieldMetadata,
@@ -43,8 +46,8 @@ class CreateIngestJobGlobals(BaseModel):
 
 
 class CreateIngestJobRequestBodyTypedDict(TypedDict):
-    payload: IngestJobPayloadTypedDict
-    r"""The ingest job payload."""
+    payload: IngestJobPayloadInputTypedDict
+    r"""The ingest job payload for creation."""
     name: NotRequired[Nullable[str]]
     r"""The name of the ingest job."""
     config: NotRequired[IngestJobConfigTypedDict]
@@ -54,8 +57,8 @@ class CreateIngestJobRequestBodyTypedDict(TypedDict):
 
 
 class CreateIngestJobRequestBody(BaseModel):
-    payload: IngestJobPayload
-    r"""The ingest job payload."""
+    payload: IngestJobPayloadInput
+    r"""The ingest job payload for creation."""
 
     name: OptionalNullable[str] = UNSET
     r"""The name of the ingest job."""

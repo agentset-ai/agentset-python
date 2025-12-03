@@ -2,9 +2,14 @@
 
 from __future__ import annotations
 from .batch_payload import BatchPayload, BatchPayloadTypedDict
-from .file_payload import FilePayload, FilePayloadTypedDict
-from .managed_file_payload import ManagedFilePayload, ManagedFilePayloadTypedDict
+from .crawl_payloadoutput import CrawlPayloadOutput, CrawlPayloadOutputTypedDict
+from .file_payloadoutput import FilePayloadOutput, FilePayloadOutputTypedDict
+from .managed_file_payloadoutput import (
+    ManagedFilePayloadOutput,
+    ManagedFilePayloadOutputTypedDict,
+)
 from .text_payload import TextPayload, TextPayloadTypedDict
+from .youtube_payloadoutput import YoutubePayloadOutput, YoutubePayloadOutputTypedDict
 from agentset.utils import get_discriminator
 from pydantic import Discriminator, Tag
 from typing import Union
@@ -16,8 +21,10 @@ IngestJobPayloadTypedDict = TypeAliasType(
     Union[
         BatchPayloadTypedDict,
         TextPayloadTypedDict,
-        FilePayloadTypedDict,
-        ManagedFilePayloadTypedDict,
+        FilePayloadOutputTypedDict,
+        ManagedFilePayloadOutputTypedDict,
+        YoutubePayloadOutputTypedDict,
+        CrawlPayloadOutputTypedDict,
     ],
 )
 r"""The ingest job payload."""
@@ -26,8 +33,10 @@ r"""The ingest job payload."""
 IngestJobPayload = Annotated[
     Union[
         Annotated[TextPayload, Tag("TEXT")],
-        Annotated[FilePayload, Tag("FILE")],
-        Annotated[ManagedFilePayload, Tag("MANAGED_FILE")],
+        Annotated[FilePayloadOutput, Tag("FILE")],
+        Annotated[ManagedFilePayloadOutput, Tag("MANAGED_FILE")],
+        Annotated[CrawlPayloadOutput, Tag("CRAWL")],
+        Annotated[YoutubePayloadOutput, Tag("YOUTUBE")],
         Annotated[BatchPayload, Tag("BATCH")],
     ],
     Discriminator(lambda m: get_discriminator(m, "type", "type")),

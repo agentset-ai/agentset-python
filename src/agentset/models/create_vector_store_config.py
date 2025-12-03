@@ -4,8 +4,9 @@ from __future__ import annotations
 from .pinecone_config import PineconeConfig, PineconeConfigTypedDict
 from .turbopuffer_config import TurbopufferConfig, TurbopufferConfigTypedDict
 from agentset.types import BaseModel
-from agentset.utils import validate_const
+from agentset.utils import get_discriminator, validate_const
 import pydantic
+from pydantic import Discriminator, Tag
 from pydantic.functional_validators import AfterValidator
 from typing import Literal, Union
 from typing_extensions import Annotated, TypeAliasType, TypedDict
@@ -51,13 +52,15 @@ CreateVectorStoreConfigTypedDict = TypeAliasType(
 r"""The vector store config. If not provided, our MANAGED_PINECONE vector store will be used. Note: You can't change the vector store config after the namespace is created."""
 
 
-CreateVectorStoreConfig = TypeAliasType(
-    "CreateVectorStoreConfig",
+CreateVectorStoreConfig = Annotated[
     Union[
-        CreateVectorStoreConfigManagedPinecone,
-        CreateVectorStoreConfigManagedTurbopuffer,
-        PineconeConfig,
-        TurbopufferConfig,
+        Annotated[CreateVectorStoreConfigManagedPinecone, Tag("MANAGED_PINECONE")],
+        Annotated[
+            CreateVectorStoreConfigManagedTurbopuffer, Tag("MANAGED_TURBOPUFFER")
+        ],
+        Annotated[PineconeConfig, Tag("PINECONE")],
+        Annotated[TurbopufferConfig, Tag("TURBOPUFFER")],
     ],
-)
+    Discriminator(lambda m: get_discriminator(m, "provider", "provider")),
+]
 r"""The vector store config. If not provided, our MANAGED_PINECONE vector store will be used. Note: You can't change the vector store config after the namespace is created."""

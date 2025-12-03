@@ -4,12 +4,63 @@ from __future__ import annotations
 from .document_configoutput import DocumentConfigOutput, DocumentConfigOutputTypedDict
 from .document_status import DocumentStatus
 from agentset.types import BaseModel, Nullable, UNSET_SENTINEL
-from agentset.utils import validate_const
+from agentset.utils import get_discriminator, validate_const
 import pydantic
-from pydantic import model_serializer
+from pydantic import Discriminator, Tag, model_serializer
 from pydantic.functional_validators import AfterValidator
-from typing import Literal, Union
-from typing_extensions import Annotated, TypeAliasType, TypedDict
+from typing import Literal, Optional, Union
+from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
+
+
+class SourceYoutubeVideoTypedDict(TypedDict):
+    video_id: str
+    r"""The ID of the youtube video."""
+    type: Literal["YOUTUBE_VIDEO"]
+    duration: NotRequired[float]
+    r"""The duration of the youtube video in seconds."""
+
+
+class SourceYoutubeVideo(BaseModel):
+    video_id: Annotated[str, pydantic.Field(alias="videoId")]
+    r"""The ID of the youtube video."""
+
+    TYPE: Annotated[
+        Annotated[
+            Literal["YOUTUBE_VIDEO"], AfterValidator(validate_const("YOUTUBE_VIDEO"))
+        ],
+        pydantic.Field(alias="type"),
+    ] = "YOUTUBE_VIDEO"
+
+    duration: Optional[float] = None
+    r"""The duration of the youtube video in seconds."""
+
+
+class SourceCrawledPageTypedDict(TypedDict):
+    type: Literal["CRAWLED_PAGE"]
+    title: NotRequired[str]
+    r"""The title of the crawled page."""
+    description: NotRequired[str]
+    r"""The description of the crawled page."""
+    language: NotRequired[str]
+    r"""The language of the crawled page."""
+
+
+class SourceCrawledPage(BaseModel):
+    TYPE: Annotated[
+        Annotated[
+            Literal["CRAWLED_PAGE"], AfterValidator(validate_const("CRAWLED_PAGE"))
+        ],
+        pydantic.Field(alias="type"),
+    ] = "CRAWLED_PAGE"
+
+    title: Optional[str] = None
+    r"""The title of the crawled page."""
+
+    description: Optional[str] = None
+    r"""The description of the crawled page."""
+
+    language: Optional[str] = None
+    r"""The language of the crawled page."""
 
 
 class SourceManagedFileTypedDict(TypedDict):
@@ -64,12 +115,27 @@ class SourceText(BaseModel):
 
 SourceTypedDict = TypeAliasType(
     "SourceTypedDict",
-    Union[SourceTextTypedDict, SourceFileTypedDict, SourceManagedFileTypedDict],
+    Union[
+        SourceTextTypedDict,
+        SourceFileTypedDict,
+        SourceManagedFileTypedDict,
+        SourceYoutubeVideoTypedDict,
+        SourceCrawledPageTypedDict,
+    ],
 )
 r"""The source of the document."""
 
 
-Source = TypeAliasType("Source", Union[SourceText, SourceFile, SourceManagedFile])
+Source = Annotated[
+    Union[
+        Annotated[SourceText, Tag("TEXT")],
+        Annotated[SourceFile, Tag("FILE")],
+        Annotated[SourceManagedFile, Tag("MANAGED_FILE")],
+        Annotated[SourceCrawledPage, Tag("CRAWLED_PAGE")],
+        Annotated[SourceYoutubeVideo, Tag("YOUTUBE_VIDEO")],
+    ],
+    Discriminator(lambda m: get_discriminator(m, "type", "type")),
+]
 r"""The source of the document."""
 
 

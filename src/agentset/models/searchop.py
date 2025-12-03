@@ -48,7 +48,7 @@ SearchRerankModel = Literal[
 r"""The reranking model to use."""
 
 
-Mode = Literal[
+SearchMode = Literal[
     "semantic",
     "keyword",
 ]
@@ -74,7 +74,7 @@ class SearchRequestBodyTypedDict(TypedDict):
     include_metadata: NotRequired[bool]
     r"""Whether to include metadata in the results. Defaults to `true`."""
     keyword_filter: NotRequired[str]
-    mode: NotRequired[Mode]
+    mode: NotRequired[SearchMode]
 
 
 class SearchRequestBody(BaseModel):
@@ -115,7 +115,7 @@ class SearchRequestBody(BaseModel):
         None
     )
 
-    mode: Optional[Mode] = "semantic"
+    mode: Optional[SearchMode] = "semantic"
 
 
 class SearchRequestTypedDict(TypedDict):

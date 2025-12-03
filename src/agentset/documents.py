@@ -82,6 +82,7 @@ class Documents(BaseSDK):
                 x_tenant_id=self.sdk_configuration.globals.x_tenant_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -275,6 +276,7 @@ class Documents(BaseSDK):
                 x_tenant_id=self.sdk_configuration.globals.x_tenant_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -409,7 +411,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Document:
+    ) -> models.GetDocumentResponse:
         r"""Retrieve a document
 
         Retrieve the info for a document.
@@ -453,6 +455,7 @@ class Documents(BaseSDK):
                 x_tenant_id=self.sdk_configuration.globals.x_tenant_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -555,7 +558,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Document:
+    ) -> models.GetDocumentResponse:
         r"""Retrieve a document
 
         Retrieve the info for a document.
@@ -599,6 +602,7 @@ class Documents(BaseSDK):
                 x_tenant_id=self.sdk_configuration.globals.x_tenant_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -701,7 +705,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Document:
+    ) -> models.DeleteDocumentResponse:
         r"""Delete a document
 
         Delete a document for the authenticated organization.
@@ -745,6 +749,7 @@ class Documents(BaseSDK):
                 x_tenant_id=self.sdk_configuration.globals.x_tenant_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -847,7 +852,7 @@ class Documents(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Document:
+    ) -> models.DeleteDocumentResponse:
         r"""Delete a document
 
         Delete a document for the authenticated organization.
@@ -891,6 +896,7 @@ class Documents(BaseSDK):
                 x_tenant_id=self.sdk_configuration.globals.x_tenant_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
