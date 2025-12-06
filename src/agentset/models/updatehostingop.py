@@ -29,6 +29,7 @@ UpdateHostingRerankModel = Literal[
     "cohere:rerank-v3.5",
     "cohere:rerank-english-v3.0",
     "cohere:rerank-multilingual-v3.0",
+    "zeroentropy:zerank-2",
     "zeroentropy:zerank-1",
     "zeroentropy:zerank-1-small",
 ]
@@ -36,6 +37,7 @@ UpdateHostingRerankModel = Literal[
 
 LlmModel = Literal[
     "openai:gpt-4.1",
+    "openai:gpt-5.1",
     "openai:gpt-5",
     "openai:gpt-5-mini",
     "openai:gpt-5-nano",

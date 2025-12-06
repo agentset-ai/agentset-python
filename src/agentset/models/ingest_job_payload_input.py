@@ -5,72 +5,19 @@ from .batch_payload_input import BatchPayloadInput, BatchPayloadInputTypedDict
 from .crawl_payload import CrawlPayload, CrawlPayloadTypedDict
 from .file_payload import FilePayload, FilePayloadTypedDict
 from .managed_file_payload import ManagedFilePayload, ManagedFilePayloadTypedDict
+from .text_payload_input import TextPayloadInput, TextPayloadInputTypedDict
 from .youtube_payload import YoutubePayload, YoutubePayloadTypedDict
-from agentset.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from agentset.utils import get_discriminator, validate_const
-import pydantic
-from pydantic import Discriminator, Tag, model_serializer
-from pydantic.functional_validators import AfterValidator
-from typing import Literal, Union
-from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
-
-
-class IngestJobPayloadInputTextTypedDict(TypedDict):
-    text: str
-    r"""The text to ingest."""
-    type: Literal["TEXT"]
-    file_name: NotRequired[Nullable[str]]
-
-
-class IngestJobPayloadInputText(BaseModel):
-    text: str
-    r"""The text to ingest."""
-
-    TYPE: Annotated[
-        Annotated[Literal["TEXT"], AfterValidator(validate_const("TEXT"))],
-        pydantic.Field(alias="type"),
-    ] = "TEXT"
-
-    file_name: Annotated[OptionalNullable[str], pydantic.Field(alias="fileName")] = (
-        UNSET
-    )
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = ["fileName"]
-        nullable_fields = ["fileName"]
-        null_default_fields = []
-
-        serialized = handler(self)
-
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k)
-            serialized.pop(k, None)
-
-            optional_nullable = k in optional_fields and k in nullable_fields
-            is_set = (
-                self.__pydantic_fields_set__.intersection({n})
-                or k in null_default_fields
-            )  # pylint: disable=no-member
-
-            if val is not None and val != UNSET_SENTINEL:
-                m[k] = val
-            elif val != UNSET_SENTINEL and (
-                not k in optional_fields or (optional_nullable and is_set)
-            ):
-                m[k] = val
-
-        return m
+from agentset.utils import get_discriminator
+from pydantic import Discriminator, Tag
+from typing import Union
+from typing_extensions import Annotated, TypeAliasType
 
 
 IngestJobPayloadInputTypedDict = TypeAliasType(
     "IngestJobPayloadInputTypedDict",
     Union[
         BatchPayloadInputTypedDict,
-        IngestJobPayloadInputTextTypedDict,
+        TextPayloadInputTypedDict,
         FilePayloadTypedDict,
         ManagedFilePayloadTypedDict,
         YoutubePayloadTypedDict,
@@ -82,7 +29,7 @@ r"""The ingest job payload for creation."""
 
 IngestJobPayloadInput = Annotated[
     Union[
-        Annotated[IngestJobPayloadInputText, Tag("TEXT")],
+        Annotated[TextPayloadInput, Tag("TEXT")],
         Annotated[FilePayload, Tag("FILE")],
         Annotated[ManagedFilePayload, Tag("MANAGED_FILE")],
         Annotated[CrawlPayload, Tag("CRAWL")],

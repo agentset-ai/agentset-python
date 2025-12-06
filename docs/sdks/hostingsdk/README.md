@@ -1,5 +1,4 @@
-# HostingSDK
-(*hosting*)
+# Hosting
 
 ## Overview
 

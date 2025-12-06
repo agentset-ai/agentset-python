@@ -1,5 +1,4 @@
 # IngestJobs
-(*ingest_jobs*)
 
 ## Overview
 

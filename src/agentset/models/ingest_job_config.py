@@ -54,7 +54,7 @@ class IngestJobConfigTypedDict(TypedDict):
     use_llm: NotRequired[bool]
     r"""Enable LLM-assisted parsing to improve tables, forms, inline math, and layout detection. May increase latency and token usage. Defaults to `true`."""
     chunk_overlap: NotRequired[float]
-    r"""Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."""
+    r"""[Deprecated] Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."""
     max_chunk_size: NotRequired[float]
     r"""[Deprecated] Hard chunk size. This option is ignored by the current partition pipeline and kept only for backwards compatibility."""
     chunking_strategy: NotRequired[IngestJobConfigChunkingStrategy]
@@ -102,7 +102,7 @@ class IngestJobConfig(BaseModel):
             alias="chunkOverlap",
         ),
     ] = None
-    r"""Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."""
+    r"""[Deprecated] Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."""
 
     max_chunk_size: Annotated[
         Optional[float],

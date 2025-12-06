@@ -247,8 +247,6 @@ if TYPE_CHECKING:
     from .ingest_job_payload import IngestJobPayload, IngestJobPayloadTypedDict
     from .ingest_job_payload_input import (
         IngestJobPayloadInput,
-        IngestJobPayloadInputText,
-        IngestJobPayloadInputTextTypedDict,
         IngestJobPayloadInputTypedDict,
     )
     from .ingest_job_status import IngestJobStatus
@@ -351,6 +349,7 @@ if TYPE_CHECKING:
     )
     from .security import Security, SecurityTypedDict
     from .text_payload import TextPayload, TextPayloadTypedDict
+    from .text_payload_input import TextPayloadInput, TextPayloadInputTypedDict
     from .turbopuffer_config import TurbopufferConfig, TurbopufferConfigTypedDict
     from .turbopuffer_configoutput import (
         TurbopufferConfigOutput,
@@ -593,8 +592,6 @@ __all__ = [
     "IngestJobConfigTypedDict",
     "IngestJobPayload",
     "IngestJobPayloadInput",
-    "IngestJobPayloadInputText",
-    "IngestJobPayloadInputTextTypedDict",
     "IngestJobPayloadInputTypedDict",
     "IngestJobPayloadTypedDict",
     "IngestJobStatus",
@@ -701,6 +698,8 @@ __all__ = [
     "SourceYoutubeVideo",
     "SourceYoutubeVideoTypedDict",
     "TextPayload",
+    "TextPayloadInput",
+    "TextPayloadInputTypedDict",
     "TextPayloadTypedDict",
     "TurbopufferConfig",
     "TurbopufferConfigOutput",
@@ -950,8 +949,6 @@ _dynamic_imports: dict[str, str] = {
     "IngestJobPayload": ".ingest_job_payload",
     "IngestJobPayloadTypedDict": ".ingest_job_payload",
     "IngestJobPayloadInput": ".ingest_job_payload_input",
-    "IngestJobPayloadInputText": ".ingest_job_payload_input",
-    "IngestJobPayloadInputTextTypedDict": ".ingest_job_payload_input",
     "IngestJobPayloadInputTypedDict": ".ingest_job_payload_input",
     "IngestJobStatus": ".ingest_job_status",
     "InternalServerErrorCode": ".internalservererror",
@@ -1036,6 +1033,8 @@ _dynamic_imports: dict[str, str] = {
     "SecurityTypedDict": ".security",
     "TextPayload": ".text_payload",
     "TextPayloadTypedDict": ".text_payload",
+    "TextPayloadInput": ".text_payload_input",
+    "TextPayloadInputTypedDict": ".text_payload_input",
     "TurbopufferConfig": ".turbopuffer_config",
     "TurbopufferConfigTypedDict": ".turbopuffer_config",
     "TurbopufferConfigOutput": ".turbopuffer_configoutput",

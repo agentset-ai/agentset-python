@@ -25,12 +25,13 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
+  persistentEdits: {}
   tests:
     generateTests: false
     generateNewTests: true
     skipResponseBodyAssertions: false
 python:
-  version: 0.6.0
+  version: 0.6.1
   additionalDependencies:
     dev: {}
     main: {}
