@@ -5,10 +5,10 @@ The ingest job payload for creation.
 
 ## Supported Types
 
-### `models.IngestJobPayloadInputText`
+### `models.TextPayloadInput`
 
 ```python
-value: models.IngestJobPayloadInputText = /* values here */
+value: models.TextPayloadInput = /* values here */
 ```
 
 ### `models.FilePayload`

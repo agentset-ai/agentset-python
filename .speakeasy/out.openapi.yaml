@@ -341,7 +341,7 @@ paths:
       x-speakeasy-name-override: "create"
       x-speakeasy-group: "ingestJobs"
       summary: "Create an ingest job"
-      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst job = await ns.ingestion.create({\n  payload: {\n    type: \"TEXT\",\n    text: \"This is some content to ingest into the knowledge base.\",\n  },\n  config: {\n    metadata: {\n      foo: \"bar\",\n    },\n    chunkSize: 2000,\n    chunkOverlap: 200,\n    minSentencesPerChunk: 1,\n    languageCode: \"en\",\n    forceOcr: false,\n    mode: \"balanced\",\n    disableImageExtraction: false,\n    disableOcrMath: false,\n    useLlm: true,\n  },\n});\nconsole.log(job);\n"}]
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst job = await ns.ingestion.create({\n  payload: {\n    type: \"TEXT\",\n    text: \"This is some content to ingest into the knowledge base.\",\n  },\n  config: {\n    metadata: {\n      foo: \"bar\",\n    },\n    chunkSize: 2048,\n  },\n});\nconsole.log(job);\n"}]
       description: "Create an ingest job for the authenticated organization. You can control how documents are parsed and chunked using the optional `config` object (for example, chunk size, overlap, language, and advanced OCR/LLM options)."
       tags:
         - "Ingest Jobs"
@@ -486,7 +486,7 @@ paths:
       x-speakeasy-group: "ingestJobs"
       x-speakeasy-max-method-params: 1
       summary: "Re-ingest a job"
-      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst result = await ns.ingestion.reIngest(\"job_123\");\nconsole.log(\"Job re-ingested: \", result);\n"}]
+      x-codeSamples: [{"lang": "TypeScript", "source": "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst result = await ns.ingestion.reIngest(\"job_123\");\nconsole.log(\"Job queued for re-ingestion: \", result);\n"}]
       description: "Re-ingest a job for the authenticated organization."
       tags:
         - "Ingest Jobs"
@@ -753,12 +753,13 @@ paths:
                   maximum: 100
                 "rerankModel":
                   description: "The reranking model to use."
-                  default: "cohere:rerank-v3.5"
+                  default: "zeroentropy:zerank-2"
                   type: "string"
                   enum:
                     - "cohere:rerank-v3.5"
                     - "cohere:rerank-english-v3.0"
                     - "cohere:rerank-multilingual-v3.0"
+                    - "zeroentropy:zerank-2"
                     - "zeroentropy:zerank-1"
                     - "zeroentropy:zerank-1-small"
                 "filter":
@@ -1104,12 +1105,14 @@ paths:
                     - "cohere:rerank-v3.5"
                     - "cohere:rerank-english-v3.0"
                     - "cohere:rerank-multilingual-v3.0"
+                    - "zeroentropy:zerank-2"
                     - "zeroentropy:zerank-1"
                     - "zeroentropy:zerank-1-small"
                 "llmModel":
                   type: "string"
                   enum:
                     - "openai:gpt-4.1"
+                    - "openai:gpt-5.1"
                     - "openai:gpt-5"
                     - "openai:gpt-5-mini"
                     - "openai:gpt-5-nano"
@@ -1443,29 +1446,41 @@ components:
     "ingest-job-payload-input":
       description: "The ingest job payload for creation."
       oneOf:
-        - type: "object"
-          properties:
-            "type":
-              type: "string"
-              const: "TEXT"
-            "text":
-              description: "The text to ingest."
-              type: "string"
-              minLength: 1
-            "fileName":
-              anyOf:
-                - description: "The name of the file."
-                  type: "string"
-                - type: "null"
-          required:
-            - "type"
-            - "text"
+        - {"$ref": "#/components/schemas/text-payload-input"}
         - {"$ref": "#/components/schemas/file-payload"}
         - {"$ref": "#/components/schemas/managed-file-payload"}
         - {"$ref": "#/components/schemas/crawl-payload"}
         - {"$ref": "#/components/schemas/youtube-payload"}
         - {"$ref": "#/components/schemas/batch-payload-input"}
       type: "object"
+      discriminator:
+        propertyName: "type"
+        mapping:
+          "TEXT": "#/components/schemas/text-payload-input"
+          "FILE": "#/components/schemas/file-payload"
+          "MANAGED_FILE": "#/components/schemas/managed-file-payload"
+          "CRAWL": "#/components/schemas/crawl-payload"
+          "YOUTUBE": "#/components/schemas/youtube-payload"
+          "BATCH": "#/components/schemas/batch-payload-input"
+    "text-payload-input":
+      title: "Text Payload"
+      type: "object"
+      properties:
+        "type":
+          type: "string"
+          const: "TEXT"
+        "fileName":
+          anyOf:
+            - description: "The name of the file."
+              type: "string"
+            - type: "null"
+        "text":
+          description: "The text to ingest."
+          type: "string"
+          minLength: 1
+      required:
+        - "type"
+        - "text"
     "file-payload":
       title: "URL Payload"
       type: "object"
@@ -1642,15 +1657,15 @@ components:
                   "type":
                     type: "string"
                     const: "TEXT"
-                  "text":
-                    description: "The text to ingest."
-                    type: "string"
-                    minLength: 1
                   "fileName":
                     anyOf:
                       - description: "The name of the file."
                         type: "string"
                       - type: "null"
+                  "text":
+                    description: "The text to ingest."
+                    type: "string"
+                    minLength: 1
                   "config": {"$ref": "#/components/schemas/document-config"}
                 required:
                   - "type"
@@ -1728,7 +1743,7 @@ components:
           description: "Enable LLM-assisted parsing to improve tables, forms, inline math, and layout detection. May increase latency and token usage. Defaults to `true`."
           type: "boolean"
         "chunkOverlap":
-          description: "Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."
+          description: "[Deprecated] Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."
           deprecated: true
           x-speakeasy-deprecation-message: "We no longer support this option. Use `chunkSize` instead."
           type: "number"
@@ -1796,7 +1811,7 @@ components:
           description: "Enable LLM-assisted parsing to improve tables, forms, inline math, and layout detection. May increase latency and token usage. Defaults to `true`."
           type: "boolean"
         "chunkOverlap":
-          description: "Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."
+          description: "[Deprecated] Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."
           deprecated: true
           x-speakeasy-deprecation-message: "We no longer support this option. Use `chunkSize` instead."
           type: "number"
@@ -2037,14 +2052,14 @@ components:
         "type":
           type: "string"
           const: "TEXT"
-        "text":
-          description: "The text to ingest."
-          type: "string"
         "fileName":
           anyOf:
             - description: "The name of the file."
               type: "string"
             - type: "null"
+        "text":
+          description: "The text to ingest."
+          type: "string"
       required:
         - "type"
         - "text"
@@ -2066,14 +2081,14 @@ components:
                   "type":
                     type: "string"
                     const: "TEXT"
-                  "text":
-                    description: "The text to ingest."
-                    type: "string"
                   "fileName":
                     anyOf:
                       - description: "The name of the file."
                         type: "string"
                       - type: "null"
+                  "text":
+                    description: "The text to ingest."
+                    type: "string"
                   "config": {"$ref": "#/components/schemas/document-configOutput"}
                 required:
                   - "type"
@@ -2400,6 +2415,7 @@ components:
                     - "cohere:rerank-v3.5"
                     - "cohere:rerank-english-v3.0"
                     - "cohere:rerank-multilingual-v3.0"
+                    - "zeroentropy:zerank-2"
                     - "zeroentropy:zerank-1"
                     - "zeroentropy:zerank-1-small"
                 "limit":
@@ -2423,6 +2439,7 @@ components:
                   type: "string"
                   enum:
                     - "openai:gpt-4.1"
+                    - "openai:gpt-5.1"
                     - "openai:gpt-5"
                     - "openai:gpt-5-mini"
                     - "openai:gpt-5-nano"
@@ -2751,7 +2768,7 @@ components:
           description: "Enable LLM-assisted parsing to improve tables, forms, inline math, and layout detection. May increase latency and token usage. Defaults to `true`."
           type: "boolean"
         "chunkOverlap":
-          description: "Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."
+          description: "[Deprecated] Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."
           deprecated: true
           x-speakeasy-deprecation-message: "We no longer support this option. Use `chunkSize` instead."
           type: "number"
@@ -2813,7 +2830,7 @@ components:
           description: "Enable LLM-assisted parsing to improve tables, forms, inline math, and layout detection. May increase latency and token usage. Defaults to `true`."
           type: "boolean"
         "chunkOverlap":
-          description: "Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."
+          description: "[Deprecated] Custom chunk overlap (in characters) between consecutive chunks. Helps preserve context across chunk boundaries."
           deprecated: true
           x-speakeasy-deprecation-message: "We no longer support this option. Use `chunkSize` instead."
           type: "number"

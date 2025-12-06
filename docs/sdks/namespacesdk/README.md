@@ -1,5 +1,4 @@
-# NamespaceSDK
-(*namespace*)
+# Namespace
 
 ## Overview
 

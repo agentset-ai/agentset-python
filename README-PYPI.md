@@ -212,20 +212,20 @@ with Agentset(
 <details open>
 <summary>Available methods</summary>
 
-### [documents](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/documents/README.md)
+### [Documents](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/documents/README.md)
 
 * [list](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/documents/README.md#list) - Retrieve a list of documents
 * [get](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/documents/README.md#get) - Retrieve a document
 * [delete](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/documents/README.md#delete) - Delete a document
 
-### [hosting](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/hostingsdk/README.md)
+### [Hosting](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/hostingsdk/README.md)
 
 * [get](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/hostingsdk/README.md#get) - Retrieve hosting configuration
 * [enable](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/hostingsdk/README.md#enable) - Enable hosting
 * [update](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/hostingsdk/README.md#update) - Update hosting configuration
 * [delete](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/hostingsdk/README.md#delete) - Delete hosting configuration
 
-### [ingest_jobs](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/ingestjobs/README.md)
+### [IngestJobs](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/ingestjobs/README.md)
 
 * [list](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/ingestjobs/README.md#list) - Retrieve a list of ingest jobs
 * [create](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/ingestjobs/README.md#create) - Create an ingest job
@@ -233,11 +233,11 @@ with Agentset(
 * [delete](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/ingestjobs/README.md#delete) - Delete an ingest job
 * [re_ingest](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/ingestjobs/README.md#re_ingest) - Re-ingest a job
 
-### [namespace](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespacesdk/README.md)
+### [Namespace](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespacesdk/README.md)
 
 * [warm_up](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespacesdk/README.md#warm_up) - Warm cache for a namespace
 
-### [namespaces](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespaces/README.md)
+### [Namespaces](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespaces/README.md)
 
 * [list](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespaces/README.md#list) - Retrieve a list of namespaces
 * [create](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespaces/README.md#create) - Create a namespace.
@@ -245,11 +245,11 @@ with Agentset(
 * [update](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespaces/README.md#update) - Update a namespace.
 * [delete](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/namespaces/README.md#delete) - Delete a namespace.
 
-### [search](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/search/README.md)
+### [Search](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/search/README.md)
 
 * [execute](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/search/README.md#execute) - Search a namespace
 
-### [uploads](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/uploads/README.md)
+### [Uploads](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/uploads/README.md)
 
 * [create](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/uploads/README.md#create) - Create presigned URL for file upload
 * [create_batch](https://github.com/agentset-ai/agentset-python/blob/master/docs/sdks/uploads/README.md#create_batch) - Create presigned URLs for batch file upload

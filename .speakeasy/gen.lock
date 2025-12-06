@@ -1,15 +1,19 @@
 lockVersion: 2.0.0
 id: 465adc89-13a8-4359-8d95-e3589d612ccc
 management:
-  docChecksum: abe24709b3df5797d8a1685aaa16896a
+  docChecksum: 5c6dfde6e00e9501fccfee6aa84e2fa0
   docVersion: 0.0.1
-  speakeasyVersion: 1.666.2
-  generationVersion: 2.768.1
-  releaseVersion: 0.6.0
-  configChecksum: 336dfbb9a8b194a3829199db26a6227a
+  speakeasyVersion: 1.669.1
+  generationVersion: 2.772.0
+  releaseVersion: 0.6.1
+  configChecksum: 0750d2b96c8a6b28b11771eb6d3bac75
   repoURL: https://github.com/agentset-ai/agentset-python.git
   installationURL: https://github.com/agentset-ai/agentset-python.git
   published: true
+persistentEdits:
+  generation_id: 005f41c1-4fe3-441e-8390-6bfe74e94e3e
+  pristine_commit_hash: 651ab2825b1c04736e38f096a451326047af079c
+  pristine_tree_hash: b760d688af31e0c42d198d3881f08f104320d366
 features:
   python:
     additionalDependencies: 1.0.0
@@ -39,353 +43,1395 @@ features:
     retries: 3.0.3
     sdkHooks: 1.2.0
     unions: 3.1.0
-generatedFiles:
-  - .devcontainer/README.md
-  - .devcontainer/devcontainer.json
-  - .devcontainer/setup.sh
-  - .gitattributes
-  - .vscode/settings.json
-  - USAGE.md
-  - docs/errors/badrequesterror.md
-  - docs/errors/conflicterror.md
-  - docs/errors/forbiddenerror.md
-  - docs/errors/internalservererror.md
-  - docs/errors/inviteexpirederror.md
-  - docs/errors/notfounderror.md
-  - docs/errors/ratelimitexceedederror.md
-  - docs/errors/unauthorizederror.md
-  - docs/errors/unprocessableentityerror.md
-  - docs/models/azureembeddingconfig.md
-  - docs/models/azureembeddingconfigoutput.md
-  - docs/models/badrequestcode.md
-  - docs/models/badrequesterror.md
-  - docs/models/batchpayload.md
-  - docs/models/batchpayloadinput.md
-  - docs/models/batchpayloadinputitemfile.md
-  - docs/models/batchpayloadinputitemmanagedfile.md
-  - docs/models/batchpayloadinputitemtext.md
-  - docs/models/batchpayloadinputitemunion.md
-  - docs/models/batchpayloaditemfile.md
-  - docs/models/batchpayloaditemmanagedfile.md
-  - docs/models/batchpayloaditemtext.md
-  - docs/models/batchpayloaditemunion.md
-  - docs/models/conflictcode.md
-  - docs/models/conflicterror.md
-  - docs/models/crawlpayload.md
-  - docs/models/crawlpayloadoutput.md
-  - docs/models/createbatchuploadglobals.md
-  - docs/models/createbatchuploadrequest.md
-  - docs/models/createbatchuploadresponse.md
-  - docs/models/createingestjobglobals.md
-  - docs/models/createingestjobrequest.md
-  - docs/models/createingestjobrequestbody.md
-  - docs/models/createingestjobresponse.md
-  - docs/models/createnamespacerequest.md
-  - docs/models/createnamespaceresponse.md
-  - docs/models/createuploadglobals.md
-  - docs/models/createuploadresponse.md
-  - docs/models/createvectorstoreconfig.md
-  - docs/models/createvectorstoreconfigmanagedpinecone.md
-  - docs/models/createvectorstoreconfigmanagedturbopuffer.md
-  - docs/models/deletedocumentglobals.md
-  - docs/models/deletedocumentrequest.md
-  - docs/models/deletedocumentresponse.md
-  - docs/models/deletehostingglobals.md
-  - docs/models/deletehostingrequest.md
-  - docs/models/deletehostingresponse.md
-  - docs/models/deleteingestjobglobals.md
-  - docs/models/deleteingestjobrequest.md
-  - docs/models/deleteingestjobresponse.md
-  - docs/models/deletenamespaceglobals.md
-  - docs/models/deletenamespacerequest.md
-  - docs/models/deletenamespaceresponse.md
-  - docs/models/document.md
-  - docs/models/documentconfig.md
-  - docs/models/documentconfigchunkingstrategy.md
-  - docs/models/documentconfigmetadata.md
-  - docs/models/documentconfigoutput.md
-  - docs/models/documentconfigoutputchunkingstrategy.md
-  - docs/models/documentconfigoutputmetadata.md
-  - docs/models/documentconfigoutputstrategy.md
-  - docs/models/documentconfigstrategy.md
-  - docs/models/documentstatus.md
-  - docs/models/embeddingmodelconfig.md
-  - docs/models/embeddingmodelconfigmodel.md
-  - docs/models/embeddingmodelconfigoutput.md
-  - docs/models/embeddingmodelconfigoutputmodel.md
-  - docs/models/embeddingmodelconfigoutputtextembedding3large.md
-  - docs/models/embeddingmodelconfigtextembedding3large.md
-  - docs/models/enablehostingglobals.md
-  - docs/models/enablehostingrequest.md
-  - docs/models/enablehostingresponse.md
-  - docs/models/filepayload.md
-  - docs/models/filepayloadoutput.md
-  - docs/models/forbiddencode.md
-  - docs/models/forbiddenerror.md
-  - docs/models/getdocumentglobals.md
-  - docs/models/getdocumentrequest.md
-  - docs/models/getdocumentresponse.md
-  - docs/models/gethostingglobals.md
-  - docs/models/gethostingrequest.md
-  - docs/models/gethostingresponse.md
-  - docs/models/getingestjobinfoglobals.md
-  - docs/models/getingestjobinforequest.md
-  - docs/models/getingestjobinforesponse.md
-  - docs/models/getnamespaceglobals.md
-  - docs/models/getnamespacerequest.md
-  - docs/models/getnamespaceresponse.md
-  - docs/models/googleembeddingconfig.md
-  - docs/models/googleembeddingconfigoutput.md
-  - docs/models/googleembeddingmodelenum.md
-  - docs/models/hosting.md
-  - docs/models/ingestjob.md
-  - docs/models/ingestjobconfig.md
-  - docs/models/ingestjobconfigchunkingstrategy.md
-  - docs/models/ingestjobconfigmetadata.md
-  - docs/models/ingestjobconfigoutput.md
-  - docs/models/ingestjobconfigoutputchunkingstrategy.md
-  - docs/models/ingestjobconfigoutputmetadata.md
-  - docs/models/ingestjobconfigoutputstrategy.md
-  - docs/models/ingestjobconfigstrategy.md
-  - docs/models/ingestjobpayload.md
-  - docs/models/ingestjobpayloadinput.md
-  - docs/models/ingestjobpayloadinputtext.md
-  - docs/models/ingestjobstatus.md
-  - docs/models/internal/globals.md
-  - docs/models/internalservererrorcode.md
-  - docs/models/internalservererrorerror.md
-  - docs/models/inviteexpiredcode.md
-  - docs/models/inviteexpirederror.md
-  - docs/models/languagecode.md
-  - docs/models/listdocumentsglobals.md
-  - docs/models/listdocumentsorder.md
-  - docs/models/listdocumentsorderby.md
-  - docs/models/listdocumentspagination.md
-  - docs/models/listdocumentsrequest.md
-  - docs/models/listdocumentsresponse.md
-  - docs/models/listdocumentsresponsebody.md
-  - docs/models/listingestjobsglobals.md
-  - docs/models/listingestjobsorder.md
-  - docs/models/listingestjobsorderby.md
-  - docs/models/listingestjobspagination.md
-  - docs/models/listingestjobsrequest.md
-  - docs/models/listingestjobsresponse.md
-  - docs/models/listingestjobsresponsebody.md
-  - docs/models/listnamespacesresponse.md
-  - docs/models/llmconfig.md
-  - docs/models/llmconfigmodel.md
-  - docs/models/llmmodel.md
-  - docs/models/managedfilepayload.md
-  - docs/models/managedfilepayloadoutput.md
-  - docs/models/mode.md
-  - docs/models/namespace.md
-  - docs/models/notfoundcode.md
-  - docs/models/notfounderror.md
-  - docs/models/openaiembeddingconfig.md
-  - docs/models/openaiembeddingconfigoutput.md
-  - docs/models/openaiembeddingmodelenum.md
-  - docs/models/paginationcursordirection.md
-  - docs/models/pineconeconfig.md
-  - docs/models/pineconeconfigoutput.md
-  - docs/models/properties.md
-  - docs/models/ratelimitexceededcode.md
-  - docs/models/ratelimitexceedederror.md
-  - docs/models/reingestjobdata.md
-  - docs/models/reingestjobglobals.md
-  - docs/models/reingestjobrequest.md
-  - docs/models/reingestjobresponse.md
-  - docs/models/rerankconfig.md
-  - docs/models/rerankconfigmodel.md
-  - docs/models/searchdata.md
-  - docs/models/searchglobals.md
-  - docs/models/searchmetadata.md
-  - docs/models/searchmode.md
-  - docs/models/searchrequest.md
-  - docs/models/searchrequestbody.md
-  - docs/models/searchrerankmodel.md
-  - docs/models/searchresponse.md
-  - docs/models/security.md
-  - docs/models/source.md
-  - docs/models/sourcecrawledpage.md
-  - docs/models/sourcefile.md
-  - docs/models/sourcemanagedfile.md
-  - docs/models/sourcetext.md
-  - docs/models/sourceyoutubevideo.md
-  - docs/models/textpayload.md
-  - docs/models/turbopufferconfig.md
-  - docs/models/turbopufferconfigoutput.md
-  - docs/models/turbopufferregionenum.md
-  - docs/models/unauthorizedcode.md
-  - docs/models/unauthorizederror.md
-  - docs/models/unprocessableentitycode.md
-  - docs/models/unprocessableentityerror.md
-  - docs/models/updatehostingglobals.md
-  - docs/models/updatehostingrequest.md
-  - docs/models/updatehostingrerankmodel.md
-  - docs/models/updatehostingresponse.md
-  - docs/models/updatenamespaceglobals.md
-  - docs/models/updatenamespacerequest.md
-  - docs/models/updatenamespaceresponse.md
-  - docs/models/uploadfileschema.md
-  - docs/models/uploadresultschema.md
-  - docs/models/utils/retryconfig.md
-  - docs/models/vectorstoreconfig.md
-  - docs/models/vectorstoreconfigmanagedpinecone.md
-  - docs/models/vectorstoreconfigmanagedpineconeold.md
-  - docs/models/vectorstoreconfigmanagedturbopuffer.md
-  - docs/models/voyageembeddingconfig.md
-  - docs/models/voyageembeddingconfigoutput.md
-  - docs/models/voyageembeddingmodelenum.md
-  - docs/models/warmupdata.md
-  - docs/models/warmupglobals.md
-  - docs/models/warmuprequest.md
-  - docs/models/warmupresponse.md
-  - docs/models/youtubepayload.md
-  - docs/models/youtubepayloadoutput.md
-  - docs/sdks/documents/README.md
-  - docs/sdks/hostingsdk/README.md
-  - docs/sdks/ingestjobs/README.md
-  - docs/sdks/namespaces/README.md
-  - docs/sdks/namespacesdk/README.md
-  - docs/sdks/search/README.md
-  - docs/sdks/uploads/README.md
-  - py.typed
-  - pylintrc
-  - pyproject.toml
-  - scripts/prepare_readme.py
-  - scripts/publish.sh
-  - src/agentset/__init__.py
-  - src/agentset/_hooks/__init__.py
-  - src/agentset/_hooks/sdkhooks.py
-  - src/agentset/_hooks/types.py
-  - src/agentset/_version.py
-  - src/agentset/basesdk.py
-  - src/agentset/documents.py
-  - src/agentset/errors/__init__.py
-  - src/agentset/errors/agentsetdefaulterror.py
-  - src/agentset/errors/agentseterror.py
-  - src/agentset/errors/badrequest_error.py
-  - src/agentset/errors/conflict_error.py
-  - src/agentset/errors/forbidden_error.py
-  - src/agentset/errors/internalservererror.py
-  - src/agentset/errors/inviteexpired_error.py
-  - src/agentset/errors/no_response_error.py
-  - src/agentset/errors/notfound_error.py
-  - src/agentset/errors/ratelimitexceeded_error.py
-  - src/agentset/errors/responsevalidationerror.py
-  - src/agentset/errors/unauthorized_error.py
-  - src/agentset/errors/unprocessableentity_error.py
-  - src/agentset/hosting_sdk.py
-  - src/agentset/httpclient.py
-  - src/agentset/ingestjobs.py
-  - src/agentset/models/__init__.py
-  - src/agentset/models/azure_embedding_config.py
-  - src/agentset/models/azure_embedding_configoutput.py
-  - src/agentset/models/badrequest_error.py
-  - src/agentset/models/batch_payload.py
-  - src/agentset/models/batch_payload_input.py
-  - src/agentset/models/conflict_error.py
-  - src/agentset/models/crawl_payload.py
-  - src/agentset/models/crawl_payloadoutput.py
-  - src/agentset/models/create_vector_store_config.py
-  - src/agentset/models/createbatchuploadop.py
-  - src/agentset/models/createingestjobop.py
-  - src/agentset/models/createnamespaceop.py
-  - src/agentset/models/createuploadop.py
-  - src/agentset/models/deletedocumentop.py
-  - src/agentset/models/deletehostingop.py
-  - src/agentset/models/deleteingestjobop.py
-  - src/agentset/models/deletenamespaceop.py
-  - src/agentset/models/document.py
-  - src/agentset/models/document_config.py
-  - src/agentset/models/document_configoutput.py
-  - src/agentset/models/document_status.py
-  - src/agentset/models/embedding_model_config.py
-  - src/agentset/models/embedding_model_configoutput.py
-  - src/agentset/models/enablehostingop.py
-  - src/agentset/models/file_payload.py
-  - src/agentset/models/file_payloadoutput.py
-  - src/agentset/models/forbidden_error.py
-  - src/agentset/models/getdocumentop.py
-  - src/agentset/models/gethostingop.py
-  - src/agentset/models/getingestjobinfoop.py
-  - src/agentset/models/getnamespaceop.py
-  - src/agentset/models/google_embedding_config.py
-  - src/agentset/models/google_embedding_configoutput.py
-  - src/agentset/models/google_embedding_model_enum.py
-  - src/agentset/models/hosting.py
-  - src/agentset/models/ingest_job.py
-  - src/agentset/models/ingest_job_config.py
-  - src/agentset/models/ingest_job_configoutput.py
-  - src/agentset/models/ingest_job_payload.py
-  - src/agentset/models/ingest_job_payload_input.py
-  - src/agentset/models/ingest_job_status.py
-  - src/agentset/models/internal/__init__.py
-  - src/agentset/models/internal/globals.py
-  - src/agentset/models/internalservererror.py
-  - src/agentset/models/inviteexpired_error.py
-  - src/agentset/models/language_code.py
-  - src/agentset/models/listdocumentsop.py
-  - src/agentset/models/listingestjobsop.py
-  - src/agentset/models/listnamespacesop.py
-  - src/agentset/models/managed_file_payload.py
-  - src/agentset/models/managed_file_payloadoutput.py
-  - src/agentset/models/mode.py
-  - src/agentset/models/namespace.py
-  - src/agentset/models/notfound_error.py
-  - src/agentset/models/openai_embedding_config.py
-  - src/agentset/models/openai_embedding_configoutput.py
-  - src/agentset/models/openai_embedding_model_enum.py
-  - src/agentset/models/pagination_cursor_direction.py
-  - src/agentset/models/pinecone_config.py
-  - src/agentset/models/pinecone_configoutput.py
-  - src/agentset/models/ratelimitexceeded_error.py
-  - src/agentset/models/reingestjobop.py
-  - src/agentset/models/searchop.py
-  - src/agentset/models/security.py
-  - src/agentset/models/text_payload.py
-  - src/agentset/models/turbopuffer_config.py
-  - src/agentset/models/turbopuffer_configoutput.py
-  - src/agentset/models/turbopuffer_region_enum.py
-  - src/agentset/models/unauthorized_error.py
-  - src/agentset/models/unprocessableentity_error.py
-  - src/agentset/models/updatehostingop.py
-  - src/agentset/models/updatenamespaceop.py
-  - src/agentset/models/upload_file_schema.py
-  - src/agentset/models/upload_result_schema.py
-  - src/agentset/models/vector_store_config.py
-  - src/agentset/models/voyage_embedding_config.py
-  - src/agentset/models/voyage_embedding_configoutput.py
-  - src/agentset/models/voyage_embedding_model_enum.py
-  - src/agentset/models/warmupop.py
-  - src/agentset/models/youtube_payload.py
-  - src/agentset/models/youtube_payloadoutput.py
-  - src/agentset/namespace_sdk.py
-  - src/agentset/namespaces.py
-  - src/agentset/py.typed
-  - src/agentset/sdk.py
-  - src/agentset/sdkconfiguration.py
-  - src/agentset/search.py
-  - src/agentset/types/__init__.py
-  - src/agentset/types/basemodel.py
-  - src/agentset/uploads.py
-  - src/agentset/utils/__init__.py
-  - src/agentset/utils/annotations.py
-  - src/agentset/utils/datetimes.py
-  - src/agentset/utils/enums.py
-  - src/agentset/utils/eventstreaming.py
-  - src/agentset/utils/forms.py
-  - src/agentset/utils/headers.py
-  - src/agentset/utils/logger.py
-  - src/agentset/utils/metadata.py
-  - src/agentset/utils/queryparams.py
-  - src/agentset/utils/requestbodies.py
-  - src/agentset/utils/retries.py
-  - src/agentset/utils/security.py
-  - src/agentset/utils/serializers.py
-  - src/agentset/utils/unmarshal_json_response.py
-  - src/agentset/utils/url.py
-  - src/agentset/utils/values.py
+trackedFiles:
+  .devcontainer/README.md:
+    id: b170c0f184ac
+    last_write_checksum: sha1:70890e6dc208c301d0427769c50483efbdfeb1b3
+    pristine_git_object: 79c63a6a04df3f59227b4682f06ea7e325824c1b
+  .devcontainer/devcontainer.json:
+    id: b34062a34eb1
+    last_write_checksum: sha1:94309e8c8eab5ab063986bf625f513a59825e947
+    pristine_git_object: 75edff51e68d2934c825764459ba3071044ce2ab
+  .devcontainer/setup.sh:
+    id: 5f1dfbfeb8eb
+    last_write_checksum: sha1:234faaf21a8a7028346590d1eb3fac0429f4991c
+    pristine_git_object: b39c28c38cf46135982ab5576b4723ea777bf510
+  .gitattributes:
+    id: 24139dae6567
+    last_write_checksum: sha1:53134de3ada576f37c22276901e1b5b6d85cd2da
+    pristine_git_object: 4d75d59008e4d8609876d263419a9dc56c8d6f3a
+  .vscode/settings.json:
+    id: 89aa447020cd
+    last_write_checksum: sha1:f84632c81029fcdda8c3b0c768d02b836fc80526
+    pristine_git_object: 8d79f0abb72526f1fb34a4c03e5bba612c6ba2ae
+  USAGE.md:
+    id: 3aed33ce6e6f
+    last_write_checksum: sha1:41c070a7c1ddf02c250a1ba7b7cd9876d1808e08
+    pristine_git_object: 779a7bdd7b8793bca5f24ba952fcaae58fb1917f
+  docs/errors/badrequesterror.md:
+    id: 75b54f860141
+    last_write_checksum: sha1:3a4d8467d4262b339ea1f767362fd12df1be7353
+    pristine_git_object: 4814138c7e8589d403621e2feeff6437ff9810a6
+  docs/errors/conflicterror.md:
+    id: 87bc1d8e340b
+    last_write_checksum: sha1:7fe3de673c43def84699284578738f8350c18fa5
+    pristine_git_object: 89325bcfaa517db26bc4c97a6470ffc09b645646
+  docs/errors/forbiddenerror.md:
+    id: 647a45a4c0b6
+    last_write_checksum: sha1:40caa5555a835e10811051960fff47974c7a29aa
+    pristine_git_object: 8d239ddc70d03aae96a4aa5ab0c9719db8770cc5
+  docs/errors/internalservererror.md:
+    id: eab04592354c
+    last_write_checksum: sha1:09a3ab9cc080bfbe1b4b3bf76e35771f4d1ad4b9
+    pristine_git_object: 6ea62d50ff18363cca9f4e9cc9183df2d2b8cfbe
+  docs/errors/inviteexpirederror.md:
+    id: 6928a9a27012
+    last_write_checksum: sha1:abaecd99385e5fdd7f64bcb8ba81aeeaa07b0721
+    pristine_git_object: 69aeacc981025825d58e3fb7f738543170eea06f
+  docs/errors/notfounderror.md:
+    id: 2bd9ff5d704d
+    last_write_checksum: sha1:de9c5b27f6e299aefe4167a4adf0add42e5ce64b
+    pristine_git_object: e43f5c027eb01ca6e3f61690996dc00e58ba6de8
+  docs/errors/ratelimitexceedederror.md:
+    id: 7525c2f6086f
+    last_write_checksum: sha1:42d0cbec6ca9dfadf4082c9601a81cb3a4aea3e8
+    pristine_git_object: fb414575adade14b470fe8269e4da344c9ebfb7f
+  docs/errors/unauthorizederror.md:
+    id: c54ee3b4e5ad
+    last_write_checksum: sha1:e22b722af6ea9840b767afe9e12745a5198b6fec
+    pristine_git_object: e46802f297a0df16031bde73456477a0661b7cef
+  docs/errors/unprocessableentityerror.md:
+    id: 49570373f8e1
+    last_write_checksum: sha1:adc8f7ff5fb913e5d1ebb440e531e342b8c53d95
+    pristine_git_object: ffe1d949cd92866a473bb68bd00389fb23ea3800
+  docs/models/azureembeddingconfig.md:
+    id: 7ff0aaf9b7a6
+    last_write_checksum: sha1:55444573be9e91f7d9bf3d887fbbbc1ac9f94e66
+    pristine_git_object: a744fddd317f4a2a6f2a175ffab265e005c31e7a
+  docs/models/azureembeddingconfigoutput.md:
+    id: 7a29edff6525
+    last_write_checksum: sha1:4d314ef44b5b88e8a8540f29202460d0ea702c91
+    pristine_git_object: b5e3258be8cb12e595207a77c834f0ed47021fe9
+  docs/models/badrequestcode.md:
+    id: aadbc8dbbfe7
+    last_write_checksum: sha1:ef426fbd6bcdbfee77eaaba9243d0dc3992f35e0
+    pristine_git_object: 6546e145a9fd204cab28298a36b8cb322797a967
+  docs/models/badrequesterror.md:
+    id: b3408cc5945b
+    last_write_checksum: sha1:16a17b4ad07a3c99785905fd441f79d86fa29df2
+    pristine_git_object: 139ba5c35b84ed6bb6bd396e1c08a2ef2dcb99a9
+  docs/models/batchpayload.md:
+    id: d27028c2a1f0
+    last_write_checksum: sha1:3e2b3bd34808c0710ad7dde0786944bf23d8e3ea
+    pristine_git_object: 236c133fd9af1c7a07261628b7900285da7ed868
+  docs/models/batchpayloadinput.md:
+    id: af58b2d96ae4
+    last_write_checksum: sha1:3e2814f326e1caa79808bf1b4b46172903b89544
+    pristine_git_object: cafa88f2bf27a5a9d55033232673417a188bbbbf
+  docs/models/batchpayloadinputitemfile.md:
+    id: 810fafd396ed
+    last_write_checksum: sha1:ccddd2a027c9a12c6b28aef7ff0911f5a8daaf8f
+    pristine_git_object: 91354e8273ff552213fd42b007f2bf25b2ebac11
+  docs/models/batchpayloadinputitemmanagedfile.md:
+    id: ddd7e3384cfb
+    last_write_checksum: sha1:7fb34a0419e9cdb56a976d9389901533b28079f6
+    pristine_git_object: 96c5209422185092d396d36db7d03b55ae804ba7
+  docs/models/batchpayloadinputitemtext.md:
+    id: af5e19f21666
+    last_write_checksum: sha1:7f0c3adcf1e4b3acc79044db1bac2e69540aa05f
+    pristine_git_object: bc53b09a931906f7c11215947244cc98458d800b
+  docs/models/batchpayloadinputitemunion.md:
+    id: e0aae868b2d3
+    last_write_checksum: sha1:369ca84fa859d0e9402bc3655b5e6039c1d04d01
+    pristine_git_object: 025970a2d9a2ab9fea69b373754aede3e0469d45
+  docs/models/batchpayloaditemfile.md:
+    id: 41e6e4b1fb46
+    last_write_checksum: sha1:23f7cceb1b97e603ac38d806379325a19de48126
+    pristine_git_object: 548d03d236adbc202ed5afa5268969e47fcc82b6
+  docs/models/batchpayloaditemmanagedfile.md:
+    id: 2bcea0517ed7
+    last_write_checksum: sha1:77b3b48f0f6f2b85660d4e7d2decdb30095aa7e0
+    pristine_git_object: fd1a1cd6875e4588081a53dea70a03aac1635517
+  docs/models/batchpayloaditemtext.md:
+    id: 0a9f0206029f
+    last_write_checksum: sha1:f22ceb3434d7cdb87eb6003a2431be3a902e702b
+    pristine_git_object: 1fec8b69fad95a469661a4c0a777547cd63ecc2d
+  docs/models/batchpayloaditemunion.md:
+    id: fa2aeaef5312
+    last_write_checksum: sha1:285aec009f428f5bc4fd6d276f56496a3c21802c
+    pristine_git_object: 43948f355fdf2734f41ca47d507aba4e32d8d7a8
+  docs/models/conflictcode.md:
+    id: 2e0df769d5fe
+    last_write_checksum: sha1:a2cb68774de653fa77f6ec8039df4b8fffa9fc04
+    pristine_git_object: 894f37dfe211fec20554896306a12bbaf9924ac0
+  docs/models/conflicterror.md:
+    id: dff8a642a6c8
+    last_write_checksum: sha1:1220ffccbc3d03111c2a2750cd09e20e15901662
+    pristine_git_object: ae5b3409375e4c8b9caaa632b36711dab8b97d3d
+  docs/models/crawlpayload.md:
+    id: 1e30a059d297
+    last_write_checksum: sha1:72c9e8ed898db69b87f9f7ce7711a0c890f393bf
+    pristine_git_object: 59566f5f8d9a74929cba1a8dbb627b99826a490a
+  docs/models/crawlpayloadoutput.md:
+    id: 7d7ef4a8682c
+    last_write_checksum: sha1:49e5ccb634d2f16cd807df76d3f063b79e4464c5
+    pristine_git_object: e7929f85d041083b2d80823cb5809b6bfca05bca
+  docs/models/createbatchuploadglobals.md:
+    id: 8c9b45e3ce61
+    last_write_checksum: sha1:8f5b0736796e6e35279c1706905507397471a209
+    pristine_git_object: 8f1908e00ee1014bc7a59a6a2df95c090f06dead
+  docs/models/createbatchuploadrequest.md:
+    id: "500593597566"
+    last_write_checksum: sha1:872962b5d0239e64285ac7024121b06e2997366a
+    pristine_git_object: 7340ad524fafd2d009f85a6047fd1f244e2bc3a4
+  docs/models/createbatchuploadresponse.md:
+    id: a8edec6afa59
+    last_write_checksum: sha1:2e2148f6d0891d80041977e67ae2f1a5cf2f55d3
+    pristine_git_object: 131cc676c0c158d353e04f4646670f27432c635e
+  docs/models/createingestjobglobals.md:
+    id: 4dc4707040eb
+    last_write_checksum: sha1:ae8a52d85add6c3cd091b4a821d30a3bd14fe245
+    pristine_git_object: 78d878766c7ce35ff90e4c89fd3a9648bf54f00a
+  docs/models/createingestjobrequest.md:
+    id: 76503d240716
+    last_write_checksum: sha1:83f438bb7be23c88aa62935b2faec7a512c75a16
+    pristine_git_object: 570e03b703a3e8d7b6e6a2fa6db450b0c093b4d7
+  docs/models/createingestjobrequestbody.md:
+    id: dd8ee2dd0cf2
+    last_write_checksum: sha1:bd30e4381b22ef564fc1319dbdb36dc2eb8d9f26
+    pristine_git_object: 6a2f341a2eeed88b45cf6084aa3296ea64daf7ea
+  docs/models/createingestjobresponse.md:
+    id: d0df3cb11a2d
+    last_write_checksum: sha1:e29720ef5ed42dbb045f8211d70cf2210e3b13ed
+    pristine_git_object: d44475c6fb3c0783c1a1a3cd043e08bafc626cfa
+  docs/models/createnamespacerequest.md:
+    id: 36b91712fb29
+    last_write_checksum: sha1:d28c8e0da8fba0045a111f8afe3184ceac1e67bf
+    pristine_git_object: 63fb41068a31b442bcfd395f8c2eabbc9f7f6d0f
+  docs/models/createnamespaceresponse.md:
+    id: 8efa8d03d8aa
+    last_write_checksum: sha1:582597a2a64b5f35e6223c987e113f314dcf2667
+    pristine_git_object: c7448eb015beaaaabd41cba16851ccb2a9fa19fc
+  docs/models/createuploadglobals.md:
+    id: 6ed6f3056dd5
+    last_write_checksum: sha1:0c1bd0e90ad890f47fe42dcec76b3f7158f73dfc
+    pristine_git_object: 72ae3734ebe3e2ef4ff624aa612f5d3124c865e8
+  docs/models/createuploadresponse.md:
+    id: 9dda43cbea86
+    last_write_checksum: sha1:83b15381ec3260b6f65e608efdd353c097d89576
+    pristine_git_object: bcbc10072c5a4bdcc6dde3fba956c976a03f9711
+  docs/models/createvectorstoreconfig.md:
+    id: 56c1b507a544
+    last_write_checksum: sha1:03c4a0d9bf4326dcbd7b86cf0c49ae6d2c57eb5a
+    pristine_git_object: 6b9591d6fa08cea8c9851289fb46c3376ab0ac2c
+  docs/models/createvectorstoreconfigmanagedpinecone.md:
+    id: 7b57b5416ccb
+    last_write_checksum: sha1:9c80febce5573c9cba64c2edcafba3f094235bf2
+    pristine_git_object: aea674b57d69463e18dafe4a97699e377e506962
+  docs/models/createvectorstoreconfigmanagedturbopuffer.md:
+    id: 470ea9f99952
+    last_write_checksum: sha1:22166f85b1a0858551fe9018a47e52e6b7c19ad8
+    pristine_git_object: 73bbf08b6e27bb57e9a47743f3655f19222d810b
+  docs/models/deletedocumentglobals.md:
+    id: 8b0368842650
+    last_write_checksum: sha1:5dde2a9edcf1d4d421c14c63b7cb7bb6e4e40524
+    pristine_git_object: e72bce9533381ff08802fab6f31bbb4fd66e9dcb
+  docs/models/deletedocumentrequest.md:
+    id: 898eebfc019e
+    last_write_checksum: sha1:b2d4debbcb5a83f03ef3c695622b51a11a2362ce
+    pristine_git_object: 5696a7c1f2cf71698c12201b57a0a4d66a12dd67
+  docs/models/deletedocumentresponse.md:
+    id: 6b2b354c8137
+    last_write_checksum: sha1:f83cacecc16e88135cbd61648d714946912004b8
+    pristine_git_object: 9eabb52dbfdd6f59dc93338f48f0c89343e94f81
+  docs/models/deletehostingglobals.md:
+    id: 8dd63e75abba
+    last_write_checksum: sha1:b211a93ab00b16821dfd9b81c63c7df3e3e1ed4f
+    pristine_git_object: f1b160db7134cbee05070827cdbaf3b2426cf686
+  docs/models/deletehostingrequest.md:
+    id: a5fddb36e57f
+    last_write_checksum: sha1:a7af1ddef8cc268a2c77d6516294741a470221f8
+    pristine_git_object: 56d384cd88abbaee958e7f468c997ada64725a10
+  docs/models/deletehostingresponse.md:
+    id: d3ba2b84ce88
+    last_write_checksum: sha1:f4b2940de52754b0476a07658679cea3153767ec
+    pristine_git_object: 9274942e2115fd00ef14b834b2bd72b604e8a0bb
+  docs/models/deleteingestjobglobals.md:
+    id: 9bb2cb49105f
+    last_write_checksum: sha1:247c1a2c1e7eb485c08edaec92274bcf55e7d040
+    pristine_git_object: d822dae5b64a11e4bc532e8c75f4600bfa22f1e6
+  docs/models/deleteingestjobrequest.md:
+    id: bdbec31d2c5d
+    last_write_checksum: sha1:76b4cc015d3b59c10c53075707720e3a4f54e911
+    pristine_git_object: a7c0153cf6a86bda97d98465dda95debd5f77a05
+  docs/models/deleteingestjobresponse.md:
+    id: 244e91257883
+    last_write_checksum: sha1:94cd749f086fb7f90edcc2762c92a2ab9070eb19
+    pristine_git_object: 56aded01de98cfa1bf2276017d16c3cb564fb848
+  docs/models/deletenamespaceglobals.md:
+    id: d49fa23238fa
+    last_write_checksum: sha1:30a3daf75efc66b8d5119f0c04246d60e51978b3
+    pristine_git_object: e7be446b8e1f6b9e46c51d732515c1d06cce9442
+  docs/models/deletenamespacerequest.md:
+    id: 2c48b5b5518c
+    last_write_checksum: sha1:7bb89b6b8952ca7f27d2a3d3c92bbee7cf728b7b
+    pristine_git_object: cf8e8b38ce4c75e632cc30bf1941f4a47018e76a
+  docs/models/deletenamespaceresponse.md:
+    id: fd40e8089378
+    last_write_checksum: sha1:ec13abcf7a1b8a9180731c794d9cddfe9de305b3
+    pristine_git_object: b44bf022a00919a7b2604e43371782770afde69c
+  docs/models/document.md:
+    id: cd1d2a444370
+    last_write_checksum: sha1:12bf913115861a858e396c20084a297c47aeeb57
+    pristine_git_object: 8a3e6a3e4f81698ba54614f7300dd1be9c5867ed
+  docs/models/documentconfig.md:
+    id: beb56702b3e2
+    last_write_checksum: sha1:99c5d192635d252007053a6cd334ad9f9c19bcdd
+    pristine_git_object: d2f2c2232a81d9055a0d000f8aad05dc7798a707
+  docs/models/documentconfigchunkingstrategy.md:
+    id: 629870ac9556
+    last_write_checksum: sha1:c0aa53dddb418c50a068922fe47d9e535ad5e486
+    pristine_git_object: 375e9e3093628239b63e0c0de9bc2b58fc009541
+  docs/models/documentconfigmetadata.md:
+    id: 4e62932eb6ca
+    last_write_checksum: sha1:8199c3c434c0f4adc1878bacbade34c0aaf4dd46
+    pristine_git_object: 3cdb2ba16101386489a01d2a774822033cb3436a
+  docs/models/documentconfigoutput.md:
+    id: 58016cc218cc
+    last_write_checksum: sha1:9ab5210ebac4c920130f10509566ad4eb6d2442c
+    pristine_git_object: 8c326d48e13fd8289215743bb0f924cc7b9fdcc0
+  docs/models/documentconfigoutputchunkingstrategy.md:
+    id: 341d08d16cc6
+    last_write_checksum: sha1:bb40f672206a1c99ae6b332d4a286d0b82011cb8
+    pristine_git_object: 7d2f7bd8a8c55a61ba245ce31cf8bb4b6439181a
+  docs/models/documentconfigoutputmetadata.md:
+    id: 358f9ba9220c
+    last_write_checksum: sha1:3aad43d8b1dd434abf7e781adc515bfbbb11fa34
+    pristine_git_object: 22afc16405d5263eb69954c9cb01b111cf0d4885
+  docs/models/documentconfigoutputstrategy.md:
+    id: c87d57e7686e
+    last_write_checksum: sha1:0ca7bedbf9bec0ce06a022350c272c91f49cfbc5
+    pristine_git_object: effc72d86b9572a32a2ccc1d6aaf32c1f769ccf5
+  docs/models/documentconfigstrategy.md:
+    id: d951f9827efd
+    last_write_checksum: sha1:3335f77124b0fae26cf17afb4264f951e75faed7
+    pristine_git_object: 812f2de6a019205570cc1bbbdb5a62da5f30d2fc
+  docs/models/documentstatus.md:
+    id: dadb0c7961a4
+    last_write_checksum: sha1:784f8245990014a99857bd2cd8d4132d0f19f1fd
+    pristine_git_object: e3e05588df3a7ed3abab3ed8c0282a04510fdbe9
+  docs/models/embeddingmodelconfig.md:
+    id: 625b656fdb20
+    last_write_checksum: sha1:8d15223a07d7b532dd1cf946b93f82d4dcbe9a28
+    pristine_git_object: b88298f743aa01cf169f758db873008b8bf78cc3
+  docs/models/embeddingmodelconfigmodel.md:
+    id: cf36ad0d7a34
+    last_write_checksum: sha1:f3ccfc671f90fb7f7c1a10bd3ad0383631d2e04a
+    pristine_git_object: e95ae71ad334ebd20cf25747fc220355b26dc078
+  docs/models/embeddingmodelconfigoutput.md:
+    id: 1ff5b74fc20b
+    last_write_checksum: sha1:2e4c99ce52b70117a8781e55de6a4f80f2b62d99
+    pristine_git_object: 8fb3b5601c0f8206a9dac016ce68faf240376df6
+  docs/models/embeddingmodelconfigoutputmodel.md:
+    id: e0dda1795e78
+    last_write_checksum: sha1:924dfe68981529b7980db1bc38bffdd6ea82bc9b
+    pristine_git_object: d0cc4025911a03fba7dada00175ddae802ae2814
+  docs/models/embeddingmodelconfigoutputtextembedding3large.md:
+    id: 053ba791db9c
+    last_write_checksum: sha1:3cee133d48540bc321bd0fd4301959921e5de4c1
+    pristine_git_object: 37b8cced92b74fd419fafe77284e6862aa42a755
+  docs/models/embeddingmodelconfigtextembedding3large.md:
+    id: ac5b4043d9d7
+    last_write_checksum: sha1:3f8a693ab7f7b0b3365387f3f223e1f021cded6d
+    pristine_git_object: ee3297c376aa965dda52d8c87b293b43a7b0e15e
+  docs/models/enablehostingglobals.md:
+    id: cc0e0740935e
+    last_write_checksum: sha1:1cf0de069eb3e3f457a6a16a38b225c2fe0b3448
+    pristine_git_object: a2428253db506a948b212e5d0fbb000b60c45e71
+  docs/models/enablehostingrequest.md:
+    id: 6ac9410170a8
+    last_write_checksum: sha1:6e71087632972ceb8b27a30a78e56596d7b594ed
+    pristine_git_object: c64e0470f4849b1ce05be4da00cb8d82192bfe14
+  docs/models/enablehostingresponse.md:
+    id: 088b4f110e01
+    last_write_checksum: sha1:7b68bbb9f0c72c28873a279b464f13f1c800b716
+    pristine_git_object: b359724e9664419bf1e1b62d82aabfc673d88403
+  docs/models/filepayload.md:
+    id: 12668a7be066
+    last_write_checksum: sha1:e026015f0ca1de82e4b696c957c0161579cf2c7e
+    pristine_git_object: 02848eac9cfb7d18bcd256f237cfa919b17203b3
+  docs/models/filepayloadoutput.md:
+    id: f7872b5b7244
+    last_write_checksum: sha1:8c49ae94d20ab135ed73adb4e7bd69c963fc2b01
+    pristine_git_object: fb69764d50d68b3c8ad33b92361eaf77d5861290
+  docs/models/forbiddencode.md:
+    id: 7ff17f17c924
+    last_write_checksum: sha1:992e7801077c4f153bf406e51af945bb9c86df41
+    pristine_git_object: 67764ea0a89f27bfcaa8bd030571db4c202873fe
+  docs/models/forbiddenerror.md:
+    id: 2862e213f77b
+    last_write_checksum: sha1:34f8d2fcec884b3a2a03c1a59bdba5780cc9aa08
+    pristine_git_object: 5ccc23bacceffefc44cdd1e64b9cb79261dfb4cb
+  docs/models/getdocumentglobals.md:
+    id: 4f20738b9d33
+    last_write_checksum: sha1:dac5b518dc65f99d1ff909b05eb7d1256e0bca05
+    pristine_git_object: 81625abe408dcc0555e0ffd651421df3ef95bfc0
+  docs/models/getdocumentrequest.md:
+    id: 4208f9b571b3
+    last_write_checksum: sha1:10e315bf0f305e84562ae0013684ec97e4bfb2c0
+    pristine_git_object: 61078c7ef01fc0d1dfeedf4a439222a6bf1b4198
+  docs/models/getdocumentresponse.md:
+    id: cbd0df7573fe
+    last_write_checksum: sha1:565177ba61e5dc31fb29067810433f9e7a3aba5b
+    pristine_git_object: 6bee09f54799beb63a39cbd624ea051bcbbedcd6
+  docs/models/gethostingglobals.md:
+    id: 37c6eb99206d
+    last_write_checksum: sha1:72b1c386a695205e229d298e5206cbbb36c00c04
+    pristine_git_object: 42f60d43fe4eb4e1d0894024f6740f0536be5085
+  docs/models/gethostingrequest.md:
+    id: 6840af87d6da
+    last_write_checksum: sha1:8cd6e22e4ae9e87cdff0c9128c0b0f949831d7e1
+    pristine_git_object: 78d7b4b01c67d5623828261b420208e20ef17620
+  docs/models/gethostingresponse.md:
+    id: ba5dd7f45378
+    last_write_checksum: sha1:1f92e235575627341ca4b43f7352e1c9a13c9dd8
+    pristine_git_object: 54c073868bd6d3f56c638ba85ceea5e6b4a8f558
+  docs/models/getingestjobinfoglobals.md:
+    id: adf0ff30bce4
+    last_write_checksum: sha1:1d2f9ef68a599a64b98c12b6d1a93035f828327d
+    pristine_git_object: 3117abef5a9ff5b0484bd3d1e9e6f85df3e8cff4
+  docs/models/getingestjobinforequest.md:
+    id: f8e6d1dbd5fb
+    last_write_checksum: sha1:bd2ab262516b07f222753bd05a64464577491d10
+    pristine_git_object: 75d0552e610b19a1cdc4efb20d4d25787eeb4a02
+  docs/models/getingestjobinforesponse.md:
+    id: 02b7d3c03e3d
+    last_write_checksum: sha1:69b2385dfdf092b481eb721560664fea77296a84
+    pristine_git_object: aa0266be1d3183f2b51a6676aa9d353da460fb86
+  docs/models/getnamespaceglobals.md:
+    id: c93100bcd90c
+    last_write_checksum: sha1:1e30dd7dd14c1e9e358ca464a94ba84e3c0b9633
+    pristine_git_object: 40933543d4869e41811c807e9cf89ae7adf3e0db
+  docs/models/getnamespacerequest.md:
+    id: 81542e982fb9
+    last_write_checksum: sha1:bf5b75e0c29a8ef30b74e5df0eedaee9f8da63ac
+    pristine_git_object: c26bd60cbfdf568e60a602f051f1c4e93d7faaca
+  docs/models/getnamespaceresponse.md:
+    id: deda836de6cf
+    last_write_checksum: sha1:4239f4450cfdf454cf0853474d958e02139a6999
+    pristine_git_object: 5f9d7cd0f0d513c5669a8513731946ec3e0015ba
+  docs/models/googleembeddingconfig.md:
+    id: c76c588399f7
+    last_write_checksum: sha1:42a342cc37e85d75ca41fa9e34e657fa95a8d5f6
+    pristine_git_object: 13f329b75b1b203eb925abbdd6164d20ca58e3d8
+  docs/models/googleembeddingconfigoutput.md:
+    id: 6bea73a07062
+    last_write_checksum: sha1:81caa93c01477e659c2facd94c000299b033ab5a
+    pristine_git_object: f6044210b5c2bac00555399d12d8fc2cf6ec96f8
+  docs/models/googleembeddingmodelenum.md:
+    id: 804e80bd275f
+    last_write_checksum: sha1:d47621bc8a2e4d30e07492fd41d7fe5868990a1f
+    pristine_git_object: 9ecb8c596b66021f17742c5b245d70f9248997a0
+  docs/models/hosting.md:
+    id: 302d42ce4e88
+    last_write_checksum: sha1:cb4bd95e162110c50f013ec8ae305bc5692b8588
+    pristine_git_object: 4bb72dc7114826398335dd4f3c2c658fd69d645b
+  docs/models/ingestjob.md:
+    id: b6395f05bac8
+    last_write_checksum: sha1:ce800c699f72f08d2336d4b86ae679b180e9c516
+    pristine_git_object: ec90310eb6a76aede5d35ee167dc8475da1c6579
+  docs/models/ingestjobconfig.md:
+    id: becb6d0b3adf
+    last_write_checksum: sha1:9a6be0eb1f6075c739b23168989f5f42f7de92e7
+    pristine_git_object: fdccbba4ecfd08ba75946f4d85f330576ed2bb6e
+  docs/models/ingestjobconfigchunkingstrategy.md:
+    id: f848b739d606
+    last_write_checksum: sha1:a8b382dff07ae4309dfd4304e0197b633c5a3462
+    pristine_git_object: 5ff77e31b378f60313f8073fd66dea129981850e
+  docs/models/ingestjobconfigmetadata.md:
+    id: 46a3dc9837ed
+    last_write_checksum: sha1:5ea662672c239b49b60fa014097bf0f5e55ac906
+    pristine_git_object: fa4a1b1e9653f7e719f6d2bab6bac04cd6e5ebb8
+  docs/models/ingestjobconfigoutput.md:
+    id: 6d8a1a8d8d73
+    last_write_checksum: sha1:a602edd39d5b9cbb32d9ff080fab834c50010fb6
+    pristine_git_object: f659eccab02d83dec001013af8c7da4195506121
+  docs/models/ingestjobconfigoutputchunkingstrategy.md:
+    id: bd990b829ea6
+    last_write_checksum: sha1:7a0bd57753ebf5b573e76d782f14f7ead375fda2
+    pristine_git_object: ce23d8242c1ee227e2a25896250361dfab66e187
+  docs/models/ingestjobconfigoutputmetadata.md:
+    id: 46442cf91cf0
+    last_write_checksum: sha1:76f125846cee4b438e45e3fbd040eb01ebbeced6
+    pristine_git_object: 95c968ca3a1c2c0cdfe9f561f824c041e5ec6392
+  docs/models/ingestjobconfigoutputstrategy.md:
+    id: f79a37710d04
+    last_write_checksum: sha1:4de5d3c9e9a71d1d5951a9042011dbb0555f0337
+    pristine_git_object: e5e22999770372d2076cc21cce23042ae231b868
+  docs/models/ingestjobconfigstrategy.md:
+    id: a828b720ec2f
+    last_write_checksum: sha1:71b9a0f3a9ef99bc94c78d10840660cc031b9eb4
+    pristine_git_object: 8247b7b4007042554d6058220919ba7529bdae9f
+  docs/models/ingestjobpayload.md:
+    id: e6dfc1732e0c
+    last_write_checksum: sha1:f2f397f2fa210ad64a64feb469e0ea706a4d0565
+    pristine_git_object: 17115783472f1d83e6c21729f8f9eeb31ef29c18
+  docs/models/ingestjobpayloadinput.md:
+    id: a4bb7ff85e7d
+    last_write_checksum: sha1:4a8926d1123bf13d9fd140e309f1965d96f61004
+    pristine_git_object: 4520845618154d572cb9c8a65765ca95b4c70b0e
+  docs/models/ingestjobstatus.md:
+    id: d942749fa469
+    last_write_checksum: sha1:ea60c1807d3bf1c38e0456f78148f5d95659f3fa
+    pristine_git_object: f36f4c1b6a6f53180f85adca8976eb1e96f190a9
+  docs/models/internal/globals.md:
+    id: 9c173b87f41f
+    last_write_checksum: sha1:4450477118a0bd4a63a1cb1734f8fbe5d548a2c2
+    pristine_git_object: fccaaf7eb6c394a1fba499a90e2d82f7783e0dba
+  docs/models/internalservererrorcode.md:
+    id: 4bfebd49985c
+    last_write_checksum: sha1:a47e3f0488ca08a9b7ddcd8069b46a1ae1237136
+    pristine_git_object: 1db726ab4ebd50534bed1286133e4cd716a2a613
+  docs/models/internalservererrorerror.md:
+    id: 5426c88a474f
+    last_write_checksum: sha1:b61f77d82df9609158b9c24e096451a77ae039fa
+    pristine_git_object: 5f8d8fcb662e69654dc86e59e9c29a453e7e4f6f
+  docs/models/inviteexpiredcode.md:
+    id: aa0d0a108a85
+    last_write_checksum: sha1:18dd30c0b9fda3adfdaea80ed558f46471e372b3
+    pristine_git_object: c2f9614bb14276e075372775db25fbc070337ab5
+  docs/models/inviteexpirederror.md:
+    id: 1d55ac817403
+    last_write_checksum: sha1:e31805c8008a8a5c2a97c09dcc8bcfb418daa550
+    pristine_git_object: ed9a416aba3258c95152f78cf73467bbda4b0724
+  docs/models/languagecode.md:
+    id: 12fa2a2aafed
+    last_write_checksum: sha1:17310956d90ad385ded4178c0019d58987c66c83
+    pristine_git_object: 2fac132780da585d018fa38d27aeb0b3d9ca889f
+  docs/models/listdocumentsglobals.md:
+    id: 1b3898dad962
+    last_write_checksum: sha1:e8dc3b55314dc27644cdd7016fd2f0c6ad1859ef
+    pristine_git_object: 91792af679838f0533081fb32b033e835a7effd5
+  docs/models/listdocumentsorder.md:
+    id: cee5c53b9513
+    last_write_checksum: sha1:cbb66cd5e74b68fb137a34f88353ca1fc20cd5e6
+    pristine_git_object: a4a82dd3d12063f701f6fa34b27a2b12ca535706
+  docs/models/listdocumentsorderby.md:
+    id: 8e3ba2c45c20
+    last_write_checksum: sha1:ae1351b5f8ea79fc0b899c0146c2db540de2c23e
+    pristine_git_object: e50f077720bdb1b1e8509cc5fae6d1182eb7fc51
+  docs/models/listdocumentspagination.md:
+    id: 0d19c25c3e25
+    last_write_checksum: sha1:85e1819ba83769b9ef42021933e79b490267a55a
+    pristine_git_object: 185dfa57cba21a4d11c3ab643cddb451ce3994ab
+  docs/models/listdocumentsrequest.md:
+    id: 36c8a1116534
+    last_write_checksum: sha1:dbdfb922c1a477d73223ff3a46d70cfd4dfea064
+    pristine_git_object: d220d1f0eb6fb076987f8cf9cdc7d81d3def5e61
+  docs/models/listdocumentsresponse.md:
+    id: f2091cee0405
+    last_write_checksum: sha1:91fcfb5c1b79f3daa6826033ca1847009a4184a2
+    pristine_git_object: 4cf6329b78d04cdbd2e316af7e2f7707308b8aba
+  docs/models/listdocumentsresponsebody.md:
+    id: 034f96793fb9
+    last_write_checksum: sha1:66812592c21edb8e9354a4b834102fb5d4685900
+    pristine_git_object: e82a6e565cbf5b531065eb179ad97728a778a766
+  docs/models/listingestjobsglobals.md:
+    id: c5ae2adb7139
+    last_write_checksum: sha1:b8e67f7a033ab257cb6e9ef812b539eb708affcd
+    pristine_git_object: f458dd1e0f2dd31b2123906c9d47adcbe824837a
+  docs/models/listingestjobsorder.md:
+    id: a570fdec52e4
+    last_write_checksum: sha1:de130deb70d71f8d6fc62be7e2e1040747b0a869
+    pristine_git_object: 77d9c35d4addd521d4ab7f7673c7c085c426acb0
+  docs/models/listingestjobsorderby.md:
+    id: d8f1a984f71c
+    last_write_checksum: sha1:9ce6356bd75424f0cc2656f41e9096757dfd4089
+    pristine_git_object: 553b0eac6699e4f1a8ef7dd3ca8e9dc75b00600e
+  docs/models/listingestjobspagination.md:
+    id: 54b432b5ea70
+    last_write_checksum: sha1:eab614f51318f6a972444d5f58b1240a940f5fc6
+    pristine_git_object: 88a6685d25ee476766abbc0569e6da1f0e19e544
+  docs/models/listingestjobsrequest.md:
+    id: 303183e9d18f
+    last_write_checksum: sha1:26cbf5ec5e318c086f9e706fab86e3515d8e58a7
+    pristine_git_object: 2c130d91d8a6b893773cbe43eacc340754006107
+  docs/models/listingestjobsresponse.md:
+    id: 17bc6e598eb9
+    last_write_checksum: sha1:adf8ec84a77cb0a4044c9bff9bc9ef16c21954ff
+    pristine_git_object: 58caccb35b4f9d6c01801e955ca7c2f86bef6cd7
+  docs/models/listingestjobsresponsebody.md:
+    id: bceccbf388bc
+    last_write_checksum: sha1:03bd77ef0ebfea06d478367c8c525b13bdaf5bed
+    pristine_git_object: 8ba9754df795eb044b4ea73bfd0bee23133f3eb3
+  docs/models/listnamespacesresponse.md:
+    id: 4583e77775ae
+    last_write_checksum: sha1:f4841fe256b6cd86c86c9c4925f76581750f2236
+    pristine_git_object: f61f5b485bd7fc052fea1552c55a491b05cdf725
+  docs/models/llmconfig.md:
+    id: bfea6c7e14e3
+    last_write_checksum: sha1:a9b427f133c9529a962f29dcbc86bf1370338361
+    pristine_git_object: b165384174129f8c80666985f41069d2bcd8148e
+  docs/models/llmconfigmodel.md:
+    id: 73063366639e
+    last_write_checksum: sha1:545d8cbbacb4fb2362c790031a9fbd5688eb6482
+    pristine_git_object: 7047bf423a196f3e3011564ff94f8d82e376eaba
+  docs/models/llmmodel.md:
+    id: 35751caebcc1
+    last_write_checksum: sha1:2b399a21e0ab3f3fa28f9cb0766d12cfc4576f44
+    pristine_git_object: 9d2821096479f3c9f1205c8b8a9993400f1375e6
+  docs/models/managedfilepayload.md:
+    id: f190453e07bb
+    last_write_checksum: sha1:3c34d5bce4bdec9751655dcfc5e7690937bbf819
+    pristine_git_object: 22e774ec278cd510a915eb6994fd6be6054664b2
+  docs/models/managedfilepayloadoutput.md:
+    id: 211d9c308d36
+    last_write_checksum: sha1:8deea26683dcdb2ba999a89d8407b008ce432703
+    pristine_git_object: 6f1e174e4b7e0365fe57094a1d8b3bc3e0cba0d9
+  docs/models/mode.md:
+    id: 568581cb28bc
+    last_write_checksum: sha1:fba3cc718f64f3866d02fc57471d0d32171308ee
+    pristine_git_object: 88a4466d7acc1b165041a56ade76febb66502dc4
+  docs/models/namespace.md:
+    id: f784b0292b3a
+    last_write_checksum: sha1:a226f02047f07e3c61c6f5c39544e376785a95d9
+    pristine_git_object: 36c738baa31fa64d63781f532129afdbc962cb2b
+  docs/models/notfoundcode.md:
+    id: 5fc071f7f900
+    last_write_checksum: sha1:c9fcf0010045b41ffe0f32b0ee95c6d37c07c75d
+    pristine_git_object: ab1e38bec0123d0a1bfb9eb78fd684bba6ce8bb4
+  docs/models/notfounderror.md:
+    id: 1f859e2b9d45
+    last_write_checksum: sha1:e1ae42d7d8807fd64b69806969db9af692524d85
+    pristine_git_object: aee8d784165c94a27dd3bc2fca6e3942039e67b9
+  docs/models/openaiembeddingconfig.md:
+    id: b72d8449b49e
+    last_write_checksum: sha1:9021e12af4c357dd91c145d51cc7ee090a3a25d3
+    pristine_git_object: bac753a80a00610a6118d4a038598afdec8c2684
+  docs/models/openaiembeddingconfigoutput.md:
+    id: 4f7978b46db7
+    last_write_checksum: sha1:a6f15cebd43245b52dce5e21beef19b31be05746
+    pristine_git_object: b2d7bc20a98aa838c00b5d30b9d943b3c263a66e
+  docs/models/openaiembeddingmodelenum.md:
+    id: 581bc816988f
+    last_write_checksum: sha1:5423383f9e35adf38636949a69ba0afb325e5aa2
+    pristine_git_object: 529baa6ee3fd42c44bed61ca095cb220a1d0d59c
+  docs/models/paginationcursordirection.md:
+    id: 98190adea378
+    last_write_checksum: sha1:cd63914de22145f9a51b9927da52d301c5914aff
+    pristine_git_object: b7ef4273a945ca519c2ba1849dfadf607934cfd3
+  docs/models/pineconeconfig.md:
+    id: 465f2d5fa519
+    last_write_checksum: sha1:d38bf8fb67de9b3c14d076beed2d4a13b988de16
+    pristine_git_object: b1bb91d767b4336ac8740c7874bcbe759815825d
+  docs/models/pineconeconfigoutput.md:
+    id: c6c6ea30b083
+    last_write_checksum: sha1:a02448d6eb1d71814c90104ead4f692a1b5c0b0a
+    pristine_git_object: 8e37623abaddf9ff2f59a05197d748c7d960038e
+  docs/models/properties.md:
+    id: 78b1b1d1b631
+    last_write_checksum: sha1:8c4e4d2cfae0c91d56704b9cc353e485f8ce4663
+    pristine_git_object: 6ce351a9f4e287cb04fa601663c3139290a9d992
+  docs/models/ratelimitexceededcode.md:
+    id: 883408b463e6
+    last_write_checksum: sha1:0ec70bd5f406c1fd7d1b166e7f040a263347a224
+    pristine_git_object: 216ce65ff1a0f93c6ef8ce003a9aaf1a2c303024
+  docs/models/ratelimitexceedederror.md:
+    id: 4c4bae284eae
+    last_write_checksum: sha1:2cf3348f157a1343e7ed1ea3f8747df5517dc63f
+    pristine_git_object: 4ca0df81f257bf65ec8e81bd8937926b236a0311
+  docs/models/reingestjobdata.md:
+    id: 2722295528d1
+    last_write_checksum: sha1:76cd4dbc76680d2b636e25d51ddea613c80ee6dd
+    pristine_git_object: 327e04177d9a732677093023c88b152a55a67e49
+  docs/models/reingestjobglobals.md:
+    id: dd659abdf9e2
+    last_write_checksum: sha1:6c8d1890756f8a467970f50685cd8c929a3735a6
+    pristine_git_object: 8559f62cefd7524c2c4341b58f4064e62ee1a8c0
+  docs/models/reingestjobrequest.md:
+    id: 5410efc49136
+    last_write_checksum: sha1:568b73218700c031caf598d9d0d6b5ec2ac184f5
+    pristine_git_object: 1f529b1eb0ab73ab475744a1a74669dd51d9caef
+  docs/models/reingestjobresponse.md:
+    id: def727810c48
+    last_write_checksum: sha1:05f8bb1ed1506e68d6fabfd59e1e1e9406c4a496
+    pristine_git_object: 8da75099fe9e268d2ccc2e5390a1d59acb2cfb1b
+  docs/models/rerankconfig.md:
+    id: d90ad3d90412
+    last_write_checksum: sha1:dc96b733440a03663265d5f9e7c0563e5548f9b5
+    pristine_git_object: 019bb99cbd4bdcc07419eec2998ad7cb6d18a37a
+  docs/models/rerankconfigmodel.md:
+    id: 764bdc143395
+    last_write_checksum: sha1:047e9180de59d835b6396eb788cfccc3e3a0e8f0
+    pristine_git_object: bbff48e2f8f76e418d30ee5a7024c70d9f426761
+  docs/models/searchdata.md:
+    id: f5255bfdb446
+    last_write_checksum: sha1:a9379acc7268b74b2f86ba6ba210c819c9f007c5
+    pristine_git_object: 5e67ed99e9161d0289fd9d3e394cbccd6f342911
+  docs/models/searchglobals.md:
+    id: 1c9c5ffd1fe5
+    last_write_checksum: sha1:dbca6cd5a829eee6138af846d660711cb82bfd41
+    pristine_git_object: 7366a64b2c047353a117c41275f996e7552e2158
+  docs/models/searchmetadata.md:
+    id: 7fab78f275a5
+    last_write_checksum: sha1:baa6395a022d677d9be099abfe7691e325671592
+    pristine_git_object: f69982241b4a6ae408d74ede4ea69877f5dd40fe
+  docs/models/searchmode.md:
+    id: 10b96335a021
+    last_write_checksum: sha1:9df755304201293c58190ef7c24c93c76a7b2962
+    pristine_git_object: ceb881902de4c6a54864a999bc4f55abf447c0ee
+  docs/models/searchrequest.md:
+    id: bc36c5e5aee1
+    last_write_checksum: sha1:4c7e4bf34e7e3ed50d62f8f6fd0f88427e02e8b0
+    pristine_git_object: c6c639ab04750794c917ddd723a22ec8fa918606
+  docs/models/searchrequestbody.md:
+    id: d4e2dd80df2d
+    last_write_checksum: sha1:1ccf3f03ea9aadf3ff5bf72fca011ad4095b3bf6
+    pristine_git_object: be060daee8e694a5899c01b9025d0830a84268c9
+  docs/models/searchrerankmodel.md:
+    id: 4b986a281df1
+    last_write_checksum: sha1:f8d4f11fe0912df121a95507a76a9c21ced651bf
+    pristine_git_object: f28391212bc24ba0c82a9d423e1cb2a124eea33b
+  docs/models/searchresponse.md:
+    id: d5606b4d403f
+    last_write_checksum: sha1:5dfccf8681bd53768b9539fd7d1553b20bad0125
+    pristine_git_object: c052421c6ea58d10b560c0270a05f0d20ae16b61
+  docs/models/security.md:
+    id: 452e4d4eb67a
+    last_write_checksum: sha1:3d5d8100840328fc1063c2e1e809112a4eb3e1ff
+    pristine_git_object: aba2ef0cc478eb1a3cf99a2afc54a71fd8fa3812
+  docs/models/source.md:
+    id: 6541ef7b41e7
+    last_write_checksum: sha1:af2c04be7ab4845c620740a7475502fbf9bf6a45
+    pristine_git_object: ce831341f37c5e79c758f38676df83f748867711
+  docs/models/sourcecrawledpage.md:
+    id: ea03f86ee952
+    last_write_checksum: sha1:9e6157ccbfc921cf407d01442c2540705cea2edb
+    pristine_git_object: d89a04efcd1cda5bba33ac0476ab5866cee622ad
+  docs/models/sourcefile.md:
+    id: 54aa8a04646b
+    last_write_checksum: sha1:cde119d9ac5c6be2add0ed7f97135eef9031b365
+    pristine_git_object: 7bc29cf53067ccca6ed6663598d39aeb74e07c10
+  docs/models/sourcemanagedfile.md:
+    id: 4c48fa5acd26
+    last_write_checksum: sha1:9231173dbd8c3ef539643c4995269b3f7a41d183
+    pristine_git_object: cc6e91baa7bd9765c6c795666eff5d90662cc178
+  docs/models/sourcetext.md:
+    id: 222c75e58da2
+    last_write_checksum: sha1:ba20e0f99590d456025b386dc92b0e3eaed56655
+    pristine_git_object: 14d85786196958cb3f5e89081bf5c53279aa29a7
+  docs/models/sourceyoutubevideo.md:
+    id: aa309a75e86f
+    last_write_checksum: sha1:8bbbd04169b469725ccceb4e10aad00db07e707d
+    pristine_git_object: 148661a6a7828de2bd5d9dc9715e231cd3ff556c
+  docs/models/textpayload.md:
+    id: 2453e959a41e
+    last_write_checksum: sha1:eab044ef2e4951d968b7a8a5a71ee1c01c511464
+    pristine_git_object: cc31ad7617b0c472378dba0b260421768ce4c150
+  docs/models/textpayloadinput.md:
+    id: 1f899ae8a173
+    last_write_checksum: sha1:03de5fd1ae88ca19d7bae6aa740c09885f480023
+    pristine_git_object: 9083069a5c4cc032105b5e60c142845dba4cc82e
+  docs/models/turbopufferconfig.md:
+    id: dfeab7770f95
+    last_write_checksum: sha1:e2fe8a6ec2e5d4788d9b9a18ab8e903b711935b3
+    pristine_git_object: d9edbff3e79908639996966b15175b063761a30b
+  docs/models/turbopufferconfigoutput.md:
+    id: c42b5acc0d62
+    last_write_checksum: sha1:2dbf331f2c75f4631003da6eed4f982e71ec3805
+    pristine_git_object: 895cba325ec428f056b485bcbbc4e0d4e40b1c35
+  docs/models/turbopufferregionenum.md:
+    id: b56cb645b3b1
+    last_write_checksum: sha1:7bcc6eceab7f8ddf24702ec1c96abd25baf3ed33
+    pristine_git_object: ec8fa6d854fec8700b82411f5b900109dba74e07
+  docs/models/unauthorizedcode.md:
+    id: ef08a4545f32
+    last_write_checksum: sha1:27461f0a625ffbd372608c6c0d1f9cc05796d5f3
+    pristine_git_object: 16fa52c88fa8c7a50924a4e71de3290f73f1ef21
+  docs/models/unauthorizederror.md:
+    id: 8fea93ffe058
+    last_write_checksum: sha1:9cf817940798a966a9d4c9c491900bd676fa37ef
+    pristine_git_object: 25271f4a09881e12c7e3ae3763c8672cf0cabc28
+  docs/models/unprocessableentitycode.md:
+    id: 19a9cae9bb98
+    last_write_checksum: sha1:b20d061d59c8d6675b7ea34728ce72265a1fe864
+    pristine_git_object: 186594074c1a3e7eccad13fa5790a347b780659c
+  docs/models/unprocessableentityerror.md:
+    id: 0fd1c5bb2d4b
+    last_write_checksum: sha1:738563db39b6319e2848365ae0bf88b65fa1d1ca
+    pristine_git_object: 5b352d44db0eeceb849439678778758034adf7f3
+  docs/models/updatehostingglobals.md:
+    id: daedef4f3824
+    last_write_checksum: sha1:111b211f688a98044677b21d0f9d9bb61263b1de
+    pristine_git_object: 98c816498244f46e747aa558224a4ebc3b4ab05f
+  docs/models/updatehostingrequest.md:
+    id: 0d8775b7aa48
+    last_write_checksum: sha1:b4e7c89ad76fef7a08a6ed854867b3ba6af5e818
+    pristine_git_object: b273978db9bd8c7b3649e57f2abe1b50d4b8bb71
+  docs/models/updatehostingrerankmodel.md:
+    id: 982f51ea83a5
+    last_write_checksum: sha1:1234dc451e2ab6c9da067d0890bb0fa86928858d
+    pristine_git_object: a3e760c0d15b721042a6b200ae503bfb01f25920
+  docs/models/updatehostingresponse.md:
+    id: 716cc051a992
+    last_write_checksum: sha1:91ed920c836cf7ba30ce5af63dd0cf478e1cf085
+    pristine_git_object: 2d0ae53fc1094a81a187cb09a59ce5295374a1f0
+  docs/models/updatenamespaceglobals.md:
+    id: 15415a31b418
+    last_write_checksum: sha1:64677fc3e0b0b305913693fd1f025f5c1528f51e
+    pristine_git_object: da40fb315d609ba9ca3f6693cb075ea86a7911c8
+  docs/models/updatenamespacerequest.md:
+    id: 1acda4bc8328
+    last_write_checksum: sha1:d461989356796cccc28c746c80630df1f4db83ca
+    pristine_git_object: 73947c774eeb6d1a55e344ce9066ae5bd79c1833
+  docs/models/updatenamespaceresponse.md:
+    id: 42fd627dc28b
+    last_write_checksum: sha1:68ece05bf4b47466122a91bd4f5185496791bc13
+    pristine_git_object: d425dca05841bc50c5506eb4c8dd3863b4e7d7ef
+  docs/models/uploadfileschema.md:
+    id: e3066baa61fc
+    last_write_checksum: sha1:691971e4623805a0f970a1c1c9f40049ee44e4d6
+    pristine_git_object: affeab2d8528041619cd9f7a9999df1eade2447c
+  docs/models/uploadresultschema.md:
+    id: 31475d20dd12
+    last_write_checksum: sha1:54a55e97bf07acb9346da1e0eb362c9d328adbe0
+    pristine_git_object: 20661ab37cd704383dcc62a35fa7d1ff763a658e
+  docs/models/utils/retryconfig.md:
+    id: 4343ac43161c
+    last_write_checksum: sha1:562c0f21e308ad10c27f85f75704c15592c6929d
+    pristine_git_object: 69dd549ec7f5f885101d08dd502e25748183aebf
+  docs/models/vectorstoreconfig.md:
+    id: 2087fa95ab6b
+    last_write_checksum: sha1:31c14fa06d45b85f7336feb7333d81852904bc9f
+    pristine_git_object: 11e4bc3bb05c4669a92583b5fbc0e142fb0a680f
+  docs/models/vectorstoreconfigmanagedpinecone.md:
+    id: 75fbaf671dbd
+    last_write_checksum: sha1:0385b7d5cb91e208caaa9b77c9c428386b56f284
+    pristine_git_object: 928476a3f0098222492464bb7f49c74a1e5a813d
+  docs/models/vectorstoreconfigmanagedpineconeold.md:
+    id: 24556c225b54
+    last_write_checksum: sha1:c6331ec3af434debc6467489a78ed41ff8549572
+    pristine_git_object: 765324b4c9d34f7386e062b7ecc9cddf13ba84d2
+  docs/models/vectorstoreconfigmanagedturbopuffer.md:
+    id: f465e59950a7
+    last_write_checksum: sha1:0c21f5a6c0c6c1910e494f727dd525d75df3b5a8
+    pristine_git_object: f2dbff7866f155d3e6bab11a260dac3c5b7b7ac4
+  docs/models/voyageembeddingconfig.md:
+    id: 859f0596adc7
+    last_write_checksum: sha1:668ae15eb6c4dba79f8416f5bd920e9c24389874
+    pristine_git_object: ad8c26f5823d1887f899e3c6d198f3d254ba880a
+  docs/models/voyageembeddingconfigoutput.md:
+    id: 675df2a06a80
+    last_write_checksum: sha1:8eb36b1020d01b4a32f8769792efff05c0aacfcd
+    pristine_git_object: 020e18b6987be494780d48ebe6ce94f92db10a7e
+  docs/models/voyageembeddingmodelenum.md:
+    id: 7fb1273733a6
+    last_write_checksum: sha1:9e2cb8a5dc623930b1abbde916aaf783fa628370
+    pristine_git_object: 518538229868d14b9eda6995b2981f88820b305b
+  docs/models/warmupdata.md:
+    id: 39390d04ce8c
+    last_write_checksum: sha1:ac5dd4e1a001832a44c4008ca423618970559781
+    pristine_git_object: cc6f3667eb75b47b1e1caf1b3b04827a44fb3693
+  docs/models/warmupglobals.md:
+    id: e333043bcbd9
+    last_write_checksum: sha1:672e8c2aaf0bd6b5e47b3123e58a2be6b5020df1
+    pristine_git_object: b5aa36cac0ac3d6bf215e5595a037ee9e90e9c2c
+  docs/models/warmuprequest.md:
+    id: 2faface7d681
+    last_write_checksum: sha1:550dd9fb3dd7692401b5a6ac1d2444180331d0dc
+    pristine_git_object: 4720b1c74cd4751a426c25992c93b6f53f51f950
+  docs/models/warmupresponse.md:
+    id: bfc4d114956c
+    last_write_checksum: sha1:c7b4b9145fbcebab2fa04389eed2530cf23218d7
+    pristine_git_object: 6441a6057a348b8c8af9c3a4dcd30d2e3b089859
+  docs/models/youtubepayload.md:
+    id: 0dcf5f8266d3
+    last_write_checksum: sha1:7ecc2291d4fcfd9e13e538a49c215f3e1bfd32f2
+    pristine_git_object: 4117a6b06ecfbf8d6a6bfc8b884863ea60001928
+  docs/models/youtubepayloadoutput.md:
+    id: 2427d1023663
+    last_write_checksum: sha1:8ca0206f8edd40bd7cb3667a9a114e7eb38fdd6b
+    pristine_git_object: 2147d2f4c7e772f33a7248f973d7bb96b2a69ac0
+  docs/sdks/documents/README.md:
+    id: 9758e88a0a9d
+    last_write_checksum: sha1:fe56ad51c6caea39f0c58279cf122cd8f21ca108
+    pristine_git_object: c43f5ca62b159fe4ad4884c869d4e6a458edf3f4
+  docs/sdks/hostingsdk/README.md:
+    id: 6b6ab456c952
+    last_write_checksum: sha1:84f0379dedb97b8e3e3fbe13a421a3027832c9e2
+    pristine_git_object: cf9766a9cee81fc3c9ab75bf77e3a408cc1df68b
+  docs/sdks/ingestjobs/README.md:
+    id: 7b2036efac22
+    last_write_checksum: sha1:20ec5873ec5af4d2aad48ff2cd756afd353daa9e
+    pristine_git_object: fef07821a5b8cd25622d22fa8a44809a1ea02e79
+  docs/sdks/namespaces/README.md:
+    id: dce0248fc228
+    last_write_checksum: sha1:48382a9861d04eccaf2382c2a634721aee6146cd
+    pristine_git_object: 6c98f3f40d9c52d3f22c657af21458f5827286da
+  docs/sdks/namespacesdk/README.md:
+    id: a63416cb1cb7
+    last_write_checksum: sha1:1f6827c61084bd69c8e37ec68f034d6ddf039cd5
+    pristine_git_object: 445e5a0699528b4acd6b48abb02e55b32c5f51d6
+  docs/sdks/search/README.md:
+    id: 5c534716244c
+    last_write_checksum: sha1:a17de78e0c5ad8a8ca44c19bad0e8657f04aa717
+    pristine_git_object: 7c490ed7a30e3c84ca293fddbc7a7b43f2cec8b2
+  docs/sdks/uploads/README.md:
+    id: 08130e009dca
+    last_write_checksum: sha1:1bc896e997f802211ee095eae10789b5c4cdd0ea
+    pristine_git_object: 01ae18676da2486a01a1e7e3c68e0b9c3f574436
+  py.typed:
+    id: 258c3ed47ae4
+    last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
+    pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
+  pylintrc:
+    id: 7ce8b9f946e6
+    last_write_checksum: sha1:f24e0b43d3e3461208ccec7ecb543f79662d01c4
+    pristine_git_object: 000d9930f874a1b01cda74f245fc00e1b6eae49e
+  pyproject.toml:
+    id: 5d07e7d72637
+    last_write_checksum: sha1:0fb6c2550b238e53315b90e817c69d4baf3c4bc6
+    pristine_git_object: bfba0f30752f32a488fef839860332a3d1417c71
+  scripts/prepare_readme.py:
+    id: e0c5957a6035
+    last_write_checksum: sha1:60657b1d5175b1e74c81f02d12ce25fab54fdf37
+    pristine_git_object: 76b929bbee297ec34a6061315516fde2ac52f126
+  scripts/publish.sh:
+    id: fe273b08f514
+    last_write_checksum: sha1:b290b25b36dca3d5eb1a2e66a2e1bcf2e7326cf3
+    pristine_git_object: c35748f360329c2bc370e9b189f49b1a360b2c48
+  src/agentset/__init__.py:
+    id: df64ee433eca
+    last_write_checksum: sha1:da077c0bdfcef64a4a5aea91a17292f72fa2b088
+    pristine_git_object: 833c68cd526fe34aab2b7e7c45f974f7f4b9e120
+  src/agentset/_hooks/__init__.py:
+    id: 9761ff3ec664
+    last_write_checksum: sha1:e3111289afd28ad557c21d9e2f918caabfb7037d
+    pristine_git_object: 2ee66cdd592fe41731c24ddd407c8ca31c50aec1
+  src/agentset/_hooks/sdkhooks.py:
+    id: 66d59314a83c
+    last_write_checksum: sha1:8844cd9e75825b4ad49e239137df80fe78704bdb
+    pristine_git_object: 30aae9c96b1edbdc524dea9d235c588a07631f0c
+  src/agentset/_hooks/types.py:
+    id: 1ac733374b31
+    last_write_checksum: sha1:c281ec525e799bc33f319bde815c9541586de3e8
+    pristine_git_object: ee14ff7b8b066537a6732994deb001b2ffbdcc6b
+  src/agentset/_version.py:
+    id: 6586f6b69ac0
+    last_write_checksum: sha1:fdc94ee19fc4c1639e3c38a5cf97949849b00ef9
+    pristine_git_object: 8884a67689609f5195e818d0bfad109c45a4925b
+  src/agentset/basesdk.py:
+    id: 569b9e7b0ab0
+    last_write_checksum: sha1:cb1e91952ea76e719445809bc96ed311941ebecc
+    pristine_git_object: a5469fa9f6350f93708ad4dea6c423931531cfe1
+  src/agentset/documents.py:
+    id: 69f46e30c2e6
+    last_write_checksum: sha1:b3922e3322d9d7e714ba7d4e060a0aa5eff61f93
+    pristine_git_object: b3f152db7ea5bc99ebb7584326068a95425565b2
+  src/agentset/errors/__init__.py:
+    id: 485b924afccd
+    last_write_checksum: sha1:ab734bb51c5e852ba02822b6182429df46df6f2e
+    pristine_git_object: fd6a848ccd3ebde594e1ac2b14b1e5d34a6dd2c7
+  src/agentset/errors/agentsetdefaulterror.py:
+    id: 5ba05bd22536
+    last_write_checksum: sha1:61622174a6389e51e93f45efc91dbdf85b336235
+    pristine_git_object: cce6861c5af7d481ec4f2e490628e44c3957e195
+  src/agentset/errors/agentseterror.py:
+    id: 3fe0a8e21540
+    last_write_checksum: sha1:97e194db0d99cb9ee06973c96cc82e481c4cdb8f
+    pristine_git_object: b87836a1052dddff1195533451b542265c2a8b88
+  src/agentset/errors/badrequest_error.py:
+    id: 05d39e22d8af
+    last_write_checksum: sha1:1fae7fe20b6ce65f657c4a2903f0698315016957
+    pristine_git_object: 92bacd080d668786f025ae21cd68d25e0790b70e
+  src/agentset/errors/conflict_error.py:
+    id: 62e7d4c865b5
+    last_write_checksum: sha1:d5c358fd0c3e9222a1ecd60842b200664f3a57ac
+    pristine_git_object: f57e8fdfbc5c34c9a6970db16b0038fbc65b0194
+  src/agentset/errors/forbidden_error.py:
+    id: 56ec8b129e5e
+    last_write_checksum: sha1:854a6b47a421cecc8089f7cbab8d7a34d8ac22a1
+    pristine_git_object: f943e1e0eefc530d0eb86232b75400547bdd829f
+  src/agentset/errors/internalservererror.py:
+    id: 195d7ed9199a
+    last_write_checksum: sha1:3ad3070a8b7f3674c98c77aa9fe314b129905cec
+    pristine_git_object: 431cbd608005e175056523b5fdf7a4e563fab63b
+  src/agentset/errors/inviteexpired_error.py:
+    id: 99cd559b6375
+    last_write_checksum: sha1:b9ae7136b7729e0dfbd1b8273bca8860303b482b
+    pristine_git_object: ec7be1a74adeba160cc6a64502a4cd393ef53ec3
+  src/agentset/errors/no_response_error.py:
+    id: b6126ef78d39
+    last_write_checksum: sha1:7f326424a7d5ae1bcd5c89a0d6b3dbda9138942f
+    pristine_git_object: 1deab64bc43e1e65bf3c412d326a4032ce342366
+  src/agentset/errors/notfound_error.py:
+    id: f405f8cd23d5
+    last_write_checksum: sha1:a3a0896daba60886963cefe68cab2dbcca8759e8
+    pristine_git_object: 0fba790b96d043f94b7ac8ee49c55901da4c92ef
+  src/agentset/errors/ratelimitexceeded_error.py:
+    id: a3502f60d64b
+    last_write_checksum: sha1:a4aa1e130be6c255418d07a7874ba7b9d90a425a
+    pristine_git_object: 5a3b3f6fbb454c4935230ead0634d188b3d497a3
+  src/agentset/errors/responsevalidationerror.py:
+    id: f11f033da1ca
+    last_write_checksum: sha1:ad4497ecd169b74bd172f6949522a56dea73f0df
+    pristine_git_object: e917fef4f2e7b636f71a210c2b86fe648bf59b02
+  src/agentset/errors/unauthorized_error.py:
+    id: ed311944f4fd
+    last_write_checksum: sha1:feda61061627f1290b16745eef6fe01a75d00818
+    pristine_git_object: 97254f72c497a3771ad7dfa9a4c1115c2c33f1af
+  src/agentset/errors/unprocessableentity_error.py:
+    id: fa07088790f4
+    last_write_checksum: sha1:0528720e825937084dc5cfdcaa638f18c4bc7fd7
+    pristine_git_object: 02b0af06fd12a02b9bdbf6abb805b6d719143de4
+  src/agentset/hosting_sdk.py:
+    id: bb7f2f247868
+    last_write_checksum: sha1:7d138ac4335e82bdabc9a35d8bf16e4bef59916c
+    pristine_git_object: 00d1b424b5bae726d3c0b26561e125a973a9753c
+  src/agentset/httpclient.py:
+    id: 366cdc39cac2
+    last_write_checksum: sha1:5e55338d6ee9f01ab648cad4380201a8a3da7dd7
+    pristine_git_object: 89560b566073785535643e694c112bedbd3db13d
+  src/agentset/ingestjobs.py:
+    id: 1d7f086766a7
+    last_write_checksum: sha1:d2c5ad36423a7d8531812e12a2c990483cd5cf87
+    pristine_git_object: 00b625aa5757f15e32f616f54df9706dce233417
+  src/agentset/models/__init__.py:
+    id: 9e35cf78febc
+    last_write_checksum: sha1:6e615c9c04344a1a6e4b84840faed621638650f8
+    pristine_git_object: 9e1ea01bb35871cb9673108932f30a3ca17e6ff3
+  src/agentset/models/azure_embedding_config.py:
+    id: 3fe4d4222dae
+    last_write_checksum: sha1:8eaee8a219d2d5c9c3581fc1fc240bcebff84f5b
+    pristine_git_object: b1e98b71f05241f462a8e3bef0eda8809334b4f9
+  src/agentset/models/azure_embedding_configoutput.py:
+    id: 1e09008e33fa
+    last_write_checksum: sha1:af9392110557ce00da14d1a484f1fae3ca1efc73
+    pristine_git_object: d93494919145080bce925e09fa95ce455367ffcf
+  src/agentset/models/badrequest_error.py:
+    id: 306327b23891
+    last_write_checksum: sha1:b3fe88b5b0cc681bccd79722f3e04dec24671c12
+    pristine_git_object: 19192c71a828b6086946386eba49311aeb50bd75
+  src/agentset/models/batch_payload.py:
+    id: 1a06546a267f
+    last_write_checksum: sha1:72da7db8b522e85d42866fc7cbdc0476335d3b5b
+    pristine_git_object: dcf1fa9637e46f583f48f0bcb2769a67e7800cc9
+  src/agentset/models/batch_payload_input.py:
+    id: e74517bba729
+    last_write_checksum: sha1:03d84d3eb45c24b302e7104791adb358a6e92508
+    pristine_git_object: 6b39c09e269d121d36e447d49e4586b22192bd10
+  src/agentset/models/conflict_error.py:
+    id: 73d6855a4e60
+    last_write_checksum: sha1:2de6d98d2b54276325d74c9d911d85b6990e77a0
+    pristine_git_object: 1c218152ba04eb747f84266f254db9801617f894
+  src/agentset/models/crawl_payload.py:
+    id: 3cb882ee9fb5
+    last_write_checksum: sha1:c43e6125c89ffaf02737a4c1a7bdf51c1d12abd6
+    pristine_git_object: a959f24ba7c2d7645ac8f59881b80d71cbf56fd5
+  src/agentset/models/crawl_payloadoutput.py:
+    id: f731d538515d
+    last_write_checksum: sha1:17de8c108fff7225f1cb566ef26604f4c6fcadc0
+    pristine_git_object: 5ec9e68bb904608c9200cdcbad22cacba9d22c77
+  src/agentset/models/create_vector_store_config.py:
+    id: 168f2cb0cf2a
+    last_write_checksum: sha1:93e9df59de19ed3b675b7f36c1f2ff7836a0fbea
+    pristine_git_object: 094f845406b43792b651ffc472d0fd47fb996d91
+  src/agentset/models/createbatchuploadop.py:
+    id: 0ccb7f83a2a7
+    last_write_checksum: sha1:a125d56fd97ed114817be3b536a42ecff88b94c9
+    pristine_git_object: bece139aaffb8800fe39c56b57087bba4995473a
+  src/agentset/models/createingestjobop.py:
+    id: 33dfbd39fa6b
+    last_write_checksum: sha1:f020db0839277e896ccb076059c3bafbaabcbbc4
+    pristine_git_object: 8c79c9a662a05deb7b81d866c9c6b4feee8c9f7e
+  src/agentset/models/createnamespaceop.py:
+    id: 32bf50449967
+    last_write_checksum: sha1:baccdc0e6ed6ec18c8ab461fc2ccaa635b9e15a3
+    pristine_git_object: 60226ad2c39c7033fc60751063bd2f42416135db
+  src/agentset/models/createuploadop.py:
+    id: 1668a4a27384
+    last_write_checksum: sha1:dde9f71f389542d2a9fb5a723398c1726175f1b3
+    pristine_git_object: d7a0bbb766e84d3d2f5d42183fe7d2adc05659a2
+  src/agentset/models/deletedocumentop.py:
+    id: 1efef49aac09
+    last_write_checksum: sha1:0e48a524066efaa8241eaa1a64cca5b312f6a1d3
+    pristine_git_object: f6ef55303746f98530f40ef54dd846640a6b1f7a
+  src/agentset/models/deletehostingop.py:
+    id: b24d9641d107
+    last_write_checksum: sha1:5bd687e849ab42f76247af818d36d7863c05afca
+    pristine_git_object: f77bbfc32ac9158eb673ccc224bbb1ac1ad99e6f
+  src/agentset/models/deleteingestjobop.py:
+    id: d48a838199f0
+    last_write_checksum: sha1:c52de3c855112b7052f9fe071002d56398678a6f
+    pristine_git_object: ae52c57c9d60f6468b50e9f3f12387bce9ac4ad9
+  src/agentset/models/deletenamespaceop.py:
+    id: 3c413eccd9ba
+    last_write_checksum: sha1:92a96739f7237b61a24e2a66abd08d59b6ff7b51
+    pristine_git_object: 51cda4c4d881cd54e3c03bb7f92322902d957f36
+  src/agentset/models/document.py:
+    id: f2c168ceae0d
+    last_write_checksum: sha1:4a5a1ab92f4cd5de2d5cae5563cc7eb8e0e2884e
+    pristine_git_object: be0da5ca818ddf10dbc40f8b32bfddb830084e02
+  src/agentset/models/document_config.py:
+    id: 289e7132eff1
+    last_write_checksum: sha1:001f1e483eba889828c032787b467ada96783041
+    pristine_git_object: 17ded78d53a998c3e3c43a311024b591931eea4e
+  src/agentset/models/document_configoutput.py:
+    id: 0854fb570e1e
+    last_write_checksum: sha1:b5fdddfd06dd4afef98353ea506100e91533fec1
+    pristine_git_object: 03d385b11be46db26bc4b6155491d177a4393313
+  src/agentset/models/document_status.py:
+    id: 921ca5706604
+    last_write_checksum: sha1:c4e0a87cf6b537f906e5a65f67b175fd1dc8a3c0
+    pristine_git_object: 2e9c6570f3f92242d598563d17c953770f64a0d4
+  src/agentset/models/embedding_model_config.py:
+    id: 87c96007baba
+    last_write_checksum: sha1:aaa8113492c5acfc1a08d149ef51269e499f2360
+    pristine_git_object: 8b7d295bc4c738e8d9c9a8b57078bcf492c5d1a9
+  src/agentset/models/embedding_model_configoutput.py:
+    id: fbc918089042
+    last_write_checksum: sha1:18f9ab5181864b7942ca2a630b05a90d0a33b289
+    pristine_git_object: 6eed43a8afbef133ff4c4055a370a7f9357532fd
+  src/agentset/models/enablehostingop.py:
+    id: 9881b6a59fb4
+    last_write_checksum: sha1:a12005957d796e0841cd8809d5d03c03dd5e6a14
+    pristine_git_object: 1af12692f82bb44479a842bd1efa6e88b8030aee
+  src/agentset/models/file_payload.py:
+    id: de5a4b2e44b3
+    last_write_checksum: sha1:26b8159451b4b6599c93d066092a9f9b999d346a
+    pristine_git_object: 0e97d9dbc9899f06f7d859d7d55ccb74dc5008dc
+  src/agentset/models/file_payloadoutput.py:
+    id: 7bfee9aa8fce
+    last_write_checksum: sha1:e90a7ba6bc7fc8e53a6371b88e76d24917a6cb2a
+    pristine_git_object: b8000664f2deaf755d693003e84aaf796e6f4dd2
+  src/agentset/models/forbidden_error.py:
+    id: c4756f2f0671
+    last_write_checksum: sha1:d999a1176db13b66f975c1093c94a319c8f8c12a
+    pristine_git_object: 4b54a0dc33c70b94ab63b8df4071530e201562ea
+  src/agentset/models/getdocumentop.py:
+    id: cfdc19e456e1
+    last_write_checksum: sha1:63deb92d59d4af99e2e446e5b4b36802fea4dec7
+    pristine_git_object: 6a023ab33168063162e13ae53ee69e0663a25ec2
+  src/agentset/models/gethostingop.py:
+    id: fa8f6050ace9
+    last_write_checksum: sha1:50d4419b45bc2722a96a7c839ae10dc976558524
+    pristine_git_object: 525cce954c18f790c48e4e9a5920d606ab1f2e16
+  src/agentset/models/getingestjobinfoop.py:
+    id: 92ae22906192
+    last_write_checksum: sha1:ef4dcf85ae7ebcec690809f34dc85d40129e3e4b
+    pristine_git_object: 2998a278f7023ebaeec3750b8173a98a097026e5
+  src/agentset/models/getnamespaceop.py:
+    id: ddd5c89247b7
+    last_write_checksum: sha1:a85d762c9da7a6c89d78674ff54b1caec0696ae3
+    pristine_git_object: 786f003d39925515de5302f2972977d384611966
+  src/agentset/models/google_embedding_config.py:
+    id: c70b32212330
+    last_write_checksum: sha1:4baba0d65efe9446f8ae396449928f3e71d328ad
+    pristine_git_object: 4995edef1fb5f8a0efd7f2eed7db0f8e7a92ff79
+  src/agentset/models/google_embedding_configoutput.py:
+    id: 4aee2eeb456b
+    last_write_checksum: sha1:6b238185761fc3a1eccd7a8d6adc3504ac60334e
+    pristine_git_object: b409f9f537c105ca6468a3a5c6777f3cc248e3fd
+  src/agentset/models/google_embedding_model_enum.py:
+    id: ad6aa82000eb
+    last_write_checksum: sha1:7a8e3d1d16df59257c1b4607472097f6663f50d2
+    pristine_git_object: b6cc26d7e1c0cb55361b33d14e0a8ea1ab356016
+  src/agentset/models/hosting.py:
+    id: 388b65e79f43
+    last_write_checksum: sha1:fcfa8ae6195d4d8460876d3f5a7ebde2fc8e0324
+    pristine_git_object: 56b221b3cc6363f18e7bc121991dcfb1e2d02d37
+  src/agentset/models/ingest_job.py:
+    id: 2cea60a70c7c
+    last_write_checksum: sha1:0027e7c43072c15770804b125ea1561a1be378e6
+    pristine_git_object: a94e958fc1c13072f0e82caa27a701d354860d00
+  src/agentset/models/ingest_job_config.py:
+    id: cfe08565caf9
+    last_write_checksum: sha1:cf705b535ec95b48d08572d4958fe2997005ecf1
+    pristine_git_object: 22dc5d114aeac1d1400e0cb0b338f1f8140261f6
+  src/agentset/models/ingest_job_configoutput.py:
+    id: a114f3586507
+    last_write_checksum: sha1:655d844a91e3e892731ba4ce63c37a30ba59c773
+    pristine_git_object: 282035261bbf265e332dbda113321c230509f27f
+  src/agentset/models/ingest_job_payload.py:
+    id: 9e70447bde55
+    last_write_checksum: sha1:3e44c8efbe1a0d233dc35da6f25f46d76229cffa
+    pristine_git_object: 164a1985c4ae29336ab3f262e96ba91fe3818539
+  src/agentset/models/ingest_job_payload_input.py:
+    id: e8f2ed8b288f
+    last_write_checksum: sha1:16e7af99eb820ab21697b5a56a3172e152771ae2
+    pristine_git_object: d85ad9291f0b86cb985a8bf5b618fa85e85b6762
+  src/agentset/models/ingest_job_status.py:
+    id: 27f8ff3ba7fc
+    last_write_checksum: sha1:d3bb9771c45ae2037defbcfd48fb6d759c2b872d
+    pristine_git_object: 5b55cb304efd93e46473cb460ca617f6b3af3296
+  src/agentset/models/internal/__init__.py:
+    id: 45a86d45c781
+    last_write_checksum: sha1:5beaf7e5a713d3eead465c6edcfdeb7f8076175c
+    pristine_git_object: e7070a1222c2ed3fa3f6f54e6f122cae7ff9a449
+  src/agentset/models/internal/globals.py:
+    id: 32e6631de8bc
+    last_write_checksum: sha1:4508f51b73cb28e92186ce6a64a40bd0df1e6d73
+    pristine_git_object: b5fb95c13a6bb507631005cf06783c6b8999e82e
+  src/agentset/models/internalservererror.py:
+    id: 1621719a5c17
+    last_write_checksum: sha1:fd55de27fcc5bb57700010f7407f1866b8a50d6a
+    pristine_git_object: a1db9f7d3c413b8138bde4e9699b56fe3dac182e
+  src/agentset/models/inviteexpired_error.py:
+    id: 007defccf134
+    last_write_checksum: sha1:0275d2cae6edef0db968c5b921e798169649533f
+    pristine_git_object: ac47b88ea2f29bd1c5fbca7e4f53357d0ff5bf36
+  src/agentset/models/language_code.py:
+    id: e79b56b1ee56
+    last_write_checksum: sha1:0ac5cf4995b36fb378b75d6ccb675ceaa6c879e2
+    pristine_git_object: 92e13505bee3cbe5dfb2508f2070bff107a4fe70
+  src/agentset/models/listdocumentsop.py:
+    id: 85e3b5866a6b
+    last_write_checksum: sha1:a635b5aab812d11cd478dfa0209a2caee4fcfaa8
+    pristine_git_object: fd24a021f8110d60db982563e67f8ed88b13e25c
+  src/agentset/models/listingestjobsop.py:
+    id: 2d335cbc16f1
+    last_write_checksum: sha1:b26b1a37ea37dbcdeac8ff33dd7cdf4200afce24
+    pristine_git_object: c672eef650e963c2b11932663837847809674055
+  src/agentset/models/listnamespacesop.py:
+    id: e584061e7c60
+    last_write_checksum: sha1:99b013b1df69eaea16297929c31eca46e0e438f1
+    pristine_git_object: 965627ea58c4b465d00a688df7d8b85cb30a6495
+  src/agentset/models/managed_file_payload.py:
+    id: 87035f50ae5d
+    last_write_checksum: sha1:4867ed0b3d89272534bf65fd1ec0f57b7333e7e2
+    pristine_git_object: f1a69951e6bcd787b3edfe69e59edf195fe1c93a
+  src/agentset/models/managed_file_payloadoutput.py:
+    id: d71869a732af
+    last_write_checksum: sha1:5a1a28109264cbd03114bb38f5166b1b93671567
+    pristine_git_object: 299ac060342b80ecd8ebda9a87026fa6ed6f9b89
+  src/agentset/models/mode.py:
+    id: b7080f1bcb20
+    last_write_checksum: sha1:c17a6a6995935bf4877553ffee0518f04e87238d
+    pristine_git_object: 322a3d4022985cab0311f4e1a0368a2f5a8bd177
+  src/agentset/models/namespace.py:
+    id: fbfbf321050b
+    last_write_checksum: sha1:8506cc72c7137c197ddc3b76aadb49972a5c96be
+    pristine_git_object: 1adc31772cb677a49a29e8ebfb7aceaf4c080afb
+  src/agentset/models/notfound_error.py:
+    id: 4a9f53f61982
+    last_write_checksum: sha1:f6b357def47ac5567210c9b959dff4be7eed457e
+    pristine_git_object: f51ab8e89dad4b462fae8d1df4d2cd9c43f459c2
+  src/agentset/models/openai_embedding_config.py:
+    id: 0045856908cb
+    last_write_checksum: sha1:8ebbb49fd7310b40b8048139be38b6ebf1ecca01
+    pristine_git_object: 38f1448383685b200705da40aec45f6d1a681ad9
+  src/agentset/models/openai_embedding_configoutput.py:
+    id: 6d143884a38b
+    last_write_checksum: sha1:1314854c2502605a8763b3573c4f563bbe71927a
+    pristine_git_object: 0d3a64267696d5b982216d3c92e3d110862c23a9
+  src/agentset/models/openai_embedding_model_enum.py:
+    id: 7c8c0307a3ee
+    last_write_checksum: sha1:92b7f7cb922741741753a5f8a9eb9732135e9316
+    pristine_git_object: 635d08c2554881e2885bf435123a5f09183c4f72
+  src/agentset/models/pagination_cursor_direction.py:
+    id: ddb09f099c59
+    last_write_checksum: sha1:3f9c0c7cdeb26c652082c926bbfef48a9d29e3a1
+    pristine_git_object: a179cf6d2258d8158a70b6611898fae8110ba6f0
+  src/agentset/models/pinecone_config.py:
+    id: 9c018d779d4a
+    last_write_checksum: sha1:da99bc3f8e3653f86492204130e5e59139289411
+    pristine_git_object: 4610a130246f98b266f18cb92d90bf518a114d56
+  src/agentset/models/pinecone_configoutput.py:
+    id: df24a3029657
+    last_write_checksum: sha1:00435fcf60146144bc73e0f507c695d045539625
+    pristine_git_object: 8b376caf846e65995017b6dc4b07903e135586f3
+  src/agentset/models/ratelimitexceeded_error.py:
+    id: e3126d1587f0
+    last_write_checksum: sha1:cb7798a3549d9b27995bf5d3bfb530e2b6bb752a
+    pristine_git_object: af3172ff49271df30de8d7a78e1aed179d77451d
+  src/agentset/models/reingestjobop.py:
+    id: c566b6d8021a
+    last_write_checksum: sha1:e5326ddc78621c967ac3db331f506ed24736d867
+    pristine_git_object: 8a02236f742df74538cbda6f91492824d8038f80
+  src/agentset/models/searchop.py:
+    id: f370321315e0
+    last_write_checksum: sha1:040b6d4487fc9badf2d8cc6a3642da471a984cc7
+    pristine_git_object: e3d9cf701ce67168b15f1794e63683b729951a94
+  src/agentset/models/security.py:
+    id: 117cc927526d
+    last_write_checksum: sha1:c427a86455b72c9cb761ee6b1387a173813ed431
+    pristine_git_object: a7a1d4fa424d714aaf4c24ab203bac368fd98846
+  src/agentset/models/text_payload.py:
+    id: 6b7a23f21870
+    last_write_checksum: sha1:bfcebc1ef08a236be28b1ca1e1dd559ee7847dc9
+    pristine_git_object: b7aba6183f01f52998748450110e22fcb4997c19
+  src/agentset/models/text_payload_input.py:
+    id: 4a307cfcfef1
+    last_write_checksum: sha1:7ec0811eff8e9a6b064b91efe733e0329c2d1850
+    pristine_git_object: e597b966b5969fd112de95e826edc7235eaf14e2
+  src/agentset/models/turbopuffer_config.py:
+    id: f22d5187a546
+    last_write_checksum: sha1:8df800836c890908d27a2f8d868cff213dd5f16c
+    pristine_git_object: 63aeb69214d3d2c3668b679f08b41eb697d551b9
+  src/agentset/models/turbopuffer_configoutput.py:
+    id: cf3a3a039c0b
+    last_write_checksum: sha1:94d00500568f7d7a93413d21a88bbad066f49a59
+    pristine_git_object: 08547d232f00d9b0ae8c0bcf63fc4a9524cf9ed9
+  src/agentset/models/turbopuffer_region_enum.py:
+    id: d77356762495
+    last_write_checksum: sha1:05c64a20db751a1cc17df512315d4316216115fd
+    pristine_git_object: 555e137563350858789631510a17232bf9ffc000
+  src/agentset/models/unauthorized_error.py:
+    id: e7b20e8dab36
+    last_write_checksum: sha1:93ce8c9104ff7eed75959228bd4f39f40b20b9ca
+    pristine_git_object: dcd80e335af9f6ba29394820e0429cb3c3acd388
+  src/agentset/models/unprocessableentity_error.py:
+    id: b0ad73c57605
+    last_write_checksum: sha1:538fa29b2e9b381ef80bc7365b68cd8ef6ea5f85
+    pristine_git_object: 6996c5de5084c3c36bec749168f3dab76584319a
+  src/agentset/models/updatehostingop.py:
+    id: be7b2c4c577d
+    last_write_checksum: sha1:4ff98bfad83b91583ba674f12ee8900724cc0240
+    pristine_git_object: 800dac32540511c7b1c572347708a0ea4cca6f74
+  src/agentset/models/updatenamespaceop.py:
+    id: 24f6de162a47
+    last_write_checksum: sha1:ab5e36cd5fbbbca98be0f5e5f501b9821254f160
+    pristine_git_object: b769c28b01694aaa9db5b5d2013e1abb7e3a2071
+  src/agentset/models/upload_file_schema.py:
+    id: 388d80beb7a6
+    last_write_checksum: sha1:ecd1cdf45ec9af1fc6011c272a0de41baf3b3cfe
+    pristine_git_object: 467e8df59c03fb67d8e474229b886797ab03cff2
+  src/agentset/models/upload_result_schema.py:
+    id: db9639c958ff
+    last_write_checksum: sha1:e5081d915e3cce9a0370f409c2f2d5a80365954d
+    pristine_git_object: a9bb80894c74540710b5bf54736c37f42cba596b
+  src/agentset/models/vector_store_config.py:
+    id: 5270512f19b9
+    last_write_checksum: sha1:db9b2e2835c56bfdbd7f99676681a3cfbd4a19cb
+    pristine_git_object: 6c7141ca5e0e66686121f26112affd2aec417e42
+  src/agentset/models/voyage_embedding_config.py:
+    id: ba1564580d7b
+    last_write_checksum: sha1:ac7d83bc701402aa643675d9dfc020a5356150fc
+    pristine_git_object: 54511bd58e6d2a8b643822746e9b42b98f4fbeee
+  src/agentset/models/voyage_embedding_configoutput.py:
+    id: c27fbcd6bce2
+    last_write_checksum: sha1:e705b6ec9355711d3a87e8f45aaadcdc9f62bac1
+    pristine_git_object: be795fb040c378bc61584aa042e62e11a2680920
+  src/agentset/models/voyage_embedding_model_enum.py:
+    id: 5ff56b83c0cf
+    last_write_checksum: sha1:10f6912d36405fba88a3fd2fafcdf46a11071549
+    pristine_git_object: 85e437bbd01704b8ac138f4b517ae18f19ba80e7
+  src/agentset/models/warmupop.py:
+    id: 1dd01dbc36a1
+    last_write_checksum: sha1:1913f1f07e36cfa2fa7e0f509072689fbe5ad10c
+    pristine_git_object: f72ef3da87d66e3ccd80c7fed3a9b02e2b5f8568
+  src/agentset/models/youtube_payload.py:
+    id: 418a7683b051
+    last_write_checksum: sha1:bc1e232fcfead05d34bbcfb8f1d2f38b8da2156d
+    pristine_git_object: af8cbcdf37dc8a54333b900160232eaa896df077
+  src/agentset/models/youtube_payloadoutput.py:
+    id: 273805d9bf5a
+    last_write_checksum: sha1:d85dbd7a75f1f36bb28658d43d7bb7553b73a706
+    pristine_git_object: 0fe24083a4376cdcafd1c4b473c183b5c43077d3
+  src/agentset/namespace_sdk.py:
+    id: b5fb9e4077cb
+    last_write_checksum: sha1:b05145d8aa415af00345b7ad5d7586e1c567e6fe
+    pristine_git_object: 2c23fca98e402c7de6523ff4308ea63bbd44513a
+  src/agentset/namespaces.py:
+    id: 0deae62d11bf
+    last_write_checksum: sha1:c514f43f7c15c0eb77efd07c5ef39fec6f454a93
+    pristine_git_object: 9e76bc868cd316a59a4f1add4ed66ea47669a92b
+  src/agentset/py.typed:
+    id: a4ca7ce5273a
+    last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
+    pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
+  src/agentset/sdk.py:
+    id: f04b114d0063
+    last_write_checksum: sha1:af9152b34b03d0a52d61f8d8cf73e48f6d109016
+    pristine_git_object: fd284e3e0242969e9abc0612c9061168b25499f4
+  src/agentset/sdkconfiguration.py:
+    id: 1dfe4a92cc8b
+    last_write_checksum: sha1:86486eb4f409f554515495adcec6a4f5a3ff4a28
+    pristine_git_object: 3c8edea03a8b41f9233c0f44bd025744fd4bbea4
+  src/agentset/search.py:
+    id: 0c5c93ac730a
+    last_write_checksum: sha1:d5926d9c7fe81b59babba226dac3496debc90979
+    pristine_git_object: 17c3592be34cec701abf0671d6b2aea69253eb32
+  src/agentset/types/__init__.py:
+    id: ea0c54932cd5
+    last_write_checksum: sha1:140ebdd01a46f92ffc710c52c958c4eba3cf68ed
+    pristine_git_object: fc76fe0c5505e29859b5d2bb707d48fd27661b8c
+  src/agentset/types/basemodel.py:
+    id: 317919174d2e
+    last_write_checksum: sha1:615d0b364fa924b0fef719958df34596cc7c1ae2
+    pristine_git_object: 231c2e37283a76082f1a064c7aae47f8ee4ee694
+  src/agentset/uploads.py:
+    id: 62ae257751ec
+    last_write_checksum: sha1:3881d0f8ddedbf87a5ad028b6e290f18edd1a450
+    pristine_git_object: aef60e920adc635a4d7d403d6a6a6cea65e1b069
+  src/agentset/utils/__init__.py:
+    id: 6aafe8062f30
+    last_write_checksum: sha1:5d88356c206a32c694ae113178ca6325a9fc612a
+    pristine_git_object: 87192ddef2589a7778f85e1cd715d6d1e61ae0a6
+  src/agentset/utils/annotations.py:
+    id: a3e4446cb466
+    last_write_checksum: sha1:a4824ad65f730303e4e1e3ec1febf87b4eb46dbc
+    pristine_git_object: 12e0aa4f1151bb52474cc02e88397329b90703f6
+  src/agentset/utils/datetimes.py:
+    id: df8054dd8584
+    last_write_checksum: sha1:c721e4123000e7dc61ec52b28a739439d9e17341
+    pristine_git_object: a6c52cd61bbe2d459046c940ce5e8c469f2f0664
+  src/agentset/utils/enums.py:
+    id: 86b4b70460f7
+    last_write_checksum: sha1:786ba597f79dca6fbc0d87c591752bb8d775ecb7
+    pristine_git_object: c3bc13cfc48794c143a64667f02e7949a8ce3fcc
+  src/agentset/utils/eventstreaming.py:
+    id: 129c8c535750
+    last_write_checksum: sha1:bababae5d54b7efc360db701daa49e18a92c2f3b
+    pristine_git_object: 0969899bfc491e5e408d05643525f347ea95e4fc
+  src/agentset/utils/forms.py:
+    id: 306308a871d1
+    last_write_checksum: sha1:15fa7e9ab1611e062a9984cf06cb20969713d295
+    pristine_git_object: f961e76beaf0a8b1fe0dda44754a74eebd3608e7
+  src/agentset/utils/headers.py:
+    id: b79fb0f200b3
+    last_write_checksum: sha1:7c6df233ee006332b566a8afa9ce9a245941d935
+    pristine_git_object: 37864cbbbc40d1a47112bbfdd3ba79568fc8818a
+  src/agentset/utils/logger.py:
+    id: 6534aa11e951
+    last_write_checksum: sha1:d71907676035b0ba17f426038441c4f91eeee531
+    pristine_git_object: 7b96d5a577ddd34ad7d9e4e597ffbb31f4f537bb
+  src/agentset/utils/metadata.py:
+    id: ee17f6ff70f0
+    last_write_checksum: sha1:c6a560bd0c63ab158582f34dadb69433ea73b3d4
+    pristine_git_object: 173b3e5ce658675c2f504222a56b3daaaa68107d
+  src/agentset/utils/queryparams.py:
+    id: ab90bb946962
+    last_write_checksum: sha1:b94c3f314fd3da0d1d215afc2731f48748e2aa59
+    pristine_git_object: c04e0db82b68eca041f2cb2614d748fbac80fd41
+  src/agentset/utils/requestbodies.py:
+    id: 6789f5903eda
+    last_write_checksum: sha1:e0a3a78158eba39880475d62d61be906625676b8
+    pristine_git_object: d5240dd5f5efffabbd9aefa2f4a349511a9c75b4
+  src/agentset/utils/retries.py:
+    id: b89e735cde18
+    last_write_checksum: sha1:5b97ac4f59357d70c2529975d50364c88bcad607
+    pristine_git_object: 88a91b10cd2076b4a2c6cff2ac6bfaa5e3c5ad13
+  src/agentset/utils/security.py:
+    id: 8f07f78682bf
+    last_write_checksum: sha1:2096bd271a81a11a89ca1c428f85580af8ee84e7
+    pristine_git_object: c9b7b56a7d6be103ffa688bbcac1d81dc2faa4cb
+  src/agentset/utils/serializers.py:
+    id: efc239e314c0
+    last_write_checksum: sha1:a0d184ace7371a14a7d005cca7f358a03e3d4b07
+    pristine_git_object: 378a14c0f86a867ca7b0eb7e620da82234c0ccc4
+  src/agentset/utils/unmarshal_json_response.py:
+    id: a5006bd11483
+    last_write_checksum: sha1:854c10304d381d11a028641062efce4affd82bd5
+    pristine_git_object: ee9c6ab1c75b2be319b6a8247e97eb4dac4ca336
+  src/agentset/utils/url.py:
+    id: 2ce34e07c0a9
+    last_write_checksum: sha1:6479961baa90432ca25626f8e40a7bbc32e73b41
+    pristine_git_object: c78ccbae426ce6d385709d97ce0b1c2813ea2418
+  src/agentset/utils/values.py:
+    id: 06a8b01c3f7c
+    last_write_checksum: sha1:acaa178a7c41ddd000f58cc691e4632d925b2553
+    pristine_git_object: dae01a44384ac3bc13ae07453a053bf6c898ebe3
 examples:
   listNamespaces:
     speakeasy-default-list-namespaces:
@@ -746,7 +1792,7 @@ examples:
         path:
           namespaceId: "ns_123"
       requestBody:
-        application/json: {"query": "<value>", "topK": 10, "rerank": true, "rerankModel": "cohere:rerank-v3.5", "includeRelationships": false, "includeMetadata": true, "mode": "semantic"}
+        application/json: {"query": "<value>", "topK": 10, "rerank": true, "rerankModel": "zeroentropy:zerank-2", "includeRelationships": false, "includeMetadata": true, "mode": "semantic"}
       responses:
         "200":
           application/json: {"success": true, "data": [{"id": "<id>", "score": 1618.06}]}
@@ -957,4 +2003,350 @@ examples:
         "500":
           application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
 examplesVersion: 1.0.2
-releaseNotes: "## Python SDK Changes:\n* `agentset.ingest_jobs.list()`:  `response.data.[]` **Changed** **Breaking** :warning:\n* `agentset.ingest_jobs.create()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.data` **Changed** **Breaking** :warning:\n* `agentset.ingest_jobs.get()`:  `response.data` **Changed** **Breaking** :warning:\n* `agentset.ingest_jobs.delete()`:  `response.data` **Changed** **Breaking** :warning:\n* `agentset.documents.list()`:  `response.data.[]` **Changed** **Breaking** :warning:\n* `agentset.documents.get()`:  `response.data` **Changed** **Breaking** :warning:\n* `agentset.documents.delete()`:  `response.data` **Changed** **Breaking** :warning:\n* `agentset.hosting.get()`:  `response.data` **Changed**\n* `agentset.hosting.enable()`:  `response.data` **Changed**\n* `agentset.hosting.update()`: \n  *  `request` **Changed**\n  *  `response.data` **Changed**\n* `agentset.hosting.delete()`:  `response.data` **Changed**\n"
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - .vscode/settings.json
+  - USAGE.md
+  - docs/errors/badrequesterror.md
+  - docs/errors/conflicterror.md
+  - docs/errors/forbiddenerror.md
+  - docs/errors/internalservererror.md
+  - docs/errors/inviteexpirederror.md
+  - docs/errors/notfounderror.md
+  - docs/errors/ratelimitexceedederror.md
+  - docs/errors/unauthorizederror.md
+  - docs/errors/unprocessableentityerror.md
+  - docs/models/azureembeddingconfig.md
+  - docs/models/azureembeddingconfigoutput.md
+  - docs/models/badrequestcode.md
+  - docs/models/badrequesterror.md
+  - docs/models/batchpayload.md
+  - docs/models/batchpayloadinput.md
+  - docs/models/batchpayloadinputitemfile.md
+  - docs/models/batchpayloadinputitemmanagedfile.md
+  - docs/models/batchpayloadinputitemtext.md
+  - docs/models/batchpayloadinputitemunion.md
+  - docs/models/batchpayloaditemfile.md
+  - docs/models/batchpayloaditemmanagedfile.md
+  - docs/models/batchpayloaditemtext.md
+  - docs/models/batchpayloaditemunion.md
+  - docs/models/conflictcode.md
+  - docs/models/conflicterror.md
+  - docs/models/crawlpayload.md
+  - docs/models/crawlpayloadoutput.md
+  - docs/models/createbatchuploadglobals.md
+  - docs/models/createbatchuploadrequest.md
+  - docs/models/createbatchuploadresponse.md
+  - docs/models/createingestjobglobals.md
+  - docs/models/createingestjobrequest.md
+  - docs/models/createingestjobrequestbody.md
+  - docs/models/createingestjobresponse.md
+  - docs/models/createnamespacerequest.md
+  - docs/models/createnamespaceresponse.md
+  - docs/models/createuploadglobals.md
+  - docs/models/createuploadresponse.md
+  - docs/models/createvectorstoreconfig.md
+  - docs/models/createvectorstoreconfigmanagedpinecone.md
+  - docs/models/createvectorstoreconfigmanagedturbopuffer.md
+  - docs/models/deletedocumentglobals.md
+  - docs/models/deletedocumentrequest.md
+  - docs/models/deletedocumentresponse.md
+  - docs/models/deletehostingglobals.md
+  - docs/models/deletehostingrequest.md
+  - docs/models/deletehostingresponse.md
+  - docs/models/deleteingestjobglobals.md
+  - docs/models/deleteingestjobrequest.md
+  - docs/models/deleteingestjobresponse.md
+  - docs/models/deletenamespaceglobals.md
+  - docs/models/deletenamespacerequest.md
+  - docs/models/deletenamespaceresponse.md
+  - docs/models/document.md
+  - docs/models/documentconfig.md
+  - docs/models/documentconfigchunkingstrategy.md
+  - docs/models/documentconfigmetadata.md
+  - docs/models/documentconfigoutput.md
+  - docs/models/documentconfigoutputchunkingstrategy.md
+  - docs/models/documentconfigoutputmetadata.md
+  - docs/models/documentconfigoutputstrategy.md
+  - docs/models/documentconfigstrategy.md
+  - docs/models/documentstatus.md
+  - docs/models/embeddingmodelconfig.md
+  - docs/models/embeddingmodelconfigmodel.md
+  - docs/models/embeddingmodelconfigoutput.md
+  - docs/models/embeddingmodelconfigoutputmodel.md
+  - docs/models/embeddingmodelconfigoutputtextembedding3large.md
+  - docs/models/embeddingmodelconfigtextembedding3large.md
+  - docs/models/enablehostingglobals.md
+  - docs/models/enablehostingrequest.md
+  - docs/models/enablehostingresponse.md
+  - docs/models/filepayload.md
+  - docs/models/filepayloadoutput.md
+  - docs/models/forbiddencode.md
+  - docs/models/forbiddenerror.md
+  - docs/models/getdocumentglobals.md
+  - docs/models/getdocumentrequest.md
+  - docs/models/getdocumentresponse.md
+  - docs/models/gethostingglobals.md
+  - docs/models/gethostingrequest.md
+  - docs/models/gethostingresponse.md
+  - docs/models/getingestjobinfoglobals.md
+  - docs/models/getingestjobinforequest.md
+  - docs/models/getingestjobinforesponse.md
+  - docs/models/getnamespaceglobals.md
+  - docs/models/getnamespacerequest.md
+  - docs/models/getnamespaceresponse.md
+  - docs/models/googleembeddingconfig.md
+  - docs/models/googleembeddingconfigoutput.md
+  - docs/models/googleembeddingmodelenum.md
+  - docs/models/hosting.md
+  - docs/models/ingestjob.md
+  - docs/models/ingestjobconfig.md
+  - docs/models/ingestjobconfigchunkingstrategy.md
+  - docs/models/ingestjobconfigmetadata.md
+  - docs/models/ingestjobconfigoutput.md
+  - docs/models/ingestjobconfigoutputchunkingstrategy.md
+  - docs/models/ingestjobconfigoutputmetadata.md
+  - docs/models/ingestjobconfigoutputstrategy.md
+  - docs/models/ingestjobconfigstrategy.md
+  - docs/models/ingestjobpayload.md
+  - docs/models/ingestjobpayloadinput.md
+  - docs/models/ingestjobpayloadinputtext.md
+  - docs/models/ingestjobstatus.md
+  - docs/models/internal/globals.md
+  - docs/models/internalservererrorcode.md
+  - docs/models/internalservererrorerror.md
+  - docs/models/inviteexpiredcode.md
+  - docs/models/inviteexpirederror.md
+  - docs/models/languagecode.md
+  - docs/models/listdocumentsglobals.md
+  - docs/models/listdocumentsorder.md
+  - docs/models/listdocumentsorderby.md
+  - docs/models/listdocumentspagination.md
+  - docs/models/listdocumentsrequest.md
+  - docs/models/listdocumentsresponse.md
+  - docs/models/listdocumentsresponsebody.md
+  - docs/models/listingestjobsglobals.md
+  - docs/models/listingestjobsorder.md
+  - docs/models/listingestjobsorderby.md
+  - docs/models/listingestjobspagination.md
+  - docs/models/listingestjobsrequest.md
+  - docs/models/listingestjobsresponse.md
+  - docs/models/listingestjobsresponsebody.md
+  - docs/models/listnamespacesresponse.md
+  - docs/models/llmconfig.md
+  - docs/models/llmconfigmodel.md
+  - docs/models/llmmodel.md
+  - docs/models/managedfilepayload.md
+  - docs/models/managedfilepayloadoutput.md
+  - docs/models/mode.md
+  - docs/models/namespace.md
+  - docs/models/notfoundcode.md
+  - docs/models/notfounderror.md
+  - docs/models/openaiembeddingconfig.md
+  - docs/models/openaiembeddingconfigoutput.md
+  - docs/models/openaiembeddingmodelenum.md
+  - docs/models/paginationcursordirection.md
+  - docs/models/pineconeconfig.md
+  - docs/models/pineconeconfigoutput.md
+  - docs/models/properties.md
+  - docs/models/ratelimitexceededcode.md
+  - docs/models/ratelimitexceedederror.md
+  - docs/models/reingestjobdata.md
+  - docs/models/reingestjobglobals.md
+  - docs/models/reingestjobrequest.md
+  - docs/models/reingestjobresponse.md
+  - docs/models/rerankconfig.md
+  - docs/models/rerankconfigmodel.md
+  - docs/models/searchdata.md
+  - docs/models/searchglobals.md
+  - docs/models/searchmetadata.md
+  - docs/models/searchmode.md
+  - docs/models/searchrequest.md
+  - docs/models/searchrequestbody.md
+  - docs/models/searchrerankmodel.md
+  - docs/models/searchresponse.md
+  - docs/models/security.md
+  - docs/models/source.md
+  - docs/models/sourcecrawledpage.md
+  - docs/models/sourcefile.md
+  - docs/models/sourcemanagedfile.md
+  - docs/models/sourcetext.md
+  - docs/models/sourceyoutubevideo.md
+  - docs/models/textpayload.md
+  - docs/models/turbopufferconfig.md
+  - docs/models/turbopufferconfigoutput.md
+  - docs/models/turbopufferregionenum.md
+  - docs/models/unauthorizedcode.md
+  - docs/models/unauthorizederror.md
+  - docs/models/unprocessableentitycode.md
+  - docs/models/unprocessableentityerror.md
+  - docs/models/updatehostingglobals.md
+  - docs/models/updatehostingrequest.md
+  - docs/models/updatehostingrerankmodel.md
+  - docs/models/updatehostingresponse.md
+  - docs/models/updatenamespaceglobals.md
+  - docs/models/updatenamespacerequest.md
+  - docs/models/updatenamespaceresponse.md
+  - docs/models/uploadfileschema.md
+  - docs/models/uploadresultschema.md
+  - docs/models/utils/retryconfig.md
+  - docs/models/vectorstoreconfig.md
+  - docs/models/vectorstoreconfigmanagedpinecone.md
+  - docs/models/vectorstoreconfigmanagedpineconeold.md
+  - docs/models/vectorstoreconfigmanagedturbopuffer.md
+  - docs/models/voyageembeddingconfig.md
+  - docs/models/voyageembeddingconfigoutput.md
+  - docs/models/voyageembeddingmodelenum.md
+  - docs/models/warmupdata.md
+  - docs/models/warmupglobals.md
+  - docs/models/warmuprequest.md
+  - docs/models/warmupresponse.md
+  - docs/models/youtubepayload.md
+  - docs/models/youtubepayloadoutput.md
+  - docs/sdks/documents/README.md
+  - docs/sdks/hostingsdk/README.md
+  - docs/sdks/ingestjobs/README.md
+  - docs/sdks/namespaces/README.md
+  - docs/sdks/namespacesdk/README.md
+  - docs/sdks/search/README.md
+  - docs/sdks/uploads/README.md
+  - py.typed
+  - pylintrc
+  - pyproject.toml
+  - scripts/prepare_readme.py
+  - scripts/publish.sh
+  - src/agentset/__init__.py
+  - src/agentset/_hooks/__init__.py
+  - src/agentset/_hooks/sdkhooks.py
+  - src/agentset/_hooks/types.py
+  - src/agentset/_version.py
+  - src/agentset/basesdk.py
+  - src/agentset/documents.py
+  - src/agentset/errors/__init__.py
+  - src/agentset/errors/agentsetdefaulterror.py
+  - src/agentset/errors/agentseterror.py
+  - src/agentset/errors/badrequest_error.py
+  - src/agentset/errors/conflict_error.py
+  - src/agentset/errors/forbidden_error.py
+  - src/agentset/errors/internalservererror.py
+  - src/agentset/errors/inviteexpired_error.py
+  - src/agentset/errors/no_response_error.py
+  - src/agentset/errors/notfound_error.py
+  - src/agentset/errors/ratelimitexceeded_error.py
+  - src/agentset/errors/responsevalidationerror.py
+  - src/agentset/errors/unauthorized_error.py
+  - src/agentset/errors/unprocessableentity_error.py
+  - src/agentset/hosting_sdk.py
+  - src/agentset/httpclient.py
+  - src/agentset/ingestjobs.py
+  - src/agentset/models/__init__.py
+  - src/agentset/models/azure_embedding_config.py
+  - src/agentset/models/azure_embedding_configoutput.py
+  - src/agentset/models/badrequest_error.py
+  - src/agentset/models/batch_payload.py
+  - src/agentset/models/batch_payload_input.py
+  - src/agentset/models/conflict_error.py
+  - src/agentset/models/crawl_payload.py
+  - src/agentset/models/crawl_payloadoutput.py
+  - src/agentset/models/create_vector_store_config.py
+  - src/agentset/models/createbatchuploadop.py
+  - src/agentset/models/createingestjobop.py
+  - src/agentset/models/createnamespaceop.py
+  - src/agentset/models/createuploadop.py
+  - src/agentset/models/deletedocumentop.py
+  - src/agentset/models/deletehostingop.py
+  - src/agentset/models/deleteingestjobop.py
+  - src/agentset/models/deletenamespaceop.py
+  - src/agentset/models/document.py
+  - src/agentset/models/document_config.py
+  - src/agentset/models/document_configoutput.py
+  - src/agentset/models/document_status.py
+  - src/agentset/models/embedding_model_config.py
+  - src/agentset/models/embedding_model_configoutput.py
+  - src/agentset/models/enablehostingop.py
+  - src/agentset/models/file_payload.py
+  - src/agentset/models/file_payloadoutput.py
+  - src/agentset/models/forbidden_error.py
+  - src/agentset/models/getdocumentop.py
+  - src/agentset/models/gethostingop.py
+  - src/agentset/models/getingestjobinfoop.py
+  - src/agentset/models/getnamespaceop.py
+  - src/agentset/models/google_embedding_config.py
+  - src/agentset/models/google_embedding_configoutput.py
+  - src/agentset/models/google_embedding_model_enum.py
+  - src/agentset/models/hosting.py
+  - src/agentset/models/ingest_job.py
+  - src/agentset/models/ingest_job_config.py
+  - src/agentset/models/ingest_job_configoutput.py
+  - src/agentset/models/ingest_job_payload.py
+  - src/agentset/models/ingest_job_payload_input.py
+  - src/agentset/models/ingest_job_status.py
+  - src/agentset/models/internal/__init__.py
+  - src/agentset/models/internal/globals.py
+  - src/agentset/models/internalservererror.py
+  - src/agentset/models/inviteexpired_error.py
+  - src/agentset/models/language_code.py
+  - src/agentset/models/listdocumentsop.py
+  - src/agentset/models/listingestjobsop.py
+  - src/agentset/models/listnamespacesop.py
+  - src/agentset/models/managed_file_payload.py
+  - src/agentset/models/managed_file_payloadoutput.py
+  - src/agentset/models/mode.py
+  - src/agentset/models/namespace.py
+  - src/agentset/models/notfound_error.py
+  - src/agentset/models/openai_embedding_config.py
+  - src/agentset/models/openai_embedding_configoutput.py
+  - src/agentset/models/openai_embedding_model_enum.py
+  - src/agentset/models/pagination_cursor_direction.py
+  - src/agentset/models/pinecone_config.py
+  - src/agentset/models/pinecone_configoutput.py
+  - src/agentset/models/ratelimitexceeded_error.py
+  - src/agentset/models/reingestjobop.py
+  - src/agentset/models/searchop.py
+  - src/agentset/models/security.py
+  - src/agentset/models/text_payload.py
+  - src/agentset/models/turbopuffer_config.py
+  - src/agentset/models/turbopuffer_configoutput.py
+  - src/agentset/models/turbopuffer_region_enum.py
+  - src/agentset/models/unauthorized_error.py
+  - src/agentset/models/unprocessableentity_error.py
+  - src/agentset/models/updatehostingop.py
+  - src/agentset/models/updatenamespaceop.py
+  - src/agentset/models/upload_file_schema.py
+  - src/agentset/models/upload_result_schema.py
+  - src/agentset/models/vector_store_config.py
+  - src/agentset/models/voyage_embedding_config.py
+  - src/agentset/models/voyage_embedding_configoutput.py
+  - src/agentset/models/voyage_embedding_model_enum.py
+  - src/agentset/models/warmupop.py
+  - src/agentset/models/youtube_payload.py
+  - src/agentset/models/youtube_payloadoutput.py
+  - src/agentset/namespace_sdk.py
+  - src/agentset/namespaces.py
+  - src/agentset/py.typed
+  - src/agentset/sdk.py
+  - src/agentset/sdkconfiguration.py
+  - src/agentset/search.py
+  - src/agentset/types/__init__.py
+  - src/agentset/types/basemodel.py
+  - src/agentset/uploads.py
+  - src/agentset/utils/__init__.py
+  - src/agentset/utils/annotations.py
+  - src/agentset/utils/datetimes.py
+  - src/agentset/utils/enums.py
+  - src/agentset/utils/eventstreaming.py
+  - src/agentset/utils/forms.py
+  - src/agentset/utils/headers.py
+  - src/agentset/utils/logger.py
+  - src/agentset/utils/metadata.py
+  - src/agentset/utils/queryparams.py
+  - src/agentset/utils/requestbodies.py
+  - src/agentset/utils/retries.py
+  - src/agentset/utils/security.py
+  - src/agentset/utils/serializers.py
+  - src/agentset/utils/unmarshal_json_response.py
+  - src/agentset/utils/url.py
+  - src/agentset/utils/values.py

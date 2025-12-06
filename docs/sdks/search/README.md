@@ -1,5 +1,4 @@
 # Search
-(*search*)
 
 ## Overview
 
@@ -24,7 +23,7 @@ with Agentset(
     token="AGENTSET_API_KEY",
 ) as a_client:
 
-    res = a_client.search.execute(query="<value>", top_k=10, rerank=True, rerank_model="cohere:rerank-v3.5", include_relationships=False, include_metadata=True, mode="semantic")
+    res = a_client.search.execute(query="<value>", top_k=10, rerank=True, rerank_model="zeroentropy:zerank-2", include_relationships=False, include_metadata=True, mode="semantic")
 
     # Handle response
     print(res)

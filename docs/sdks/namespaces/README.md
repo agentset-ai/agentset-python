@@ -1,5 +1,4 @@
 # Namespaces
-(*namespaces*)
 
 ## Overview
 

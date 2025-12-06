@@ -212,20 +212,20 @@ with Agentset(
 <details open>
 <summary>Available methods</summary>
 
-### [documents](docs/sdks/documents/README.md)
+### [Documents](docs/sdks/documents/README.md)
 
 * [list](docs/sdks/documents/README.md#list) - Retrieve a list of documents
 * [get](docs/sdks/documents/README.md#get) - Retrieve a document
 * [delete](docs/sdks/documents/README.md#delete) - Delete a document
 
-### [hosting](docs/sdks/hostingsdk/README.md)
+### [Hosting](docs/sdks/hostingsdk/README.md)
 
 * [get](docs/sdks/hostingsdk/README.md#get) - Retrieve hosting configuration
 * [enable](docs/sdks/hostingsdk/README.md#enable) - Enable hosting
 * [update](docs/sdks/hostingsdk/README.md#update) - Update hosting configuration
 * [delete](docs/sdks/hostingsdk/README.md#delete) - Delete hosting configuration
 
-### [ingest_jobs](docs/sdks/ingestjobs/README.md)
+### [IngestJobs](docs/sdks/ingestjobs/README.md)
 
 * [list](docs/sdks/ingestjobs/README.md#list) - Retrieve a list of ingest jobs
 * [create](docs/sdks/ingestjobs/README.md#create) - Create an ingest job
@@ -233,11 +233,11 @@ with Agentset(
 * [delete](docs/sdks/ingestjobs/README.md#delete) - Delete an ingest job
 * [re_ingest](docs/sdks/ingestjobs/README.md#re_ingest) - Re-ingest a job
 
-### [namespace](docs/sdks/namespacesdk/README.md)
+### [Namespace](docs/sdks/namespacesdk/README.md)
 
 * [warm_up](docs/sdks/namespacesdk/README.md#warm_up) - Warm cache for a namespace
 
-### [namespaces](docs/sdks/namespaces/README.md)
+### [Namespaces](docs/sdks/namespaces/README.md)
 
 * [list](docs/sdks/namespaces/README.md#list) - Retrieve a list of namespaces
 * [create](docs/sdks/namespaces/README.md#create) - Create a namespace.
@@ -245,11 +245,11 @@ with Agentset(
 * [update](docs/sdks/namespaces/README.md#update) - Update a namespace.
 * [delete](docs/sdks/namespaces/README.md#delete) - Delete a namespace.
 
-### [search](docs/sdks/search/README.md)
+### [Search](docs/sdks/search/README.md)
 
 * [execute](docs/sdks/search/README.md#execute) - Search a namespace
 
-### [uploads](docs/sdks/uploads/README.md)
+### [Uploads](docs/sdks/uploads/README.md)
 
 * [create](docs/sdks/uploads/README.md#create) - Create presigned URL for file upload
 * [create_batch](docs/sdks/uploads/README.md#create_batch) - Create presigned URLs for batch file upload

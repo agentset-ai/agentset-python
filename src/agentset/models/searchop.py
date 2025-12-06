@@ -42,6 +42,7 @@ SearchRerankModel = Literal[
     "cohere:rerank-v3.5",
     "cohere:rerank-english-v3.0",
     "cohere:rerank-multilingual-v3.0",
+    "zeroentropy:zerank-2",
     "zeroentropy:zerank-1",
     "zeroentropy:zerank-1-small",
 ]
@@ -92,7 +93,7 @@ class SearchRequestBody(BaseModel):
 
     rerank_model: Annotated[
         Optional[SearchRerankModel], pydantic.Field(alias="rerankModel")
-    ] = "cohere:rerank-v3.5"
+    ] = "zeroentropy:zerank-2"
     r"""The reranking model to use."""
 
     filter_: Annotated[Optional[Dict[str, Any]], pydantic.Field(alias="filter")] = None
