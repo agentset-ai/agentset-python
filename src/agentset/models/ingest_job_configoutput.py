@@ -40,6 +40,8 @@ class IngestJobConfigOutputTypedDict(TypedDict):
 
     chunk_size: NotRequired[int]
     r"""Chunk size (in characters). Controls approximately how much text is included in each chunk. Defaults to `2048`."""
+    delimiter: NotRequired[str]
+    r"""Delimiter to use for separating text before chunking."""
     metadata: NotRequired[Dict[str, IngestJobConfigOutputMetadataTypedDict]]
     r"""Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."""
     language_code: NotRequired[LanguageCode]
@@ -68,6 +70,9 @@ class IngestJobConfigOutput(BaseModel):
 
     chunk_size: Annotated[Optional[int], pydantic.Field(alias="chunkSize")] = None
     r"""Chunk size (in characters). Controls approximately how much text is included in each chunk. Defaults to `2048`."""
+
+    delimiter: Optional[str] = None
+    r"""Delimiter to use for separating text before chunking."""
 
     metadata: Optional[Dict[str, IngestJobConfigOutputMetadata]] = None
     r"""Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."""

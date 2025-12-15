@@ -7,8 +7,7 @@ from .file_payload import FilePayload, FilePayloadTypedDict
 from .managed_file_payload import ManagedFilePayload, ManagedFilePayloadTypedDict
 from .text_payload_input import TextPayloadInput, TextPayloadInputTypedDict
 from .youtube_payload import YoutubePayload, YoutubePayloadTypedDict
-from agentset.utils import get_discriminator
-from pydantic import Discriminator, Tag
+from pydantic import Field
 from typing import Union
 from typing_extensions import Annotated, TypeAliasType
 
@@ -29,13 +28,13 @@ r"""The ingest job payload for creation."""
 
 IngestJobPayloadInput = Annotated[
     Union[
-        Annotated[TextPayloadInput, Tag("TEXT")],
-        Annotated[FilePayload, Tag("FILE")],
-        Annotated[ManagedFilePayload, Tag("MANAGED_FILE")],
-        Annotated[CrawlPayload, Tag("CRAWL")],
-        Annotated[YoutubePayload, Tag("YOUTUBE")],
-        Annotated[BatchPayloadInput, Tag("BATCH")],
+        TextPayloadInput,
+        FilePayload,
+        ManagedFilePayload,
+        CrawlPayload,
+        YoutubePayload,
+        BatchPayloadInput,
     ],
-    Discriminator(lambda m: get_discriminator(m, "type", "type")),
+    Field(discriminator="TYPE"),
 ]
 r"""The ingest job payload for creation."""

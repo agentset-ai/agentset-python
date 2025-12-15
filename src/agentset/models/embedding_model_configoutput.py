@@ -18,9 +18,9 @@ from .voyage_embedding_configoutput import (
     VoyageEmbeddingConfigOutputTypedDict,
 )
 from agentset.types import BaseModel
-from agentset.utils import get_discriminator, validate_const
+from agentset.utils import validate_const
 import pydantic
-from pydantic import Discriminator, Tag
+from pydantic import Field
 from pydantic.functional_validators import AfterValidator
 from typing import Literal, Union
 from typing_extensions import Annotated, TypeAliasType, TypedDict
@@ -60,12 +60,12 @@ r"""The embedding model config. If not provided, our managed embedding model wil
 
 EmbeddingModelConfigOutput = Annotated[
     Union[
-        Annotated[OpenaiEmbeddingConfigOutput, Tag("OPENAI")],
-        Annotated[AzureEmbeddingConfigOutput, Tag("AZURE_OPENAI")],
-        Annotated[VoyageEmbeddingConfigOutput, Tag("VOYAGE")],
-        Annotated[GoogleEmbeddingConfigOutput, Tag("GOOGLE")],
-        Annotated[EmbeddingModelConfigOutputTextEmbedding3Large, Tag("MANAGED_OPENAI")],
+        OpenaiEmbeddingConfigOutput,
+        AzureEmbeddingConfigOutput,
+        VoyageEmbeddingConfigOutput,
+        GoogleEmbeddingConfigOutput,
+        EmbeddingModelConfigOutputTextEmbedding3Large,
     ],
-    Discriminator(lambda m: get_discriminator(m, "provider", "provider")),
+    Field(discriminator="PROVIDER"),
 ]
 r"""The embedding model config. If not provided, our managed embedding model will be used. Note: You can't change the embedding model config after the namespace is created."""
