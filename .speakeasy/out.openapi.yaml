@@ -1718,6 +1718,9 @@ components:
           type: "integer"
           minimum: 32
           maximum: 9007199254740991
+        "delimiter":
+          description: "Delimiter to use for separating text before chunking."
+          type: "string"
         "metadata":
           description: "Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."
           type: "object"
@@ -1786,6 +1789,9 @@ components:
           type: "integer"
           minimum: 32
           maximum: 9007199254740991
+        "delimiter":
+          description: "Delimiter to use for separating text before chunking."
+          type: "string"
         "metadata":
           description: "Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."
           type: "object"
@@ -2743,6 +2749,9 @@ components:
           type: "integer"
           minimum: 32
           maximum: 9007199254740991
+        "delimiter":
+          description: "Delimiter to use for separating text before chunking."
+          type: "string"
         "metadata":
           description: "Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."
           type: "object"
@@ -2805,6 +2814,9 @@ components:
           type: "integer"
           minimum: 32
           maximum: 9007199254740991
+        "delimiter":
+          description: "Delimiter to use for separating text before chunking."
+          type: "string"
         "metadata":
           description: "Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."
           type: "object"

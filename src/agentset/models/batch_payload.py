@@ -3,9 +3,9 @@
 from __future__ import annotations
 from .document_configoutput import DocumentConfigOutput, DocumentConfigOutputTypedDict
 from agentset.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from agentset.utils import get_discriminator, validate_const
+from agentset.utils import validate_const
 import pydantic
-from pydantic import Discriminator, Tag, model_serializer
+from pydantic import Field, model_serializer
 from pydantic.functional_validators import AfterValidator
 from typing import List, Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
@@ -192,12 +192,8 @@ BatchPayloadItemUnionTypedDict = TypeAliasType(
 
 
 BatchPayloadItemUnion = Annotated[
-    Union[
-        Annotated[BatchPayloadItemText, Tag("TEXT")],
-        Annotated[BatchPayloadItemFile, Tag("FILE")],
-        Annotated[BatchPayloadItemManagedFile, Tag("MANAGED_FILE")],
-    ],
-    Discriminator(lambda m: get_discriminator(m, "type", "type")),
+    Union[BatchPayloadItemText, BatchPayloadItemFile, BatchPayloadItemManagedFile],
+    Field(discriminator="TYPE"),
 ]
 
 

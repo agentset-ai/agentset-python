@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: 465adc89-13a8-4359-8d95-e3589d612ccc
 management:
-  docChecksum: 5c6dfde6e00e9501fccfee6aa84e2fa0
+  docChecksum: a22ddad66dc7dc82e9fecc53a87cd6cd
   docVersion: 0.0.1
-  speakeasyVersion: 1.669.1
-  generationVersion: 2.772.0
-  releaseVersion: 0.6.1
-  configChecksum: 0750d2b96c8a6b28b11771eb6d3bac75
+  speakeasyVersion: 1.676.1
+  generationVersion: 2.781.2
+  releaseVersion: 0.6.2
+  configChecksum: f9c7a7bb688d7b154794089ce0a4af5a
   repoURL: https://github.com/agentset-ai/agentset-python.git
   installationURL: https://github.com/agentset-ai/agentset-python.git
   published: true
 persistentEdits:
-  generation_id: 005f41c1-4fe3-441e-8390-6bfe74e94e3e
-  pristine_commit_hash: 651ab2825b1c04736e38f096a451326047af079c
-  pristine_tree_hash: b760d688af31e0c42d198d3881f08f104320d366
+  generation_id: 25d54b6c-f5e4-4bbb-afd6-4e1b65830d3c
+  pristine_commit_hash: 5e48eb5d8f05798d901a7fde17facbfbf9ac7581
+  pristine_tree_hash: fdf8e6ce10f30aef7435f378f706d20e1b3771a8
 features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.23.13
+    core: 5.23.14
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -42,7 +42,7 @@ features:
     responseFormat: 1.0.1
     retries: 3.0.3
     sdkHooks: 1.2.0
-    unions: 3.1.0
+    unions: 3.1.1
 trackedFiles:
   .devcontainer/README.md:
     id: b170c0f184ac
@@ -286,8 +286,8 @@ trackedFiles:
     pristine_git_object: 8a3e6a3e4f81698ba54614f7300dd1be9c5867ed
   docs/models/documentconfig.md:
     id: beb56702b3e2
-    last_write_checksum: sha1:99c5d192635d252007053a6cd334ad9f9c19bcdd
-    pristine_git_object: d2f2c2232a81d9055a0d000f8aad05dc7798a707
+    last_write_checksum: sha1:1dce06de09fa781b9ea6b7e9bd108ed63e0163d9
+    pristine_git_object: 6168abad834c562d6db9003e2ba61e93b0ea560c
   docs/models/documentconfigchunkingstrategy.md:
     id: 629870ac9556
     last_write_checksum: sha1:c0aa53dddb418c50a068922fe47d9e535ad5e486
@@ -298,8 +298,8 @@ trackedFiles:
     pristine_git_object: 3cdb2ba16101386489a01d2a774822033cb3436a
   docs/models/documentconfigoutput.md:
     id: 58016cc218cc
-    last_write_checksum: sha1:9ab5210ebac4c920130f10509566ad4eb6d2442c
-    pristine_git_object: 8c326d48e13fd8289215743bb0f924cc7b9fdcc0
+    last_write_checksum: sha1:307d37590cefa1ec171116260da1acaa1b03eb6f
+    pristine_git_object: 81258e203f1ea3946f261f5c80b6cde0ea67a333
   docs/models/documentconfigoutputchunkingstrategy.md:
     id: 341d08d16cc6
     last_write_checksum: sha1:bb40f672206a1c99ae6b332d4a286d0b82011cb8
@@ -442,8 +442,8 @@ trackedFiles:
     pristine_git_object: ec90310eb6a76aede5d35ee167dc8475da1c6579
   docs/models/ingestjobconfig.md:
     id: becb6d0b3adf
-    last_write_checksum: sha1:9a6be0eb1f6075c739b23168989f5f42f7de92e7
-    pristine_git_object: fdccbba4ecfd08ba75946f4d85f330576ed2bb6e
+    last_write_checksum: sha1:35cd7d51a8388dc5b7dd5fbea47e8b56473f094d
+    pristine_git_object: 7c98a16764c573c95132e1cc89d81679dc0e865e
   docs/models/ingestjobconfigchunkingstrategy.md:
     id: f848b739d606
     last_write_checksum: sha1:a8b382dff07ae4309dfd4304e0197b633c5a3462
@@ -454,8 +454,8 @@ trackedFiles:
     pristine_git_object: fa4a1b1e9653f7e719f6d2bab6bac04cd6e5ebb8
   docs/models/ingestjobconfigoutput.md:
     id: 6d8a1a8d8d73
-    last_write_checksum: sha1:a602edd39d5b9cbb32d9ff080fab834c50010fb6
-    pristine_git_object: f659eccab02d83dec001013af8c7da4195506121
+    last_write_checksum: sha1:cda04446c5a5b4b5c5249e77b1604eb1b94faea5
+    pristine_git_object: dcbd79cdbc19735a24df6fd1c097fcdcc17e6ca3
   docs/models/ingestjobconfigoutputchunkingstrategy.md:
     id: bd990b829ea6
     last_write_checksum: sha1:7a0bd57753ebf5b573e76d782f14f7ead375fda2
@@ -890,8 +890,8 @@ trackedFiles:
     pristine_git_object: 000d9930f874a1b01cda74f245fc00e1b6eae49e
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:0fb6c2550b238e53315b90e817c69d4baf3c4bc6
-    pristine_git_object: bfba0f30752f32a488fef839860332a3d1417c71
+    last_write_checksum: sha1:be69317522aa7304eab33bfc17c824432b7602c9
+    pristine_git_object: 541b7dbc8351d94f534135dab89b03d24527e1d2
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:60657b1d5175b1e74c81f02d12ce25fab54fdf37
@@ -918,8 +918,8 @@ trackedFiles:
     pristine_git_object: ee14ff7b8b066537a6732994deb001b2ffbdcc6b
   src/agentset/_version.py:
     id: 6586f6b69ac0
-    last_write_checksum: sha1:fdc94ee19fc4c1639e3c38a5cf97949849b00ef9
-    pristine_git_object: 8884a67689609f5195e818d0bfad109c45a4925b
+    last_write_checksum: sha1:b930d7ce01e157098c41a2156cbc0a7d6ba84db1
+    pristine_git_object: 5435ad4b1f2d4b21451685c2ce0eb70489367957
   src/agentset/basesdk.py:
     id: 569b9e7b0ab0
     last_write_checksum: sha1:cb1e91952ea76e719445809bc96ed311941ebecc
@@ -1014,12 +1014,12 @@ trackedFiles:
     pristine_git_object: 19192c71a828b6086946386eba49311aeb50bd75
   src/agentset/models/batch_payload.py:
     id: 1a06546a267f
-    last_write_checksum: sha1:72da7db8b522e85d42866fc7cbdc0476335d3b5b
-    pristine_git_object: dcf1fa9637e46f583f48f0bcb2769a67e7800cc9
+    last_write_checksum: sha1:0799e5cf6b146979433bb15d5a2ef7fffa6ffb70
+    pristine_git_object: 418c4dbeed5c842743cc0f36e020fd65c8489019
   src/agentset/models/batch_payload_input.py:
     id: e74517bba729
-    last_write_checksum: sha1:03d84d3eb45c24b302e7104791adb358a6e92508
-    pristine_git_object: 6b39c09e269d121d36e447d49e4586b22192bd10
+    last_write_checksum: sha1:bd56022b000e4352db3fa90378a648474f72fe6e
+    pristine_git_object: 4916e418ad41452d820a16d48364ab2c535707cc
   src/agentset/models/conflict_error.py:
     id: 73d6855a4e60
     last_write_checksum: sha1:2de6d98d2b54276325d74c9d911d85b6990e77a0
@@ -1034,8 +1034,8 @@ trackedFiles:
     pristine_git_object: 5ec9e68bb904608c9200cdcbad22cacba9d22c77
   src/agentset/models/create_vector_store_config.py:
     id: 168f2cb0cf2a
-    last_write_checksum: sha1:93e9df59de19ed3b675b7f36c1f2ff7836a0fbea
-    pristine_git_object: 094f845406b43792b651ffc472d0fd47fb996d91
+    last_write_checksum: sha1:5cf2f101dd087f6fb18f4043d11f005686f47770
+    pristine_git_object: c9bdab3ea67ee9132d38bdb8f1c65bfff1f6e673
   src/agentset/models/createbatchuploadop.py:
     id: 0ccb7f83a2a7
     last_write_checksum: sha1:a125d56fd97ed114817be3b536a42ecff88b94c9
@@ -1070,28 +1070,28 @@ trackedFiles:
     pristine_git_object: 51cda4c4d881cd54e3c03bb7f92322902d957f36
   src/agentset/models/document.py:
     id: f2c168ceae0d
-    last_write_checksum: sha1:4a5a1ab92f4cd5de2d5cae5563cc7eb8e0e2884e
-    pristine_git_object: be0da5ca818ddf10dbc40f8b32bfddb830084e02
+    last_write_checksum: sha1:28f7a25e321eb8df79b1d9d4f5eb793d740d972c
+    pristine_git_object: 74534626685f5464a07873e4e6b3627d973e8ad7
   src/agentset/models/document_config.py:
     id: 289e7132eff1
-    last_write_checksum: sha1:001f1e483eba889828c032787b467ada96783041
-    pristine_git_object: 17ded78d53a998c3e3c43a311024b591931eea4e
+    last_write_checksum: sha1:f9e810046559dc3bf7c1bb54566d45c3db8f29ef
+    pristine_git_object: db9eded33d021c5f32689ce13c7fe3f179290e7e
   src/agentset/models/document_configoutput.py:
     id: 0854fb570e1e
-    last_write_checksum: sha1:b5fdddfd06dd4afef98353ea506100e91533fec1
-    pristine_git_object: 03d385b11be46db26bc4b6155491d177a4393313
+    last_write_checksum: sha1:8e36511a199ca9e35b80763b26f9d930c4e5ef2f
+    pristine_git_object: a059a205d04dd53d081eb7b68b480f7e1cd39849
   src/agentset/models/document_status.py:
     id: 921ca5706604
     last_write_checksum: sha1:c4e0a87cf6b537f906e5a65f67b175fd1dc8a3c0
     pristine_git_object: 2e9c6570f3f92242d598563d17c953770f64a0d4
   src/agentset/models/embedding_model_config.py:
     id: 87c96007baba
-    last_write_checksum: sha1:aaa8113492c5acfc1a08d149ef51269e499f2360
-    pristine_git_object: 8b7d295bc4c738e8d9c9a8b57078bcf492c5d1a9
+    last_write_checksum: sha1:ea71c9549123a8998e0c6dd16db9852bb284fd65
+    pristine_git_object: 1ca1d9ba52586da7aff1d3d2027419bfb610a271
   src/agentset/models/embedding_model_configoutput.py:
     id: fbc918089042
-    last_write_checksum: sha1:18f9ab5181864b7942ca2a630b05a90d0a33b289
-    pristine_git_object: 6eed43a8afbef133ff4c4055a370a7f9357532fd
+    last_write_checksum: sha1:2e9ddc422fb39cdb360cb7945242f42e5212580a
+    pristine_git_object: 42d0104f3e9743e072e2b934040e8aef4ce6da3f
   src/agentset/models/enablehostingop.py:
     id: 9881b6a59fb4
     last_write_checksum: sha1:a12005957d796e0841cd8809d5d03c03dd5e6a14
@@ -1146,20 +1146,20 @@ trackedFiles:
     pristine_git_object: a94e958fc1c13072f0e82caa27a701d354860d00
   src/agentset/models/ingest_job_config.py:
     id: cfe08565caf9
-    last_write_checksum: sha1:cf705b535ec95b48d08572d4958fe2997005ecf1
-    pristine_git_object: 22dc5d114aeac1d1400e0cb0b338f1f8140261f6
+    last_write_checksum: sha1:2716cbb5b8008f12e1708b7b30d82e1788011e7b
+    pristine_git_object: 0ccf27ecefe0107b33ea4e75d9c3b0f7ad01d612
   src/agentset/models/ingest_job_configoutput.py:
     id: a114f3586507
-    last_write_checksum: sha1:655d844a91e3e892731ba4ce63c37a30ba59c773
-    pristine_git_object: 282035261bbf265e332dbda113321c230509f27f
+    last_write_checksum: sha1:6e83698c83b2e10622e13670ffa8c54e2f0dd256
+    pristine_git_object: f7f4bcea49570a446c40627a9b7f717d94207dc2
   src/agentset/models/ingest_job_payload.py:
     id: 9e70447bde55
-    last_write_checksum: sha1:3e44c8efbe1a0d233dc35da6f25f46d76229cffa
-    pristine_git_object: 164a1985c4ae29336ab3f262e96ba91fe3818539
+    last_write_checksum: sha1:db09bb8786351f6a7f1d11fc0ec2545856d5c088
+    pristine_git_object: 49a4d3f588e8ed40dcf0cfc7ceec7d633512cabd
   src/agentset/models/ingest_job_payload_input.py:
     id: e8f2ed8b288f
-    last_write_checksum: sha1:16e7af99eb820ab21697b5a56a3172e152771ae2
-    pristine_git_object: d85ad9291f0b86cb985a8bf5b618fa85e85b6762
+    last_write_checksum: sha1:cefb682fffc35a76a5c012747b33247badfe25cd
+    pristine_git_object: 38cfcb472b4e4360639926d49ad20d2f88bee5a4
   src/agentset/models/ingest_job_status.py:
     id: 27f8ff3ba7fc
     last_write_checksum: sha1:d3bb9771c45ae2037defbcfd48fb6d759c2b872d
@@ -1302,8 +1302,8 @@ trackedFiles:
     pristine_git_object: a9bb80894c74540710b5bf54736c37f42cba596b
   src/agentset/models/vector_store_config.py:
     id: 5270512f19b9
-    last_write_checksum: sha1:db9b2e2835c56bfdbd7f99676681a3cfbd4a19cb
-    pristine_git_object: 6c7141ca5e0e66686121f26112affd2aec417e42
+    last_write_checksum: sha1:a2411f0a9729053eb765d04090d4a7849e9e78c1
+    pristine_git_object: 2eb4968d2c24bbef458780cf2d7dafe753b0400a
   src/agentset/models/voyage_embedding_config.py:
     id: ba1564580d7b
     last_write_checksum: sha1:ac7d83bc701402aa643675d9dfc020a5356150fc
@@ -2003,6 +2003,7 @@ examples:
         "500":
           application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
 examplesVersion: 1.0.2
+releaseNotes: "## Python SDK Changes:\n* `agentset.ingest_jobs.list()`:  `response.data.[]` **Changed**\n* `agentset.ingest_jobs.create()`: \n  *  `request` **Changed**\n  *  `response.data` **Changed**\n* `agentset.ingest_jobs.get()`:  `response.data` **Changed**\n* `agentset.ingest_jobs.delete()`:  `response.data` **Changed**\n* `agentset.documents.list()`:  `response.data.[].config.delimiter` **Added**\n* `agentset.documents.get()`:  `response.data.config.delimiter` **Added**\n* `agentset.documents.delete()`:  `response.data.config.delimiter` **Added**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

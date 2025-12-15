@@ -4,9 +4,9 @@ from __future__ import annotations
 from .document_configoutput import DocumentConfigOutput, DocumentConfigOutputTypedDict
 from .document_status import DocumentStatus
 from agentset.types import BaseModel, Nullable, UNSET_SENTINEL
-from agentset.utils import get_discriminator, validate_const
+from agentset.utils import validate_const
 import pydantic
-from pydantic import Discriminator, Tag, model_serializer
+from pydantic import Field, model_serializer
 from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
@@ -128,13 +128,9 @@ r"""The source of the document."""
 
 Source = Annotated[
     Union[
-        Annotated[SourceText, Tag("TEXT")],
-        Annotated[SourceFile, Tag("FILE")],
-        Annotated[SourceManagedFile, Tag("MANAGED_FILE")],
-        Annotated[SourceCrawledPage, Tag("CRAWLED_PAGE")],
-        Annotated[SourceYoutubeVideo, Tag("YOUTUBE_VIDEO")],
+        SourceText, SourceFile, SourceManagedFile, SourceCrawledPage, SourceYoutubeVideo
     ],
-    Discriminator(lambda m: get_discriminator(m, "type", "type")),
+    Field(discriminator="TYPE"),
 ]
 r"""The source of the document."""
 

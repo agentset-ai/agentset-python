@@ -7,9 +7,9 @@ from .turbopuffer_configoutput import (
     TurbopufferConfigOutputTypedDict,
 )
 from agentset.types import BaseModel
-from agentset.utils import get_discriminator, validate_const
+from agentset.utils import validate_const
 import pydantic
-from pydantic import Discriminator, Tag
+from pydantic import Field
 from pydantic.functional_validators import AfterValidator
 from typing import Literal, Union
 from typing_extensions import Annotated, TypeAliasType, TypedDict
@@ -72,12 +72,12 @@ r"""The vector store config."""
 
 VectorStoreConfig = Annotated[
     Union[
-        Annotated[VectorStoreConfigManagedPineconeOld, Tag("MANAGED_PINECONE_OLD")],
-        Annotated[VectorStoreConfigManagedPinecone, Tag("MANAGED_PINECONE")],
-        Annotated[VectorStoreConfigManagedTurbopuffer, Tag("MANAGED_TURBOPUFFER")],
-        Annotated[PineconeConfigOutput, Tag("PINECONE")],
-        Annotated[TurbopufferConfigOutput, Tag("TURBOPUFFER")],
+        VectorStoreConfigManagedPineconeOld,
+        VectorStoreConfigManagedPinecone,
+        VectorStoreConfigManagedTurbopuffer,
+        PineconeConfigOutput,
+        TurbopufferConfigOutput,
     ],
-    Discriminator(lambda m: get_discriminator(m, "provider", "provider")),
+    Field(discriminator="PROVIDER"),
 ]
 r"""The vector store config."""
