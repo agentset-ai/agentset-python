@@ -11,7 +11,6 @@ from typing import Optional
 
 class InternalServerErrorData(BaseModel):
     success: bool
-
     error: models_internalservererror.InternalServerErrorError
 
 

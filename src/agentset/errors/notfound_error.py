@@ -11,7 +11,6 @@ from typing import Optional
 
 class NotFoundErrorData(BaseModel):
     success: bool
-
     error: models_notfound_error.NotFoundError
 
 

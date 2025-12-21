@@ -13,7 +13,6 @@ from typing import Optional
 
 class UnprocessableEntityErrorData(BaseModel):
     success: bool
-
     error: models_unprocessableentity_error.UnprocessableEntityError
 
 

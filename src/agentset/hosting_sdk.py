@@ -596,6 +596,9 @@ class HostingSDK(BaseSDK):
         title: Optional[str] = None,
         slug: Optional[str] = None,
         logo: OptionalNullable[str] = UNSET,
+        og_title: Optional[str] = None,
+        og_description: Optional[str] = None,
+        og_image: OptionalNullable[str] = UNSET,
         protected: Optional[bool] = None,
         allowed_emails: Optional[List[str]] = None,
         allowed_email_domains: Optional[List[str]] = None,
@@ -621,6 +624,9 @@ class HostingSDK(BaseSDK):
         :param title:
         :param slug:
         :param logo:
+        :param og_title:
+        :param og_description:
+        :param og_image:
         :param protected:
         :param allowed_emails:
         :param allowed_email_domains:
@@ -653,6 +659,9 @@ class HostingSDK(BaseSDK):
             title=title,
             slug=slug,
             logo=logo,
+            og_title=og_title,
+            og_description=og_description,
+            og_image=og_image,
             protected=protected,
             allowed_emails=allowed_emails,
             allowed_email_domains=allowed_email_domains,
@@ -787,6 +796,9 @@ class HostingSDK(BaseSDK):
         title: Optional[str] = None,
         slug: Optional[str] = None,
         logo: OptionalNullable[str] = UNSET,
+        og_title: Optional[str] = None,
+        og_description: Optional[str] = None,
+        og_image: OptionalNullable[str] = UNSET,
         protected: Optional[bool] = None,
         allowed_emails: Optional[List[str]] = None,
         allowed_email_domains: Optional[List[str]] = None,
@@ -812,6 +824,9 @@ class HostingSDK(BaseSDK):
         :param title:
         :param slug:
         :param logo:
+        :param og_title:
+        :param og_description:
+        :param og_image:
         :param protected:
         :param allowed_emails:
         :param allowed_email_domains:
@@ -844,6 +859,9 @@ class HostingSDK(BaseSDK):
             title=title,
             slug=slug,
             logo=logo,
+            og_title=og_title,
+            og_description=og_description,
+            og_image=og_image,
             protected=protected,
             allowed_emails=allowed_emails,
             allowed_email_domains=allowed_email_domains,

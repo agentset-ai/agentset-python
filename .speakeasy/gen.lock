@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 465adc89-13a8-4359-8d95-e3589d612ccc
 management:
-  docChecksum: a22ddad66dc7dc82e9fecc53a87cd6cd
+  docChecksum: b9f7fe7ad4cb7d922fea25eb0ffbffea
   docVersion: 0.0.1
-  speakeasyVersion: 1.676.1
-  generationVersion: 2.781.2
-  releaseVersion: 0.6.2
-  configChecksum: f9c7a7bb688d7b154794089ce0a4af5a
+  speakeasyVersion: 1.680.3
+  generationVersion: 2.788.5
+  releaseVersion: 0.6.3
+  configChecksum: 1fc0208ce465327039def70bad79f807
   repoURL: https://github.com/agentset-ai/agentset-python.git
   installationURL: https://github.com/agentset-ai/agentset-python.git
   published: true
 persistentEdits:
-  generation_id: 25d54b6c-f5e4-4bbb-afd6-4e1b65830d3c
-  pristine_commit_hash: 5e48eb5d8f05798d901a7fde17facbfbf9ac7581
-  pristine_tree_hash: fdf8e6ce10f30aef7435f378f706d20e1b3771a8
+  generation_id: a27995e9-6799-4b0c-896e-4b8bd593974d
+  pristine_commit_hash: 5a051777cd4621ca6ce0511b01667e531262d49c
+  pristine_tree_hash: 75dd63baa7a6f1c7e792527b970861f512749084
 features:
   python:
     additionalDependencies: 1.0.0
@@ -24,7 +24,7 @@ features:
     devContainers: 3.0.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
-    errors: 3.3.4
+    errors: 3.3.5
     examples: 3.0.2
     flatRequests: 1.0.1
     flattening: 3.1.1
@@ -286,8 +286,8 @@ trackedFiles:
     pristine_git_object: 8a3e6a3e4f81698ba54614f7300dd1be9c5867ed
   docs/models/documentconfig.md:
     id: beb56702b3e2
-    last_write_checksum: sha1:1dce06de09fa781b9ea6b7e9bd108ed63e0163d9
-    pristine_git_object: 6168abad834c562d6db9003e2ba61e93b0ea560c
+    last_write_checksum: sha1:432e0c7097fd4dd74ec74a6c4be4c5636b27d747
+    pristine_git_object: 8df4dfaddbf2b3ebb1a94b04b09f1ba295851386
   docs/models/documentconfigchunkingstrategy.md:
     id: 629870ac9556
     last_write_checksum: sha1:c0aa53dddb418c50a068922fe47d9e535ad5e486
@@ -298,8 +298,8 @@ trackedFiles:
     pristine_git_object: 3cdb2ba16101386489a01d2a774822033cb3436a
   docs/models/documentconfigoutput.md:
     id: 58016cc218cc
-    last_write_checksum: sha1:307d37590cefa1ec171116260da1acaa1b03eb6f
-    pristine_git_object: 81258e203f1ea3946f261f5c80b6cde0ea67a333
+    last_write_checksum: sha1:074cf98c02057a6e1eb5d5dc31c0f4497264651a
+    pristine_git_object: dd7f6efeffbc267c7d5043f50157974cebde5fb6
   docs/models/documentconfigoutputchunkingstrategy.md:
     id: 341d08d16cc6
     last_write_checksum: sha1:bb40f672206a1c99ae6b332d4a286d0b82011cb8
@@ -434,16 +434,16 @@ trackedFiles:
     pristine_git_object: 9ecb8c596b66021f17742c5b245d70f9248997a0
   docs/models/hosting.md:
     id: 302d42ce4e88
-    last_write_checksum: sha1:cb4bd95e162110c50f013ec8ae305bc5692b8588
-    pristine_git_object: 4bb72dc7114826398335dd4f3c2c658fd69d645b
+    last_write_checksum: sha1:cd56abf27fb1b7d9c210a07d683f19b5464bcbee
+    pristine_git_object: 1a218cde0cb2c0ce13c84a98824aadaff4a5939d
   docs/models/ingestjob.md:
     id: b6395f05bac8
     last_write_checksum: sha1:ce800c699f72f08d2336d4b86ae679b180e9c516
     pristine_git_object: ec90310eb6a76aede5d35ee167dc8475da1c6579
   docs/models/ingestjobconfig.md:
     id: becb6d0b3adf
-    last_write_checksum: sha1:35cd7d51a8388dc5b7dd5fbea47e8b56473f094d
-    pristine_git_object: 7c98a16764c573c95132e1cc89d81679dc0e865e
+    last_write_checksum: sha1:830b2c13b13d8af662a0429458c782b0681891fe
+    pristine_git_object: 1a3c8998573ec15491275bea6826203e6ad2aa5d
   docs/models/ingestjobconfigchunkingstrategy.md:
     id: f848b739d606
     last_write_checksum: sha1:a8b382dff07ae4309dfd4304e0197b633c5a3462
@@ -454,8 +454,8 @@ trackedFiles:
     pristine_git_object: fa4a1b1e9653f7e719f6d2bab6bac04cd6e5ebb8
   docs/models/ingestjobconfigoutput.md:
     id: 6d8a1a8d8d73
-    last_write_checksum: sha1:cda04446c5a5b4b5c5249e77b1604eb1b94faea5
-    pristine_git_object: dcbd79cdbc19735a24df6fd1c097fcdcc17e6ca3
+    last_write_checksum: sha1:5e0c654cd0bfdeb2b17cb274c7094ed828608f89
+    pristine_git_object: a7f3940132194a9c225857e6fdc1d3264b442f4e
   docs/models/ingestjobconfigoutputchunkingstrategy.md:
     id: bd990b829ea6
     last_write_checksum: sha1:7a0bd57753ebf5b573e76d782f14f7ead375fda2
@@ -766,8 +766,8 @@ trackedFiles:
     pristine_git_object: 98c816498244f46e747aa558224a4ebc3b4ab05f
   docs/models/updatehostingrequest.md:
     id: 0d8775b7aa48
-    last_write_checksum: sha1:b4e7c89ad76fef7a08a6ed854867b3ba6af5e818
-    pristine_git_object: b273978db9bd8c7b3649e57f2abe1b50d4b8bb71
+    last_write_checksum: sha1:d32ec215e041c28d2faee458a3ae04d7f682e124
+    pristine_git_object: 5b146f22a7717c00262158c4552935fffd230c60
   docs/models/updatehostingrerankmodel.md:
     id: 982f51ea83a5
     last_write_checksum: sha1:1234dc451e2ab6c9da067d0890bb0fa86928858d
@@ -858,8 +858,8 @@ trackedFiles:
     pristine_git_object: c43f5ca62b159fe4ad4884c869d4e6a458edf3f4
   docs/sdks/hostingsdk/README.md:
     id: 6b6ab456c952
-    last_write_checksum: sha1:84f0379dedb97b8e3e3fbe13a421a3027832c9e2
-    pristine_git_object: cf9766a9cee81fc3c9ab75bf77e3a408cc1df68b
+    last_write_checksum: sha1:9973b4b9711d810e42b53014f97e2a86860fa951
+    pristine_git_object: 3c5dc29f9573284680712d1cebbc7317893d65e5
   docs/sdks/ingestjobs/README.md:
     id: 7b2036efac22
     last_write_checksum: sha1:20ec5873ec5af4d2aad48ff2cd756afd353daa9e
@@ -890,8 +890,8 @@ trackedFiles:
     pristine_git_object: 000d9930f874a1b01cda74f245fc00e1b6eae49e
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:be69317522aa7304eab33bfc17c824432b7602c9
-    pristine_git_object: 541b7dbc8351d94f534135dab89b03d24527e1d2
+    last_write_checksum: sha1:3d9bcebe28be6c9314a1dcbd7967ec9c7a90b790
+    pristine_git_object: b4cb8fc0377a2ce379060166a06af2dc5a85eac7
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:60657b1d5175b1e74c81f02d12ce25fab54fdf37
@@ -918,8 +918,8 @@ trackedFiles:
     pristine_git_object: ee14ff7b8b066537a6732994deb001b2ffbdcc6b
   src/agentset/_version.py:
     id: 6586f6b69ac0
-    last_write_checksum: sha1:b930d7ce01e157098c41a2156cbc0a7d6ba84db1
-    pristine_git_object: 5435ad4b1f2d4b21451685c2ce0eb70489367957
+    last_write_checksum: sha1:bd2fdbb0536ea5faad1151de3c19dc19159c24e1
+    pristine_git_object: b71673d65d2166ae05ab2e0f3dda1650e80dbcbd
   src/agentset/basesdk.py:
     id: 569b9e7b0ab0
     last_write_checksum: sha1:cb1e91952ea76e719445809bc96ed311941ebecc
@@ -942,52 +942,52 @@ trackedFiles:
     pristine_git_object: b87836a1052dddff1195533451b542265c2a8b88
   src/agentset/errors/badrequest_error.py:
     id: 05d39e22d8af
-    last_write_checksum: sha1:1fae7fe20b6ce65f657c4a2903f0698315016957
-    pristine_git_object: 92bacd080d668786f025ae21cd68d25e0790b70e
+    last_write_checksum: sha1:06234e89b29a042972a660d9c1b837156a2f6b48
+    pristine_git_object: 648736160d134b60b39397f56d8a4b5e99f11f8b
   src/agentset/errors/conflict_error.py:
     id: 62e7d4c865b5
-    last_write_checksum: sha1:d5c358fd0c3e9222a1ecd60842b200664f3a57ac
-    pristine_git_object: f57e8fdfbc5c34c9a6970db16b0038fbc65b0194
+    last_write_checksum: sha1:f3f61882c4e6dce0e19db2b6a521fbbee757778c
+    pristine_git_object: 9ae1fa11d41c950d8ca8ae40c4ff6d3a55e51035
   src/agentset/errors/forbidden_error.py:
     id: 56ec8b129e5e
-    last_write_checksum: sha1:854a6b47a421cecc8089f7cbab8d7a34d8ac22a1
-    pristine_git_object: f943e1e0eefc530d0eb86232b75400547bdd829f
+    last_write_checksum: sha1:106a9245ac3175f421ba624d7467b8ce82aee0e7
+    pristine_git_object: 6db338e8fb74aa33726b52e31fd0dfc3c9d88c73
   src/agentset/errors/internalservererror.py:
     id: 195d7ed9199a
-    last_write_checksum: sha1:3ad3070a8b7f3674c98c77aa9fe314b129905cec
-    pristine_git_object: 431cbd608005e175056523b5fdf7a4e563fab63b
+    last_write_checksum: sha1:84c9409e0d693647106caf2f4a7fb8ae3c6367c2
+    pristine_git_object: e95e8bd51bf787e32a4931257ddb90d820b34843
   src/agentset/errors/inviteexpired_error.py:
     id: 99cd559b6375
-    last_write_checksum: sha1:b9ae7136b7729e0dfbd1b8273bca8860303b482b
-    pristine_git_object: ec7be1a74adeba160cc6a64502a4cd393ef53ec3
+    last_write_checksum: sha1:63ab822720aae19f0ab6986879506ea72a50384d
+    pristine_git_object: f26cb6cf575687cd8086cd18790991a5a6e7ed96
   src/agentset/errors/no_response_error.py:
     id: b6126ef78d39
     last_write_checksum: sha1:7f326424a7d5ae1bcd5c89a0d6b3dbda9138942f
     pristine_git_object: 1deab64bc43e1e65bf3c412d326a4032ce342366
   src/agentset/errors/notfound_error.py:
     id: f405f8cd23d5
-    last_write_checksum: sha1:a3a0896daba60886963cefe68cab2dbcca8759e8
-    pristine_git_object: 0fba790b96d043f94b7ac8ee49c55901da4c92ef
+    last_write_checksum: sha1:73879d67baa996c8917f8cf5cec3702053981a5c
+    pristine_git_object: 73c7119998de496d02913a50f49beed0f04c24fc
   src/agentset/errors/ratelimitexceeded_error.py:
     id: a3502f60d64b
-    last_write_checksum: sha1:a4aa1e130be6c255418d07a7874ba7b9d90a425a
-    pristine_git_object: 5a3b3f6fbb454c4935230ead0634d188b3d497a3
+    last_write_checksum: sha1:d8c563402487bf207c14276dc3fcc9e49fc6e731
+    pristine_git_object: 6c1cad09046ad1f999ea69a3a069918cb7ac0576
   src/agentset/errors/responsevalidationerror.py:
     id: f11f033da1ca
     last_write_checksum: sha1:ad4497ecd169b74bd172f6949522a56dea73f0df
     pristine_git_object: e917fef4f2e7b636f71a210c2b86fe648bf59b02
   src/agentset/errors/unauthorized_error.py:
     id: ed311944f4fd
-    last_write_checksum: sha1:feda61061627f1290b16745eef6fe01a75d00818
-    pristine_git_object: 97254f72c497a3771ad7dfa9a4c1115c2c33f1af
+    last_write_checksum: sha1:9f0d24e3d1a9329ae3eacde49808ec1d6bd501b9
+    pristine_git_object: 8125baa66318be4cc1efe7f9abacb7478844e280
   src/agentset/errors/unprocessableentity_error.py:
     id: fa07088790f4
-    last_write_checksum: sha1:0528720e825937084dc5cfdcaa638f18c4bc7fd7
-    pristine_git_object: 02b0af06fd12a02b9bdbf6abb805b6d719143de4
+    last_write_checksum: sha1:516d92f686a340567f92c8d088cc98e8ca6019a2
+    pristine_git_object: 74ec698242ee5f850322c5e6247db34b1ac09704
   src/agentset/hosting_sdk.py:
     id: bb7f2f247868
-    last_write_checksum: sha1:7d138ac4335e82bdabc9a35d8bf16e4bef59916c
-    pristine_git_object: 00d1b424b5bae726d3c0b26561e125a973a9753c
+    last_write_checksum: sha1:1acba5ea369b92d62dce52add049002b278894e1
+    pristine_git_object: 4a3bde785cd0bf570ab6412eb60c7626675b2101
   src/agentset/httpclient.py:
     id: 366cdc39cac2
     last_write_checksum: sha1:5e55338d6ee9f01ab648cad4380201a8a3da7dd7
@@ -1074,12 +1074,12 @@ trackedFiles:
     pristine_git_object: 74534626685f5464a07873e4e6b3627d973e8ad7
   src/agentset/models/document_config.py:
     id: 289e7132eff1
-    last_write_checksum: sha1:f9e810046559dc3bf7c1bb54566d45c3db8f29ef
-    pristine_git_object: db9eded33d021c5f32689ce13c7fe3f179290e7e
+    last_write_checksum: sha1:d8faff4b7435299d8e1dbea1c0f66128ebb41c12
+    pristine_git_object: 79f7b7d0b748c746c2dbd22c6287cf54a1e75f62
   src/agentset/models/document_configoutput.py:
     id: 0854fb570e1e
-    last_write_checksum: sha1:8e36511a199ca9e35b80763b26f9d930c4e5ef2f
-    pristine_git_object: a059a205d04dd53d081eb7b68b480f7e1cd39849
+    last_write_checksum: sha1:da7badcd57904990cb0aba777d58ebbd4b74cdb5
+    pristine_git_object: 729f119bee6ec258e937cc64a804cf9175718c92
   src/agentset/models/document_status.py:
     id: 921ca5706604
     last_write_checksum: sha1:c4e0a87cf6b537f906e5a65f67b175fd1dc8a3c0
@@ -1138,20 +1138,20 @@ trackedFiles:
     pristine_git_object: b6cc26d7e1c0cb55361b33d14e0a8ea1ab356016
   src/agentset/models/hosting.py:
     id: 388b65e79f43
-    last_write_checksum: sha1:fcfa8ae6195d4d8460876d3f5a7ebde2fc8e0324
-    pristine_git_object: 56b221b3cc6363f18e7bc121991dcfb1e2d02d37
+    last_write_checksum: sha1:7a9f8bd77bc5fdf098f148aa3094c67c724a950e
+    pristine_git_object: 31040abd0ab062ea3e6a00b9cf0de386e6df4ca5
   src/agentset/models/ingest_job.py:
     id: 2cea60a70c7c
     last_write_checksum: sha1:0027e7c43072c15770804b125ea1561a1be378e6
     pristine_git_object: a94e958fc1c13072f0e82caa27a701d354860d00
   src/agentset/models/ingest_job_config.py:
     id: cfe08565caf9
-    last_write_checksum: sha1:2716cbb5b8008f12e1708b7b30d82e1788011e7b
-    pristine_git_object: 0ccf27ecefe0107b33ea4e75d9c3b0f7ad01d612
+    last_write_checksum: sha1:c9e074cc3b768229107b6943be3e2ed62b158022
+    pristine_git_object: 3ccddca21eaaec4eb046347d836e70cf9de1e124
   src/agentset/models/ingest_job_configoutput.py:
     id: a114f3586507
-    last_write_checksum: sha1:6e83698c83b2e10622e13670ffa8c54e2f0dd256
-    pristine_git_object: f7f4bcea49570a446c40627a9b7f717d94207dc2
+    last_write_checksum: sha1:462fd4d0b1b92789778be1f5ade7a15cdb0f51c3
+    pristine_git_object: b2fcce9734f5097baf1a82e91f743a689cabc46a
   src/agentset/models/ingest_job_payload.py:
     id: 9e70447bde55
     last_write_checksum: sha1:db09bb8786351f6a7f1d11fc0ec2545856d5c088
@@ -1286,8 +1286,8 @@ trackedFiles:
     pristine_git_object: 6996c5de5084c3c36bec749168f3dab76584319a
   src/agentset/models/updatehostingop.py:
     id: be7b2c4c577d
-    last_write_checksum: sha1:4ff98bfad83b91583ba674f12ee8900724cc0240
-    pristine_git_object: 800dac32540511c7b1c572347708a0ea4cca6f74
+    last_write_checksum: sha1:8e722ee9d40f7399dc940e035ff90b5ff72a8460
+    pristine_git_object: ed087c9b3629ae27e634a7f35bb521ac04d2380f
   src/agentset/models/updatenamespaceop.py:
     id: 24f6de162a47
     last_write_checksum: sha1:ab5e36cd5fbbbca98be0f5e5f501b9821254f160
@@ -1877,7 +1877,7 @@ examples:
           namespaceId: "ns_123"
       responses:
         "200":
-          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>"], "exampleSearchQueries": [], "welcomeMessage": "<value>", "citationMetadataPath": "<value>", "searchEnabled": true, "rerankConfig": {"model": "zeroentropy:zerank-1", "limit": 15}, "llmConfig": {"model": "openai:gpt-5-mini"}, "topK": 50, "protected": true, "allowedEmails": ["<value 1>"], "allowedEmailDomains": [], "createdAt": "1715026242802", "updatedAt": "1735640415453"}}
+          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "ogTitle": "<value>", "ogDescription": "<value>", "ogImage": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>"], "exampleSearchQueries": [], "welcomeMessage": "<value>", "citationMetadataPath": "<value>", "searchEnabled": true, "rerankConfig": {"model": "zeroentropy:zerank-1", "limit": 15}, "llmConfig": {"model": "openai:gpt-5-mini"}, "topK": 50, "protected": true, "allowedEmails": ["<value 1>"], "allowedEmailDomains": [], "createdAt": "1715026242802", "updatedAt": "1735640415453"}}
         "400":
           application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
         "401":
@@ -1903,7 +1903,7 @@ examples:
           namespaceId: "ns_123"
       responses:
         "201":
-          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>"], "exampleSearchQueries": [], "welcomeMessage": "<value>", "citationMetadataPath": "<value>", "searchEnabled": true, "rerankConfig": {"model": "cohere:rerank-english-v3.0", "limit": 15}, "llmConfig": {"model": "openai:gpt-5"}, "topK": 50, "protected": true, "allowedEmails": [], "allowedEmailDomains": ["<value 1>", "<value 2>", "<value 3>"], "createdAt": "1706676766313", "updatedAt": "1735646143014"}}
+          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "ogTitle": "<value>", "ogDescription": "<value>", "ogImage": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>"], "exampleSearchQueries": [], "welcomeMessage": "<value>", "citationMetadataPath": "<value>", "searchEnabled": true, "rerankConfig": {"model": "cohere:rerank-english-v3.0", "limit": 15}, "llmConfig": {"model": "openai:gpt-5"}, "topK": 50, "protected": true, "allowedEmails": [], "allowedEmailDomains": ["<value 1>", "<value 2>", "<value 3>"], "createdAt": "1706676766313", "updatedAt": "1735646143014"}}
         "400":
           application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
         "401":
@@ -1931,7 +1931,7 @@ examples:
         application/json: {}
       responses:
         "200":
-          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>", "<value 3>"], "exampleSearchQueries": ["<value 1>", "<value 2>"], "welcomeMessage": "<value>", "citationMetadataPath": "<value>", "searchEnabled": true, "rerankConfig": {"model": "cohere:rerank-v3.5", "limit": 15}, "llmConfig": {"model": "openai:gpt-5"}, "topK": 50, "protected": true, "allowedEmails": ["<value 1>"], "allowedEmailDomains": ["<value 1>", "<value 2>"], "createdAt": "1733155110677", "updatedAt": "1735683262644"}}
+          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "ogTitle": "<value>", "ogDescription": "<value>", "ogImage": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>", "<value 3>"], "exampleSearchQueries": ["<value 1>", "<value 2>"], "welcomeMessage": "<value>", "citationMetadataPath": "<value>", "searchEnabled": true, "rerankConfig": {"model": "cohere:rerank-v3.5", "limit": 15}, "llmConfig": {"model": "openai:gpt-5"}, "topK": 50, "protected": true, "allowedEmails": ["<value 1>"], "allowedEmailDomains": ["<value 1>", "<value 2>"], "createdAt": "1733155110677", "updatedAt": "1735683262644"}}
         "400":
           application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
         "401":
@@ -1957,7 +1957,7 @@ examples:
           namespaceId: "ns_123"
       responses:
         "204":
-          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>", "<value 3>"], "exampleSearchQueries": ["<value 1>"], "welcomeMessage": "<value>", "citationMetadataPath": null, "searchEnabled": true, "rerankConfig": {"model": "zeroentropy:zerank-1-small", "limit": 15}, "llmConfig": null, "topK": 50, "protected": true, "allowedEmails": ["<value 1>", "<value 2>"], "allowedEmailDomains": ["<value 1>", "<value 2>"], "createdAt": "1720061870905", "updatedAt": "1735674378402"}}
+          application/json: {"success": true, "data": {"namespaceId": "<id>", "title": "<value>", "slug": "<value>", "logo": "<value>", "ogTitle": "<value>", "ogDescription": "<value>", "ogImage": "<value>", "systemPrompt": "<value>", "exampleQuestions": ["<value 1>", "<value 2>", "<value 3>"], "exampleSearchQueries": ["<value 1>"], "welcomeMessage": "<value>", "citationMetadataPath": null, "searchEnabled": true, "rerankConfig": {"model": "zeroentropy:zerank-1-small", "limit": 15}, "llmConfig": null, "topK": 50, "protected": true, "allowedEmails": ["<value 1>", "<value 2>"], "allowedEmailDomains": ["<value 1>", "<value 2>"], "createdAt": "1720061870905", "updatedAt": "1735674378402"}}
         "400":
           application/json: {"success": false, "error": {"code": "bad_request", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#bad-request"}}
         "401":
@@ -2003,7 +2003,7 @@ examples:
         "500":
           application/json: {"success": false, "error": {"code": "internal_server_error", "message": "The requested resource was not found.", "doc_url": "https://docs.agentset.ai/api-reference/errors#internal-server_error"}}
 examplesVersion: 1.0.2
-releaseNotes: "## Python SDK Changes:\n* `agentset.ingest_jobs.list()`:  `response.data.[]` **Changed**\n* `agentset.ingest_jobs.create()`: \n  *  `request` **Changed**\n  *  `response.data` **Changed**\n* `agentset.ingest_jobs.get()`:  `response.data` **Changed**\n* `agentset.ingest_jobs.delete()`:  `response.data` **Changed**\n* `agentset.documents.list()`:  `response.data.[].config.delimiter` **Added**\n* `agentset.documents.get()`:  `response.data.config.delimiter` **Added**\n* `agentset.documents.delete()`:  `response.data.config.delimiter` **Added**\n"
+releaseNotes: "## Python SDK Changes:\n* `agentset.ingest_jobs.list()`:  `response.data.[]` **Changed**\n* `agentset.ingest_jobs.create()`: \n  *  `request` **Changed**\n  *  `response.data` **Changed**\n* `agentset.ingest_jobs.get()`:  `response.data` **Changed**\n* `agentset.ingest_jobs.delete()`:  `response.data` **Changed**\n* `agentset.documents.list()`:  `response.data.[].config` **Changed**\n* `agentset.documents.get()`:  `response.data.config` **Changed**\n* `agentset.documents.delete()`:  `response.data.config` **Changed**\n* `agentset.hosting.get()`:  `response.data` **Changed**\n* `agentset.hosting.enable()`:  `response.data` **Changed**\n* `agentset.hosting.update()`: \n  *  `request` **Changed**\n  *  `response.data` **Changed**\n* `agentset.hosting.delete()`:  `response.data` **Changed**\n"
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json

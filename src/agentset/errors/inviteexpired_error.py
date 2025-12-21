@@ -11,7 +11,6 @@ from typing import Optional
 
 class InviteExpiredErrorData(BaseModel):
     success: bool
-
     error: models_inviteexpired_error.InviteExpiredError
 
 

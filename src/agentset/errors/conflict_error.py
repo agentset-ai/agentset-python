@@ -11,7 +11,6 @@ from typing import Optional
 
 class ConflictErrorData(BaseModel):
     success: bool
-
     error: models_conflict_error.ConflictError
 
 

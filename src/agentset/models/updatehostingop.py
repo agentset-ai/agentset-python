@@ -48,6 +48,9 @@ class UpdateHostingRequestTypedDict(TypedDict):
     title: NotRequired[str]
     slug: NotRequired[str]
     logo: NotRequired[Nullable[str]]
+    og_title: NotRequired[str]
+    og_description: NotRequired[str]
+    og_image: NotRequired[Nullable[str]]
     protected: NotRequired[bool]
     allowed_emails: NotRequired[List[str]]
     allowed_email_domains: NotRequired[List[str]]
@@ -69,6 +72,14 @@ class UpdateHostingRequest(BaseModel):
     slug: Optional[str] = None
 
     logo: OptionalNullable[str] = UNSET
+
+    og_title: Annotated[Optional[str], pydantic.Field(alias="ogTitle")] = None
+
+    og_description: Annotated[Optional[str], pydantic.Field(alias="ogDescription")] = (
+        None
+    )
+
+    og_image: Annotated[OptionalNullable[str], pydantic.Field(alias="ogImage")] = UNSET
 
     protected: Optional[bool] = None
 
@@ -118,6 +129,9 @@ class UpdateHostingRequest(BaseModel):
             "title",
             "slug",
             "logo",
+            "ogTitle",
+            "ogDescription",
+            "ogImage",
             "protected",
             "allowedEmails",
             "allowedEmailDomains",
@@ -132,7 +146,7 @@ class UpdateHostingRequest(BaseModel):
             "topK",
             "rerankLimit",
         ]
-        nullable_fields = ["logo"]
+        nullable_fields = ["logo", "ogImage"]
         null_default_fields = []
 
         serialized = handler(self)

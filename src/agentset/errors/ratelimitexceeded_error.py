@@ -11,7 +11,6 @@ from typing import Optional
 
 class RateLimitExceededErrorData(BaseModel):
     success: bool
-
     error: models_ratelimitexceeded_error.RateLimitExceededError
 
 

@@ -11,7 +11,6 @@ from typing import Optional
 
 class BadRequestErrorData(BaseModel):
     success: bool
-
     error: models_badrequest_error.BadRequestError
 
 
