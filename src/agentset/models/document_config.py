@@ -45,12 +45,20 @@ class DocumentConfigTypedDict(TypedDict):
     metadata: NotRequired[Dict[str, DocumentConfigMetadataTypedDict]]
     r"""Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."""
     language_code: NotRequired[LanguageCode]
-    force_ocr: NotRequired[bool]
-    r"""Force OCR on the document even if selectable text exists. Useful for scanned documents with unreliable embedded text. Defaults to `false`."""
     mode: NotRequired[Mode]
     r"""Processing mode for the parser. `fast` favors speed, `accurate` (pro subscription only) favors quality and layout fidelity, and `balanced` offers a compromise between the two. Defaults to `balanced`."""
     disable_image_extraction: NotRequired[bool]
     r"""Disable image extraction from the document. When combined with `useLlm`, images may still be automatically captioned by the partition API. Defaults to `false`."""
+    disable_image_captions: NotRequired[bool]
+    r"""Disable synthetic image captions/descriptions in output. Images will be rendered as plain img tags without alt text. Defaults to `false`."""
+    chart_understanding: NotRequired[bool]
+    r"""Enable chart understanding. This will extract the data from the charts in the document. Defaults to `false`."""
+    keep_pageheader_in_output: NotRequired[bool]
+    r"""Keep the page header in the output. Defaults to `false`."""
+    keep_pagefooter_in_output: NotRequired[bool]
+    r"""Keep the page footer in the output. Defaults to `false`."""
+    force_ocr: NotRequired[bool]
+    r"""Force OCR on the document even if selectable text exists. Useful for scanned documents with unreliable embedded text. Defaults to `false`."""
     disable_ocr_math: NotRequired[bool]
     r"""Disable inline math recognition in OCR. This can be useful if the document contains content that is frequently misclassified as math. Defaults to `false`."""
     use_llm: NotRequired[bool]
@@ -81,9 +89,6 @@ class DocumentConfig(BaseModel):
         Optional[LanguageCode], pydantic.Field(alias="languageCode")
     ] = None
 
-    force_ocr: Annotated[Optional[bool], pydantic.Field(alias="forceOcr")] = None
-    r"""Force OCR on the document even if selectable text exists. Useful for scanned documents with unreliable embedded text. Defaults to `false`."""
-
     mode: Optional[Mode] = None
     r"""Processing mode for the parser. `fast` favors speed, `accurate` (pro subscription only) favors quality and layout fidelity, and `balanced` offers a compromise between the two. Defaults to `balanced`."""
 
@@ -92,12 +97,51 @@ class DocumentConfig(BaseModel):
     ] = None
     r"""Disable image extraction from the document. When combined with `useLlm`, images may still be automatically captioned by the partition API. Defaults to `false`."""
 
+    disable_image_captions: Annotated[
+        Optional[bool], pydantic.Field(alias="disableImageCaptions")
+    ] = None
+    r"""Disable synthetic image captions/descriptions in output. Images will be rendered as plain img tags without alt text. Defaults to `false`."""
+
+    chart_understanding: Annotated[
+        Optional[bool], pydantic.Field(alias="chartUnderstanding")
+    ] = None
+    r"""Enable chart understanding. This will extract the data from the charts in the document. Defaults to `false`."""
+
+    keep_pageheader_in_output: Annotated[
+        Optional[bool], pydantic.Field(alias="keepPageheaderInOutput")
+    ] = None
+    r"""Keep the page header in the output. Defaults to `false`."""
+
+    keep_pagefooter_in_output: Annotated[
+        Optional[bool], pydantic.Field(alias="keepPagefooterInOutput")
+    ] = None
+    r"""Keep the page footer in the output. Defaults to `false`."""
+
+    force_ocr: Annotated[
+        Optional[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - We no longer support this option..",
+            alias="forceOcr",
+        ),
+    ] = None
+    r"""Force OCR on the document even if selectable text exists. Useful for scanned documents with unreliable embedded text. Defaults to `false`."""
+
     disable_ocr_math: Annotated[
-        Optional[bool], pydantic.Field(alias="disableOcrMath")
+        Optional[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - We no longer support this option..",
+            alias="disableOcrMath",
+        ),
     ] = None
     r"""Disable inline math recognition in OCR. This can be useful if the document contains content that is frequently misclassified as math. Defaults to `false`."""
 
-    use_llm: Annotated[Optional[bool], pydantic.Field(alias="useLlm")] = None
+    use_llm: Annotated[
+        Optional[bool],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - We no longer support this option. Use `mode` instead..",
+            alias="useLlm",
+        ),
+    ] = None
     r"""Enable LLM-assisted parsing to improve tables, forms, inline math, and layout detection. May increase latency and token usage. Defaults to `true`."""
 
     chunk_overlap: Annotated[

@@ -11,7 +11,6 @@ from typing import Optional
 
 class ForbiddenErrorData(BaseModel):
     success: bool
-
     error: models_forbidden_error.ForbiddenError
 
 

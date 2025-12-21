@@ -9,7 +9,7 @@ resolution-markers = [
 
 [[package]]
 name = "agentset"
-version = "0.6.2"
+version = "0.6.3"
 source = { editable = "." }
 dependencies = [
     { name = "httpcore" },

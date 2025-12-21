@@ -57,6 +57,12 @@ class HostingTypedDict(TypedDict):
     r"""The unique slug for accessing the hosted interface."""
     logo: Nullable[str]
     r"""The URL or base64 encoded image of the logo."""
+    og_title: Nullable[str]
+    r"""Custom Open Graph title for social media sharing."""
+    og_description: Nullable[str]
+    r"""Custom Open Graph description for social media sharing."""
+    og_image: Nullable[str]
+    r"""Custom Open Graph image URL for social media sharing."""
     system_prompt: Nullable[str]
     r"""The system prompt used for the chat interface."""
     example_questions: List[str]
@@ -99,6 +105,15 @@ class Hosting(BaseModel):
 
     logo: Nullable[str]
     r"""The URL or base64 encoded image of the logo."""
+
+    og_title: Annotated[Nullable[str], pydantic.Field(alias="ogTitle")]
+    r"""Custom Open Graph title for social media sharing."""
+
+    og_description: Annotated[Nullable[str], pydantic.Field(alias="ogDescription")]
+    r"""Custom Open Graph description for social media sharing."""
+
+    og_image: Annotated[Nullable[str], pydantic.Field(alias="ogImage")]
+    r"""Custom Open Graph image URL for social media sharing."""
 
     system_prompt: Annotated[Nullable[str], pydantic.Field(alias="systemPrompt")]
     r"""The system prompt used for the chat interface."""
@@ -159,6 +174,9 @@ class Hosting(BaseModel):
             "title",
             "slug",
             "logo",
+            "ogTitle",
+            "ogDescription",
+            "ogImage",
             "systemPrompt",
             "welcomeMessage",
             "citationMetadataPath",

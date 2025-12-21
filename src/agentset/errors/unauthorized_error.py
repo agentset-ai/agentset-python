@@ -11,7 +11,6 @@ from typing import Optional
 
 class UnauthorizedErrorData(BaseModel):
     success: bool
-
     error: models_unauthorized_error.UnauthorizedError
 
 
