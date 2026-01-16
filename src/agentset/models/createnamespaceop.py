@@ -7,9 +7,10 @@ from .create_vector_store_config import (
 )
 from .embedding_model_config import EmbeddingModelConfig, EmbeddingModelConfigTypedDict
 from .namespace import Namespace, NamespaceTypedDict
-from agentset.types import BaseModel
+from agentset.types import BaseModel, UNSET_SENTINEL
 from agentset.utils import validate_const
 import pydantic
+from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -38,6 +39,22 @@ class CreateNamespaceRequest(BaseModel):
         Optional[CreateVectorStoreConfig], pydantic.Field(alias="vectorStoreConfig")
     ] = None
     r"""The vector store config. If not provided, our MANAGED_PINECONE vector store will be used. Note: You can't change the vector store config after the namespace is created."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["embeddingConfig", "vectorStoreConfig"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class CreateNamespaceResponseTypedDict(TypedDict):

@@ -41,6 +41,22 @@ class ListDocumentsGlobals(BaseModel):
     ] = None
     r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["namespaceId", "x-tenant-id"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 ListDocumentsOrderBy = Literal["createdAt",]
 r"""The field to order by. Default is `createdAt`."""
@@ -109,7 +125,7 @@ class ListDocumentsRequest(BaseModel):
         Optional[float],
         pydantic.Field(alias="perPage"),
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = 30
+    ] = None
 
     x_tenant_id: Annotated[
         Optional[str],
@@ -117,6 +133,33 @@ class ListDocumentsRequest(BaseModel):
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
     r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "statuses",
+                "orderBy",
+                "order",
+                "ingestJobId",
+                "cursor",
+                "cursorDirection",
+                "perPage",
+                "x-tenant-id",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class ListDocumentsPaginationTypedDict(TypedDict):
@@ -134,30 +177,14 @@ class ListDocumentsPagination(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = []
-        nullable_fields = ["nextCursor", "prevCursor"]
-        null_default_fields = []
-
         serialized = handler(self)
-
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k)
-            serialized.pop(k, None)
 
-            optional_nullable = k in optional_fields and k in nullable_fields
-            is_set = (
-                self.__pydantic_fields_set__.intersection({n})
-                or k in null_default_fields
-            )  # pylint: disable=no-member
-
-            if val is not None and val != UNSET_SENTINEL:
-                m[k] = val
-            elif val != UNSET_SENTINEL and (
-                not k in optional_fields or (optional_nullable and is_set)
-            ):
+            if val != UNSET_SENTINEL:
                 m[k] = val
 
         return m

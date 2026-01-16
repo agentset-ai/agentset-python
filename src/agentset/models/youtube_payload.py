@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 from .language_code import LanguageCode
-from agentset.types import BaseModel
+from agentset.types import BaseModel, UNSET_SENTINEL
 from agentset.utils import validate_const
 import pydantic
+from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
 from typing import List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -38,3 +39,19 @@ class YoutubePayload(BaseModel):
         Optional[bool], pydantic.Field(alias="includeMetadata")
     ] = None
     r"""Whether to include metadata in the ingestion (like video description, tags, category, duration, etc...). Defaults to `false`."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["transcriptLanguages", "includeMetadata"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

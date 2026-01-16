@@ -8,13 +8,19 @@ from typing_extensions import Annotated, TypedDict
 
 class UploadFileSchemaTypedDict(TypedDict):
     file_name: str
+    r"""File name"""
     content_type: str
+    r"""Content type"""
     file_size: float
+    r"""File size in bytes"""
 
 
 class UploadFileSchema(BaseModel):
     file_name: Annotated[str, pydantic.Field(alias="fileName")]
+    r"""File name"""
 
     content_type: Annotated[str, pydantic.Field(alias="contentType")]
+    r"""Content type"""
 
     file_size: Annotated[float, pydantic.Field(alias="fileSize")]
+    r"""File size in bytes"""

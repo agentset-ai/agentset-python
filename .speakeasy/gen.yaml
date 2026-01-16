@@ -16,6 +16,7 @@ generation:
     requestResponseComponentNamesFeb2024: true
     securityFeb2025: true
     sharedErrorComponentsApr2025: true
+    sharedNestedComponentsJan2026: false
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
@@ -31,7 +32,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 python:
-  version: 0.6.3
+  version: 0.6.4
   additionalDependencies:
     dev: {}
     main: {}
@@ -81,3 +82,4 @@ python:
   responseFormat: flat
   sseFlatResponse: true
   templateVersion: v2
+  useAsyncHooks: false

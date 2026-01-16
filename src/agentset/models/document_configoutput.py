@@ -3,19 +3,20 @@
 from __future__ import annotations
 from .language_code import LanguageCode
 from .mode import Mode
-from agentset.types import BaseModel
+from agentset.types import BaseModel, UNSET_SENTINEL
 import pydantic
-from typing import Dict, Literal, Optional, Union
+from pydantic import model_serializer
+from typing import Dict, List, Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
 DocumentConfigOutputMetadataTypedDict = TypeAliasType(
-    "DocumentConfigOutputMetadataTypedDict", Union[str, float, bool]
+    "DocumentConfigOutputMetadataTypedDict", Union[str, float, bool, List[str]]
 )
 
 
 DocumentConfigOutputMetadata = TypeAliasType(
-    "DocumentConfigOutputMetadata", Union[str, float, bool]
+    "DocumentConfigOutputMetadata", Union[str, float, bool, List[str]]
 )
 
 
@@ -43,7 +44,7 @@ class DocumentConfigOutputTypedDict(TypedDict):
     delimiter: NotRequired[str]
     r"""Delimiter to use for separating text before chunking."""
     metadata: NotRequired[Dict[str, DocumentConfigOutputMetadataTypedDict]]
-    r"""Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."""
+    r"""Custom metadata to be added to the ingested documents. It cannot contain nested objects; only string, number, boolean, and array of strings are allowed."""
     language_code: NotRequired[LanguageCode]
     mode: NotRequired[Mode]
     r"""Processing mode for the parser. `fast` favors speed, `accurate` (pro subscription only) favors quality and layout fidelity, and `balanced` offers a compromise between the two. Defaults to `balanced`."""
@@ -83,7 +84,7 @@ class DocumentConfigOutput(BaseModel):
     r"""Delimiter to use for separating text before chunking."""
 
     metadata: Optional[Dict[str, DocumentConfigOutputMetadata]] = None
-    r"""Custom metadata to be added to the ingested documents. It cannot contain nested objects; only primitive types (string, number, boolean) are allowed."""
+    r"""Custom metadata to be added to the ingested documents. It cannot contain nested objects; only string, number, boolean, and array of strings are allowed."""
 
     language_code: Annotated[
         Optional[LanguageCode], pydantic.Field(alias="languageCode")
@@ -178,3 +179,39 @@ class DocumentConfigOutput(BaseModel):
         ),
     ] = None
     r"""[Deprecated] Legacy processing strategy used by the previous partition API. This option is ignored by the current pipeline and kept only for backwards compatibility."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "chunkSize",
+                "delimiter",
+                "metadata",
+                "languageCode",
+                "mode",
+                "disableImageExtraction",
+                "disableImageCaptions",
+                "chartUnderstanding",
+                "keepPageheaderInOutput",
+                "keepPagefooterInOutput",
+                "forceOcr",
+                "disableOcrMath",
+                "useLlm",
+                "chunkOverlap",
+                "maxChunkSize",
+                "chunkingStrategy",
+                "strategy",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
