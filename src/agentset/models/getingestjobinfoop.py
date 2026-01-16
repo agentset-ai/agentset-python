@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 from .ingest_job import IngestJob, IngestJobTypedDict
-from agentset.types import BaseModel
+from agentset.types import BaseModel, UNSET_SENTINEL
 from agentset.utils import (
     FieldMetadata,
     HeaderMetadata,
@@ -10,6 +10,7 @@ from agentset.utils import (
     validate_const,
 )
 import pydantic
+from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -37,6 +38,22 @@ class GetIngestJobInfoGlobals(BaseModel):
     ] = None
     r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["namespaceId", "x-tenant-id"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class GetIngestJobInfoRequestTypedDict(TypedDict):
     job_id: str
@@ -59,6 +76,22 @@ class GetIngestJobInfoRequest(BaseModel):
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
     r"""Optional tenant id to use for the request. If not provided, the namespace will be used directly. Must be alphanumeric and up to 64 characters."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["x-tenant-id"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class GetIngestJobInfoResponseTypedDict(TypedDict):

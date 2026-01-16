@@ -25,9 +25,9 @@ class Uploads(BaseSDK):
 
         Generate a presigned URL for uploading a single file to the specified namespace.
 
-        :param file_name:
-        :param content_type:
-        :param file_size:
+        :param file_name: File name
+        :param content_type: Content type
+        :param file_size: File size in bytes
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -177,9 +177,9 @@ class Uploads(BaseSDK):
 
         Generate a presigned URL for uploading a single file to the specified namespace.
 
-        :param file_name:
-        :param content_type:
-        :param file_size:
+        :param file_name: File name
+        :param content_type: Content type
+        :param file_size: File size in bytes
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds

@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 from .openai_embedding_model_enum import OpenaiEmbeddingModelEnum
-from agentset.types import BaseModel
+from agentset.types import BaseModel, UNSET_SENTINEL
 from agentset.utils import validate_const
 import pydantic
+from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -48,3 +49,19 @@ class AzureEmbeddingConfigOutput(BaseModel):
         "preview"
     )
     r"""The API version for the Azure OpenAI API. Defaults to `preview`."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["apiVersion"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

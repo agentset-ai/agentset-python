@@ -79,3 +79,13 @@ Based on:
 - [python v0.6.3] .
 ### Releases
 - [PyPI v0.6.3] https://pypi.org/project/agentset/0.6.3 - .
+
+## 2026-01-16 13:17:25
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.686.1 (2.796.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.6.4] .
+### Releases
+- [PyPI v0.6.4] https://pypi.org/project/agentset/0.6.4 - .
