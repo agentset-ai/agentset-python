@@ -1,4 +1,4 @@
-# SourceYoutubeVideo
+# DocumentWebhookEventSourceYoutubeVideo
 
 
 ## Fields
