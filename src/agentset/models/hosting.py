@@ -4,64 +4,8 @@ from __future__ import annotations
 from agentset.types import BaseModel, Nullable, UNSET_SENTINEL
 import pydantic
 from pydantic import model_serializer
-from typing import List, Literal, Optional
+from typing import Any, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-
-
-RerankConfigModel = Literal[
-    "cohere:rerank-v3.5",
-    "cohere:rerank-english-v3.0",
-    "cohere:rerank-multilingual-v3.0",
-    "zeroentropy:zerank-2",
-    "zeroentropy:zerank-1",
-    "zeroentropy:zerank-1-small",
-]
-
-
-class RerankConfigTypedDict(TypedDict):
-    model: RerankConfigModel
-    limit: NotRequired[int]
-    r"""Number of documents after reranking."""
-
-
-class RerankConfig(BaseModel):
-    model: RerankConfigModel
-
-    limit: Optional[int] = 15
-    r"""Number of documents after reranking."""
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(["limit"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k)
-
-            if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
-                    m[k] = val
-
-        return m
-
-
-LlmConfigModel = Literal[
-    "openai:gpt-4.1",
-    "openai:gpt-5.1",
-    "openai:gpt-5",
-    "openai:gpt-5-mini",
-    "openai:gpt-5-nano",
-]
-
-
-class LlmConfigTypedDict(TypedDict):
-    model: LlmConfigModel
-
-
-class LlmConfig(BaseModel):
-    model: LlmConfigModel
 
 
 class HostingTypedDict(TypedDict):
@@ -89,9 +33,9 @@ class HostingTypedDict(TypedDict):
     r"""Welcome message displayed to users."""
     citation_metadata_path: Nullable[str]
     r"""Path to metadata field used for citations."""
-    rerank_config: Nullable[RerankConfigTypedDict]
+    rerank_config: Any
     r"""Configuration for the reranking model."""
-    llm_config: Nullable[LlmConfigTypedDict]
+    llm_config: Any
     r"""Configuration for the LLM model."""
     allowed_emails: List[str]
     r"""List of allowed email addresses (when protected is true)."""
@@ -150,12 +94,10 @@ class Hosting(BaseModel):
     ]
     r"""Path to metadata field used for citations."""
 
-    rerank_config: Annotated[
-        Nullable[RerankConfig], pydantic.Field(alias="rerankConfig")
-    ]
+    rerank_config: Annotated[Any, pydantic.Field(alias="rerankConfig")]
     r"""Configuration for the reranking model."""
 
-    llm_config: Annotated[Nullable[LlmConfig], pydantic.Field(alias="llmConfig")]
+    llm_config: Annotated[Any, pydantic.Field(alias="llmConfig")]
     r"""Configuration for the LLM model."""
 
     allowed_emails: Annotated[List[str], pydantic.Field(alias="allowedEmails")]
@@ -197,8 +139,6 @@ class Hosting(BaseModel):
                 "systemPrompt",
                 "welcomeMessage",
                 "citationMetadataPath",
-                "rerankConfig",
-                "llmConfig",
             ]
         )
         serialized = handler(self)

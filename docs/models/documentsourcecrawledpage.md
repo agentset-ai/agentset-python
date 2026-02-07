@@ -1,4 +1,4 @@
-# SourceCrawledPage
+# DocumentSourceCrawledPage
 
 
 ## Fields
