@@ -12,7 +12,7 @@ from typing import Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
-class SourceYoutubeVideoTypedDict(TypedDict):
+class DocumentSourceYoutubeVideoTypedDict(TypedDict):
     video_id: str
     r"""The ID of the youtube video."""
     type: Literal["YOUTUBE_VIDEO"]
@@ -20,7 +20,7 @@ class SourceYoutubeVideoTypedDict(TypedDict):
     r"""The duration of the youtube video in seconds."""
 
 
-class SourceYoutubeVideo(BaseModel):
+class DocumentSourceYoutubeVideo(BaseModel):
     video_id: Annotated[str, pydantic.Field(alias="videoId")]
     r"""The ID of the youtube video."""
 
@@ -51,7 +51,7 @@ class SourceYoutubeVideo(BaseModel):
         return m
 
 
-class SourceCrawledPageTypedDict(TypedDict):
+class DocumentSourceCrawledPageTypedDict(TypedDict):
     type: Literal["CRAWLED_PAGE"]
     title: NotRequired[str]
     r"""The title of the crawled page."""
@@ -61,7 +61,7 @@ class SourceCrawledPageTypedDict(TypedDict):
     r"""The language of the crawled page."""
 
 
-class SourceCrawledPage(BaseModel):
+class DocumentSourceCrawledPage(BaseModel):
     TYPE: Annotated[
         Annotated[
             Literal["CRAWLED_PAGE"], AfterValidator(validate_const("CRAWLED_PAGE"))
@@ -95,13 +95,13 @@ class SourceCrawledPage(BaseModel):
         return m
 
 
-class SourceManagedFileTypedDict(TypedDict):
+class DocumentSourceManagedFileTypedDict(TypedDict):
     key: str
     r"""The key of the managed file to ingest."""
     type: Literal["MANAGED_FILE"]
 
 
-class SourceManagedFile(BaseModel):
+class DocumentSourceManagedFile(BaseModel):
     key: str
     r"""The key of the managed file to ingest."""
 
@@ -113,13 +113,13 @@ class SourceManagedFile(BaseModel):
     ] = "MANAGED_FILE"
 
 
-class SourceFileTypedDict(TypedDict):
+class DocumentSourceFileTypedDict(TypedDict):
     file_url: str
     r"""The URL of the file to ingest."""
     type: Literal["FILE"]
 
 
-class SourceFile(BaseModel):
+class DocumentSourceFile(BaseModel):
     file_url: Annotated[str, pydantic.Field(alias="fileUrl")]
     r"""The URL of the file to ingest."""
 
@@ -129,13 +129,13 @@ class SourceFile(BaseModel):
     ] = "FILE"
 
 
-class SourceTextTypedDict(TypedDict):
+class DocumentSourceTextTypedDict(TypedDict):
     text: str
     r"""The text to ingest."""
     type: Literal["TEXT"]
 
 
-class SourceText(BaseModel):
+class DocumentSourceText(BaseModel):
     text: str
     r"""The text to ingest."""
 
@@ -145,22 +145,26 @@ class SourceText(BaseModel):
     ] = "TEXT"
 
 
-SourceTypedDict = TypeAliasType(
-    "SourceTypedDict",
+DocumentSourceUnionTypedDict = TypeAliasType(
+    "DocumentSourceUnionTypedDict",
     Union[
-        SourceTextTypedDict,
-        SourceFileTypedDict,
-        SourceManagedFileTypedDict,
-        SourceYoutubeVideoTypedDict,
-        SourceCrawledPageTypedDict,
+        DocumentSourceTextTypedDict,
+        DocumentSourceFileTypedDict,
+        DocumentSourceManagedFileTypedDict,
+        DocumentSourceYoutubeVideoTypedDict,
+        DocumentSourceCrawledPageTypedDict,
     ],
 )
 r"""The source of the document."""
 
 
-Source = Annotated[
+DocumentSourceUnion = Annotated[
     Union[
-        SourceText, SourceFile, SourceManagedFile, SourceCrawledPage, SourceYoutubeVideo
+        DocumentSourceText,
+        DocumentSourceFile,
+        DocumentSourceManagedFile,
+        DocumentSourceCrawledPage,
+        DocumentSourceYoutubeVideo,
     ],
     Field(discriminator="TYPE"),
 ]
@@ -211,7 +215,7 @@ class DocumentTypedDict(TypedDict):
     r"""The status of the document."""
     error: Nullable[str]
     r"""The error message of the document. Only exists when the status is failed."""
-    source: SourceTypedDict
+    source: DocumentSourceUnionTypedDict
     r"""The source of the document."""
     properties: Nullable[PropertiesTypedDict]
     config: Nullable[DocumentConfigOutputTypedDict]
@@ -256,7 +260,7 @@ class Document(BaseModel):
     error: Nullable[str]
     r"""The error message of the document. Only exists when the status is failed."""
 
-    source: Source
+    source: DocumentSourceUnion
     r"""The source of the document."""
 
     properties: Nullable[Properties]

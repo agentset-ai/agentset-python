@@ -1916,6 +1916,222 @@ components:
         - "fileName"
         - "contentType"
         - "fileSize"
+    "DocumentWebhookEvent":
+      type: "object"
+      properties:
+        "id":
+          type: "string"
+        "event":
+          anyOf:
+            - type: "string"
+              const: "document.queued"
+            - type: "string"
+              const: "document.queued_for_resync"
+            - type: "string"
+              const: "document.queued_for_deletion"
+            - type: "string"
+              const: "document.processing"
+            - type: "string"
+              const: "document.error"
+            - type: "string"
+              const: "document.ready"
+            - type: "string"
+              const: "document.deleted"
+        "createdAt":
+          type: "string"
+        "data":
+          type: "object"
+          properties:
+            "id":
+              type: "string"
+              description: "Unique identifier for the document."
+            "name":
+              anyOf:
+                - type: "string"
+                - type: "null"
+              description: "Name of the document."
+            "namespaceId":
+              type: "string"
+              description: "ID of the namespace."
+            "organizationId":
+              type: "string"
+              description: "ID of the organization."
+            "status": {"description": "Current status of the document.", "$ref": "#/components/schemas/document-status"}
+            "source":
+              oneOf:
+                - type: "object"
+                  properties:
+                    "type":
+                      type: "string"
+                      const: "TEXT"
+                    "text":
+                      type: "string"
+                      description: "The text to ingest."
+                  required:
+                    - "type"
+                    - "text"
+                - type: "object"
+                  properties:
+                    "type":
+                      type: "string"
+                      const: "FILE"
+                    "fileUrl":
+                      type: "string"
+                      format: "uri"
+                      description: "The URL of the file to ingest."
+                  required:
+                    - "type"
+                    - "fileUrl"
+                - type: "object"
+                  properties:
+                    "type":
+                      type: "string"
+                      const: "MANAGED_FILE"
+                    "key":
+                      type: "string"
+                      description: "The key of the managed file to ingest."
+                  required:
+                    - "type"
+                    - "key"
+                - type: "object"
+                  properties:
+                    "type":
+                      type: "string"
+                      const: "CRAWLED_PAGE"
+                    "title":
+                      description: "The title of the crawled page."
+                      type: "string"
+                    "description":
+                      description: "The description of the crawled page."
+                      type: "string"
+                    "language":
+                      description: "The language of the crawled page."
+                      type: "string"
+                  required:
+                    - "type"
+                - type: "object"
+                  properties:
+                    "type":
+                      type: "string"
+                      const: "YOUTUBE_VIDEO"
+                    "videoId":
+                      type: "string"
+                      description: "The ID of the youtube video."
+                    "duration":
+                      description: "The duration of the youtube video in seconds."
+                      type: "number"
+                  required:
+                    - "type"
+                    - "videoId"
+              description: "Source configuration of the document."
+              type: "object"
+            "totalCharacters":
+              description: "Total characters in the document."
+              anyOf:
+                - type: "number"
+                - type: "null"
+            "totalChunks":
+              description: "Total chunks created from the document."
+              anyOf:
+                - type: "number"
+                - type: "null"
+            "totalPages":
+              description: "Total pages in the document."
+              anyOf:
+                - type: "number"
+                - type: "null"
+            "error":
+              description: "Error message if document processing failed."
+              anyOf:
+                - type: "string"
+                - type: "null"
+            "createdAt":
+              type: "string"
+              description: "When the document was created."
+            "updatedAt":
+              type: "string"
+              description: "When the document was last updated."
+          required:
+            - "id"
+            - "name"
+            - "namespaceId"
+            - "organizationId"
+            - "status"
+            - "source"
+            - "createdAt"
+            - "updatedAt"
+      required:
+        - "id"
+        - "event"
+        - "createdAt"
+        - "data"
+      description: "Triggered when a document is queued, processed, ready, or deleted."
+    "IngestJobWebhookEvent":
+      type: "object"
+      properties:
+        "id":
+          type: "string"
+        "event":
+          anyOf:
+            - type: "string"
+              const: "ingest_job.queued"
+            - type: "string"
+              const: "ingest_job.queued_for_resync"
+            - type: "string"
+              const: "ingest_job.queued_for_deletion"
+            - type: "string"
+              const: "ingest_job.processing"
+            - type: "string"
+              const: "ingest_job.error"
+            - type: "string"
+              const: "ingest_job.ready"
+            - type: "string"
+              const: "ingest_job.deleted"
+        "createdAt":
+          type: "string"
+        "data":
+          type: "object"
+          properties:
+            "id":
+              type: "string"
+              description: "Unique identifier for the ingest job."
+            "name":
+              anyOf:
+                - type: "string"
+                - type: "null"
+              description: "Name of the ingest job."
+            "namespaceId":
+              type: "string"
+              description: "ID of the namespace."
+            "organizationId":
+              type: "string"
+              description: "ID of the organization."
+            "status": {"description": "Current status of the ingest job.", "$ref": "#/components/schemas/ingest-job-status"}
+            "error":
+              description: "Error message if ingest job failed."
+              anyOf:
+                - type: "string"
+                - type: "null"
+            "createdAt":
+              type: "string"
+              description: "When the ingest job was created."
+            "updatedAt":
+              type: "string"
+              description: "When the ingest job was last updated."
+          required:
+            - "id"
+            - "name"
+            - "namespaceId"
+            - "organizationId"
+            - "status"
+            - "createdAt"
+            - "updatedAt"
+      required:
+        - "id"
+        - "event"
+        - "createdAt"
+        - "data"
+      description: "Triggered when an ingest job is queued, processed, ready, or deleted."
     "namespace":
       type: "object"
       properties:
@@ -2469,49 +2685,9 @@ components:
           description: "Whether search functionality is enabled."
           type: "boolean"
         "rerankConfig":
-          default:
           description: "Configuration for the reranking model."
-          anyOf:
-            - type: "object"
-              properties:
-                "model":
-                  type: "string"
-                  enum:
-                    - "cohere:rerank-v3.5"
-                    - "cohere:rerank-english-v3.0"
-                    - "cohere:rerank-multilingual-v3.0"
-                    - "zeroentropy:zerank-2"
-                    - "zeroentropy:zerank-1"
-                    - "zeroentropy:zerank-1-small"
-                "limit":
-                  default: 15
-                  description: "Number of documents after reranking."
-                  type: "integer"
-                  minimum: 1
-                  maximum: 100
-              required:
-                - "model"
-                - "limit"
-              additionalProperties: false
-            - type: "null"
         "llmConfig":
-          default:
           description: "Configuration for the LLM model."
-          anyOf:
-            - type: "object"
-              properties:
-                "model":
-                  type: "string"
-                  enum:
-                    - "openai:gpt-4.1"
-                    - "openai:gpt-5.1"
-                    - "openai:gpt-5"
-                    - "openai:gpt-5-mini"
-                    - "openai:gpt-5-nano"
-              required:
-                - "model"
-              additionalProperties: false
-            - type: "null"
         "topK":
           default: 50
           description: "Number of documents to retrieve from vector store."
@@ -2975,6 +3151,12 @@ components:
           x-speakeasy-deprecation-message: "We no longer support this option. Use `mode` instead."
       additionalProperties: false
       description: "The ingest job config."
+    "WebhookEvent":
+      anyOf:
+        - {"$ref": "#/components/schemas/DocumentWebhookEvent"}
+        - {"$ref": "#/components/schemas/IngestJobWebhookEvent"}
+      description: "Webhook event schema"
+      x-speakeasy-include: true
   responses:
     "400":
       description: "The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing)."
