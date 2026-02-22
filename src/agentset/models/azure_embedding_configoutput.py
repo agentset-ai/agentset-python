@@ -65,3 +65,9 @@ class AzureEmbeddingConfigOutput(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    AzureEmbeddingConfigOutput.model_rebuild()
+except NameError:
+    pass

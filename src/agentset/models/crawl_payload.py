@@ -71,3 +71,9 @@ class CrawlPayload(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    CrawlPayload.model_rebuild()
+except NameError:
+    pass

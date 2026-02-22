@@ -215,3 +215,9 @@ class IngestJobConfigOutput(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    IngestJobConfigOutput.model_rebuild()
+except NameError:
+    pass

@@ -119,3 +119,9 @@ class ReIngestJobResponse(BaseModel):
         Annotated[Literal[True], AfterValidator(validate_const(True))],
         pydantic.Field(alias="success"),
     ] = True
+
+
+try:
+    ReIngestJobResponse.model_rebuild()
+except NameError:
+    pass

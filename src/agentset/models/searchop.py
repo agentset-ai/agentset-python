@@ -56,6 +56,8 @@ class SearchGlobals(BaseModel):
 
 
 SearchRerankModel = Literal[
+    "cohere:rerank-v4.0-pro",
+    "cohere:rerank-v4.0-fast",
     "cohere:rerank-v3.5",
     "cohere:rerank-english-v3.0",
     "cohere:rerank-multilingual-v3.0",
@@ -253,3 +255,13 @@ class SearchResponse(BaseModel):
         Annotated[Literal[True], AfterValidator(validate_const(True))],
         pydantic.Field(alias="success"),
     ] = True
+
+
+try:
+    SearchRequestBody.model_rebuild()
+except NameError:
+    pass
+try:
+    SearchResponse.model_rebuild()
+except NameError:
+    pass

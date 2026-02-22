@@ -57,3 +57,9 @@ class CreateUploadResponse(BaseModel):
         Annotated[Literal[True], AfterValidator(validate_const(True))],
         pydantic.Field(alias="success"),
     ] = True
+
+
+try:
+    CreateUploadResponse.model_rebuild()
+except NameError:
+    pass

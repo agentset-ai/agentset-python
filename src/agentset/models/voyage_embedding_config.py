@@ -27,3 +27,9 @@ class VoyageEmbeddingConfig(BaseModel):
         Annotated[Literal["VOYAGE"], AfterValidator(validate_const("VOYAGE"))],
         pydantic.Field(alias="provider"),
     ] = "VOYAGE"
+
+
+try:
+    VoyageEmbeddingConfig.model_rebuild()
+except NameError:
+    pass

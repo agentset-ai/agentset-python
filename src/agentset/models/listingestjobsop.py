@@ -214,3 +214,13 @@ class ListIngestJobsResponse(BaseModel):
     ]
 
     result: ListIngestJobsResponseBody
+
+
+try:
+    ListIngestJobsPagination.model_rebuild()
+except NameError:
+    pass
+try:
+    ListIngestJobsResponseBody.model_rebuild()
+except NameError:
+    pass

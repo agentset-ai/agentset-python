@@ -165,3 +165,13 @@ class CreateIngestJobResponse(BaseModel):
         Annotated[Literal[True], AfterValidator(validate_const(True))],
         pydantic.Field(alias="success"),
     ] = True
+
+
+try:
+    CreateIngestJobRequestBody.model_rebuild()
+except NameError:
+    pass
+try:
+    CreateIngestJobResponse.model_rebuild()
+except NameError:
+    pass

@@ -31,3 +31,9 @@ class TurbopufferConfig(BaseModel):
         ],
         pydantic.Field(alias="provider"),
     ] = "TURBOPUFFER"
+
+
+try:
+    TurbopufferConfig.model_rebuild()
+except NameError:
+    pass

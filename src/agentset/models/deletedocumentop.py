@@ -110,3 +110,9 @@ class DeleteDocumentResponse(BaseModel):
         Annotated[Literal[True], AfterValidator(validate_const(True))],
         pydantic.Field(alias="success"),
     ] = True
+
+
+try:
+    DeleteDocumentResponse.model_rebuild()
+except NameError:
+    pass

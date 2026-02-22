@@ -24,3 +24,9 @@ class UploadFileSchema(BaseModel):
 
     file_size: Annotated[float, pydantic.Field(alias="fileSize")]
     r"""File size in bytes"""
+
+
+try:
+    UploadFileSchema.model_rebuild()
+except NameError:
+    pass

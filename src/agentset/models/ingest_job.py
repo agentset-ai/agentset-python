@@ -127,3 +127,9 @@ class IngestJob(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    IngestJob.model_rebuild()
+except NameError:
+    pass

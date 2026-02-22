@@ -64,3 +64,9 @@ class Namespace(BaseModel):
                 m[k] = val
 
         return m
+
+
+try:
+    Namespace.model_rebuild()
+except NameError:
+    pass

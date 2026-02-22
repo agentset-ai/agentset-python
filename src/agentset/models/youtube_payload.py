@@ -55,3 +55,9 @@ class YoutubePayload(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    YoutubePayload.model_rebuild()
+except NameError:
+    pass

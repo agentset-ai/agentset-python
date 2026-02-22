@@ -42,6 +42,8 @@ class UpdateHostingGlobals(BaseModel):
 
 
 UpdateHostingRerankModel = Literal[
+    "cohere:rerank-v4.0-pro",
+    "cohere:rerank-v4.0-fast",
     "cohere:rerank-v3.5",
     "cohere:rerank-english-v3.0",
     "cohere:rerank-multilingual-v3.0",
@@ -53,6 +55,7 @@ UpdateHostingRerankModel = Literal[
 
 LlmModel = Literal[
     "openai:gpt-4.1",
+    "openai:gpt-5.2",
     "openai:gpt-5.1",
     "openai:gpt-5",
     "openai:gpt-5-mini",
@@ -203,3 +206,13 @@ class UpdateHostingResponse(BaseModel):
         Annotated[Literal[True], AfterValidator(validate_const(True))],
         pydantic.Field(alias="success"),
     ] = True
+
+
+try:
+    UpdateHostingRequest.model_rebuild()
+except NameError:
+    pass
+try:
+    UpdateHostingResponse.model_rebuild()
+except NameError:
+    pass

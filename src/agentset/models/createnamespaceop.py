@@ -73,3 +73,13 @@ class CreateNamespaceResponse(BaseModel):
         Annotated[Literal[True], AfterValidator(validate_const(True))],
         pydantic.Field(alias="success"),
     ] = True
+
+
+try:
+    CreateNamespaceRequest.model_rebuild()
+except NameError:
+    pass
+try:
+    CreateNamespaceResponse.model_rebuild()
+except NameError:
+    pass

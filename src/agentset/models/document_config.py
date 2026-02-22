@@ -215,3 +215,9 @@ class DocumentConfig(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    DocumentConfig.model_rebuild()
+except NameError:
+    pass
