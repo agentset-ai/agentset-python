@@ -108,3 +108,9 @@ class WarmUpResponse(BaseModel):
         Annotated[Literal[True], AfterValidator(validate_const(True))],
         pydantic.Field(alias="success"),
     ] = True
+
+
+try:
+    WarmUpResponse.model_rebuild()
+except NameError:
+    pass

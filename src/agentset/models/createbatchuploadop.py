@@ -66,3 +66,9 @@ class CreateBatchUploadResponse(BaseModel):
         Annotated[Literal[True], AfterValidator(validate_const(True))],
         pydantic.Field(alias="success"),
     ] = True
+
+
+try:
+    CreateBatchUploadResponse.model_rebuild()
+except NameError:
+    pass

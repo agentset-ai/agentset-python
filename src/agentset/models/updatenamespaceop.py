@@ -84,3 +84,9 @@ class UpdateNamespaceResponse(BaseModel):
         Annotated[Literal[True], AfterValidator(validate_const(True))],
         pydantic.Field(alias="success"),
     ] = True
+
+
+try:
+    UpdateNamespaceResponse.model_rebuild()
+except NameError:
+    pass

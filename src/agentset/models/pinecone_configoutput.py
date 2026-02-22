@@ -28,3 +28,9 @@ class PineconeConfigOutput(BaseModel):
         Annotated[Literal["PINECONE"], AfterValidator(validate_const("PINECONE"))],
         pydantic.Field(alias="provider"),
     ] = "PINECONE"
+
+
+try:
+    PineconeConfigOutput.model_rebuild()
+except NameError:
+    pass

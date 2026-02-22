@@ -54,3 +54,9 @@ class FilePayload(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    FilePayload.model_rebuild()
+except NameError:
+    pass

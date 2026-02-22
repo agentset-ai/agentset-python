@@ -62,3 +62,13 @@ CreateVectorStoreConfig = Annotated[
     Field(discriminator="PROVIDER"),
 ]
 r"""The vector store config. If not provided, our MANAGED_PINECONE vector store will be used. Note: You can't change the vector store config after the namespace is created."""
+
+
+try:
+    CreateVectorStoreConfigManagedTurbopuffer.model_rebuild()
+except NameError:
+    pass
+try:
+    CreateVectorStoreConfigManagedPinecone.model_rebuild()
+except NameError:
+    pass

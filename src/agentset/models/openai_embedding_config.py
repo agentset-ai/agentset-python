@@ -27,3 +27,9 @@ class OpenaiEmbeddingConfig(BaseModel):
         Annotated[Literal["OPENAI"], AfterValidator(validate_const("OPENAI"))],
         pydantic.Field(alias="provider"),
     ] = "OPENAI"
+
+
+try:
+    OpenaiEmbeddingConfig.model_rebuild()
+except NameError:
+    pass

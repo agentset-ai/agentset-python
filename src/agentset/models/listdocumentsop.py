@@ -222,3 +222,13 @@ class ListDocumentsResponse(BaseModel):
     ]
 
     result: ListDocumentsResponseBody
+
+
+try:
+    ListDocumentsPagination.model_rebuild()
+except NameError:
+    pass
+try:
+    ListDocumentsResponseBody.model_rebuild()
+except NameError:
+    pass

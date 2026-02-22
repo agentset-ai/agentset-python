@@ -25,3 +25,9 @@ class GoogleEmbeddingConfig(BaseModel):
         Annotated[Literal["GOOGLE"], AfterValidator(validate_const("GOOGLE"))],
         pydantic.Field(alias="provider"),
     ] = "GOOGLE"
+
+
+try:
+    GoogleEmbeddingConfig.model_rebuild()
+except NameError:
+    pass

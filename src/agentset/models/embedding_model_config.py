@@ -66,3 +66,9 @@ EmbeddingModelConfig = Annotated[
     Field(discriminator="PROVIDER"),
 ]
 r"""The embedding model config. If not provided, our managed embedding model will be used. Note: You can't change the embedding model config after the namespace is created."""
+
+
+try:
+    EmbeddingModelConfigTextEmbedding3Large.model_rebuild()
+except NameError:
+    pass

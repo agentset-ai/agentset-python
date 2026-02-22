@@ -110,3 +110,9 @@ class GetDocumentResponse(BaseModel):
         Annotated[Literal[True], AfterValidator(validate_const(True))],
         pydantic.Field(alias="success"),
     ] = True
+
+
+try:
+    GetDocumentResponse.model_rebuild()
+except NameError:
+    pass

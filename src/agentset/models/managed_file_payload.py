@@ -56,3 +56,9 @@ class ManagedFilePayload(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    ManagedFilePayload.model_rebuild()
+except NameError:
+    pass

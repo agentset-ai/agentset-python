@@ -81,3 +81,17 @@ VectorStoreConfig = Annotated[
     Field(discriminator="PROVIDER"),
 ]
 r"""The vector store config."""
+
+
+try:
+    VectorStoreConfigManagedTurbopuffer.model_rebuild()
+except NameError:
+    pass
+try:
+    VectorStoreConfigManagedPinecone.model_rebuild()
+except NameError:
+    pass
+try:
+    VectorStoreConfigManagedPineconeOld.model_rebuild()
+except NameError:
+    pass

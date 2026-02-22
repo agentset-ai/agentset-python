@@ -200,3 +200,21 @@ class BatchPayloadInput(BaseModel):
         Annotated[Literal["BATCH"], AfterValidator(validate_const("BATCH"))],
         pydantic.Field(alias="type"),
     ] = "BATCH"
+
+
+try:
+    BatchPayloadInputItemManagedFile.model_rebuild()
+except NameError:
+    pass
+try:
+    BatchPayloadInputItemFile.model_rebuild()
+except NameError:
+    pass
+try:
+    BatchPayloadInputItemText.model_rebuild()
+except NameError:
+    pass
+try:
+    BatchPayloadInput.model_rebuild()
+except NameError:
+    pass

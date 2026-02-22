@@ -54,3 +54,9 @@ class TextPayload(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TextPayload.model_rebuild()
+except NameError:
+    pass

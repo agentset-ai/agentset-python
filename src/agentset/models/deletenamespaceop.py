@@ -65,3 +65,9 @@ class DeleteNamespaceResponse(BaseModel):
         Annotated[Literal[True], AfterValidator(validate_const(True))],
         pydantic.Field(alias="success"),
     ] = True
+
+
+try:
+    DeleteNamespaceResponse.model_rebuild()
+except NameError:
+    pass
