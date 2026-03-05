@@ -217,6 +217,8 @@ with Agentset(
 * [list](docs/sdks/documents/README.md#list) - Retrieve a list of documents
 * [get](docs/sdks/documents/README.md#get) - Retrieve a document
 * [delete](docs/sdks/documents/README.md#delete) - Delete a document
+* [get_chunks_download_url](docs/sdks/documents/README.md#get_chunks_download_url) - Get chunks download URL
+* [get_file_download_url](docs/sdks/documents/README.md#get_file_download_url) - Get file download URL
 
 ### [Hosting](docs/sdks/hostingsdk/README.md)
 

@@ -1,5 +1,12 @@
 # SearchMode
 
+## Example Usage
+
+```python
+from agentset.models import SearchMode
+value: SearchMode = "semantic"
+```
+
 
 ## Values
 

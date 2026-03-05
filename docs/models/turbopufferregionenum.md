@@ -2,6 +2,13 @@
 
 The region for the Turbopuffer index. Check https://turbopuffer.com/docs/regions
 
+## Example Usage
+
+```python
+from agentset.models import TurbopufferRegionEnum
+value: TurbopufferRegionEnum = "gcp-us-central1"
+```
+
 
 ## Values
 

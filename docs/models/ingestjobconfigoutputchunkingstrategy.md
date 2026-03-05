@@ -4,6 +4,13 @@
 
 > :warning: **DEPRECATED**: We no longer support this option..
 
+## Example Usage
+
+```python
+from agentset.models import IngestJobConfigOutputChunkingStrategy
+value: IngestJobConfigOutputChunkingStrategy = "basic"
+```
+
 
 ## Values
 

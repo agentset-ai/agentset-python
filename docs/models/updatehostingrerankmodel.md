@@ -1,5 +1,12 @@
 # UpdateHostingRerankModel
 
+## Example Usage
+
+```python
+from agentset.models import UpdateHostingRerankModel
+value: UpdateHostingRerankModel = "cohere:rerank-v4.0-pro"
+```
+
 
 ## Values
 

@@ -7,6 +7,8 @@
 * [list](#list) - Retrieve a list of documents
 * [get](#get) - Retrieve a document
 * [delete](#delete) - Delete a document
+* [get_chunks_download_url](#get_chunks_download_url) - Get chunks download URL
+* [get_file_download_url](#get_file_download_url) - Get file download URL
 
 ## list
 
@@ -153,6 +155,104 @@ with Agentset(
 ### Response
 
 **[models.DeleteDocumentResponse](../../models/deletedocumentresponse.md)**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.BadRequestError          | 400                             | application/json                |
+| errors.UnauthorizedError        | 401                             | application/json                |
+| errors.ForbiddenError           | 403                             | application/json                |
+| errors.NotFoundError            | 404                             | application/json                |
+| errors.ConflictError            | 409                             | application/json                |
+| errors.InviteExpiredError       | 410                             | application/json                |
+| errors.UnprocessableEntityError | 422                             | application/json                |
+| errors.RateLimitExceededError   | 429                             | application/json                |
+| errors.InternalServerError      | 500                             | application/json                |
+| errors.AgentsetDefaultError     | 4XX, 5XX                        | \*/\*                           |
+
+## get_chunks_download_url
+
+Get a presigned download URL for a document's chunks. Only available for completed documents.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="getChunksDownloadUrl" method="post" path="/v1/namespace/{namespaceId}/documents/{documentId}/chunks-download-url" -->
+```python
+from agentset import Agentset
+
+
+with Agentset(
+    namespace_id="ns_123",
+    token="AGENTSET_API_KEY",
+) as a_client:
+
+    res = a_client.documents.get_chunks_download_url(document_id="doc_123")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `document_id`                                                       | *str*                                                               | :heavy_check_mark:                                                  | The id of the document (prefixed with doc_)                         | doc_123                                                             |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.GetChunksDownloadURLResponse](../../models/getchunksdownloadurlresponse.md)**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.BadRequestError          | 400                             | application/json                |
+| errors.UnauthorizedError        | 401                             | application/json                |
+| errors.ForbiddenError           | 403                             | application/json                |
+| errors.NotFoundError            | 404                             | application/json                |
+| errors.ConflictError            | 409                             | application/json                |
+| errors.InviteExpiredError       | 410                             | application/json                |
+| errors.UnprocessableEntityError | 422                             | application/json                |
+| errors.RateLimitExceededError   | 429                             | application/json                |
+| errors.InternalServerError      | 500                             | application/json                |
+| errors.AgentsetDefaultError     | 4XX, 5XX                        | \*/\*                           |
+
+## get_file_download_url
+
+Get a presigned download URL for a document's source file. Only available for documents with source type MANAGED_FILE.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="getFileDownloadUrl" method="post" path="/v1/namespace/{namespaceId}/documents/{documentId}/file-download-url" -->
+```python
+from agentset import Agentset
+
+
+with Agentset(
+    namespace_id="ns_123",
+    token="AGENTSET_API_KEY",
+) as a_client:
+
+    res = a_client.documents.get_file_download_url(document_id="doc_123")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `document_id`                                                       | *str*                                                               | :heavy_check_mark:                                                  | The id of the document (prefixed with doc_)                         | doc_123                                                             |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.GetFileDownloadURLResponse](../../models/getfiledownloadurlresponse.md)**
 
 ### Errors
 

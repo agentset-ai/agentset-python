@@ -1,5 +1,12 @@
 # EmbeddingModelConfigModel
 
+## Example Usage
+
+```python
+from agentset.models import EmbeddingModelConfigModel
+value: EmbeddingModelConfigModel = "text-embedding-3-large"
+```
+
 
 ## Values
 

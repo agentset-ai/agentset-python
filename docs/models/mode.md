@@ -2,6 +2,13 @@
 
 Processing mode for the parser. `fast` favors speed, `accurate` (pro subscription only) favors quality and layout fidelity, and `balanced` offers a compromise between the two. Defaults to `balanced`.
 
+## Example Usage
+
+```python
+from agentset.models import Mode
+value: Mode = "fast"
+```
+
 
 ## Values
 

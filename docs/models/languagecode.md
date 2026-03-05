@@ -1,5 +1,12 @@
 # LanguageCode
 
+## Example Usage
+
+```python
+from agentset.models import LanguageCode
+value: LanguageCode = "af"
+```
+
 
 ## Values
 

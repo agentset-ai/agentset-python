@@ -1,5 +1,12 @@
 # LlmModel
 
+## Example Usage
+
+```python
+from agentset.models import LlmModel
+value: LlmModel = "openai:gpt-4.1"
+```
+
 
 ## Values
 
