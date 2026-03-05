@@ -2,6 +2,13 @@
 
 The status of the ingest job.
 
+## Example Usage
+
+```python
+from agentset.models import IngestJobStatus
+value: IngestJobStatus = "BACKLOG"
+```
+
 
 ## Values
 

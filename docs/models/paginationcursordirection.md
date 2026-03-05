@@ -2,6 +2,13 @@
 
 The direction to paginate by.
 
+## Example Usage
+
+```python
+from agentset.models import PaginationCursorDirection
+value: PaginationCursorDirection = "forward"
+```
+
 
 ## Values
 

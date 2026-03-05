@@ -2,6 +2,13 @@
 
 The status of the document.
 
+## Example Usage
+
+```python
+from agentset.models import DocumentStatus
+value: DocumentStatus = "BACKLOG"
+```
+
 
 ## Values
 

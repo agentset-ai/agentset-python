@@ -2,6 +2,13 @@
 
 The OpenAI embedding model enum.
 
+## Example Usage
+
+```python
+from agentset.models import OpenaiEmbeddingModelEnum
+value: OpenaiEmbeddingModelEnum = "text-embedding-3-small"
+```
+
 
 ## Values
 

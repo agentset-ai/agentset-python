@@ -2,6 +2,13 @@
 
 The reranking model to use.
 
+## Example Usage
+
+```python
+from agentset.models import SearchRerankModel
+value: SearchRerankModel = "cohere:rerank-v4.0-pro"
+```
+
 
 ## Values
 

@@ -4,6 +4,13 @@
 
 > :warning: **DEPRECATED**: We no longer support this option. Use `mode` instead..
 
+## Example Usage
+
+```python
+from agentset.models import IngestJobConfigStrategy
+value: IngestJobConfigStrategy = "auto"
+```
+
 
 ## Values
 

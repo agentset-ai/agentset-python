@@ -2,6 +2,13 @@
 
 The Voyage embedding model enum.
 
+## Example Usage
+
+```python
+from agentset.models import VoyageEmbeddingModelEnum
+value: VoyageEmbeddingModelEnum = "voyage-3-large"
+```
+
 
 ## Values
 

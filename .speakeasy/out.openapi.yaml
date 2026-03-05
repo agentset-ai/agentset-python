@@ -908,6 +908,120 @@ paths:
           $ref: "#/components/responses/429"
         "500":
           $ref: "#/components/responses/500"
+  /v1/namespace/{namespaceId}/documents/{documentId}/chunks-download-url:
+    post:
+      operationId: "getChunksDownloadUrl"
+      x-speakeasy-name-override: "getChunksDownloadUrl"
+      summary: "Get chunks download URL"
+      description: "Get a presigned download URL for a document's chunks. Only available for completed documents."
+      tags:
+        - "Documents"
+      security:
+        - token: []
+      x-codeSamples:
+        - lang: "TypeScript"
+          source: "\nimport { Agentset } from \"agentset\";\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst { url } = await ns.documents.getChunksDownloadUrl(\"doc_123\");\nconst data = await (await fetch(url)).json();\nconsole.log(data);\n"
+      parameters:
+        - $ref: "#/components/parameters/NamespaceIdRef"
+        - $ref: "#/components/parameters/DocumentIdRef"
+      responses:
+        "200":
+          description: "The presigned download URL for the chunks"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  success:
+                    type: "boolean"
+                    const: true
+                  data:
+                    type: "object"
+                    properties:
+                      url:
+                        type: "string"
+                    required:
+                      - "url"
+                    additionalProperties: false
+                required:
+                  - "success"
+                  - "data"
+                additionalProperties: false
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "403":
+          $ref: "#/components/responses/403"
+        "404":
+          $ref: "#/components/responses/404"
+        "409":
+          $ref: "#/components/responses/409"
+        "410":
+          $ref: "#/components/responses/410"
+        "422":
+          $ref: "#/components/responses/422"
+        "429":
+          $ref: "#/components/responses/429"
+        "500":
+          $ref: "#/components/responses/500"
+  /v1/namespace/{namespaceId}/documents/{documentId}/file-download-url:
+    post:
+      operationId: "getFileDownloadUrl"
+      x-speakeasy-name-override: "getFileDownloadUrl"
+      summary: "Get file download URL"
+      description: "Get a presigned download URL for a document's source file. Only available for documents with source type MANAGED_FILE."
+      tags:
+        - "Documents"
+      security:
+        - token: []
+      x-codeSamples:
+        - lang: "TypeScript"
+          source: "\nimport { Agentset } from \"agentset\";\nimport fs from 'fs';\n\nconst agentset = new Agentset({ apiKey: 'agentset_xxx' });\nconst ns = agentset.namespace('ns_xxx');\n\nconst { url } = await ns.documents.getFileDownloadUrl(\"doc_123\");\nconst file = await fetch(url);\nfs.writeFileSync(\"file.pdf\", Buffer.from(await file.arrayBuffer()));\n"
+      parameters:
+        - $ref: "#/components/parameters/NamespaceIdRef"
+        - $ref: "#/components/parameters/DocumentIdRef"
+      responses:
+        "200":
+          description: "The presigned download URL for the file"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  success:
+                    type: "boolean"
+                    const: true
+                  data:
+                    type: "object"
+                    properties:
+                      url:
+                        type: "string"
+                    required:
+                      - "url"
+                    additionalProperties: false
+                required:
+                  - "success"
+                  - "data"
+                additionalProperties: false
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "403":
+          $ref: "#/components/responses/403"
+        "404":
+          $ref: "#/components/responses/404"
+        "409":
+          $ref: "#/components/responses/409"
+        "410":
+          $ref: "#/components/responses/410"
+        "422":
+          $ref: "#/components/responses/422"
+        "429":
+          $ref: "#/components/responses/429"
+        "500":
+          $ref: "#/components/responses/500"
   /v1/namespace/{namespaceId}/search:
     post:
       operationId: "search"
